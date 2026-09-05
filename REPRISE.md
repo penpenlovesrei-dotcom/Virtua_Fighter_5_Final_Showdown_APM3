@@ -1456,3 +1456,27 @@ la scène AET démarrée en `0x18006C9E2` ; retirer ce fond a été essayé puis
 `--sans-epilepsie` (texte seul) et `--sans-avertissement` (le sous-état
 WARNING) existent dans le patcheur mais **ne sont dans aucun lanceur**. Le
 build livré garde l'écran d'origine. Détail : `analysis/menu_console.md` §18.
+
+## 2026-09-05 — le réseau : le netcode de bornes liées est intact
+
+Question de Frédéric, à partir de YAMPnet puis de R.E.V.O. Relevé statique :
+
+- **R.E.V.O.** porte un rollback (`AVTaskRobRollback`, `AVIoRollbackCtrl`,
+  `AVRollbackTraceUnit`) et un appariement EOS. **Rien de tout ça dans APM3** :
+  zéro `Rollback`, zéro `EOS_`, zéro `SteamAPI`, ni dans le moteur ni dans
+  `vfes.exe`. Absent, pas bouchonné.
+- **APM3 porte le netcode de bornes liées, entier** : 23 classes `AVLink*` et
+  `AV*Packet*`, du démarrage (`Startup`) à la fin de partie (`PlayEnd`,
+  `CleanupMatch`) en passant par l'appariement complet et la phase de combat
+  (`Playing`), avec un fil de réception et un médiateur de paquets.
+- **Le transport est câblé** : le moteur importe quatorze fonctions de
+  `ws2_32`. `vfes.exe` n'en importe aucune.
+- **Le déterminisme est prouvé par le jeu** : il sait rejouer un combat
+  (`AVTaskGameVsReplay`, `AVTaskRobShortReplay_Rec`, `TERM_REPLAY_BUF`).
+
+Conclusion : la piste n'est ni de transplanter R.E.V.O. (pas de plan de coupe,
+et du code de SEGA à recopier), ni d'écrire un lockstep de zéro, mais de
+**réveiller ce qui est déjà là**. C'est aussi ce que fait YAMPnet pour les jeux
+conçus comme deux cabinets reliés : il tunnelise leur protocole natif.
+
+Détail et ordre de travail : `analysis/reseau.md`.

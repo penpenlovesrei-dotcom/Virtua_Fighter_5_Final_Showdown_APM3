@@ -995,72 +995,107 @@ DOJO_CADRE = [
 # D'ou trois dependances : `--transition-game` (la caverne), `--sp-menu` (sans
 # quoi le sous-menu est court-circuite et le relais inutile) et
 # `--options-sans-howto` (sans quoi le bloc est encore execute).
-# MESURE du 2026-09-05 (tools/pister_sp.cmd), qui a corrige DEUX hypotheses :
+# MESURE du 2026-09-05 (tools/pister_sp.cmd) : la page de reglages s'ouvre bien
+# (`SCENE DU MODE demarree : OUI`, sous-page rangee puis effacee 1,4 s plus
+# tard), mais la fermeture passe par le PREMIER des deux tests d'identite, qui
+# saute le site que j'avais choisi -- 0 passage. Et on ne peut pas se greffer
+# sur la fermeture commune : **valider et annuler sont indiscernables**, les
+# deux posant `[page+0x308] = 1`, et ne differant que par le son joue
+# (`0x1801BC010` valider, `0x1801BB9D0` annuler).
 #
-#     8515.2 ms  MODE CHOISI : 0 (Arcade)
-#     8515.4 ms  SCENE DU MODE demarree : OUI
-#     8534.0 ms  sous-page = 0x1E75C0E57E8      <- la page de reglages s'ouvre
-#     9909.2 ms  sous-page = 0x0                <- effacee 1,4 s plus tard
+# On se greffe donc DANS chaque validateur, qui ne s'execute que sur
+# « valider ». C'est la forme du maillon d'OFFLINE VERSUS.
 #
-# Tout fonctionne donc ; seul le point de greffe etait faux. La fermeture passe
-# par `0x1801A5B70`, le PREMIER des deux tests -- qui ne sont d'ailleurs pas des
-# predicats de fin mais des tests d'IDENTITE (`rcx == [0x1807513A8]` ?). Mon
-# premier relais, pose sur le second, n'a jamais tourne (0 passage).
+# LE MODE DE JEU. Frederic, a l'ecran : « Score Attack et License Challenge
+# lancent le mode arcade mais pas leur vrai mode ». Le mode de jeu est le dword
+# global **`0x180751010`**, premiere case d'un bloc de reglages de partie de
+# seize octets. Huit references dans tout `.text`, balayage lineaire :
 #
-# Et on ne peut pas se greffer sur la fermeture commune : **valider et annuler
-# sont indiscernables**. Les deux gestionnaires de `NORMAL MENU` posent
-# `[page+0x308] = 1` et ne different que par leur premiere instruction, le son
-# joue -- `0x1801BC010` pour valider, `0x1801BB9D0` pour annuler.
+#     0x18019C090  lecture           0x18019C1F8  lecture
+#     0x18019C372  = 9               0x18019C3D2  ecriture
+#     0x18019C426  ecriture          0x18019C490  ecriture   <- le poseur
+#     0x18019C4A8  ecriture          0x18019C522  ecriture
 #
-# On se greffe donc DANS le validateur, qui ne s'execute que sur « valider ».
-# C'est la forme exacte du maillon d'OFFLINE VERSUS (`0x1801DEB12`) : on
-# remplace son premier appel par une caverne qui le refait, puis lance.
+# `0x18019C490` est une feuille d'une seule instruction :
 #
-#     0x1801DDE80  NORMAL MENU, creneau +0x50 : VALIDER
-#     0x1801DDE89  call 0x1801BC010     <- remplace
+#     0x18019C490  mov dword [0x180751010], ecx
+#     0x18019C496  ret
 #
-# La caverne se pose dans le bloc mort du cas « How to Play », libere par
-# `--options-sans-howto` : 65 octets, dix-neuf utilises.
-SP_LANCER_CAVE = 0x1801A703D
-SP_LANCER_CAVE_MAX = 0x1801A707E - 0x1801A703D
-# Les QUATRE modes ont chacun leur page de reglages, et leurs validateurs sont
-# identiques dans la forme -- tous commencent par le meme `call 0x1801BC010`.
-# Une seule caverne suffit donc, avec une greffe de cinq octets par mode :
+# Les valeurs : 0 Arcade, 1 Score Attack, 2 License Challenge, 3 Special
+# Sparring, 4 Versus. Le binaire le dit lui-meme : `0x1800B8B9F cmp eax,3 ; ja`
+# -- au-dessus de 3, on ne lit plus les reglages solo.
 #
-#     0x1801DDE89  NORMAL MENU            (Arcade)             -- VALIDE a l'ecran
-#     0x1800A48A9  SCOREATTACK MENU       (Score Attack)
-#     0x1801DDE49  LICENCECHALLENGE MENU  (License Challenge)
+# Pourquoi tout partait en Arcade : la chaine native pose le mode dans la MISE
+# A JOUR de la page, plusieurs trames apres la validation, une fois l'animation
+# de sortie finie. Notre caverne lance immediatement : l'ecriture n'avait
+# jamais lieu, et le global restait a 0.
 #
-# Special Sparring (mode 3) n'a pas de page a lui : il passe par la fabrique
-# `0x1801A5E90`. Il n'est pas traite ici.
-SP_LANCER_HOOKS = [
-    (0x1801DDE89, bytes.fromhex('e882e1fdff')),
-    (0x1800A48A9, bytes.fromhex('e862771100')),
-    (0x1801DDE49, bytes.fromhex('e8c2e1fdff')),
-]
-SP_LANCER_BLOC = bytes.fromhex('8b8360150000')      # la tete du bloc mort
+# D'ou une caverne PAR MODE, chacune posant sa valeur avant de lancer :
+#
+#     sub rsp, 0x28
+#     call 0x1801BC010      ; l'appel deplace -- rcx est encore la page
+#     push N ; pop rcx      ; le mode
+#     call 0x18019C490      ; le poser
+#     call TRANSITION_CAVE  ; session + GAME/SELECTOR
+#     add rsp, 0x28 ; ret
+#
+# Elles tiennent dans les deux blocs morts liberes par `--options-sans-howto` :
+# le cas « How to Play » (`0x1801A703D`, 65 octets) et le cas « Credits » par
+# la fabrique (`0x1801A71D8`, 37 octets), tous deux devenus inatteignables.
+#
+# PIEGE CONNU, non corrige : `0x1800A48A0`, le validateur de Score Attack, est
+# cite par **trois** vtables (`0x18039A160`, `0x1805326C8`, `0x180532728`). La
+# greffe s'y declenche donc pour les trois classes. Si un combat se lance
+# depuis un ecran inattendu, c'est de la.
+SP_MODE_POSER = 0x18019C490          # mov [0x180751010], ecx ; ret
 SP_SON_VALIDER = 0x1801BC010
+SP_LANCER_BLOC_A = (0x1801A703D, bytes.fromhex('8b8360150000'))   # cas How to Play
+SP_LANCER_BLOC_B = (0x1801A71D8, bytes.fromhex('83f80475208b8b'))  # cas Credits
+# (caverne, mode, site de greffe, octets attendus au site, nom)
+# CORRECTION du 2026-09-05, apres essai : « score attack plante au debut du
+# combat et ne semble pas etre le score attack ». Il y a DEUX poseurs voisins,
+# et j'avais pris le mauvais :
+#
+#     0x18019C490  mov [0x180751010], ecx ; ret        <- le mode SEUL
+#     0x18019C4A0  mov [0x180751010], ecx              <- le mode ET le bloc
+#                  mov [0x180751014], 0 ... [0x18075101E], 0
+#                  puis recopie les reglages depuis [rdx]
+#
+# Le bloc de seize octets porte le mode PUIS la sante, le temps, les rounds et
+# le niveau CPU. Poser le mode seul laisse le reste tel quel : le combat
+# demarre sur des reglages incoherents. Le chemin natif appelle `0x18019C4A0`
+# avec une structure de reglages construite juste avant (`0x1801DD73E`, dans la
+# mise a jour de la page Score Attack).
+#
+# En attendant de savoir fournir cette structure, on ne pose PLUS le mode : les
+# trois modes relancent en Arcade, ce qui au moins ne plante pas.
+SP_LANCER = [
+    (0x1801A703D, None, 0x1801DDE89, bytes.fromhex('e882e1fdff'), 'Arcade'),
+    (0x1801A7058, None, 0x1800A48A9, bytes.fromhex('e862771100'), 'Score Attack'),
+    (0x1801A71D8, None, 0x1801DDE49, bytes.fromhex('e8c2e1fdff'), 'License Challenge'),
+]
 
 
-def sp_lancer_cave():
-    """Refait l'appel deplace, puis cree la session et demande le combat."""
+def sp_lancer_cave(a, mode):
+    """Refait l'appel deplace, pose le mode de jeu, puis lance."""
     def rel(depuis, vers):
         return struct.pack('<i', vers - depuis)
-    a = SP_LANCER_CAVE
     c = bytes.fromhex('4883ec28')                       # sub rsp, 0x28
     c += bytes.fromhex('e8') + rel(a + len(c) + 5, SP_SON_VALIDER)
+    if mode is not None:
+        if mode == 0:
+            c += bytes.fromhex('33c9')                  # xor ecx, ecx
+        else:
+            c += bytes.fromhex('6a') + bytes([mode]) + bytes.fromhex('59')
+        c += bytes.fromhex('e8') + rel(a + len(c) + 5, SP_MODE_POSER)
     c += bytes.fromhex('e8') + rel(a + len(c) + 5, TRANSITION_CAVE)
     c += bytes.fromhex('4883c428')                      # add rsp, 0x28
     c += bytes.fromhex('c3')
-    if len(c) > SP_LANCER_CAVE_MAX:
-        raise AssertionError('caverne sp-lancer debordee : %d > %d'
-                             % (len(c), SP_LANCER_CAVE_MAX))
     return c
 
 
-def sp_lancer_hook(va):
-    return (bytes.fromhex('e8')
-            + struct.pack('<i', SP_LANCER_CAVE - (va + 5)))
+def sp_lancer_hook(va, cave):
+    return bytes.fromhex('e8') + struct.pack('<i', cave - (va + 5))
 
 
 MENU_EXIT = [
@@ -2023,34 +2058,41 @@ def main():
             faits.append('transition : %s (0x%X, %d octets)'
                          % (quoi, va, len(neuf)))
 
-    # --- SINGLE PLAYER : les quatre modes lancent le combat --------------
+    # --- SINGLE PLAYER : chaque mode lance SON combat --------------------
     if '--sp-lancer' in argv:
         manque = [d_ for d_ in ('--transition-game', '--sp-menu',
                                 '--options-sans-howto') if d_ not in argv]
         if manque:
             print('REFUS : --sp-lancer exige %s.' % ' et '.join(manque))
             return 2
-        corps = sp_lancer_cave()
-        NOMS = {0x1801DDE89: 'Arcade', 0x1800A48A9: 'Score Attack',
-                0x1801DDE49: 'License Challenge'}
-        points = [(SP_LANCER_CAVE, SP_LANCER_BLOC, corps,
-                   'caverne : valider des reglages lance le combat')]
-        for va_, tete_ in SP_LANCER_HOOKS:
-            points.append((va_, tete_, sp_lancer_hook(va_),
-                           'le validateur de %s passe par la caverne'
-                           % NOMS[va_]))
-        for va, tete, neuf, quoi in points:
+        points = []
+        vus = set()
+        for cave, mode, hook, tete, nom in SP_LANCER:
+            corps = sp_lancer_cave(cave, mode)
+            for bloc, tete_bloc in (SP_LANCER_BLOC_A, SP_LANCER_BLOC_B):
+                if cave == bloc and bloc not in vus:
+                    vus.add(bloc)
+                    points.append((bloc, tete_bloc, corps,
+                                   'caverne %s : lancement (mode non pose)' % nom))
+                    break
+            else:
+                points.append((cave, None, corps,
+                               'caverne %s : lancement (mode non pose)' % nom))
+            points.append((hook, tete, sp_lancer_hook(hook, cave),
+                           'le validateur de %s passe par sa caverne' % nom))
+        for va, tete, neuf_, quoi in points:
             o = offset(orig[DLL], va)
-            with open(orig[DLL], 'rb') as fp:
-                fp.seek(o); avant = fp.read(len(tete))
-            if avant != tete:
-                print('REFUS : octets inattendus a 0x%X (%s au lieu de %s)'
-                      % (va, avant.hex(), tete.hex()))
-                return 2
+            if tete is not None:
+                with open(orig[DLL], 'rb') as fp:
+                    fp.seek(o); avant = fp.read(len(tete))
+                if avant != tete:
+                    print('REFUS : octets inattendus a 0x%X (%s au lieu de %s)'
+                          % (va, avant.hex(), tete.hex()))
+                    return 2
             with open(os.path.join(JEU, DLL), 'r+b') as fp:
-                fp.seek(o); fp.write(neuf)
+                fp.seek(o); fp.write(neuf_)
             faits.append('single player : %s (0x%X, %d octets)'
-                         % (quoi, va, len(neuf)))
+                         % (quoi, va, len(neuf_)))
 
     # --- une quatrieme ligne au Dojo : How to Play -----------------------
     if '--dojo-howto' in argv:
