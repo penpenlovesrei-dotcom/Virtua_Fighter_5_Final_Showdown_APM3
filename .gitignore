@@ -1,0 +1,14 @@
+# Rien du jeu ne doit entrer ici : ni dump, ni archive, ni binaire, ni asset.
+*.par
+*.exe
+*.dll
+*.bin
+*.farc
+*.pkg
+*.iso
+*.adx
+*.csb
+*.png
+*.jpg
+__pycache__/
+*.pyc

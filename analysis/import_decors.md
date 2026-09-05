@@ -1,0 +1,239 @@
+# Les decors de VF5 R sont-ils importables dans APM3 ?
+
+Question du 2026-09-03. Reponse en trois parties : **le format, oui** ; **la
+livraison, non — pas telle quelle** ; **le contenu, a verifier**.
+
+---
+
+## 1. Le format ne fait aucune difficulte
+
+Compare sur `stgdjo.farc`, le plus gros ecart entre les deux versions.
+
+### La preuve la plus forte : APM3 = Lindbergh, a l'octet pres
+
+```
+APM3_FS/rom/objset/stgdjo.farc      dd54b04f7d63011f6e64f6f450de1b91...
+LIND_FS  (meme fichier)             dd54b04f7d63011f6e64f6f450de1b91...
+VF5 R    (meme fichier)             a527b797f44694964da0df31ffc6085f...
+```
+
+Le fichier de la borne APM3 (Windows x64) est **identique au bit pres** a celui
+du Lindbergh (Linux x86). Le format ne depend donc **ni du systeme ni de
+l'architecture** : ces donnees traversent les plateformes sans conversion.
+Confiance : **CONFIRMED**.
+
+### Et il n'a pas change entre 2008 et 2010
+
+| | VF5 R (2008) | Final Showdown (2010) |
+|---|---|---|
+| conteneur | `FArC`, en-tete 0x3A, alignement 1 | idem, **octet pour octet** |
+| entrees | `stgdjo_obj.bin`, `stgdjo_tex.bin` | idem |
+| geometrie, magie | `00 25 06 05`, en-tete 0x40 | idem |
+| geometrie, objets | **119** | **171** |
+| textures, magie | `TXP\x03` | idem |
+| textures, nombre | 293 | 297 |
+| textures, codecs | **176 x code 9, 116 x code 6** | **176 x code 9, 116 x code 6**, plus 3 x code 1 |
+| textures, volume | **40,8 Mo** | 20,9 Mo |
+
+La distribution des codecs est **la meme des deux cotes**, au nombre pres. Rien
+a convertir, rien a reencoder.
+
+Et l'ecart de volume s'explique enfin : ce n'est pas la geometrie qui a fondu —
+elle a *grossi* (119 objets en 2008, 171 en 2010). Ce sont les **textures qui ont
+ete divisees par deux** en passant a Final Showdown. C'est bien ce qu'on voit a
+l'ecran : meme decor, aspect different.
+
+Confiance : **SUPPORTED**.
+
+---
+
+## 2. Mais on ne peut pas simplement poser le fichier a cote
+
+C'est la que la premiere tentative s'est cassee, et il a fallu arreter de
+regarder l'ecran pour regarder le systeme.
+
+### La mesure
+
+`tools/tracer_fichiers.py` pose un point d'arret sur `KernelBase!CreateFileW` et
+`CreateFileA` et journalise chaque chemin demande. Sur une partie complete, avec
+un `stgdjo.farc` de VF5 R depose dans `vf5fs_media/rom/objset/` :
+
+```
+  4 x  ...\vf5fs_media\rom\sound\bgm\vfes_bgm_stg_hai.adx
+  2 x  ...\vf5fs_data.par
+  2 x  ...\vf5fs_media\w64\shader_pxd_w64.farc
+```
+
+**Le moteur n'a jamais tente d'ouvrir `rom/objset/stgdjo.farc` sur le disque.**
+Le fichier depose n'a donc servi a rien, et aucune capture d'ecran ne pouvait le
+dire : le selecteur de decor etant par defaut sur **Random**, on ne sait meme pas
+quel decor s'etait charge. La bonne mesure n'etait pas a l'image, elle etait dans
+les appels systeme.
+
+### La regle, et elle est simple
+
+En cherchant les noms dans l'archive :
+
+| fichier | dans `vf5fs_data.par` ? | lu depuis |
+|---|---|---|
+| `stgdjo.farc` | **oui** (0x1A720) | l'archive |
+| `stghai.farc` | **oui** (0x1AB60) | l'archive |
+| `vfes_bgm_stg_hai.adx` | non | **le disque** |
+| `shader_pxd_w64.farc` | non | **le disque** |
+| `se_stage_are.csb` | non | **le disque** |
+
+**Ce qui est dans le `.par` vient du `.par` ; ce qui n'y est pas retombe sur
+l'arborescence libre `vf5fs_media/`.** Les sons et les films sont en fichiers
+libres parce qu'ils ne sont pas dans l'archive — pas parce que le moteur
+prefererait le disque.
+
+Confiance : **CONFIRMED**.
+
+### Les deux voies
+
+1. **Neutraliser l'entree dans l'index du `.par`** — renommer `stgdjo.farc` en
+   `stgdjo.far_` dans la table des noms. Le moteur ne le trouve plus, retombe sur
+   le disque, et lit notre fichier. Quelques octets a changer, entierement
+   reversible, sans reconstruire 4 Go.
+2. Reconstruire le `.par` avec le nouveau fichier. Plus propre en sortie, mais il
+   faut d'abord ecrire un ecrivain PARC.
+
+La voie 1 est a essayer d'abord.
+
+### PIEGE : le `.par` de notre atelier est un LIEN DUR vers le dump
+
+```
+2 liens  3987499008 octets  runtime/media/vf5fs/vf5fs_data.par
+2 liens  3987499008 octets  .../VF5 FS DECOMP/APM3_US/.../vf5fs_data.par
+                            ^ meme inode
+```
+
+**Ecrire dedans ecrirait dans le dump**, qui est en lecture seule par regle du
+projet — et sans le moindre avertissement. Il faut donc **casser le lien par une
+vraie copie** avant toute modification. C'est fait :
+`runtime/media/vf5fs/vf5fs_data.par.copie`.
+
+---
+
+## 3. Ce qui reste incertain : le contenu, pas le format
+
+Meme livre au bon endroit, un decor de 2008 peut etre refuse par un moteur de
+2010 — non pour son format, mais pour ce qu'il contient :
+
+- **le nombre d'objets differe** (119 contre 171). Tout ce qui designe un objet
+  **par indice** doit venir de la meme generation : la collision
+  (`STGDJO_COLI.000.bin`), l'animation (`auth_3d/STGDJO.farc`), les effets
+  (`EFFSTGDJO.farc`), l'eclairage (`ibl/djo.ibl`, `light_param/*_djo.txt`).
+  **Un decor s'importe en jeu complet, pas en un seul fichier.**
+- **le volume de textures double** (40,8 Mo contre 20,9). Si l'allocation est
+  dimensionnee sur le budget de Final Showdown, cela peut ne pas passer.
+- les materiaux et les shaders ont pu changer entre les deux revisions ; le
+  `shader_pxd_w64.farc` d'APM3 n'a pas d'equivalent Lindbergh.
+
+## 4. La prochaine mesure
+
+1. Sur la **copie** du `.par`, renommer l'entree `stgdjo.farc` dans l'index.
+2. Deposer le jeu **complet** du decor DJO de VF5 R dans `vf5fs_media/rom/` :
+   `objset/stgdjo.farc`, `auth_3d/STGDJO.farc`, `auth_3d/EFFSTGDJO.farc`,
+   `STGDJO_COLI.000.bin`, `ibl/djo.ibl`, `light_param/{fog,glow,light,wind}_djo.txt`.
+3. Relancer `tools/tracer_fichiers.py` pour **verifier que le moteur va bien
+   chercher le fichier sur le disque** — la mesure, pas l'impression.
+4. Seulement ensuite, regarder l'ecran — en **forcant le decor** au lieu de
+   laisser le selecteur sur Random.
+
+---
+
+## 5. Lindbergh FS et APM3 FS : ce sont les MEMES fichiers
+
+Question du 2026-09-03 : la qualite des textures des decors est-elle la meme
+entre le Final Showdown Lindbergh et le Final Showdown APM3 ?
+
+**Oui, et au sens le plus fort : ce sont les memes octets.**
+
+### La geometrie et les textures
+
+Les **41 archives `objset/stg*.farc`** existent des deux cotes, et **les 41 ont
+exactement la meme taille** — pas un octet d'ecart, des `stgcid.farc` (743 o) aux
+`stgban.farc` (28 186 804 o).
+
+Trois verifiees a l'empreinte :
+
+| decor | Lindbergh FS | APM3 FS | |
+|---|---|---|---|
+| `stgare` | `cac376953b9e1d9b2e15af9579586a92` | idem | **identique** |
+| `stgtak` | `47320cb8ffd18a742566e4acc6f8076d` | idem | **identique** |
+| `stgdjo` | `dd54b04f7d63011f6e64f6f450de1b91` | idem | **identique** |
+
+### L'eclairage
+
+Meme resultat sur les **206 fichiers** `ibl/*.ibl` et `light_param/*.txt` :
+memes 206 des deux cotes, **toutes les tailles identiques**, aucun fichier
+exclusif a l'une ou l'autre version.
+
+Confiance : **CONFIRMED**.
+
+### La nuance qui compte
+
+Des donnees identiques ne garantissent pas une **image** identique. Le Lindbergh
+rend sous Linux avec un GeForce 7 de 2006 ; APM3 rend en Direct3D 11. Le
+`shader_pxd_w64.farc` n'a d'ailleurs **aucun equivalent Lindbergh** : le chemin
+d'ombrage est du code different.
+
+Ce qui peut donc differer a l'ecran, sans qu'un seul texel change : la resolution
+de sortie, le filtrage anisotrope, l'anticrenelage, la precision des shaders.
+**Les sources sont les memes ; le rendu peut ne pas l'etre.**
+
+C'est aussi ce qui rend le chantier « resolution » interessant : a textures
+egales, tout le gain visuel disponible est du cote du rendu.
+
+---
+
+## 6. Le repli sur le disque MARCHE -- mesure, pas impression
+
+Suite du programme, 2026-09-03. `tools/par_masquer.py` change **un seul octet**
+du nom dans l'index du `.par` : `stgdjo.farc` devient `stgdjo.far_`. L'outil
+refuse d'ecrire si le fichier a plus d'un lien dur, pour ne pas toucher au dump.
+
+Premier essai, un seul decor masque : **rien**. Le decor tire au sort n'etait pas
+DJO -- le meme piege que la premiere fois. On masque donc **les 23 decors reels**
+d'un coup, et la reponse arrive :
+
+```
+5497 x  ...\vf5fs_media\rom\objset\stgcas.farc
+```
+
+Cinq mille quatre cent quatre-vingt-dix-sept tentatives d'ouverture sur le
+disque, pour un fichier absent. **Le moteur retombe bien sur l'arborescence
+libre des qu'il ne trouve plus le nom dans l'archive.** Confiance : **CONFIRMED**.
+
+On pose alors le `stgdjo.farc` de VF5 R **sous les 23 noms** (434 Mo), pour que
+le tirage au sort ne puisse plus fausser la mesure :
+
+```
+2 x  ...\vf5fs_media\rom\objset\stgbar.farc
+```
+
+Deux ouvertures au lieu de 5497 : le fichier est **trouve et lu**, sans reessai.
+Le conteneur et l'en-tete de 2008 sont donc acceptes par le moteur de 2010.
+
+## 7. Mais le jeu ne finit pas de charger
+
+Frederic, a l'ecran : « le jeu tourne en boucle sur l'ecran de loading ».
+
+Le decor est donc **lu mais pas exploitable**. C'est exactement le risque annonce
+en section 3 : le nombre d'objets differe (119 en 2008, 171 en 2010), et tout ce
+qui designe un objet **par indice** vient d'ailleurs -- la collision
+(`STGDJO_COLI.000.bin`), l'animation (`auth_3d/STGDJO.farc`), l'eclairage. Ici
+l'`objset` venait de VF5 R et tout le reste de Final Showdown : le moteur cherche
+des objets qui n'existent pas dans l'archive qu'on lui donne.
+
+Note : VF5 R **n'a pas** de `auth_3d/STGDJO.farc` -- seulement `EFFSTGDJO.farc`.
+Le jeu complet du decor n'est donc pas transposable tel quel ; il manque une
+piece qui n'existe pas dans la version d'origine.
+
+Etat remis a neuf : les 24 entrees rendues, les fichiers libres supprimes.
+
+**Bilan.** Le mecanisme de livraison est acquis et mesure ; l'obstacle est le
+**contenu**, comme annonce. La suite serait de comparer les listes d'objets des
+deux `stgdjo_obj.bin` pour savoir si une correspondance est etablissable -- ou de
+conclure que ces decors ne se transplantent pas sans leur generation entiere.
