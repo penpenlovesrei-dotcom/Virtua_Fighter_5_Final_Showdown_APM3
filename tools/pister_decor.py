@@ -42,13 +42,25 @@ MOTEUR = 'vf5fs-pxd-w64-Retail_APM3.dll'
 CHARGEUR = 0x0D7130            # RVA de 0x1800D7130
 ETAPE1 = 0x1C4DBE              # RVA : la tache va demander
 ETAPE2 = 0x1C4DE3              # RVA : la tache attend le chargement
-APPELANTS = {0x1801C4DD5: 'ECRAN DE PERSONNALISATION (index en dur)',
-             0x18018F8A8: 'CHARGEUR GENERAL (index variable)'}
+# EN RVA, PAS EN ADRESSE D'IMAGE. Le module est rebase a chaque lancement :
+# comparer une adresse de retour a `0x18018F8A8` ne peut que rendre « appelant
+# inconnu », ce qu'il a fait le 2026-09-09 pour un appelant connu.
+APPELANTS = {0x1C4DD5: 'ECRAN DE PERSONNALISATION (index en dur)',
+             0x18F8A8: 'CHARGEUR GENERAL (index variable)'}
+# LE CHEMIN QUI CHOISIT L'INDICE, pour savoir d'ou il vient
+#   0x1800BC6AD  la demande du combat : ecx = session+0x4C
+#   0x18020AE78  le choix EN DUR du mode 1 : gym (39) ou djo (11) selon dl
+#   0x1800B8AFF  le decor maison, avant la substitution Dural
+CHOIX = ((0x0BC6AD, 'demande du combat        ecx', 'Rcx'),
+         (0x20AE78, 'choix EN DUR du mode 1   eax', 'Rax'),
+         (0x0B8AFF, 'decor maison             eax', 'Rax'))
 NOM = ['tst', 'ts2', 'ts3', 'wht', 'ban', 'ter', 'nyc', 'cas', 'riv', 'jin',
        'sin', 'djo', 'umi', 'hai', 'are', 'slk', 'yuk', 'tak', 'aur', 'bar',
        'tan', 'du1', 'du2', 'du3', 'du4', 'du5', 'trm', 'cid', 'trs', 'evo00',
        'evo01', 'evo02', 'evo03', 'evo04', 'evo05', 'evo06', 'evo07', 'evo08',
-       'evo09', 'gym', 'smo']
+       'evo09', 'gym', 'smo',
+       # au-dela : 41 = le code ALEATOIRE, puis les entrees AJOUTEES
+       'ALEA(41)', 'ajoute-42', 'ajoute-43', 'ajoute-44']
 EXE = os.path.join(RACINE, 'runtime', 'media', 'vf5fs', 'vfes.exe')
 SCENARIO_ACTIF = os.path.join(RACINE, 'runtime', 'media', 'vf5fs',
                               'apm_entrees.txt')
@@ -77,10 +89,19 @@ def main():
     et = {'pose': False, 'charges': [], 'etapes': collections.Counter()}
 
     def sur_bp(d, bp, ctx, tid):
+        if bp.nom.startswith('Choix'):
+            reg = bp.nom.split(':')[1]
+            v = getattr(ctx, reg) & 0xFFFFFFFF
+            d.dire('  %-28s = %d (%s)'
+                   % (bp.nom.split(':')[2], v,
+                      NOM[v] if v < len(NOM) else '?'))
+            return
         if bp.nom == 'Chargeur':
             index = ctx.Rcx & 0xFFFFFFFF
             retour = d.u64(ctx.Rsp) or 0
-            qui = APPELANTS.get(retour, 'appelant inconnu 0x%X' % retour)
+            b = d.base_de(MOTEUR) or 0
+            qui = APPELANTS.get(retour - b,
+                                'appelant inconnu rva 0x%X' % (retour - b))
             nom = NOM[index] if index < len(NOM) else '?%d' % index
             et['charges'].append((index, nom, qui))
             d.dire('  CHARGEMENT : index %d (%s)  <- %s' % (index, nom, qui))
@@ -94,8 +115,11 @@ def main():
         if not b:
             return
         et['pose'] = True
-        for nom_, rva in (('Chargeur', CHARGEUR), ('Etape1', ETAPE1),
-                          ('Etape2', ETAPE2)):
+        pose = [('Chargeur', CHARGEUR), ('Etape1', ETAPE1),
+                ('Etape2', ETAPE2)]
+        pose += [('Choix:%s:%s' % (reg, quoi), rva)
+                 for rva, quoi, reg in CHOIX]
+        for nom_, rva in pose:
             bp = instrument.PointArret(nom_, b + rva, max_coups=5000)
             bp.silencieux = True
             d.bps.append(bp)

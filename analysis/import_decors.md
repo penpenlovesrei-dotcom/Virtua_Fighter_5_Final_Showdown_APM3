@@ -3,6 +3,12 @@
 Question du 2026-09-03. Reponse en trois parties : **le format, oui** ; **la
 livraison, non — pas telle quelle** ; **le contenu, a verifier**.
 
+> **REPONSE FINALE, 2026-09-07 : OUI.** Le decor DJO de VF5 R tourne dans APM3,
+> vu a l'ecran. Il n'y a **aucun octet du moteur a changer** — les identifiants
+> d'objets sont les memes dans les deux generations. Voir la section 8, qui
+> corrige la section 7. Outil : `tools/importer_decor.py`, lanceur
+> `tools/decor_5r_akira.cmd`, depistage `tools/depister_5r.cmd`.
+
 ---
 
 ## 1. Le format ne fait aucune difficulte
@@ -227,9 +233,10 @@ qui designe un objet **par indice** vient d'ailleurs -- la collision
 l'`objset` venait de VF5 R et tout le reste de Final Showdown : le moteur cherche
 des objets qui n'existent pas dans l'archive qu'on lui donne.
 
-Note : VF5 R **n'a pas** de `auth_3d/STGDJO.farc` -- seulement `EFFSTGDJO.farc`.
-Le jeu complet du decor n'est donc pas transposable tel quel ; il manque une
-piece qui n'existe pas dans la version d'origine.
+~~Note : VF5 R **n'a pas** de `auth_3d/STGDJO.farc` -- seulement
+`EFFSTGDJO.farc`.~~ **FAUX, corrige le 2026-09-07** : il fait 37 811 octets et
+porte les memes trois scenes `S010A010/020/030_DJO_STG_0*.a3da` que Final
+Showdown. Le jeu complet du decor **est** transposable.
 
 Etat remis a neuf : les 24 entrees rendues, les fichiers libres supprimes.
 
@@ -237,3 +244,150 @@ Etat remis a neuf : les 24 entrees rendues, les fichiers libres supprimes.
 **contenu**, comme annonce. La suite serait de comparer les listes d'objets des
 deux `stgdjo_obj.bin` pour savoir si une correspondance est etablissable -- ou de
 conclure que ces decors ne se transplantent pas sans leur generation entiere.
+
+---
+
+## 8. Et pourtant il s'importe : la mesure qui manquait (2026-09-07)
+
+Les identifiants des cinq objets principaux de `djo` sont **les memes dans les
+deux generations** -- `gnd` 114, `reflect` 115, `sdw` 116, `sky` 117,
+`ring` 118 -- et le descripteur du moteur les demande deja tels quels
+(`28:114 28:118 28:117 28:116 28:115`). Les 52 objets que Final Showdown a en
+plus sont des effets, numerotes 0 a 113, absents du descripteur.
+
+**Le binaire n'a donc rien a changer.** L'obstacle de la section 7 n'etait ni le
+format ni les identifiants : c'etait le MELANGE -- objset de R, auth_3d, effets
+et collision de Final Showdown. Un decor s'importe avec sa generation ENTIERE,
+et l'outil `tools/importer_decor.py` refuse desormais un jeu incomplet.
+
+`tools/par_masquer.py` a ete borne au pot de noms de l'en-tete PARC
+(`0x20` .. `min(+0x14, +0x1C)`). Sans cette borne il masquait aussi les
+occurrences situees dans les DONNEES archivees -- `STGDJO_COLI.000.bin` en a
+deux vers `0xEDD000`.
+
+
+---
+
+## 9. Deux options ajoutées le 2026-09-08 — et ce qu'elles valent
+
+### `--vers <code>` : poser un décor sous le code d'un AUTRE emplacement
+
+    py -3 tools/importer_decor.py --poser djo --source VF5R --vers evo00
+
+Les neuf pièces sont copiées sous le code de l'emplacement. Le point qui ne se
+devine pas : **`obj_db.bin` cherche les deux entrées internes de l'archive sous
+le nom de l'emplacement** (id 51 → `stgevo00_obj.bin`, `stgevo00_tex.bin`).
+Elles sont donc réécrites **dans l'en-tête du `FArC` uniquement** — l'en-tête
+porte sa longueur en gros-boutien en `+0x04` (0x3A pour `stgdjo.farc`) — parce
+que la même chaîne réapparaît à `0x4C` dans le flux de données, et l'y écraser
+corromprait l'archive.
+
+**Éprouvé, jamais validé à l'écran** : l'essai a été fait sur `trm`, qui n'était
+pas un emplacement libre, et tout a été défait. Voir `analysis/decors.md` §13.
+
+### `--eclairage <source>` : l'éclairage d'une autre génération
+
+    py -3 tools/importer_decor.py --poser djo --source VF5R --vers evo00 \
+        --eclairage VF5FS_LIND
+
+Écrite pour une **fausse piste** : j'avais accusé les réglages de VF5 R (glow
+`exposure` 2.8 contre 2.0 en Final Showdown) d'une image ratée. Frédéric l'a
+réfuté en reposant le même décor avec les mêmes fichiers sur `djo` — couleurs
+correctes. **L'option n'est utilisée par aucun lanceur.** Elle reste parce que
+la question se reposera pour une génération plus lointaine.
+
+Ne pas confondre avec `--sans-eclairage`, qui ne pose rien : sur un emplacement
+recyclé, cela laisserait l'éclairage du décor d'essai.
+
+---
+
+## 10. AJOUTER le dojo de VF5 R au lieu de le substituer (2026-09-09)
+
+C'est la demande de Frédéric : « je veux ajouter proprement le décor VF5R
+d'Akira ». Le lanceur qui existait, `decor_5r_akira.cmd`, **remplace** : il pose
+les fichiers de 2008 sous le code `djo`, et le dojo de Final Showdown disparaît
+tant qu'il est en place. La règle du chantier dit l'inverse — *on ajoute, on ne
+remplace pas*.
+
+Le build à part : **`tools/decor_5r_akira_ajout.cmd`**, et son défaiseur
+**`tools/decor_5r_akira_ajout_retirer.cmd`**.
+
+### 10.1 L'emplacement : `trs`, et il ne s'est pas choisi à l'estime
+
+`tools/emplacements.py` en mesure quinze de libres. Deux critères les réduisent
+à un :
+
+* **trois lettres**, obligatoirement. `importer_decor.py --vers` réécrit les
+  deux noms internes de l'archive (`stgdjo_obj.bin` → `stgtrs_obj.bin`) par
+  substitution **en place** : `stgevo00_obj.bin` ne tient pas dans la place de
+  `stgdjo_obj.bin`. Restent `tst ts3 wht cid trs`.
+* le descripteur doit porter la **forme** d'un décor d'essai intact — deux
+  objets de son propre objset, trois `-1`. C'est la garde qui a manqué à `trm`.
+
+`trs` : indice 28, objset 44, descripteur `0x180404E70`. Mesure faite au
+passage, et elle vaut pour la suite : **les six emplacements candidats portent
+exactement les mêmes sept relocations** (`0x00 0x08 0x48 0x50 0x58 0x60 0x68`)
+là où `djo` en a dix-sept. La liste des dix pointeurs à remettre à zéro n'est
+donc pas propre à `trm` — elle vaut pour n'importe quel emplacement d'essai.
+
+### 10.2 Ce que `--variantes-djo` était, et pourquoi il n'avait jamais marché
+
+L'option existait depuis le 2026-09-08. Elle était **cassée en deux endroits**,
+et personne ne l'a vu parce qu'elle n'a pas été relancée depuis :
+
+| | |
+|---|---|
+| `VARIANTES_ANNEAU_DJO = ([11, 26], …)` | **26, c'est `trm`** — la barre espace aurait fait défiler vers le décor TERMINAL |
+| `VARIANTES_TRM_INDEX = 29` | le clonage du descripteur visait `evo00`, **cinq lettres** : `importer_decor.py --vers` ne pouvait pas y renommer l'archive |
+
+Autrement dit le correctif **posait le décor à un endroit et faisait défiler
+vers un autre**. La leçon est celle du 2026-09-08 déjà écrite autrement : une
+donnée dupliquée dans deux constantes finit par diverger. L'emplacement est
+donc devenu un **argument**, `--variantes-djo <code>`, et l'indice, l'objset,
+la chaîne de collision et l'anneau en sont tous **dérivés**.
+
+### 10.3 Le garde-fou se mordait la queue
+
+`emplacements.py` déclare pris tout code qu'un de nos `.cmd` nomme (preuve 4 —
+c'est elle qui manquait le jour où `trm` a été cassé). Dès que
+`decor_5r_akira_ajout.cmd` écrit `--vers trs`, `trs` devient « utilisé par
+decor_5r_akira_ajout.cmd »… et `importer_decor.py --vers trs` le refuse, **y
+compris à ce lanceur-là**. Le lanceur ne pouvait pas poser son propre décor.
+
+Deux ajouts, et la garde reste entière :
+
+* `emplacements.py --pourquoi <code>` rend les raisons **étiquetées**, une par
+  ligne : `descripteur`, `grille`, `apercu` (le moteur s'en sert) contre
+  `lanceur <nom>` (une simple réservation) ;
+* `importer_decor.py --pour <lanceur.cmd>` lève la réservation **à la seule
+  condition** que toutes les raisons soient des citations, et que les lanceurs
+  qui citent soient celui-là et ses compagnons (`<souche>*.cmd`). Une raison de
+  moteur ne se lève pas : seul `--forcer` passe outre.
+
+### 10.4 Ce que le build touche, et ce qu'il ne touche pas
+
+Côté **fichiers** — les neuf pièces de VF5 R posées sous le code `trs` dans
+`vf5fs_media/rom/`, et les cinq noms qui existaient dans l'index du `.par`
+masqués (`stgtrs.farc`, `trs.ibl`, `light/fog/glow/wind_trs.txt`). Les quatre
+autres (`STGTRS_COLI.000.bin`, `STGTRS.farc`, `EFFSTGTRS.farc`) **n'existent
+pas dans le `.par`** : le fichier libre est lu directement.
+
+Côté **moteur** — le descripteur de `trs` reçoit un **clone complet** de celui
+de `djo` (les quinze champs : `+0x2C..+0x34`, `+0xB8`, `+0xD0`, `+0xD4`, l'aire
+12×12), et ne garde en propre que l'objset 44, les cinq objets `44:114 118 117
+116 115` et la collision, écrite dans le mou de `.rdata` en `0x180641B80`.
+`djo` n'est **pas touché** : les deux générations coexistent.
+
+Côté **retour en arrière** — le binaire revient tout seul, `patch_moteur.py`
+repartant toujours de `.origine`. Seuls les fichiers persistent, et
+`decor_5r_akira_ajout_retirer.cmd` les rend.
+
+### 10.5 État
+
+Contrôle avant vol **passé** : les neuf fichiers posés, les noms masqués, et
+les cinq objets que le descripteur demande présents dans l'objset posé
+(`stgdjo_gnd`, `stgdjo_ring`, `stgdjo_sky`, `stgdjo_sdw`, `stgdjo_reflect`).
+Le jeu **démarre et atteint l'écran-titre** (`analysis/ajout_5r_titre.png`).
+
+**Pas encore vu à l'écran** : la bascule elle-même. STAGE SELECT, case du DOJO,
+barre espace → `VIRTUA FIGHTER 5 FS` / `VIRTUA FIGHTER 5 R`.
