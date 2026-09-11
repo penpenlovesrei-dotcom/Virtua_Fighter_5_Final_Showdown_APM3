@@ -122,3 +122,45 @@ du chemin est faite avant d'avoir touche a quoi que ce soit.
    transposition la moins risquee, et elle change visiblement l'image.
 3. Ne rien transplanter avant d'avoir verifie que le format `objset` de 2008 est
    lu par le moteur de 2010. Rien ne le garantit.
+
+---
+
+## 6. La reserve de la section 5 est levee (2026-09-08)
+
+> « Ne rien transplanter avant d'avoir verifie que le format objset de 2008 est
+> lu par le moteur de 2010. Rien ne le garantit. »
+
+Il l'est. Le decor **DJO de VF5 R** tourne dans APM3 : Frederic l'a vu a
+l'ecran le 2026-09-07 (lanceur `tools/decor_5r_akira.cmd`).
+
+Et la transplantation ne coute **aucun octet du moteur**. Les cinq objets
+principaux portent les MEMES identifiants dans les deux generations :
+
+```
+VF5 R (119 objets)          Final Showdown (171 objets)
+  114 stgdjo_gnd              114 stgdjo_gnd
+  115 stgdjo_reflect          115 stgdjo_reflect
+  116 stgdjo_sdw              116 stgdjo_sdw
+  117 stgdjo_sky              117 stgdjo_sky
+  118 stgdjo_ring             118 stgdjo_ring
+```
+
+et le descripteur demande deja `28:114 28:118 28:117 28:116 28:115`. Les 52
+objets que Final Showdown a en plus sont des **effets**, numerotes 0 a 113, et
+aucun n'est nomme dans le descripteur.
+
+L'echec du 2026-09-03 n'etait donc ni le format ni les identifiants : c'etait
+le **melange** — l'objset de R pose a cote de l'auth_3d, des effets et de la
+collision de Final Showdown. **Un decor s'importe avec sa generation entiere**,
+et `tools/importer_decor.py` refuse desormais un jeu incomplet en nommant ce
+qui manque.
+
+Correction a la section 2 au passage : VF5 R **a bien** son
+`auth_3d/STGDJO.farc` (37 811 octets, memes trois scenes
+`S010A010/020/030_DJO_STG_0*.a3da` qu'en Final Showdown). La note contraire
+d'`import_decors.md` §7 etait fausse.
+
+Ce que la version R apporte reellement, mesure : **40,8 Mo de textures contre
+20,9 Mo** en Final Showdown pour ce decor, et 119 objets contre 171. Les
+textures ont ete divisees par deux au passage a FS ; la geometrie, elle, a
+grossi.

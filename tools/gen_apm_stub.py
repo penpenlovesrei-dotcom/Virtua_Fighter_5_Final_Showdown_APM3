@@ -92,6 +92,174 @@ FONCTIONS = [
     ('ApmSystemSetting_getAdvertizeSound', 1),
 ]
 
+# ---------------------------------------------------------------------------
+# L'IDENTITE DE LA BORNE, telle que `LinkMain::setup` l'exige.
+#
+# Le sous-systeme reseau (`am::abaas`, les bornes liees) n'est ni bouchonne ni
+# garde par un reglage du jeu : `AbaasManager` est cree sans condition dans
+# `module_start`, et `setupLink` (`0x180219BF0`) est RETENTE A CHAQUE TRAME
+# tant qu'il echoue. Ses deux seules gardes sont `Sequence_isTest()` faux et
+# `AllnetAuth_isGood()` vrai -- auxquelles le stub repondait deja bien.
+#
+# Ce qui bloquait, c'est la VALIDATION des sept parametres dans
+# `ImplLink::setup` (`0x1802C9D20`), qui mesure chaque champ au caractere pres.
+# Notre `"0000"` universel n'en satisfaisait qu'un, par hasard :
+#
+#     +0x30  gameId       taille == 4          "0000" passait
+#     +0x58  countryCode  taille == 3, ALPHABETIQUE
+#     +0x78  keychipId    taille == 11
+#     +0x98  mainId       taille == 11
+#
+# Et les deux identifiants ne sont PAS des chaines : le moteur lit `+0x22` du
+# pointeur rendu. Verifie dans le moteur, pas deduit :
+#
+#     0x180219D00  call qword ptr [rax + 0x1b0]   ; System_getKeychipId
+#     0x180219D06  lea  rcx, [rax + 0x22]         ; <<<
+#     0x180219D21  call qword ptr [rax + 0x1a8]   ; System_getBoardId
+#     0x180219D27  lea  rcx, [rax + 0x22]         ; <<<
+#
+# La vraie apm.dll de SEGA rend bien une structure a deux champs
+# (`0x180016440`) : 17 octets en `+0x00` (identifiant long) et 12 octets en
+# `+0x22` (identifiant court, 11 caracteres + NUL). On refait cette forme.
+#
+# Les valeurs elles-memes sont libres : le serveur d'appariement, c'est nous.
+# Detail : `analysis/reseau_allnet.md`.
+#
+# L'URI DU SERVEUR : le PREMIER verrou, et je l'avais d'abord laisse de cote.
+#
+# Mesure du 2026-09-05 (`tools/pister_link.cmd`) : `setupLink` et
+# `ImplLink::setup` sont bien atteints -- le reseau est donc reellement tente --
+# mais AUCUNE des quatre validations d'identite ne l'est, pas meme `gameId`,
+# qui passait pourtant deja. Or un seul test precede `gameId` :
+#
+#     0x1802C9D97  lea  r13, [rdx + 0x10]
+#     0x1802C9D9B  cmp  qword ptr [r13], 0     ; la TAILLE de serverURI
+#     0x1802C9DA0  jne  0x1802C9DC8            ; non vide -> on continue
+#                  sinon -> "Error: server URI is empty"
+#
+# Le chemin s'arrete donc la. Et `"0000"` devrait pourtant donner une taille de
+# 4 : c'est que le poseur `0x18021A470` ne se contente pas de recopier. Il
+# convertit en chaine large par `mbstowcs_s`, et **en cas d'echec il pose une
+# chaine par defaut** (`0x18021A50B`, chaine `0x180347568`). Une valeur qui
+# n'est pas une URI n'y survit pas.
+#
+# On donne donc une vraie URI. Le port est ferme tant que le serveur
+# d'appariement n'existe pas, mais un refus de connexion sur la boucle locale
+# est immediat -- pas de delai d'attente, donc pas de saccade.
+# TOUTES LES CHAINES SONT EN UTF-16 -- mesure du 2026-09-05, 25812 echecs sur
+# 25812. Nos valeurs arrivaient pourtant intactes au convertisseur
+# (`0x18021A470`) : la sonde les a lues en clair, `b'JPN'`, `b'A69E01A8888'`,
+# `b'http://127.0.0.1:8080'`. C'est la CONVERSION qui les refusait toutes.
+#
+# La raison est dans la CRT. `0x18021A470` appelle `0x1803131B8`, dont le corps
+# `0x1803130D0` ecrit sa destination OCTET par octet :
+#
+#     0x1803130F4  test rdx, rdx                ; dst
+#     0x180313103  mov  byte ptr [rdx], r14b    ; dst[0] = 0  <- UN SEUL OCTET
+#
+# La sortie est donc etroite, et l'entree large : ce n'est pas `mbstowcs_s`
+# mais **`wcstombs_s`**. Le moteur attend des `const wchar_t *`. L'allocation
+# le confirmait deja : `0x18021A4BF` reserve `taille` octets, pas `taille * 2`.
+#
+# Donne de l'ASCII, `wcstombs_s` lit `"JPN"` comme de l'UTF-16, tombe sur
+# 0x504A, et echoue. D'ou les cinq champs a taille 0, `gameId` compris.
+#
+# La vraie `apm.dll` de SEGA parcourt bien ses chaines en `cmp word ptr
+# [rax + r8*2], 0` -- un parcours de `wchar_t`.
+# INTERRUPTEUR, et une erreur a ne pas refaire.
+#
+# Premier essai : passer TOUTES les chaines en UTF-16. Le jeu a plante au
+# demarrage, avant meme la pose des points d'arret :
+#
+#     EXCEPTION STACK_BUFFER_OVERRUN (__fastfail)  a 0x180303B38
+#     sortie du processus, code 0xC0000409
+#
+# Le site est explicite -- ce n'est PAS un debordement de pile :
+#
+#     0x180303B24  mov  ecx, 0x17
+#     0x180303B29  call IsProcessorFeaturePresent(23)
+#     0x180303B33  mov  ecx, 5              ; FAST_FAIL_INVALID_ARG
+#     0x180303B38  int  0x29                ; __fastfail
+#     0x180303B40  mov  edx, 0xC0000417     ; STATUS_INVALID_CRUNTIME_PARAMETER
+#
+# C'est `_invalid_parameter` de la CRT : une fonction `_s` a recu un argument
+# invalide. La faute etait la generalisation : la mesure ne designait que SIX
+# fonctions -- celles que la sonde a vues entrer dans le convertisseur
+# `0x18021A470`. Les autres (`Aime_*`, `System_getGameVersion`,
+# `AllnetAuth_getLocationName`...) sont lues ailleurs comme de l'ASCII, et les
+# passer en large casse ces chemins-la.
+#
+# On ne convertit donc QUE les six du chemin `setupLink`, et l'interrupteur
+# reste manuel tant que ce n'est pas valide a l'ecran.
+UTF16 = '--utf16' in sys.argv
+# Les seules vues entrer dans `0x18021A470` par `tools/pister_link.cmd` :
+LARGES = {
+    'AllnetAuth_getAbaasLinkServerName',
+    'AllnetAuth_getAbaasGsServerName',
+    'AllnetAuth_getCountryCode',
+    'System_getGameId',
+    'System_getKeychipId',
+    'System_getBoardId',
+}
+# Les deux � ServerName � sont des NOMS D'HOTE NUS, pas des URL.
+#
+# Mesure du 2026-09-06 (`tools/pister_http.py`, point sur `CURLOPT_URL`) : le
+# moteur construit lui-meme l'URL en collant trois morceaux, dont deux
+# litteraux voisins de la table des chemins --
+#     "http://" (0x1805BE118) + <nom> + ":80" (0x1805BE120) + <chemin>
+# Avec l'ancienne valeur, libcurl recevait :
+#     http://http://127.0.0.1:8080:80/api/turninfo
+# et n'atteignait evidemment aucun serveur. D'ou 37 POST emis et zero recu.
+#
+# Le PORT est donc cable a 80 pour les DEUX bibliotheques : elles partagent le
+# meme serveur, et se distinguent par leurs chemins, qui sont disjoints
+# (`/api/turninfo`, `/api/match`... pour Link ; `/api/data/*`, `/api/user/*`...
+# pour GS). `tools/serveur_allnet.py` ecoute donc sur 80 et choisit la cle
+# d'apres le chemin.
+CHAINES = {
+    'AllnetAuth_getCountryCode': 'JPN',        # 3 lettres, alphabetiques
+    'AllnetAuth_getAbaasLinkServerName': '127.0.0.1',
+    'AllnetAuth_getAbaasGsServerName': '127.0.0.1',
+}
+# Les deux qui rendent une STRUCTURE : { char long[0x22]; char court[12]; }
+IDENTIFIANTS = {
+    'System_getKeychipId': ('A69E01A8888ABCD', 'A69E01A8888'),
+    'System_getBoardId':   ('AAVE01A8888ABCD', 'AAVE01A8888'),
+}
+# `System_getGameVersion` (creneau 56, hote+0x1C0) n'est PAS un getter de
+# chaine. Les DEUX sites d'appel du moteur le lisent de la meme facon -- un
+# pointeur vers deux entiers 32 bits, `{ major, minor }` :
+#
+#     0x180219A14  call [rax+0x1C0]              ; -> pointeur
+#     0x180219A1A  mov  rax, qword ptr [rax]     ; il lit HUIT octets
+#     0x180219A1D  mov  byte ptr [rbp-9],  al    ; majorVersion = octet 0
+#     0x180219A20  shr  rax, 0x20
+#     0x180219A24  mov  byte ptr [rbp-8],  al    ; minorVersion = octet 4
+#
+#     0x1800DE298  call [rax+0x1C0]              ; l'evenement `vfes_se_title`
+#     0x1800DE2A6  movzx eax, byte ptr [rax]     ; octet 0
+#     0x1800DE2AF  movzx eax, byte ptr [rcx+4]   ; octet 4  (NULL tolere)
+#
+# Le stub rendait `const char *"0000"` : le moteur y lisait 0x30 et 0x00, soit
+# la version « 48.00 ». Mesure du 2026-09-06, `analysis/pister_link.txt` :
+#
+#     2.7 ms  version GS : major=48 minor=0 -> "48.00"
+#
+# `am::abaas::GsMain::ImplGs::setTitleServerConfig` (`0x1802942A0`) accepte
+# pourtant jusqu'a 99 (`cmp al, 0x63 ; jbe`), alors que le formateur qui suit
+# n'a qu'un tampon de CINQ octets :
+#
+#     0x18029E6D7  mov  edx, 5
+#     0x18029E6E0  call sprintf_s(buf, 5, "%d.%02d", major, minor)
+#
+# « 48.00 » demande six octets avec le NUL -> retour -2, ERANGE, et la CRT tue
+# le processus par `_invalid_parameter`. Le majeur doit donc rester A UN SEUL
+# CHIFFRE : c'est un defaut du binaire d'origine, pas du notre, mais il nous
+# borne. L'assertion plus bas le garde.
+VERSIONS = {
+    'System_getGameVersion': (1, 0),
+}
+
 ENTETE = r'''/* apm.dll de substitution -- genere par tools/gen_apm_stub.py, ne pas editer a la main.
  *
  * Remplace la bibliotheque de la carte ALLS/APM3 pour faire demarrer vfes.exe sans
@@ -770,10 +938,39 @@ def source():
     for nom, val in FONCTIONS:
         if val == 'E':
             continue                                  # ecrite a la main dans ENTETE
-        if val == 'S':
+        if val == 'S' and nom in VERSIONS:
+            # Deux entiers 32 bits, JAMAIS une chaine : le moteur lit l'octet
+            # +0 et l'octet +4. Le majeur reste a un chiffre, sinon le
+            # `sprintf_s(buf, 5, ...)` de `0x18029E6E0` deborde et tue le jeu.
+            maj, mnr = VERSIONS[nom]
+            assert 0 <= maj <= 9, '%s : le majeur doit tenir en un chiffre' % nom
+            assert 0 <= mnr <= 99, '%s : le mineur doit tenir en deux chiffres' % nom
             out.append(
-                '__declspec(dllexport) const char *%s(void)\n'
-                '{ journal("%s"); return "0000"; }\n\n' % (nom, nom))
+                'static const unsigned int %s_v[2] = { %du, %du };'
+                '   /* major, minor */\n'
+                '__declspec(dllexport) const void *%s(void)\n'
+                '{ journal("%s"); return %s_v; }\n\n'
+                % (nom, maj, mnr, nom, nom, nom))
+        elif val == 'S' and nom in IDENTIFIANTS:
+            # Une STRUCTURE, pas une chaine : le moteur lit son champ +0x22.
+            longue, courte = IDENTIFIANTS[nom]
+            assert len(courte) == 11, '%s : le champ +0x22 doit faire 11' % nom
+            typ, pre = (('wchar_t', 'L') if (UTF16 and nom in LARGES)
+                        else ('char', ''))
+            out.append(
+                'static struct { char longue[0x22]; %s courte[12]; } %s_id ='
+                '\n    { "%s", %s"%s" };\n'
+                '__declspec(dllexport) const void *%s(void)\n'
+                '{ journal("%s"); return &%s_id; }\n\n'
+                % (typ, nom, longue, pre, courte, nom, nom, nom))
+        elif val == 'S':
+            valeur = CHAINES.get(nom, '0000')
+            typ, pre = (('wchar_t', 'L') if (UTF16 and nom in LARGES)
+                        else ('char', ''))
+            out.append(
+                '__declspec(dllexport) const %s *%s(void)\n'
+                '{ journal("%s"); return %s"%s"; }\n\n'
+                % (typ, nom, nom, pre, valeur))
         elif val == 'O':
             out.append(
                 '__declspec(dllexport) void *%s(void *ret)\n'

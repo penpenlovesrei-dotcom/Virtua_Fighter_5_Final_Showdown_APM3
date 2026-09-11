@@ -40,6 +40,7 @@ courant est donc « point d'arret logiciel sur la fonction qui installe un
 enregistrement, on y lit le pointeur dans un registre, puis on arme un DR sur
 ce pointeur + offset ». C'est ce que fait tools/pister_etat.py.
 """
+import atexit
 import ctypes
 import ctypes.wintypes as w
 import os
@@ -49,6 +50,73 @@ import time
 
 k32 = ctypes.WinDLL('kernel32', use_last_error=True)
 psapi = ctypes.WinDLL('psapi', use_last_error=True)
+
+# ---------------------------------------------------------------------------
+# RENDRE LE CLAVIER. Vingt-deux outils du dossier ecrivent leur propre scenario
+# dans `runtime/media/vf5fs/apm_entrees.txt` -- typiquement deux impulsions
+# START, pour traverser l'ecran-titre et aller mesurer plus loin. Aucun ne le
+# remettait en etat, si bien que la partie SUIVANTE, jouee a la main, voyait le
+# jeu appuyer sur START tout seul. Frederic l'a signale QUATRE FOIS.
+#
+# La correction est ici, au seul endroit que tous ces outils traversent : la
+# fin de `Debugger.run()`. Le maitre `tools/apm_entrees.txt` (une seule ligne,
+# « 0 rien ») est recopie des que la mesure est finie, quoi qu'il arrive.
+_ICI = os.path.dirname(os.path.abspath(__file__))
+_RACINE = os.path.dirname(_ICI)
+SCENARIO_MAITRE = os.path.join(_ICI, 'apm_entrees.txt')
+SCENARIO_ACTIF = os.path.join(_RACINE, 'runtime', 'media', 'vf5fs',
+                              'apm_entrees.txt')
+
+
+def rendre_le_clavier(dire=None):
+    """Remet le scenario d'entrees en jeu MANUEL. Jamais fatal."""
+    try:
+        with open(SCENARIO_MAITRE, 'rb') as fp:
+            maitre = fp.read()
+    except OSError:
+        return False
+    try:
+        with open(SCENARIO_ACTIF, 'rb') as fp:
+            if fp.read() == maitre:
+                return True                       # deja propre
+    except OSError:
+        pass
+    try:
+        with open(SCENARIO_ACTIF, 'wb') as fp:
+            fp.write(maitre)
+    except OSError as e:
+        if dire:
+            dire('  ATTENTION : scenario d entrees NON remis (%s)' % e)
+        return False
+    if dire:
+        dire('  scenario d entrees remis en jeu manuel')
+    return True
+
+
+# Et en ceinture : meme si la sonde plante, est interrompue par Ctrl+C, ou sort
+# par un chemin d'erreur, le clavier est rendu. `presser.py` -- le seul outil
+# dont le scenario DOIT survivre a la sortie -- n'importe pas ce module.
+atexit.register(rendre_le_clavier)
+
+
+def jeu_deja_lance():
+    """Un vfes.exe tourne-t-il deja ?
+
+    Rendre le clavier a la FIN d'une mesure ne suffit pas : pendant qu'elle
+    tourne, le scenario est sali, et le fichier est PARTAGE avec toute partie
+    deja en cours -- le stub le relit toutes les 250 ms. Frederic a vu sa
+    partie appuyer sur START pendant qu'une sonde mesurait a cote. On refuse
+    donc de demarrer dans ce cas.
+    """
+    try:
+        r = __import__('subprocess').run(
+            [os.path.join(os.environ.get('SystemRoot', r'C:\Windows'),
+                          'System32', 'tasklist.exe'),
+             '/FI', 'IMAGENAME eq vfes.exe', '/NH'],
+            capture_output=True, text=True, timeout=10)
+        return 'vfes.exe' in (r.stdout or '')
+    except Exception:
+        return False                                  # dans le doute, on laisse
 
 DEBUG_ONLY_THIS_PROCESS = 0x00000002
 DBG_CONTINUE = 0x00010002
@@ -503,7 +571,14 @@ class Debugger:
 
         Le volume general de Windows n'est pas touche : c'est le volume par
         application. La session n'existe qu'une fois le moteur audio ouvert, ce
-        qui prend quelques secondes -- d'ou la boucle."""
+        qui prend quelques secondes -- d'ou la boucle.
+
+        ATTENTION (2026-09-11) : Windows MEMORISE la sourdine par application.
+        Un jeu coupe par la sonde restait muet aux lancements suivants, a la
+        main -- Frederic : « reactive le son du jeu ». `_rendre_le_son` la
+        leve donc avant de fermer le jeu."""
+        self._son_arret = threading.Event()
+
         def travail():
             try:
                 from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
@@ -512,7 +587,7 @@ class Debugger:
                 return
             t0 = time.time()
             fait = False
-            while time.time() - t0 < duree:
+            while time.time() - t0 < duree and not self._son_arret.is_set():
                 try:
                     for sess in AudioUtilities.GetAllSessions():
                         if getattr(sess, 'ProcessId', None) == pid:
@@ -528,7 +603,33 @@ class Debugger:
                 self.dire('  sourdine : aucune session audio trouvee pour %d' % pid)
         t = threading.Thread(target=travail, daemon=True)
         t.start()
+        self._son_fil = t
         return t
+
+    def _rendre_le_son(self, pid):
+        """Arrete la boucle de sourdine et leve la sourdine de la session
+        tant qu'elle existe encore (le jeu tourne) : sinon Windows la
+        garderait pour les lancements suivants."""
+        if getattr(self, '_son_arret', None) is None:
+            return
+        self._son_arret.set()
+        if getattr(self, '_son_fil', None) is not None:
+            self._son_fil.join(3.0)
+        try:
+            from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
+        except ImportError:
+            return
+        n = 0
+        try:
+            for sess in AudioUtilities.GetAllSessions():
+                if getattr(sess, 'ProcessId', None) == pid:
+                    sess._ctl.QueryInterface(ISimpleAudioVolume).SetMute(0, None)
+                    n += 1
+        except Exception:
+            pass
+        self.dire('  sourdine levee avant de fermer le jeu (%d session(s))' % n
+                  if n else '  sourdine : plus de session a lever -- si le jeu '
+                  'reste muet : py -3 tools/muet.py --rendre, jeu lance')
 
     def _capture_plus_tard(self, chemin, delai, titre):
         def travail():
@@ -556,6 +657,14 @@ class Debugger:
         return t
 
     def run(self, exe, cwd=None, seconds=30, captures=()):
+        if jeu_deja_lance():
+            self.dire('REFUS : un vfes.exe tourne DEJA.')
+            self.dire('  Une sonde ecrit son propre scenario dans')
+            self.dire('  runtime/media/vf5fs/apm_entrees.txt -- fichier PARTAGE,')
+            self.dire('  relu toutes les 250 ms. La partie en cours se mettrait a')
+            self.dire('  appuyer sur START toute seule.')
+            self.dire('  Fermez le jeu, puis relancez la mesure.')
+            return 3
         si = STARTUPINFOW()
         si.cb = ctypes.sizeof(si)
         pi = PROCESS_INFORMATION()
@@ -635,6 +744,8 @@ class Debugger:
             if ecoule > seconds:
                 break
 
+        if self.muet:
+            self._rendre_le_son(pi.dwProcessId)
         if not fini:
             self.dire('--- %d s ecoulees, on arrete ---' % seconds)
             k32.DebugActiveProcessStop(pi.dwProcessId)
@@ -648,12 +759,45 @@ class Debugger:
             mod, off = self.module_of(rip)
             self.dire('  ignore : %d acces apres 0x%016X = %s+0x%X'
                       % (n, rip, mod, off))
+        rendre_le_clavier(self.dire)
         return 0
 
     def armer_en_attente(self):
         """Appele a chaque chargement de module. Remplace par main() quand des
         points d'arret differes (module+offset) attendent leur base."""
         pass
+
+    def violation(self, tid, r):
+        """Une ACCESS_VIOLATION : dire QUI copiait, et QUOI.
+
+        Le message d'exception seul ne nomme que la fonction fautive -- souvent
+        `memcpy`, qui ne dit rien. Ce qui renseigne, ce sont les registres
+        d'appel (`rcx` destination, `rdx`/`rsi` source, `r8`/`rcx` longueur) et
+        les adresses de retour APPLICATIVES encore sur la pile.
+        """
+        try:
+            ctx = self.contexte(tid)
+        except Exception:
+            return
+        try:
+            lecture = r.ExceptionInformation[0]
+            adresse = r.ExceptionInformation[1]
+            self.dire('      acces en %s a 0x%016X'
+                      % ('ECRITURE' if lecture else 'LECTURE', adresse))
+        except Exception:
+            pass
+        self.dire('      rcx=0x%X  rdx=0x%X  r8=0x%X  rdi=0x%X  rsi=0x%X'
+                  % (ctx.Rcx & 0xFFFFFFFFFFFFFFFF, ctx.Rdx & 0xFFFFFFFFFFFFFFFF,
+                     ctx.R8 & 0xFFFFFFFFFFFFFFFF, ctx.Rdi & 0xFFFFFFFFFFFFFFFF,
+                     ctx.Rsi & 0xFFFFFFFFFFFFFFFF))
+        pile = self.read(ctx.Rsp, 8 * 128) or b''
+        vus = 0
+        for i in range(0, len(pile) - 7, 8):
+            v = int.from_bytes(pile[i:i + 8], 'little')
+            m, o = self.module_of(v)
+            if m and m != '?' and o < 0x800000 and vus < 12:
+                self.dire('      [rsp+0x%03X] -> %s+0x%X' % (i, m, o))
+                vus += 1
 
     def exception(self, ev, tid):
         r = ev.u.Exception.ExceptionRecord
@@ -714,6 +858,8 @@ class Debugger:
             self.dire('  EXCEPTION %s %s  a 0x%016X = %s+0x%X' %
                       (nom, '(1re chance)' if first else '(2e chance)', a, mod, off))
             self.log.append((nom, a, mod, off, bool(first)))
+            if c == 0xC0000005 and first:
+                self.violation(tid, r)
             if c == 0xE06D7363:
                 prm = [r.ExceptionInformation[i]
                        for i in range(min(r.NumberParameters, 6))]

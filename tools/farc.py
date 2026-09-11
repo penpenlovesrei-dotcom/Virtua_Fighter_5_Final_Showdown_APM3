@@ -89,6 +89,51 @@ class Farc:
                         % (entry["name"], blob[:4].hex()))
 
 
+def ecrire_farc(chemin, membres, alignement=0x10):
+    """Ecrit une archive `FArc` BRUTE (non comprimee) : {nom: octets}.
+
+    POURQUOI BRUTE, ET POURQUOI C'EST SUFFISANT (2026-09-10)
+
+    Le moteur lit les deux variantes -- c'est ce que le lecteur ci-dessus fait,
+    et `FArc` est celle des archives non comprimees du jeu. On n'a donc pas
+    besoin d'un compresseur pour REFABRIQUER une archive : recomprimer
+    demanderait de retrouver le gzip exact de SEGA, et ne servirait qu'a gagner
+    de la place sur un disque qui n'en manque pas.
+
+    C'est ce qui permet de renommer les objets d'un decor importe : on extrait
+    les `.a3da`, on substitue le code du modele par le notre -- meme longueur,
+    donc en place -- et on repose l'archive telle quelle.
+
+        magic 'FArc' | header_size (BE) | alignement (BE)
+        entrees : nom asciiz, offset (BE), taille (BE)
+        puis les donnees, chacune alignee.
+    """
+    noms = list(membres)
+    taille_entetes = sum(len(n.encode('latin-1')) + 1 + 8 for n in noms)
+    # `header_size` compte les octets APRES ce champ : l'alignement, les
+    # entrees, et le remplissage jusqu'aux donnees.
+    debut = 12 + taille_entetes
+    debut = (debut + alignement - 1) // alignement * alignement
+    entetes = bytearray()
+    donnees = bytearray()
+    pos = debut
+    for n in noms:
+        octets = membres[n]
+        entetes += n.encode('latin-1') + b'\x00'
+        entetes += struct.pack('>II', pos, len(octets))
+        donnees += octets
+        avance = (len(octets) + alignement - 1) // alignement * alignement
+        donnees += b'\x00' * (avance - len(octets))
+        pos += avance
+    tete = bytearray(b'FArc')
+    tete += struct.pack('>II', debut - 8, alignement)
+    tete += entetes
+    tete += b'\x00' * (debut - len(tete))
+    with open(chemin, 'wb') as fp:
+        fp.write(bytes(tete) + bytes(donnees))
+    return len(noms)
+
+
 def cmd_list(path):
     f = Farc(path)
     print("%s  magic=%s alignment=%d  %d entree(s)"

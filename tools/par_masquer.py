@@ -25,6 +25,7 @@ Usage :
 """
 import mmap
 import os
+import struct
 import sys
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -41,14 +42,50 @@ def liens(chemin):
         return 0
 
 
-def positions(m, nom):
-    """Toutes les occurrences du nom, terminees par un zero (entree d'index)."""
-    out, i = [], m.find(nom.encode())
+def fin_du_pot(m):
+    """Fin du pot de noms de l'en-tete PARC -- au-dela, ce sont des DONNEES.
+
+    En-tete gros-boutiste : `+0x10` nombre de dossiers, `+0x14` offset de leur
+    table, `+0x18` nombre de fichiers, `+0x1C` offset de leur table. Les noms
+    occupent `0x20` jusqu'a la premiere de ces deux tables.
+
+    Sans cette borne l'outil masquerait aussi les occurrences situees DANS les
+    fichiers archives : `STGDJO_COLI.000.bin` en a trois, dont deux vers
+    0xEDD000 -- a 15 Mo, donc au coeur des donnees. Les ecraser corromprait un
+    fichier au lieu de cacher un nom.
+    """
+    if m[:4] != b'PARC':
+        return len(m)
+    off_dos, off_fic = struct.unpack('>I', m[0x14:0x18])[0], \
+        struct.unpack('>I', m[0x1C:0x20])[0]
+    return min(off_dos, off_fic)
+
+
+def positions(m, nom, borne=None):
+    """Occurrences du nom suivies d'un zero, DANS le pot de noms seulement.
+
+    LA BORNE EST PASSEE A `find`, ET CE N'EST PAS UN DETAIL DE STYLE.
+
+    La version qui cherchait dans tout le fichier et s'arretait APRES coup
+    (`if i >= borne: break`) balayait quand meme les 3,99 Go : une fois la
+    derniere occurrence du pot trouvee, le `find` suivant lisait l'archive
+    entiere pour conclure « plus rien ». Environ deux secondes par recherche,
+    deux recherches par nom (le clair et le masque), neuf noms par decor --
+    **16 secondes par appel**, et `decor_5r_akira.cmd` en fait trois avant de
+    demarrer, dont deux qui n'ont rien a retirer. Mesure du 2026-09-10.
+
+    En donnant `borne` a `find`, la recherche s'arrete a 0x1D640 octets. Et
+    c'est aussi plus juste : on ne regarde plus jamais dans les DONNEES, ou
+    `STGDJO_COLI.000.bin` a deux occurrences vers 0xEDD000.
+    """
+    if borne is None:
+        borne = fin_du_pot(m)
+    cible = nom.encode()
+    out, i = [], m.find(cible, 0, borne)
     while i >= 0:
-        suivant = m[i + len(nom):i + len(nom) + 1]
-        if suivant == b'\x00':
+        if m[i + len(cible):i + len(cible) + 1] == b'\x00':
             out.append(i)
-        i = m.find(nom.encode(), i + 1)
+        i = m.find(cible, i + 1, borne)
     return out
 
 
