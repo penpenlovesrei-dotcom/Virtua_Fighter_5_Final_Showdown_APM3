@@ -367,9 +367,9 @@ câblé dans le moteur, qui construit l'URL en `"http://" + <hôte> + ":80" +
                                  "game_ver":"1.00","location_id":0,...}}
     [gs]   POST /api/data/load  {"free_buckets":{"keys":["misc_*","rule_*","matching_*"]},...}
 
-Le second prouve que **`clé_GS = titleKey XOR constante`** est juste. Le
-`titleKey` est un **littéral du binaire** (`0x1805511D8`, 32 octets), recopié
-par `0x180219A35` — pas un secret à deviner.
+Le second prouve que la **clé du serveur de titre est juste** : elle se dérive
+d'un littéral du binaire, pas de la puce — ce n'est pas un secret à deviner. La
+dérivation reste dans `analysis/reseau_allnet.md`, qui n'est pas dans ce dépôt.
 
 **Le mur suivant : il n'y a pas de STUN.** Le jeu mesure son type de NAT avant
 `/api/match`, et notre `turninfo` l'envoie sur `127.0.0.1:3478` où rien
@@ -391,18 +391,15 @@ suffit.**
 **`ULinkPacketAppData` transporte des ENTRÉES de manette**, pas un état :
 16 octets utiles, redondance sur dix trames = 150 ms de perte absorbée à 60 Hz.
 
-**Le corps HTTP est entièrement fabricable par nous :**
+**Le corps HTTP est entièrement fabricable par nous :** un en-tête de 16 octets
+en clair — qui sert aussi de vecteur d'initialisation — puis le JSON compressé
+puis chiffré. La graine de la clé est le `gameId`, que **nous** choisissons, et
+le serveur le relit dans les octets 4 à 7 de l'en-tête reçu : il n'a pas besoin
+de le connaître d'avance. Rien n'est négocié, rien ne vient de la puce.
 
-    corps = en-tete 16 octets en clair || AES-256-CBC( zlib( JSON ) )
-            et l'en-tete EST le vecteur d'initialisation
-
-    cle = SHA256(gameId, 4 o) XOR <constante 32 o, litterale en 0x1805CC5D0>
-
-La constante est masquée par un simple `xor al, 0x67` (`0x1802FB875`). La graine
-est le `gameId`, que **nous** choisissons — et le serveur le relit dans les
-octets 4 à 7 de l'en-tête reçu, donc il n'a pas besoin de le connaître d'avance.
-Rien n'est négocié, rien ne vient de la puce. Bourrage PKCS#7 fait à la main
-(`0x1802BD47F`), zlib RFC 1950 niveau 6 (`0x1802BDA7F`).
+La dérivation de la clé, les constantes qu'elle emploie et les adresses des
+trois primitives ne sont pas publiées : elles restent dans
+`analysis/reseau_allnet.md`, hors dépôt.
 
 Compression et chiffrement sont **câblés** : `mov word ptr [rbp+0x1d0], 0x101`
 en `0x1802CA09D`. Aucun moyen d'obtenir du clair par la configuration ; deux
@@ -763,7 +760,7 @@ toute collision (`_poser`). Une reprise volontaire de site se déclare
 | document | sujet |
 |---|---|
 | `REPRISE.md` | le journal du chantier, séance par séance |
-| `analysis/reseau_allnet.md` | **le netcode : clé AES, serveur minimal, §10** |
+| `analysis/reseau_allnet.md` | **le netcode : serveur minimal, §10** — hors dépôt |
 | `analysis/reseau_transport.md` | STUN/TURN, paquets, sockets, les deux fils |
 | `analysis/reseau_machine.md` | la machine à états et son pilote |
 | `analysis/mode_de_jeu.md` | le mode de jeu, ses cinq setters, et la mesure §13 |
