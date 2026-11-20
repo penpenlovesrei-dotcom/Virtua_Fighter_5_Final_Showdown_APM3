@@ -1,0 +1,147 @@
+; Xbox 360, Virtua Fighter 5 Final Showdown (VERSION A, 2012-04-06)
+; image   VF5RE/extracted/X360_FS/sel/default.img
+; PE PowerPC gros-boutiste, machine 0x1F2, base 0x82000000, 17 629 184 o
+; bornes  .pdata  (BeginAddress + mot empaquete : prologue sur 8 bits de
+;         poids faible, longueur en INSTRUCTIONS sur les bits 8-29)
+; Aucun jeu lance, aucun binaire patche, Ghidra pas touche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x822BEA48  CS_TERM fn_entree -- si le sous-etat courant est dans [0x25..0x27] (37..39 = REPLAY_PLAY/LAST_PLAY/CLIP_PLAY) elle cree une tache par nom (0x823AD378) ; pose [0x82A8D01D]=1 (160 o)
+============================================================================
+; fonction 0x822BEA48 .. 0x822BEAE4  (160 o, 40 instructions) -- bornes .pdata
+0x822BEA48  7d8802a6  mflr       r12
+0x822BEA4C  9181fff8  stw        r12, -8(r1)
+0x822BEA50  9421ffa0  stwu       r1, -0x60(r1)
+0x822BEA54  38600000  li         r3, 0
+0x822BEA58  4bf55ac9  bl         0x82214520
+0x822BEA5C  4bfff9fd  bl         0x822be458
+0x822BEA60  8163001c  lwz        r11, 0x1c(r3)
+0x822BEA64  2f0b0025  cmpwi      cr6, r11, 0x25
+0x822BEA68  41980020  blt        cr6, 0x822bea88
+0x822BEA6C  2f0b0027  cmpwi      cr6, r11, 0x27
+0x822BEA70  41990018  bgt        cr6, 0x822bea88
+0x822BEA74  3d608206  lis        r11, -0x7dfa
+0x822BEA78  3d408206  lis        r10, -0x7dfa
+0x822BEA7C  388a40a8  addi       r4, r10, 0x40a8
+0x822BEA80  806bbf50  lwz        r3, -0x40b0(r11)
+0x822BEA84  480ee8f5  bl         0x823ad378
+0x822BEA88  3d608272  lis        r11, -0x7d8e
+0x822BEA8C  806b63d8  lwz        r3, 0x63d8(r11)
+0x822BEA90  48095a51  bl         0x823544e0
+0x822BEA94  38600000  li         r3, 0
+0x822BEA98  4bfcb001  bl         0x82289a98
+0x822BEA9C  4bfc7435  bl         0x82285ed0
+0x822BEAA0  38800001  li         r4, 1
+0x822BEAA4  38a00000  li         r5, 0
+0x822BEAA8  38c00000  li         r6, 0
+0x822BEAAC  4bfc82f5  bl         0x82286da0
+0x822BEAB0  38600000  li         r3, 0
+0x822BEAB4  4bf24dad  bl         0x821e3860
+0x822BEAB8  38600001  li         r3, 1
+0x822BEABC  4bf24da5  bl         0x821e3860
+0x822BEAC0  3d4082a9  lis        r10, -0x7d57
+0x822BEAC4  39600001  li         r11, 1
+0x822BEAC8  3860ffff  li         r3, -1
+0x822BEACC  996ad01d  stb        r11, -0x2fe3(r10)
+0x822BEAD0  480e24b9  bl         0x823a0f88
+0x822BEAD4  38600001  li         r3, 1
+0x822BEAD8  38210060  addi       r1, r1, 0x60
+0x822BEADC  8181fff8  lwz        r12, -8(r1)
+0x822BEAE0  7d8803a6  mtlr       r12
+0x822BEAE4  4e800020  blr        
+
+============================================================================
+0x822BEBF0  CS_TERM fn_milieu -- PARTAGEE avec le mode 6 CS_TRAINING. Deux sorties : 0x82214550 vrai -> mode 0 + sous-etat 3 (CS_TITLE) ; 0x822145A0 vrai -> mode 4 (MENU). Rend TOUJOURS 0 (132 o)
+============================================================================
+; fonction 0x822BEBF0 .. 0x822BEC70  (132 o, 33 instructions) -- bornes .pdata
+0x822BEBF0  7d8802a6  mflr       r12
+0x822BEBF4  9181fff8  stw        r12, -8(r1)
+0x822BEBF8  fbe1fff0  std        r31, -0x10(r1)
+0x822BEBFC  9421ffa0  stwu       r1, -0x60(r1)
+0x822BEC00  4bf55951  bl         0x82214550
+0x822BEC04  7c7f1b78  mr         r31, r3
+0x822BEC08  4bf55999  bl         0x822145a0
+0x822BEC0C  57eb063e  clrlwi     r11, r31, 0x18
+0x822BEC10  2b0b0000  cmplwi     cr6, r11, 0
+0x822BEC14  419a0018  beq        cr6, 0x822bec2c
+0x822BEC18  38600000  li         r3, 0
+0x822BEC1C  4bfff855  bl         0x822be470
+0x822BEC20  38600003  li         r3, 3
+0x822BEC24  4bfff86d  bl         0x822be490
+0x822BEC28  48000018  b          0x822bec40
+0x822BEC2C  546b063e  clrlwi     r11, r3, 0x18
+0x822BEC30  2b0b0000  cmplwi     cr6, r11, 0
+0x822BEC34  419a0028  beq        cr6, 0x822bec5c
+0x822BEC38  38600004  li         r3, 4
+0x822BEC3C  4bfff835  bl         0x822be470
+0x822BEC40  480d2b89  bl         0x823917c8
+0x822BEC44  38600000  li         r3, 0
+0x822BEC48  480d0d59  bl         0x8238f9a0
+0x822BEC4C  38600001  li         r3, 1
+0x822BEC50  480d0d51  bl         0x8238f9a0
+0x822BEC54  38600002  li         r3, 2
+0x822BEC58  480d0d49  bl         0x8238f9a0
+0x822BEC5C  38600000  li         r3, 0
+0x822BEC60  38210060  addi       r1, r1, 0x60
+0x822BEC64  8181fff8  lwz        r12, -8(r1)
+0x822BEC68  7d8803a6  mtlr       r12
+0x822BEC6C  ebe1fff0  ld         r31, -0x10(r1)
+0x822BEC70  4e800020  blr        
+
+============================================================================
+0x822BEAE8  CS_TERM fn_sortie -- garde [0x82A8D01D], demontage, remet le drapeau a 0 (140 o)
+============================================================================
+; fonction 0x822BEAE8 .. 0x822BEB70  (140 o, 35 instructions) -- bornes .pdata
+0x822BEAE8  7d8802a6  mflr       r12
+0x822BEAEC  9181fff8  stw        r12, -8(r1)
+0x822BEAF0  fbc1ffe8  std        r30, -0x18(r1)
+0x822BEAF4  fbe1fff0  std        r31, -0x10(r1)
+0x822BEAF8  9421ff90  stwu       r1, -0x70(r1)
+0x822BEAFC  3fe082a9  lis        r31, -0x7d57
+0x822BEB00  897fd01d  lbz        r11, -0x2fe3(r31)
+0x822BEB04  2b0b0000  cmplwi     cr6, r11, 0
+0x822BEB08  419a004c  beq        cr6, 0x822beb54
+0x822BEB0C  4bfc73c5  bl         0x82285ed0
+0x822BEB10  38800000  li         r4, 0
+0x822BEB14  7c7e1b78  mr         r30, r3
+0x822BEB18  4bfc8429  bl         0x82286f40
+0x822BEB1C  38800001  li         r4, 1
+0x822BEB20  7fc3f378  mr         r3, r30
+0x822BEB24  4bfc841d  bl         0x82286f40
+0x822BEB28  4bfc8189  bl         0x82286cb0
+0x822BEB2C  3fc08272  lis        r30, -0x7d8e
+0x822BEB30  807e63d8  lwz        r3, 0x63d8(r30)
+0x822BEB34  48095755  bl         0x82354288
+0x822BEB38  807e63d8  lwz        r3, 0x63d8(r30)
+0x822BEB3C  480951bd  bl         0x82353cf8
+0x822BEB40  3d608206  lis        r11, -0x7dfa
+0x822BEB44  806bbf50  lwz        r3, -0x40b0(r11)
+0x822BEB48  480edbb1  bl         0x823ac6f8
+0x822BEB4C  39600000  li         r11, 0
+0x822BEB50  997fd01d  stb        r11, -0x2fe3(r31)
+0x822BEB54  4bf392ad  bl         0x821f7e00
+0x822BEB58  38600001  li         r3, 1
+0x822BEB5C  38210070  addi       r1, r1, 0x70
+0x822BEB60  8181fff8  lwz        r12, -8(r1)
+0x822BEB64  7d8803a6  mtlr       r12
+0x822BEB68  ebc1ffe8  ld         r30, -0x18(r1)
+0x822BEB6C  ebe1fff0  ld         r31, -0x10(r1)
+0x822BEB70  4e800020  blr        
+
+============================================================================
+0x822BED28 / 0x822BEBF0 / 0x822BED58  mode 6 CS_TRAINING, pour comparaison (le milieu est le MEME que CS_TERM)
+============================================================================
+; fonction 0x822BED28 .. 0x822BED54  (48 o, 12 instructions) -- bornes .pdata
+0x822BED28  7d8802a6  mflr       r12
+0x822BED2C  9181fff8  stw        r12, -8(r1)
+0x822BED30  9421ffa0  stwu       r1, -0x60(r1)
+0x822BED34  38600000  li         r3, 0
+0x822BED38  4bf557e9  bl         0x82214520
+0x822BED3C  3860ffff  li         r3, -1
+0x822BED40  480e2249  bl         0x823a0f88
+0x822BED44  38600001  li         r3, 1
+0x822BED48  38210060  addi       r1, r1, 0x60
+0x822BED4C  8181fff8  lwz        r12, -8(r1)
+0x822BED50  7d8803a6  mtlr       r12
+0x822BED54  4e800020  blr        

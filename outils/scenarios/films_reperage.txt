@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# REPERAGE 2 : descendre de SEPT crans, et REGARDER ou on est.
+#
+# Mesure du premier reperage : le menu porte dix lignes, curseur sur
+# SINGLE PLAYER au depart, et VF.TV est la HUITIEME (indice 7) :
+#
+#   0 SINGLE PLAYER   1 OFFLINE VERSUS  2 ONLINE VERSUS  3 QUEST MODE
+#   4 DOJO            5 VF.TERMINAL     6 SCOREBOARDS    7 VF.TV
+#   8 OPTIONS         9 EXIT
+#
+# Sept appuis m en avaient fait DIX : un maintien de 300 ms se repete. On
+# descend donc a 120 ms d appui pour 400 ms de repos.
+#
+# L horloge du stub a environ deux secondes d avance sur ces pas.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+nom bas   = 3
+nom haut  = 2
+# PAS DE front ICI : le depot emploie front = 10, et c est ce qui
+# ressemble a un vrai appui. A 150 ms le stub repond " nouvel appui "
+# pendant NEUF images, et le moteur valide neuf fois -- une rafale que
+# j avais prise pour un defaut du jeu (2026-10-15).
+
+0       rien
+18000   start
+18400   rien
+21000   start
+21400   rien
+
+24000   bas
+24120   rien
+24520   bas
+24640   rien
+25040   bas
+25160   rien
+25560   bas
+25680   rien
+26080   bas
+26200   rien
+26600   bas
+26720   rien
+27120   bas
+27240   rien

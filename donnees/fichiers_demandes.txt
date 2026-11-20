@@ -1,0 +1,116 @@
+processus 19252 lance sous debogage
+  image     0x00007FF69A860000  vfes.exe
+  BP arme sur CreateFileW = 0x7FFB320970B0 (octet d'origine 0xFF)
+  point d'arret sur KERNEL32.DLL!CreateFileW = 0x7FFB320970B0
+  BP arme sur CreateFileA = 0x7FFB320970A0 (octet d'origine 0xFF)
+  point d'arret sur KERNEL32.DLL!CreateFileA = 0x7FFB320970A0
+  BP arme sur CreateFileW = 0x7FFB2FCE77F0 (octet d'origine 0x48)
+  point d'arret sur KERNELBASE.dll!CreateFileW = 0x7FFB2FCE77F0
+  BP arme sur CreateFileA = 0x7FFB2FCE6790 (octet d'origine 0x48)
+  point d'arret sur KERNELBASE.dll!CreateFileA = 0x7FFB2FCE6790
+  dll       0x00007FFB28620000  apm.dll
+  dll       0x00007FFB2CBA0000  dxgi.dll
+  dll       0x00007FFB2B640000  d3d11.dll
+  dll       0x00007FFB2AC40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB329A2239 = ntdll.dll+0x122239
+  C:\WINDOWS\Globalization\Sorting\sortdefault.nls
+  C:\WINDOWS\SYSTEM32\OLEACCRC.DLL
+  C:\WINDOWS\INF\hidserv.PNF
+  \\?\hid#vid_046d&pid_c534&mi_01&col02#8&1146faef&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\WINDOWS\INF\input.PNF
+  \\?\hid#intc816&col03#3&d2322f2&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col0a#3&d2322f2&0&0009#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_046d&pid_c534&mi_01&col03#8&1146faef&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col09#3&d2322f2&0&0008#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_046d&pid_c534&mi_01&col04#8&1146faef&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_046d&pid_c534&mi_01&col05#8&1146faef&0&0004#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col0e#3&d2322f2&0&000d#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col04#3&d2322f2&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\WINDOWS\INF\keyboard.PNF
+  \\?\hid#vid_046d&pid_c534&mi_00#8&351e38b1&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+  \\?\hid#intc816&col0f#3&d2322f2&0&000e#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col01#3&d2322f2&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+  \\?\hid#intc816&col05#3&d2322f2&0&0004#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col10#3&d2322f2&0&000f#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\WINDOWS\INF\xinputhid.PNF
+  \\?\hid#vid_045e&pid_02ff&ig_00#7&387af124&2&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col11#3&d2322f2&0&0010#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col06#3&d2322f2&0&0005#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col0b#3&d2322f2&0&000a#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#converteddevice&col01#5&3a3de26e&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+  \\?\hid#vid_054c&pid_0d5e&mi_03&col01#8&31a039ba&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\WINDOWS\INF\buttonconverter.PNF
+  \\?\hid#intc816&col12#3&d2322f2&0&0011#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_054c&pid_0d5e&mi_03&col02#8&31a039ba&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col07#3&d2322f2&0&0006#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_054c&pid_0d5e&mi_03&col03#8&31a039ba&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_054c&pid_0d5e&mi_03&col04#8&31a039ba&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col0c#3&d2322f2&0&000b#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#converteddevice&col02#5&3a3de26e&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col02#3&d2322f2&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\WINDOWS\INF\msmouse.PNF
+  \\?\hid#vid_1997&pid_2466&mi_00&col01#8&1872716d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#converteddevice&col03#5&3a3de26e&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_1997&pid_2466&mi_01#8&542552f&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+  \\?\hid#intc816&col08#3&d2322f2&0&0007#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_1997&pid_2466&mi_00&col02#8&1872716d&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_1997&pid_2466&mi_00&col03#8&1872716d&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#intc816&col0d#3&d2322f2&0&000c#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_046d&pid_c534&mi_01&col01#8&1146faef&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  \\?\hid#vid_1997&pid_2466&mi_00&col04#8&1872716d&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}
+  C:\Users\frede\Desktop\VF5RE\runtime\media\vf5fs\vfes.exe
+  C:\WINDOWS\INF\oem19.PNF
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2FD841CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  C:\ProgramData\NVIDIA Corporation\Drs\nvdrssel.bin
+  C:\ProgramData\NVIDIA Corporation\Drs\nvdrsdb0.bin
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\aurora.dll
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\petromod_nvidia_profile_identifier.ogl
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\oculusmedium.exe
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\rendspt.dll
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\jengine.dll
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\jengined.dll
+  C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_a0459f1433de8353\nvgpucomp64.dll
+  C:\WINDOWS\system32\drivers\NVIDIA Corporation\Drs\nvdrsdb.bin
+  C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_a0459f1433de8353\NvMemMapStoragex.dll
+  C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_a0459f1433de8353\nvwgf2umx.dll
+  C:\ProgramData\NVIDIA Corporation\Drs\nvAppTimestamps
+  C:\ProgramData\NVIDIA Corporation\ShadowPlay\CaptureCore.log
+  \\.\MountPointManager
+  C:\WINDOWS\SYSTEM32\d3d12.dll
+  \\?\C:\Users\frede\appdata\local\NVIDIA\DXCache\aab1a9db207316ff.nvph
+  C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_a0459f1433de8353\nvppex.dll
+  C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_a0459f1433de8353\nvldumdx.dll
+  C:\WINDOWS\Registration\R000000000008.clb
+  dll       0x00007FFA876D0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 19252 coupee apres 2 s
+  C:\Users\frede\Desktop\VF5RE\runtime\media\vf5fs\apm_entrees.txt
+  \\?\hid#vid_045e&pid_02ff&ig_00#7&387af124&2&0000#{ec87f1e3-c13b-4100-b5f7-8b84d54260cb}
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_data.par
+  C:\WINDOWS\SYSTEM32\tzres.dll
+  ram/BackupRamPrimaryData
+  ram/BackupRamCloseData
+  ram/BackupRamCalibData
+  ram/BackupRamMiscData
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/w64/shader_pxd_w64.farc
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\.\\vf5fs_media\rom\sound\bgm\vfes_se_logo_sega.adx
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/spr_n_adv.farc
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/aet_n_adv.bin
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/spr_n_cmn.farc
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/spr_n_fnt32.farc
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/aet_n_cmn.bin
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/auth_3d/auth_3d_db.bin
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\.\\vf5fs_media\rom\movie\vf5adv.usm
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/spr_n_clg.farc
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/spr_n_main.farc
+  c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/2d/aet_n_main.bin
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\.\\vf5fs_media\rom\sound\bgm\vf5b_tkv.adx
+  c:\users\frede\desktop\vf5re\runtime\media\vf5fs\.\\vf5fs_media\rom\sound\bgm\vf5fs_bgm_sel.adx
+--- 30 s ecoulees, on arrete ---
+
+79 module(s) charge(s)
+  BP CreateFileW : 261 passage(s)
+  BP CreateFileA : 19 passage(s)
+  BP CreateFileW : 417 passage(s)
+  BP CreateFileA : 21 passage(s)
+  scenario d entrees remis en jeu manuel

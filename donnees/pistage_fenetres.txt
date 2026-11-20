@@ -1,0 +1,152 @@
+processus 14732 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85C690000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFAD770000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur MothApplyRecord = 0x7FFFAD8C8B40 (octet d'origine 0x4D)
+  t=55 s : point d'arret pose sur MothApplyRecord
+  BP MothApplyRecord coup 1, thread 19568
+        rax=000000000000000C rcx=00000244CAB87860 rdx=00000244CAB86FC0 rbx=00000244CAB87860
+        rsp=000000A6883DF088 rbp=00000244CAB86FC0 rsi=000000000000001C rdi=00007FF4D4A2CF54
+        r8 =00007FF4D4A2CF60 r9 =0000000000000001 r10=000000000000001C r11=0000000000000000
+  ROB = 0x00000244CAB86FC0   etat de mouvement = 0x00000244CAB87860
+  DR0 arme sur etat+0x154 (4 o, r) -- 57 thread(s)
+  DR1 arme sur etat+0x158 (4 o, r) -- 57 thread(s)
+  DR2 arme sur etat+0x160 (4 o, r) -- 57 thread(s)
+  DR0 etat+0x154 acces 1 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 1 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 1 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 2 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 2 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 2 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 3 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 3 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 3 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 4 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 4 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 4 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 5 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 5 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 5 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 6 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 6 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 6 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 7 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 7 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 7 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 8 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 8 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 8 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 9 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 9 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 9 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 10 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 10 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 10 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 11 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 11 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 11 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 12 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 12 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 12 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 13 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 13 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 13 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 14 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 14 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 14 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 15 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 15 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 15 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 16 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 16 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 16 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 17 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 17 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 17 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 18 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 18 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 18 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR2 etat+0x160 acces 19 : apres 0x00007FFFAD8C5B58 = vf5fs-pxd-w64-Retail_APM3.dll+0x155B58, valeur 0000b041
+  DR0 etat+0x154 acces 19 : apres 0x00007FFFAD8C5BE5 = vf5fs-pxd-w64-Retail_APM3.dll+0x155BE5, valeur 0000b841
+  DR1 etat+0x158 acces 19 : apres 0x00007FFFAD8C5C00 = vf5fs-pxd-w64-Retail_APM3.dll+0x155C00, valeur 00003842
+  DR0 etat+0x154 acces 20 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 20 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 20 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 21 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 21 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 21 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 22 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 22 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 22 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 23 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 23 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 23 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 24 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 24 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 24 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 25 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 25 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 25 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 26 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 26 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 26 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 27 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 27 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 27 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 28 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 28 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 28 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 29 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 29 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 29 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 30 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 30 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 30 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 31 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 31 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 31 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 32 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 32 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 32 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 33 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 33 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 33 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 34 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 34 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 34 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR0 etat+0x154 acces 35 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 35 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 35 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR2 etat+0x160 acces 36 : apres 0x00007FFFAD8C5B58 = vf5fs-pxd-w64-Retail_APM3.dll+0x155B58, valeur 0000b041
+  DR0 etat+0x154 acces 36 : apres 0x00007FFFAD8C5BE5 = vf5fs-pxd-w64-Retail_APM3.dll+0x155BE5, valeur 0000b841
+  DR1 etat+0x158 acces 36 : apres 0x00007FFFAD8C5C00 = vf5fs-pxd-w64-Retail_APM3.dll+0x155C00, valeur 00003842
+  DR0 etat+0x154 acces 37 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR1 etat+0x158 acces 37 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR2 etat+0x160 acces 37 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR2 etat+0x160 acces 38 : apres 0x00007FFFAD8C5B58 = vf5fs-pxd-w64-Retail_APM3.dll+0x155B58, valeur 0000b841
+  DR0 etat+0x154 acces 38 : apres 0x00007FFFAD8C5BE5 = vf5fs-pxd-w64-Retail_APM3.dll+0x155BE5, valeur 0000e041
+  DR1 etat+0x158 acces 38 : apres 0x00007FFFAD8C5C0B = vf5fs-pxd-w64-Retail_APM3.dll+0x155C0B, valeur 000080bf
+  DR1 etat+0x158 acces 39 : apres 0x00007FFFAD8A3522 = vf5fs-pxd-w64-Retail_APM3.dll+0x133522, valeur 000080bf
+  DR0 etat+0x154 acces 39 : apres 0x00007FFFAD8A431C = vf5fs-pxd-w64-Retail_APM3.dll+0x13431C, valeur 0000e041
+  DR0 etat+0x154 acces 40 : apres 0x00007FFFAD8C84B8 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584B8, valeur 00000000
+  DR0 etat+0x154 : 40 acces releves, registre libere (le jeu reprend sa vitesse)
+  DR1 etat+0x158 acces 40 : apres 0x00007FFFAD8C84CC = vf5fs-pxd-w64-Retail_APM3.dll+0x1584CC, valeur 000080bf
+  DR1 etat+0x158 : 40 acces releves, registre libere (le jeu reprend sa vitesse)
+  DR2 etat+0x160 acces 39 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR2 etat+0x160 acces 40 : apres 0x00007FFFAD8C84D2 = vf5fs-pxd-w64-Retail_APM3.dll+0x1584D2, valeur 00000000
+  DR2 etat+0x160 : 40 acces releves, registre libere (le jeu reprend sa vitesse)
+--- 135 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP MothApplyRecord : 1 passage(s)
+  DR0 etat+0x154 : 40 acces
+  DR1 etat+0x158 : 40 acces
+  DR2 etat+0x160 : 40 acces
+  ignore : 2040 acces apres 0x00007FFFAD8CECDB = vf5fs-pxd-w64-Retail_APM3.dll+0x15ECDB
+  ignore : 1101 acces apres 0x00007FFFAD8CECF7 = vf5fs-pxd-w64-Retail_APM3.dll+0x15ECF7

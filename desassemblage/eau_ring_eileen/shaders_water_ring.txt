@@ -1,0 +1,83 @@
+# LE PROGRAMME `water_ring`, DES DEUX COTES
+#
+# Releve direct dans les archives, sans passer par une note :
+#
+#   Xbox 360 : `SOURCES/X360_VF5/media/shader_hlsl_88.farc`. Chaque .fp/.vp
+#   est un en-tete SEGA de 0x28 octets, puis une CTAB D3DX gros-boutiste
+#   (taille 0x1C, version 0xFFFF0300 = ps_3_0), puis le microcode Xenos.
+#   La CTAB nomme les parametres et donne leur registre : c est elle qui
+#   est lue ici, pas le microcode.
+#
+#   APM3 : `w64/shader_pxd_w64.farc`. Conteneur GSPS/GSVS, DXBC a +0x80.
+#   Les DXBC sont DEPOUILLES (pas de chunk RDEF) : les liaisons se lisent
+#   dans les declarations `dcl_resource` du flot SHEX.
+#
+# CE QUE LE MICROCODE XENOS N A PAS ETE : DESASSEMBLE. On ne compare donc
+# pas le calcul instruction par instruction, seulement ce que chaque
+# programme DECLARE lire. C est suffisant pour la question posee -- u3 et u4
+# sont declarees des deux cotes ou elles ne le sont pas -- mais ce n est pas
+# une lecture du calcul.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== Xbox 360 (VF5 2007) -- shader_hlsl_88.farc, 4744 entrees ===
+    20 programmes `water_ring` : 16 fragments (5 chiffres de permutation), 4 sommets
+
+programme                octets cible    unites de texture        constantes
+water_ring.00000.fp         888 ps_3_0   u0 u1 u2 u3 u4           program_local state_material_specular
+water_ring.00000.vp        1120 vs_3_0   u14                      camera_mvi mv mvp state_material_ambient state_material_specular
+water_ring.00001.fp        1032 ps_3_0   u0 u1 u2 u3 u4 u6        program_env program_local state_material_specular
+water_ring.00001.vp        1928 vs_3_0   u14                      camera_mvi model_mtx mv mvp program_env state_material_ambient state_material_specular
+water_ring.00010.fp         888 ps_3_0   u0 u1 u2 u3 u4           program_local state_material_specular
+water_ring.00011.fp        1104 ps_3_0   u0 u1 u2 u3 u4 u6 u7     program_env program_local state_material_specular
+water_ring.00100.vp        1276 vs_3_0   u14                      camera_mvi mv mvp state_material_ambient state_material_specular
+water_ring.00101.vp        2068 vs_3_0   u14                      camera_mvi model_mtx mv mvp program_env state_material_ambient state_material_specular
+water_ring.01000.fp         924 ps_3_0   u0 u1 u2 u3 u4           program_local state_material_specular
+water_ring.01001.fp        1056 ps_3_0   u0 u1 u2 u3 u4 u6        program_env program_local state_material_specular
+water_ring.01010.fp         924 ps_3_0   u0 u1 u2 u3 u4           program_local state_material_specular
+water_ring.01011.fp        1128 ps_3_0   u0 u1 u2 u3 u4 u6 u7     program_env program_local state_material_specular
+water_ring.10000.fp        1036 ps_3_0   u0 u1 u2 u3 u4 u5        program_local state_material_specular
+water_ring.10001.fp        1156 ps_3_0   u0 u1 u2 u3 u4 u5 u6     program_env program_local state_material_specular
+water_ring.10010.fp        1036 ps_3_0   u0 u1 u2 u3 u4 u5        program_local state_material_specular
+water_ring.10011.fp        1216 ps_3_0   u0 u1 u2 u3 u4 u5 u6 u7  program_env program_local state_material_specular
+water_ring.11000.fp        1060 ps_3_0   u0 u1 u2 u3 u4 u5        program_local state_material_specular
+water_ring.11001.fp        1192 ps_3_0   u0 u1 u2 u3 u4 u5 u6     program_env program_local state_material_specular
+water_ring.11010.fp        1060 ps_3_0   u0 u1 u2 u3 u4 u5        program_local state_material_specular
+water_ring.11011.fp        1252 ps_3_0   u0 u1 u2 u3 u4 u5 u6 u7  program_env program_local state_material_specular
+
+LES SEIZE FRAGMENTS DECLARENT TOUS u0 u1 u2 u3 u4.
+u3 et u4 sont les deux cibles que le rappel 0x821C9238 y lie.
+u5 (le cube par le vecteur de reflet) arrive au 1er chiffre,
+u6 au 4e, u7 et program_env (p_fb_isize) au 5e.
+LES QUATRE PROGRAMMES DE SOMMETS ECHANTILLONNENT u14 : la carte de
+hauteur qui deplace le maillage.
+
+=== APM3 -- w64/shader_pxd_w64.farc, 3950 entrees ===
+    8 programmes `water_ring` : 4 fragments (3 chiffres), 4 sommets
+    DXBC DEPOUILLES (aucun chunk RDEF) : les liaisons sont lues dans
+    les declarations du flot SHEX.
+
+programme                octets instr  textures               entrees
+water_ring.000.fp          1108 17     t[1] t[2] t[6] t[9]    TEXCOORD8 TEXCOORD0 TEXCOORD7 TEXCOORD2
+water_ring.000.vp          1492 17     t[0]                   POSITION0 COLOR0 NORMAL0 TEXCOORD0 TEXCOORD1
+water_ring.001.fp          1228 19     t[1] t[2] t[6] t[7] t[9] TEXCOORD8 TEXCOORD0 TEXCOORD7 TEXCOORD2
+water_ring.010.fp          1108 17     t[1] t[2] t[6] t[9]    TEXCOORD8 TEXCOORD0 TEXCOORD7 TEXCOORD2
+water_ring.010.vp          2488 48     t[0]                   POSITION0 COLOR0 NORMAL0 TEXCOORD0 TEXCOORD1
+water_ring.011.fp          1228 19     t[1] t[2] t[6] t[7] t[9] TEXCOORD8 TEXCOORD0 TEXCOORD7 TEXCOORD2
+water_ring.100.vp          1492 17     t[0]                   POSITION0 COLOR0 NORMAL0 TEXCOORD0 TEXCOORD1
+water_ring.110.vp          2488 48     t[0]                   POSITION0 COLOR0 NORMAL0 TEXCOORD0 TEXCOORD1
+
+AUCUN DES QUATRE FRAGMENTS NE DECLARE t3 NI t4.
+Ils lisent t1 (la couleur), t2 (la normale), t6, t9 (le cube
+d IRRADIANCE, par la normale) et, pour .011/.001, t7.
+Il n y a donc RIEN a lier : meme si le rappel reliait les deux
+cibles, le programme ne les echantillonnerait pas.
+
+-- water_ring.000.fp : 17 instructions, opcodes dp3=1 mad=2 mov=1 mul=6 op106=1 ret=1 rsq=1 sample=2 sample_l=2
+-- water_ring.011.fp : 19 instructions, opcodes dp3=1 mad=2 min=1 mov=1 mul=6 op106=1 ret=1 rsq=1 sample=2 sample_l=3
+-- water_ring.000.vp : 17 instructions, opcodes dp4=6 mad=2 mov=4 mul=2 op106=1 ret=1 sample_l=1

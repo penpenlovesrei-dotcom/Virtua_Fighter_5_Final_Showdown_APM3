@@ -1,0 +1,2767 @@
+MANIFESTE DE VF5_APM3_DECOMP
+
+============================================================
+
+
+
+Source : C:\Users\frede\Desktop\VF5RE
+
+
+
+EMPREINTES SHA-256 DES BINAIRES
+
+  binaires/vfes.exe.origine                              1987072 o
+
+    540a113e632da32d30cb71df1d329f78ab3b00203c532eaa3a98f72615474721
+
+  binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine         6965248 o
+
+    045c06966ad25f10b10cd854bcdfef588c640a1d785f38b03e97f6ea0c837eef
+
+  binaires/vf5fs-pxd-w64-Retail_APM3.dll.PATCHEE         7181824 o
+
+    a9d02d136f78360f5e225bfb993c4101a6753ff7c0e85755250e251895a6d7ac
+
+  binaires/vfes.exe.PATCHE                               1987072 o
+
+    bfb71ef88132e070d38637e90e1e498ad756dc8cf8a9c71a0642cea4c817d350
+
+  binaires/apm.reelle.dll                                1269760 o
+
+    a91ca49bbe728413b87343b3405f9be93ebc08d10f991b0e7004f89c842021e7
+
+  binaires/apmgamepad.dll                                  71680 o
+
+    92fe8f90b508d1a90e74980b3369b570e9326064a65d18f38d25ac60c6d301c8
+
+  binaires/apm.dll.notre_greffe                           122880 o
+
+    7183e2ed18fd8d1bbb6eba6d3cac150e8bda3698be2aaa06350bf87700e154a7
+
+
+
+FICHIERS COPIES : 901
+
+dans ce dossier                                                depuis le depot                                          octets
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+binaires\apm.dll.notre_greffe                                  runtime\media\vf5fs\apm.dll                              122880
+
+binaires\apm.reelle.dll                                        runtime\media\vf5fs\apm.reelle.dll                      1269760
+
+binaires\apmgamepad.dll                                        runtime\media\vf5fs\apmgamepad.dll                        71680
+
+binaires\vf5fs-pxd-w64-Retail_APM3.dll.PATCHEE                 runtime\media\vf5fs\vf5fs-pxd-w64-Retail_APM3.dll       7181824
+
+binaires\vf5fs-pxd-w64-Retail_APM3.dll.origine                 runtime\media\vf5fs\vf5fs-pxd-w64-Retail_APM3.dll.origine    6965248
+
+binaires\vfes.exe.PATCHE                                       runtime\media\vf5fs\vfes.exe                            1987072
+
+binaires\vfes.exe.origine                                      runtime\media\vf5fs\vfes.exe.origine                    1987072
+
+code_decompile\_aet_conv.c                                     analysis\_aet_conv.c                                       4145
+
+code_decompile\_aet_creer_obj.c                                analysis\_aet_creer_obj.c                                   631
+
+code_decompile\_aet_creer_persistant.c                         analysis\_aet_creer_persistant.c                           1737
+
+code_decompile\_aet_dessin_quad.c                              analysis\_aet_dessin_quad.c                                 799
+
+code_decompile\_aet_lookup_usage.c                             analysis\_aet_lookup_usage.c                                367
+
+code_decompile\_aet_parcours.c                                 analysis\_aet_parcours.c                                    620
+
+code_decompile\_aet_poser_mode.c                               analysis\_aet_poser_mode.c                                 7427
+
+code_decompile\_aet_quad.c                                     analysis\_aet_quad.c                                       2243
+
+code_decompile\_aet_remplir.c                                  analysis\_aet_remplir.c                                    2670
+
+code_decompile\_aet_rendu.c                                    analysis\_aet_rendu.c                                       639
+
+code_decompile\_aet_spr_dessin.c                               analysis\_aet_spr_dessin.c                                 7731
+
+code_decompile\_aet_sprite.c                                   analysis\_aet_sprite.c                                     2633
+
+code_decompile\_carte_dessin.c                                 analysis\_carte_dessin.c                                    415
+
+code_decompile\_carte_suite.c                                  analysis\_carte_suite.c                                    1710
+
+code_decompile\_charger_spr.c                                  analysis\_charger_spr.c                                     569
+
+code_decompile\_composant_cos.c                                analysis\_composant_cos.c                                  1037
+
+code_decompile\_conv_courant.c                                 analysis\_conv_courant.c                                    240
+
+code_decompile\_cos_chaine1.c                                  analysis\_cos_chaine1.c                                     459
+
+code_decompile\_cos_chaine2.c                                  analysis\_cos_chaine2.c                                     728
+
+code_decompile\_cos_icon.c                                     analysis\_cos_icon.c                                       8040
+
+code_decompile\_cos_quest.c                                    analysis\_cos_quest.c                                       547
+
+code_decompile\_costume_2007.c                                 analysis\_costume_2007.c                                   1136
+
+code_decompile\_costume_appel.c                                analysis\_costume_appel.c                                  1037
+
+code_decompile\_creer_rang.c                                   analysis\_creer_rang.c                                     1262
+
+code_decompile\_desc_boite.c                                   analysis\_desc_boite.c                                      866
+
+code_decompile\_descripteur.c                                  analysis\_descripteur.c                                    2225
+
+code_decompile\_dessin_texte.c                                 analysis\_dessin_texte.c                                    637
+
+code_decompile\_dessin_texte2.c                                analysis\_dessin_texte2.c                                  1946
+
+code_decompile\_echelle_2d.c                                   analysis\_echelle_2d.c                                     6092
+
+code_decompile\_espace_source.c                                analysis\_espace_source.c                                 12597
+
+code_decompile\_gold_win.c                                     analysis\_gold_win.c                                       6746
+
+code_decompile\_mode_2d.c                                      analysis\_mode_2d.c                                        1367
+
+code_decompile\_mode_choix.c                                   analysis\_mode_choix.c                                      228
+
+code_decompile\_mode_infos.c                                   analysis\_mode_infos.c                                      906
+
+code_decompile\_pave_appel.c                                   analysis\_pave_appel.c                                     1837
+
+code_decompile\_pave_quest.c                                   analysis\_pave_quest.c                                     2033
+
+code_decompile\_pave_sous.c                                    analysis\_pave_sous.c                                     16596
+
+code_decompile\_pave_un.c                                      analysis\_pave_un.c                                        4398
+
+code_decompile\_prepare_spr.c                                  analysis\_prepare_spr.c                                     352
+
+code_decompile\_spr_api.c                                      analysis\_spr_api.c                                        1662
+
+code_decompile\_spr_appelant.c                                 analysis\_spr_appelant.c                                   5762
+
+code_decompile\_spr_cmd.c                                      analysis\_spr_cmd.c                                        8390
+
+code_decompile\_spr_ctx.c                                      analysis\_spr_ctx.c                                        2881
+
+code_decompile\_spr_enreg.c                                    analysis\_spr_enreg.c                                       849
+
+code_decompile\_spr_enreg2.c                                   analysis\_spr_enreg2.c                                     5623
+
+code_decompile\_spr_insert.c                                   analysis\_spr_insert.c                                      767
+
+code_decompile\_texte_conv.c                                   analysis\_texte_conv.c                                     5256
+
+code_decompile\apm3_appelant_init.c                            analysis\apm3_appelant_init.c                               954
+
+code_decompile\apm3_deux_inits.c                               analysis\apm3_deux_inits.c                                 5647
+
+code_decompile\apm3_etat_effacement.c                          analysis\apm3_etat_effacement.c                             369
+
+code_decompile\apm3_init_statique_tache.c                      analysis\apm3_init_statique_tache.c                        1098
+
+code_decompile\apm3_init_table.c                               analysis\apm3_init_table.c                                 1194
+
+code_decompile\apm3_lecteur_maxi.c                             analysis\apm3_lecteur_maxi.c                               3394
+
+code_decompile\apm3_marqueur.c                                 analysis\apm3_marqueur.c                                   1902
+
+code_decompile\apm3_options_horiz.c                            analysis\apm3_options_horiz.c                              1667
+
+code_decompile\apm3_options_setting.c                          analysis\apm3_options_setting.c                            8076
+
+code_decompile\apm3_options_vert.c                             analysis\apm3_options_vert.c                               1010
+
+code_decompile\apm3_reset_bloc.c                               analysis\apm3_reset_bloc.c                                 1972
+
+code_decompile\apm3_save_task.c                                analysis\apm3_save_task.c                                  1548
+
+code_decompile\apm3_savedata_update.c                          analysis\apm3_savedata_update.c                           10102
+
+code_decompile\apm3_tache_savedata.c                           analysis\apm3_tache_savedata.c                             2426
+
+code_decompile\auth3d_fs.c                                     analysis\auth3d_fs.c                                      15061
+
+code_decompile\auth3d_r.c                                      analysis\auth3d_r.c                                        7955
+
+code_decompile\auth3d_verb.c                                   analysis\auth3d_verb.c                                     4788
+
+code_decompile\charge_fichier.c                                analysis\charge_fichier.c                                   940
+
+code_decompile\d3d_cb12_fs.c                                   analysis\d3d_cb12_fs.c                                     2221
+
+code_decompile\d3d_cb_gs_fs.c                                  analysis\d3d_cb_gs_fs.c                                    6640
+
+code_decompile\d3d_etat_fs.c                                   analysis\d3d_etat_fs.c                                     7615
+
+code_decompile\d3d_gs_fs.c                                     analysis\d3d_gs_fs.c                                      40538
+
+code_decompile\d3d_viewport2_fs.c                              analysis\d3d_viewport2_fs.c                                4816
+
+code_decompile\d3d_viewport_fs.c                               analysis\d3d_viewport_fs.c                                  942
+
+code_decompile\decomp.c                                        analysis\decomp.c                                          1740
+
+code_decompile\decomp_a3da_uid.c                               analysis\decomp_a3da_uid.c                                13916
+
+code_decompile\decomp_barriere.c                               analysis\decomp_barriere.c                                 9024
+
+code_decompile\decomp_chargement.c                             analysis\decomp_chargement.c                               7874
+
+code_decompile\decomp_eff_setstage.c                           analysis\decomp_eff_setstage.c                             2546
+
+code_decompile\decomp_eff_start.c                              analysis\decomp_eff_start.c                                8136
+
+code_decompile\decomp_effets.c                                 analysis\decomp_effets.c                                  14162
+
+code_decompile\decomp_objet_par_nom.c                          analysis\decomp_objet_par_nom.c                            1850
+
+code_decompile\decomp_objset.c                                 analysis\decomp_objset.c                                   7768
+
+code_decompile\decomp_poll.c                                   analysis\decomp_poll.c                                    16447
+
+code_decompile\decomp_poll_stage.c                             analysis\decomp_poll_stage.c                               4135
+
+code_decompile\decomp_porte_etat4.c                            analysis\decomp_porte_etat4.c                              2306
+
+code_decompile\decomp_resolveur.c                              analysis\decomp_resolveur.c                                7487
+
+code_decompile\decor_cables_fs.c                               analysis\decor_cables_fs.c                                 6128
+
+code_decompile\effets_fogring_data.c                           analysis\effets_fogring_data.c                            17524
+
+code_decompile\effets_reste.c                                  analysis\effets_reste.c                                    9590
+
+code_decompile\effets_ringout_r.c                              analysis\effets_ringout_r.c                                6784
+
+code_decompile\effets_ringout_r2.c                             analysis\effets_ringout_r2.c                               3052
+
+code_decompile\effets_ringout_verb.c                           analysis\effets_ringout_verb.c                             1456
+
+code_decompile\effets_ripple.c                                 analysis\effets_ripple.c                                   3168
+
+code_decompile\effets_setstage.c                               analysis\effets_setstage.c                                 8392
+
+code_decompile\effets_snowring_fs.c                            analysis\effets_snowring_fs.c                              9755
+
+code_decompile\effets_wetcloth.c                               analysis\effets_wetcloth.c                                 2201
+
+code_decompile\effets_wetcloth2.c                              analysis\effets_wetcloth2.c                                6572
+
+code_decompile\effets_yuka_rain_fogring.c                      analysis\effets_yuka_rain_fogring.c                       12304
+
+code_decompile\effets_yuka_ringout_fs.c                        analysis\effets_yuka_ringout_fs.c                         22235
+
+code_decompile\fog_appli.c                                     analysis\fog_appli.c                                       8257
+
+code_decompile\fog_chemin.c                                    analysis\fog_chemin.c                                      1193
+
+code_decompile\fog_get.c                                       analysis\fog_get.c                                          274
+
+code_decompile\fog_parse.c                                     analysis\fog_parse.c                                       7760
+
+code_decompile\fogring_dessin_fs.c                             analysis\fogring_dessin_fs.c                               3021
+
+code_decompile\fs360_backupram.c                               analysis\fs360_backupram.c                                 1640
+
+code_decompile\fs360_base_table.c                              analysis\fs360_base_table.c                                 239
+
+code_decompile\fs360_bloc_systeme.c                            analysis\fs360_bloc_systeme.c                              4531
+
+code_decompile\fs360_dataselector.c                            analysis\fs360_dataselector.c                              1946
+
+code_decompile\fs360_depaquetage.c                             analysis\fs360_depaquetage.c                               3389
+
+code_decompile\fs360_liste.c                                   analysis\fs360_liste.c                                      537
+
+code_decompile\fs360_remplisseur.c                             analysis\fs360_remplisseur.c                                823
+
+code_decompile\fs360_selitem_init.c                            analysis\fs360_selitem_init.c                              1771
+
+code_decompile\fs360_system_appelants.c                        analysis\fs360_system_appelants.c                          1881
+
+code_decompile\fs360_system_save.c                             analysis\fs360_system_save.c                               2083
+
+code_decompile\fs360_table150.c                                analysis\fs360_table150.c                                  3459
+
+code_decompile\lp_charge.c                                     analysis\lp_charge.c                                        403
+
+code_decompile\lp_stage.c                                      analysis\lp_stage.c                                         254
+
+code_decompile\mur_saku_fs.c                                   analysis\mur_saku_fs.c                                    13224
+
+code_decompile\quest\aet_chargement_ecran.c                    analysis\quest\aet_chargement_ecran.c                     14162
+
+code_decompile\quest\aet_charger_set.c                         analysis\quest\aet_charger_set.c                            569
+
+code_decompile\quest\aet_chargeur_fs.c                         analysis\quest\aet_chargeur_fs.c                           3950
+
+code_decompile\quest\aet_creation_fs.c                         analysis\quest\aet_creation_fs.c                          10241
+
+code_decompile\quest\aet_creation_x360.c                       analysis\quest\aet_creation_x360.c                         5756
+
+code_decompile\quest\aet_creation_x360b.c                      analysis\quest\aet_creation_x360b.c                        7400
+
+code_decompile\quest\aet_creation_x360c.c                      analysis\quest\aet_creation_x360c.c                        2675
+
+code_decompile\quest\aet_creer.c                               analysis\quest\aet_creer.c                                  990
+
+code_decompile\quest\aet_creer2.c                              analysis\quest\aet_creer2.c                                1893
+
+code_decompile\quest\aet_db_parse.c                            analysis\quest\aet_db_parse.c                             13655
+
+code_decompile\quest\aet_detruire.c                            analysis\quest\aet_detruire.c                               986
+
+code_decompile\quest\aet_ecran.c                               analysis\quest\aet_ecran.c                                10241
+
+code_decompile\quest\aet_frame.c                               analysis\quest\aet_frame.c                                 1424
+
+code_decompile\quest\aet_lookup.c                              analysis\quest\aet_lookup.c                                 966
+
+code_decompile\quest\aet_mgr.c                                 analysis\quest\aet_mgr.c                                   5144
+
+code_decompile\quest\aet_mgr_api.c                             analysis\quest\aet_mgr_api.c                               1230
+
+code_decompile\quest\aet_mgr_api2.c                            analysis\quest\aet_mgr_api2.c                              3846
+
+code_decompile\quest\aet_mgr_init.c                            analysis\quest\aet_mgr_init.c                              1816
+
+code_decompile\quest\aet_obj_vtable.c                          analysis\quest\aet_obj_vtable.c                            1482
+
+code_decompile\quest\ecran_dispatch.c                          analysis\quest\ecran_dispatch.c                            3626
+
+code_decompile\quest\ecran_setstate.c                          analysis\quest\ecran_setstate.c                           19718
+
+code_decompile\quest\etats_setters.c                           analysis\quest\etats_setters.c                             4818
+
+code_decompile\quest\fs_aet_cherche.c                          analysis\quest\fs_aet_cherche.c                            2573
+
+code_decompile\quest\fs_aet_creer_rang.c                       analysis\quest\fs_aet_creer_rang.c                          990
+
+code_decompile\quest\fs_aet_handle.c                           analysis\quest\fs_aet_handle.c                             3218
+
+code_decompile\quest\fs_aet_objet.c                            analysis\quest\fs_aet_objet.c                              2131
+
+code_decompile\quest\fs_aetmgr_phases.c                        analysis\quest\fs_aetmgr_phases.c                         12869
+
+code_decompile\quest\fs_arbitre.c                              analysis\quest\fs_arbitre.c                                4520
+
+code_decompile\quest\fs_bgm.c                                  analysis\quest\fs_bgm.c                                    1910
+
+code_decompile\quest\fs_ctx2d.c                                analysis\quest\fs_ctx2d.c                                 12922
+
+code_decompile\quest\fs_ctx_etat.c                             analysis\quest\fs_ctx_etat.c                               2570
+
+code_decompile\quest\fs_decor_et_config.c                      analysis\quest\fs_decor_et_config.c                        2020
+
+code_decompile\quest\fs_descripteur.c                          analysis\quest\fs_descripteur.c                            2248
+
+code_decompile\quest\fs_dessin.c                               analysis\quest\fs_dessin.c                                  238
+
+code_decompile\quest\fs_dessin2.c                              analysis\quest\fs_dessin2.c                                 637
+
+code_decompile\quest\fs_dessin3.c                              analysis\quest\fs_dessin3.c                                1946
+
+code_decompile\quest\fs_dossier.c                              analysis\quest\fs_dossier.c                                 607
+
+code_decompile\quest\fs_fenetre.c                              analysis\quest\fs_fenetre.c                                8775
+
+code_decompile\quest\fs_fiche_copie.c                          analysis\quest\fs_fiche_copie.c                            2612
+
+code_decompile\quest\fs_fin_selecteur.c                        analysis\quest\fs_fin_selecteur.c                          2210
+
+code_decompile\quest\fs_force_cpu.c                            analysis\quest\fs_force_cpu.c                              1513
+
+code_decompile\quest\fs_glyphes.c                              analysis\quest\fs_glyphes.c                                4986
+
+code_decompile\quest\fs_perso_sites.c                          analysis\quest\fs_perso_sites.c                           11504
+
+code_decompile\quest\fs_poser_appelant.c                       analysis\quest\fs_poser_appelant.c                         2681
+
+code_decompile\quest\fs_poser_combattant.c                     analysis\quest\fs_poser_combattant.c                       1679
+
+code_decompile\quest\fs_preparer_match.c                       analysis\quest\fs_preparer_match.c                         3903
+
+code_decompile\quest\fs_printgc_virt.c                         analysis\quest\fs_printgc_virt.c                           7737
+
+code_decompile\quest\fs_recette.c                              analysis\quest\fs_recette.c                                4534
+
+code_decompile\quest\fs_selecteur_champs.c                     analysis\quest\fs_selecteur_champs.c                       1185
+
+code_decompile\quest\fs_session.c                              analysis\quest\fs_session.c                                1875
+
+code_decompile\quest\fs_session_accesseurs.c                   analysis\quest\fs_session_accesseurs.c                     4273
+
+code_decompile\quest\fs_son_ui.c                               analysis\quest\fs_son_ui.c                                 8703
+
+code_decompile\quest\fs_sprite.c                               analysis\quest\fs_sprite.c                                 2575
+
+code_decompile\quest\fs_sprite2.c                              analysis\quest\fs_sprite2.c                                1165
+
+code_decompile\quest\fs_str_get.c                              analysis\quest\fs_str_get.c                                1080
+
+code_decompile\quest\fs_str_load.c                             analysis\quest\fs_str_load.c                               1523
+
+code_decompile\quest\fs_texte.c                                analysis\quest\fs_texte.c                                   999
+
+code_decompile\quest\fs_texte2.c                               analysis\quest\fs_texte2.c                                  326
+
+code_decompile\quest\fs_texte_api.c                            analysis\quest\fs_texte_api.c                              3064
+
+code_decompile\quest\fs_vainqueur.c                            analysis\quest\fs_vainqueur.c                               540
+
+code_decompile\quest\fs_verdict.c                              analysis\quest\fs_verdict.c                                 488
+
+code_decompile\quest\ia_chargeur.c                             analysis\quest\ia_chargeur.c                               1700
+
+code_decompile\quest\machine_sousetat.c                        analysis\quest\machine_sousetat.c                          5883
+
+code_decompile\quest\menu_quitter.c                            analysis\quest\menu_quitter.c                               588
+
+code_decompile\quest\menu_scoreboards.c                        analysis\quest\menu_scoreboards.c                          9262
+
+code_decompile\quest\menu_validation.c                         analysis\quest\menu_validation.c                           1742
+
+code_decompile\quest\npc_chargeur.c                            analysis\quest\npc_chargeur.c                              2190
+
+code_decompile\quest\prepa_b8540.c                             analysis\quest\prepa_b8540.c                              11955
+
+code_decompile\quest\quest_gestion2.c                          analysis\quest\quest_gestion2.c                            5881
+
+code_decompile\quest\quest_gestion_x360.c                      analysis\quest\quest_gestion_x360.c                      214088
+
+code_decompile\quest\quest_mode_x360.c                         analysis\quest\quest_mode_x360.c                          16241
+
+code_decompile\quest\quest_reste1.c                            analysis\quest\quest_reste1.c                             65417
+
+code_decompile\quest\quest_reste2.c                            analysis\quest\quest_reste2.c                             85639
+
+code_decompile\quest\quest_x360.c                              analysis\quest\quest_x360.c                              418178
+
+code_decompile\quest\selecteur_commit.c                        analysis\quest\selecteur_commit.c                          3463
+
+code_decompile\quest\selecteur_getters.c                       analysis\quest\selecteur_getters.c                          914
+
+code_decompile\quest\spr_chargeur.c                            analysis\quest\spr_chargeur.c                              7916
+
+code_decompile\quest\spr_lookup.c                              analysis\quest\spr_lookup.c                                 966
+
+code_decompile\quest\spr_prepare.c                             analysis\quest\spr_prepare.c                               1392
+
+code_decompile\quest\vs_entree.c                               analysis\quest\vs_entree.c                                 3638
+
+code_decompile\quest\vs_prepa.c                                analysis\quest\vs_prepa.c                                  1438
+
+code_decompile\quest\x360_aet_ancre.c                          analysis\quest\x360_aet_ancre.c                            2667
+
+code_decompile\quest\x360_fenetre.c                            analysis\quest\x360_fenetre.c                              4481
+
+code_decompile\quest\x360_fiche_joueur.c                       analysis\quest\x360_fiche_joueur.c                          536
+
+code_decompile\quest\x360_force_cpu.c                          analysis\quest\x360_force_cpu.c                            4661
+
+code_decompile\quest\x360_gains.c                              analysis\quest\x360_gains.c                                1000
+
+code_decompile\quest\x360_homemenu.c                           analysis\quest\x360_homemenu.c                             2022
+
+code_decompile\quest\x360_lancer.c                             analysis\quest\x360_lancer.c                                276
+
+code_decompile\quest\x360_liste_lieu.c                         analysis\quest\x360_liste_lieu.c                           1058
+
+code_decompile\quest\x360_menu_arcade.c                        analysis\quest\x360_menu_arcade.c                         14646
+
+code_decompile\quest\x360_npc_nom.c                            analysis\quest\x360_npc_nom.c                              3550
+
+code_decompile\quest\x360_prepa_combat.c                       analysis\quest\x360_prepa_combat.c                         9850
+
+code_decompile\quest\x360_print_api.c                          analysis\quest\x360_print_api.c                            4974
+
+code_decompile\quest\x360_profil.c                             analysis\quest\x360_profil.c                                618
+
+code_decompile\quest\x360_resolveur.c                          analysis\quest\x360_resolveur.c                            1143
+
+code_decompile\quest\x360_selecteur_donnees.c                  analysis\quest\x360_selecteur_donnees.c                   10584
+
+code_decompile\quest\x360_str_get.c                            analysis\quest\x360_str_get.c                              1115
+
+code_decompile\quest\x360_str_get2.c                           analysis\quest\x360_str_get2.c                              663
+
+code_decompile\quest\x360_str_load.c                           analysis\quest\x360_str_load.c                             1022
+
+code_decompile\quest\x360_texte.c                              analysis\quest\x360_texte.c                                 742
+
+code_decompile\quest\x360_texte2.c                             analysis\quest\x360_texte2.c                               2177
+
+code_decompile\quest\x360_txt2.c                               analysis\quest\x360_txt2.c                                 1049
+
+code_decompile\r_riv_jin.c                                     analysis\r_riv_jin.c                                       6135
+
+code_decompile\scene_riv_jin_fs.c                              analysis\scene_riv_jin_fs.c                                1613
+
+code_decompile\shader_archive_fs.c                             analysis\shader_archive_fs.c                               1249
+
+code_decompile\shader_gsfx2_fs.c                               analysis\shader_gsfx2_fs.c                                11452
+
+code_decompile\shader_gsfx_fs.c                                analysis\shader_gsfx_fs.c                                 16392
+
+code_decompile\snowring_dessin_d3d.c                           analysis\snowring_dessin_d3d.c                             2537
+
+code_decompile\snowring_os_fs.c                                analysis\snowring_os_fs.c                                  1389
+
+code_decompile\snowring_pas_fs.c                               analysis\snowring_pas_fs.c                                 9125
+
+code_decompile\snowring_rt_fs.c                                analysis\snowring_rt_fs.c                                  2746
+
+code_decompile\taches_effet_toutes_fs.c                        analysis\taches_effet_toutes_fs.c                        127079
+
+csharp_apm3\Credit.cs                                          analysis\apm3_source\Credit.cs                              562
+
+csharp_apm3\Design.cs                                          analysis\apm3_source\Design.cs                             1157
+
+csharp_apm3\Icon.cs                                            analysis\apm3_source\Icon.cs                               2492
+
+csharp_apm3\IconCanvas.cs                                      analysis\apm3_source\IconCanvas.cs                         3034
+
+csharp_apm3\IconCanvasAnimation.cs                             analysis\apm3_source\IconCanvasAnimation.cs                1645
+
+csharp_apm3\IconListCanvas.cs                                  analysis\apm3_source\IconListCanvas.cs                    16487
+
+csharp_apm3\MainCanvasAnimation.cs                             analysis\apm3_source\MainCanvasAnimation.cs                1258
+
+csharp_apm3\MovieButton.cs                                     analysis\apm3_source\MovieButton.cs                        1303
+
+csharp_apm3\MoviePlayer.cs                                     analysis\apm3_source\MoviePlayer.cs                        1395
+
+csharp_apm3\PageButton.cs                                      analysis\apm3_source\PageButton.cs                         1882
+
+csharp_apm3\SceneManager.cs                                    analysis\apm3_source\SceneManager.cs                      10530
+
+csharp_apm3\TitleAnimation.cs                                  analysis\apm3_source\TitleAnimation.cs                     3483
+
+csharp_apm3\WheelEffect3D.cs                                   analysis\apm3_source\WheelEffect3D.cs                      5034
+
+desassemblage\README.md                                        analysis\disasm\README.md                                  4622
+
+desassemblage\aet_marqueurs_customize.txt                      analysis\disasm\aet_marqueurs_customize.txt                3766
+
+desassemblage\chargeur_archive.txt                             analysis\disasm\chargeur_archive.txt                       9270
+
+desassemblage\disasm_decors_A.txt                              analysis\disasm_decors_A.txt                              18727
+
+desassemblage\disasm_decors_B.txt                              analysis\disasm_decors_B.txt                              19555
+
+desassemblage\disasm_decors_C.txt                              analysis\disasm_decors_C.txt                              24072
+
+desassemblage\disasm_decors_D.txt                              analysis\disasm_decors_D.txt                               4413
+
+desassemblage\disasm_match_setup.txt                           analysis\disasm_match_setup.txt                           29314
+
+desassemblage\disasm_mothead_consumers.txt                     analysis\disasm_mothead_consumers.txt                     44644
+
+desassemblage\disasm_mothead_handlers.txt                      analysis\disasm_mothead_handlers.txt                     130369
+
+desassemblage\disasm_mothead_list2.txt                         analysis\disasm_mothead_list2.txt                          8968
+
+desassemblage\disasm_mothead_loader.txt                        analysis\disasm_mothead_loader.txt                        54953
+
+desassemblage\disasm_mothead_ondemand.txt                      analysis\disasm_mothead_ondemand.txt                      11815
+
+desassemblage\disasm_mothead_readers.txt                       analysis\disasm_mothead_readers.txt                        9332
+
+desassemblage\disasm_mothead_readers2.txt                      analysis\disasm_mothead_readers2.txt                       6466
+
+desassemblage\disasm_mothead_section1.txt                      analysis\disasm_mothead_section1.txt                      27999
+
+desassemblage\disasm_selstage.txt                              analysis\disasm_selstage.txt                              61710
+
+desassemblage\disasm_selstage_liste.txt                        analysis\disasm_selstage_liste.txt                        10711
+
+desassemblage\itemmain_update.txt                              analysis\disasm\itemmain_update.txt                        4446
+
+desassemblage\itmeq_basculement.txt                            analysis\disasm\itmeq_basculement.txt                      2315
+
+desassemblage\itmeq_update.txt                                 analysis\disasm\itmeq_update.txt                          12247
+
+desassemblage\lind_itmeq_update.txt                            analysis\disasm\lind_itmeq_update.txt                     11017
+
+desassemblage\publieur_joueur.txt                              analysis\disasm\publieur_joueur.txt                        4338
+
+desassemblage\repartiteur_curseur.txt                          analysis\disasm\repartiteur_curseur.txt                    6090
+
+desassemblage\resolveur_objset.txt                             analysis\disasm\resolveur_objset.txt                       8002
+
+desassemblage\selitem_consommateur.txt                         analysis\disasm\selitem_consommateur.txt                   4490
+
+desassemblage\selitem_dessin.txt                               analysis\disasm\selitem_dessin.txt                         4996
+
+desassemblage\selitem_update.txt                               analysis\disasm\selitem_update.txt                         7372
+
+desassemblage\selpart_curseur.txt                              analysis\disasm\selpart_curseur.txt                        8505
+
+desassemblage\selpart_dessin.txt                               analysis\disasm\selpart_dessin.txt                        12834
+
+desassemblage\taskrobsingle_update.txt                         analysis\disasm\taskrobsingle_update.txt                   5987
+
+desassemblage\x360_grille_deplacement.txt                      analysis\disasm\x360_grille_deplacement.txt                8868
+
+desassemblage\x360_itmeq_update.txt                            analysis\disasm\x360_itmeq_update.txt                     12379
+
+desassemblage\x360_page_update.txt                             analysis\disasm\x360_page_update.txt                       8078
+
+desassemblage\x360_repartiteur.txt                             analysis\disasm\x360_repartiteur.txt                       5855
+
+desassemblage\x360_taskrobsingle_update.txt                    analysis\disasm\x360_taskrobsingle_update.txt              5507
+
+documentation\API_MATRIX.md                                    analysis\API_MATRIX.md                                     8337
+
+documentation\CHARACTERS.md                                    analysis\CHARACTERS.md                                     6982
+
+documentation\CODE_CLASSIFICATION.md                           analysis\CODE_CLASSIFICATION.md                           10256
+
+documentation\INITIAL_REPORT.md                                analysis\INITIAL_REPORT.md                                16407
+
+documentation\INSTRUMENTATION.md                               analysis\INSTRUMENTATION.md                               23457
+
+documentation\LOADER_ARCHAEOLOGY.md                            analysis\LOADER_ARCHAEOLOGY.md                             6328
+
+documentation\MANIFEST.md                                      analysis\MANIFEST.md                                       4470
+
+documentation\MODERN_DATA_LINEAGE.md                           analysis\MODERN_DATA_LINEAGE.md                            6849
+
+documentation\PROGRAMME.md                                     analysis\PROGRAMME.md                                      6758
+
+documentation\SOURCES.md                                       analysis\SOURCES.md                                        4594
+
+documentation\SOURCE_INVENTORY.md                              analysis\SOURCE_INVENTORY.md                               8385
+
+documentation\VERSIONS.md                                      analysis\VERSIONS.md                                       9166
+
+documentation\_journal\A FAIRE.txt                             A FAIRE.txt                                               14027
+
+documentation\_journal\PROMPT_TERMINAL_ET_QUEST.md             PROMPT_TERMINAL_ET_QUEST.md                               18321
+
+documentation\_journal\REPRISE.md                              REPRISE.md                                               944944
+
+documentation\_journal\REPRISE_PROMPT.md                       REPRISE_PROMPT.md                                          8182
+
+documentation\_journal\REPRISE_QUEST.md                        REPRISE_QUEST.md                                           8808
+
+documentation\ajouter_un_decor.md                              analysis\ajouter_un_decor.md                              21526
+
+documentation\apm_surimpression.md                             analysis\apm_surimpression.md                              9741
+
+documentation\auth_3d_db.md                                    analysis\auth_3d_db.md                                     4842
+
+documentation\boutons_apm3.md                                  analysis\boutons_apm3.md                                   7356
+
+documentation\brume_anneau_aoi.md                              analysis\brume_anneau_aoi.md                              44084
+
+documentation\carte_customize.md                               analysis\carte_customize.md                               41914
+
+documentation\carte_menu.md                                    analysis\carte_menu.md                                    28251
+
+documentation\carte_options.md                                 analysis\carte_options.md                                 16811
+
+documentation\carte_selecteur.md                               analysis\carte_selecteur.md                               54728
+
+documentation\carte_sprite2d.md                                analysis\carte_sprite2d.md                                18861
+
+documentation\comparaison_builds.md                            analysis\comparaison_builds.md                            17170
+
+documentation\comparaison_revo.md                              analysis\comparaison_revo.md                              11850
+
+documentation\correspondance_revo.md                           analysis\correspondance_revo.md                            6463
+
+documentation\couverture_console.md                            analysis\couverture_console.md                             4208
+
+documentation\customize_0x299.md                               analysis\customize_0x299.md                               81437
+
+documentation\decors.md                                        analysis\decors.md                                       106031
+
+documentation\decors_lindbergh.md                              analysis\decors_lindbergh.md                               7723
+
+documentation\decors_vf5r.md                                   analysis\decors_vf5r.md                                    6661
+
+documentation\dlc_objets.md                                    analysis\dlc_objets.md                                     5110
+
+documentation\docs\formats\apm_input.md                        docs\formats\apm_input.md                                 18216
+
+documentation\docs\formats\farc.md                             docs\formats\farc.md                                       4476
+
+documentation\docs\formats\mot_tables.md                       docs\formats\mot_tables.md                                 8165
+
+documentation\docs\formats\mothead.md                          docs\formats\mothead.md                                   68211
+
+documentation\docs\formats\xbox360_outils.md                   docs\formats\xbox360_outils.md                             5075
+
+documentation\dural.md                                         analysis\dural.md                                         59286
+
+documentation\eau_slk_console.md                               analysis\eau_slk_console.md                               15621
+
+documentation\eau_slk_donnees.md                               analysis\eau_slk_donnees.md                                5201
+
+documentation\ecrans_demarrage.md                              analysis\ecrans_demarrage.md                               5218
+
+documentation\etats_console_essais.md                          analysis\etats_console_essais.md                           6849
+
+documentation\fenetres_temporelles.md                          analysis\fenetres_temporelles.md                          14913
+
+documentation\films_usm.md                                     analysis\films_usm.md                                      8292
+
+documentation\greffe_relocations.md                            analysis\greffe_relocations.md                             6259
+
+documentation\import_decors.md                                 analysis\import_decors.md                                 17847
+
+documentation\interface_apm3.md                                analysis\interface_apm3.md                                12521
+
+documentation\interface_apm3_code.md                           analysis\interface_apm3_code.md                           16804
+
+documentation\knockout_trial.md                                analysis\knockout_trial.md                                 8872
+
+documentation\langue.md                                        analysis\langue.md                                         2905
+
+documentation\liste2_repartiteur.md                            analysis\liste2_repartiteur.md                             9477
+
+documentation\machine_console.md                               analysis\machine_console.md                                8872
+
+documentation\machine_etats.md                                 analysis\machine_etats.md                                  5574
+
+documentation\menu_console.md                                  analysis\menu_console.md                                 125736
+
+documentation\mode_de_jeu.md                                   analysis\mode_de_jeu.md                                   35248
+
+documentation\mode_quest.md                                    analysis\mode_quest.md                                   382967
+
+documentation\mode_selector.md                                 analysis\mode_selector.md                                 26958
+
+documentation\mothead_liste2_roles.md                          analysis\mothead_liste2_roles.md                          17741
+
+documentation\obj_db.md                                        analysis\obj_db.md                                         4764
+
+documentation\parente_console.md                               analysis\parente_console.md                                7665
+
+documentation\polices_et_pictos.md                             analysis\polices_et_pictos.md                             10919
+
+documentation\quest_regles.md                                  analysis\quest_regles.md                                   7737
+
+documentation\repartiteur.md                                   analysis\repartiteur.md                                    6488
+
+documentation\reseau.md                                        analysis\reseau.md                                         7295
+
+documentation\reseau_allnet.md                                 analysis\reseau_allnet.md                                 74511
+
+documentation\reseau_machine.md                                analysis\reseau_machine.md                                14272
+
+documentation\reseau_transport.md                              analysis\reseau_transport.md                              34980
+
+documentation\resolution.md                                    analysis\resolution.md                                     4902
+
+documentation\tex_db.md                                        analysis\tex_db.md                                         2963
+
+documentation\texte_2d.md                                      analysis\texte_2d.md                                      16232
+
+documentation\vs_gameover.md                                   analysis\vs_gameover.md                                    9822
+
+documentation\x360_fs.md                                       analysis\x360_fs.md                                       11504
+
+donnees\API_MATRIX_raw.txt                                     analysis\API_MATRIX_raw.txt                               18183
+
+donnees\_lanceurs_20261004.txt                                 analysis\_lanceurs_20261004.txt                            2307
+
+donnees\_ps3_liste.txt                                         analysis\_ps3_liste.txt                                   26462
+
+donnees\_refs_libelle.txt                                      analysis\_refs_libelle.txt                                26917
+
+donnees\_selstage_upd.txt                                      analysis\_selstage_upd.txt                                27062
+
+donnees\_temoin_reloc.txt                                      analysis\_temoin_reloc.txt                                   18
+
+donnees\_titres.txt                                            analysis\_titres.txt                                       1603
+
+donnees\apm_creneaux.json                                      analysis\apm_creneaux.json                                 4317
+
+donnees\cadence.txt                                            analysis\cadence.txt                                    1216463
+
+donnees\cadence2.txt                                           analysis\cadence2.txt                                   1397632
+
+donnees\carte_entrees.txt                                      analysis\carte_entrees.txt                                 2640
+
+donnees\config_module.txt                                      analysis\config_module.txt                                 2777
+
+donnees\controle_quest.txt                                     analysis\controle_quest.txt                               18631
+
+donnees\dbg2.txt                                               analysis\dbg2.txt                                       2122641
+
+donnees\dbg3.txt                                               analysis\dbg3.txt                                       1994278
+
+donnees\dbg_start.txt                                          analysis\dbg_start.txt                                  2225702
+
+donnees\decors_lindbergh.csv                                   analysis\decors_lindbergh.csv                              2389
+
+donnees\dlc\vf5_item_names_en.json                             analysis\dlc\vf5_item_names_en.json                      713646
+
+donnees\empreinte_quest.json                                   analysis\empreinte_quest.json                             14371
+
+donnees\fichiers_demandes.txt                                  analysis\fichiers_demandes.txt                             8002
+
+donnees\forcer_dural.txt                                       analysis\forcer_dural.txt                                   999
+
+donnees\functions.csv                                          analysis\functions.csv                                    36736
+
+donnees\inventory\APM3_FS.csv                                  analysis\inventory\APM3_FS.csv                          1123404
+
+donnees\inventory\APM3_US.csv                                  analysis\inventory\APM3_US.csv                           164728
+
+donnees\inventory\LIND_FS.csv                                  analysis\inventory\LIND_FS.csv                              146
+
+donnees\inventory\LIND_R_7z.listing.txt                        analysis\inventory\LIND_R_7z.listing.txt                    781
+
+donnees\inventory\LIND_R_rom.listing.txt                       analysis\inventory\LIND_R_rom.listing.txt                481799
+
+donnees\inventory\LIND_R_sys.listing.txt                       analysis\inventory\LIND_R_sys.listing.txt                291389
+
+donnees\inventory\LIND_VF5.listing.txt                         analysis\inventory\LIND_VF5.listing.txt                  571512
+
+donnees\inventory\LIND_vf5fs_bin.listing.txt                   analysis\inventory\LIND_vf5fs_bin.listing.txt           6244284
+
+donnees\inventory\LIND_vf5fs_ext_bin.listing.txt               analysis\inventory\LIND_vf5fs_ext_bin.listing.txt         26421
+
+donnees\inventory\PC_REVO.csv                                  analysis\inventory\PC_REVO.csv                          1103608
+
+donnees\inventory\PS3_FS.csv                                   analysis\inventory\PS3_FS.csv                               333
+
+donnees\inventory\X360_FS.csv                                  analysis\inventory\X360_FS.csv                              180
+
+donnees\langue.txt                                             analysis\langue.txt                                        1000
+
+donnees\libelles_renommes.json                                 analysis\libelles_renommes.json                              33
+
+donnees\mothead_fenetres_sites.csv                             analysis\mothead_fenetres_sites.csv                        6491
+
+donnees\mothead_list2_consumers.csv                            analysis\mothead_list2_consumers.csv                       1121
+
+donnees\mothead_liste2_gestionnaires.csv                       analysis\mothead_liste2_gestionnaires.csv                  1960
+
+donnees\mothead_opcodes.csv                                    analysis\mothead_opcodes.csv                              50475
+
+donnees\mothead_state_readers.csv                              analysis\mothead_state_readers.csv                        76175
+
+donnees\oracle_handlers_sortie.txt                             analysis\oracle_handlers_sortie.txt                        4501
+
+donnees\oracle_liste1_vivant.txt                               analysis\oracle_liste1_vivant.txt                          6459
+
+donnees\oracle_liste2_v2.txt                                   analysis\oracle_liste2_v2.txt                              7059
+
+donnees\oracle_liste2_v3.txt                                   analysis\oracle_liste2_v3.txt                              4890
+
+donnees\oracle_liste2_v4.txt                                   analysis\oracle_liste2_v4.txt                              3056
+
+donnees\oracle_liste2_v5.txt                                   analysis\oracle_liste2_v5.txt                              8776
+
+donnees\oracle_liste2_v6.txt                                   analysis\oracle_liste2_v6.txt                              6024
+
+donnees\oracle_liste2_v7.txt                                   analysis\oracle_liste2_v7.txt                              2533
+
+donnees\oracle_liste2_vivant.txt                               analysis\oracle_liste2_vivant.txt                          5526
+
+donnees\par_entrees_origine.json                               analysis\par_entrees_origine.json                           129
+
+donnees\passe_reconnaissance.txt                               analysis\passe_reconnaissance.txt                          2225
+
+donnees\pistage_fenetres.txt                                   analysis\pistage_fenetres.txt                             15212
+
+donnees\pistage_liste2.txt                                     analysis\pistage_liste2.txt                                4738
+
+donnees\pistage_perso.txt                                      analysis\pistage_perso.txt                                 3055
+
+donnees\pister_5c.txt                                          analysis\pister_5c.txt                                     6533
+
+donnees\pister_5c_stage.txt                                    analysis\pister_5c_stage.txt                               1668
+
+donnees\pister_60_stage.txt                                    analysis\pister_60_stage.txt                               1897
+
+donnees\pister_attract.txt                                     analysis\pister_attract.txt                                1786
+
+donnees\pister_attract_bilan.txt                               analysis\pister_attract_bilan.txt                          1013
+
+donnees\pister_cri.txt                                         analysis\pister_cri.txt                                    1159
+
+donnees\pister_cri_bilan.txt                                   analysis\pister_cri_bilan.txt                               246
+
+donnees\pister_decodeur.txt                                    analysis\pister_decodeur.txt                               1604
+
+donnees\pister_decodeur_bilan.txt                              analysis\pister_decodeur_bilan.txt                          958
+
+donnees\pister_decor.txt                                       analysis\pister_decor.txt                                  1528
+
+donnees\pister_dessin.txt                                      analysis\pister_dessin.txt                                 2752
+
+donnees\pister_grille.txt                                      analysis\pister_grille.txt                                 2327
+
+donnees\pister_http.txt                                        analysis\pister_http.txt                                   4145
+
+donnees\pister_http_bilan.txt                                  analysis\pister_http_bilan.txt                              725
+
+donnees\pister_import_d5r.txt                                  analysis\pister_import_d5r.txt                             3491
+
+donnees\pister_import_djo.txt                                  analysis\pister_import_djo.txt                             3022
+
+donnees\pister_item3d.20261004-013317.txt                      analysis\pister_item3d.20261004-013317.txt                 8784
+
+donnees\pister_item3d.20261004-013503.txt                      analysis\pister_item3d.20261004-013503.txt                 3873
+
+donnees\pister_item3d.20261004-013615.txt                      analysis\pister_item3d.20261004-013615.txt                 7826
+
+donnees\pister_item3d.20261004-014559.txt                      analysis\pister_item3d.20261004-014559.txt                 7662
+
+donnees\pister_item3d.20261004-103034.txt                      analysis\pister_item3d.20261004-103034.txt                30382
+
+donnees\pister_item3d.txt                                      analysis\pister_item3d.txt                                14357
+
+donnees\pister_legende.txt                                     analysis\pister_legende.txt                                1743
+
+donnees\pister_legende_bilan.txt                               analysis\pister_legende_bilan.txt                           820
+
+donnees\pister_link.txt                                        analysis\pister_link.txt                                   5007
+
+donnees\pister_link_bilan.txt                                  analysis\pister_link_bilan.txt                             4226
+
+donnees\pister_menu.txt                                        analysis\pister_menu.txt                                   1243
+
+donnees\pister_mode.txt                                        analysis\pister_mode.txt                                   2150
+
+donnees\pister_mode_bilan.txt                                  analysis\pister_mode_bilan.txt                             1467
+
+donnees\pister_objdb.txt                                       analysis\pister_objdb.txt                                  1299
+
+donnees\pister_objset.txt                                      analysis\pister_objset.txt                                 1272
+
+donnees\pister_objset_pret.txt                                 analysis\pister_objset_pret.txt                            5969
+
+donnees\pister_ordre.txt                                       analysis\pister_ordre.txt                                  4683
+
+donnees\pister_perso.txt                                       analysis\pister_perso.txt                                  1726
+
+donnees\pister_perso_TAK.txt                                   analysis\pister_perso_TAK.txt                              2018
+
+donnees\pister_plantage.txt                                    analysis\pister_plantage.txt                               7816
+
+donnees\pister_sauvegarde.txt                                  analysis\pister_sauvegarde.txt                            47133
+
+donnees\pister_scene.txt                                       analysis\pister_scene.txt                                  1459
+
+donnees\pister_scene_bilan.txt                                 analysis\pister_scene_bilan.txt                            4665
+
+donnees\pister_scenes.txt                                      analysis\pister_scenes.txt                                  833
+
+donnees\pister_selstage.txt                                    analysis\pister_selstage.txt                               1626
+
+donnees\pister_sousmenu.txt                                    analysis\pister_sousmenu.txt                               1146
+
+donnees\pister_sousmenu_bilan.txt                              analysis\pister_sousmenu_bilan.txt                          753
+
+donnees\pister_sp.txt                                          analysis\pister_sp.txt                                     1726
+
+donnees\pister_sp_bilan.txt                                    analysis\pister_sp_bilan.txt                               1054
+
+donnees\pister_tampon.txt                                      analysis\pister_tampon.txt                                 2803
+
+donnees\pister_tampon_bilan.txt                                analysis\pister_tampon_bilan.txt                           2194
+
+donnees\pister_validation.txt                                  analysis\pister_validation.txt                              965
+
+donnees\pister_validation_bilan.txt                            analysis\pister_validation_bilan.txt                        658
+
+donnees\pister_variantes.txt                                   analysis\pister_variantes.txt                              2030
+
+donnees\pister_vga.txt                                         analysis\pister_vga.txt                                     905
+
+donnees\plantage_essai.txt                                     analysis\plantage_essai.txt                                4478
+
+donnees\plantage_f1_arcade.txt                                 analysis\plantage_f1_arcade.txt                            1865
+
+donnees\plantage_t1.txt                                        analysis\plantage_t1.txt                                   1093
+
+donnees\plantage_vide.txt                                      analysis\plantage_vide.txt                                 3256
+
+donnees\quest\_liste_quest.txt                                 analysis\quest\_liste_quest.txt                            3228
+
+donnees\quest\_manque_quest.txt                                analysis\quest\_manque_quest.txt                            994
+
+donnees\quest\ancres_qwin.txt                                  analysis\quest\ancres_qwin.txt                            16972
+
+donnees\quest\methodes_quest.txt                               analysis\quest\methodes_quest.txt                          2436
+
+donnees\quest\objets_2007_vers_fs.json                         analysis\quest\objets_2007_vers_fs.json                   48800
+
+donnees\quest\textes.md                                        analysis\quest\textes.md                                  29307
+
+donnees\regression.txt                                         analysis\regression.txt                                     925
+
+donnees\resolution.txt                                         analysis\resolution.txt                                    7022
+
+donnees\rtti_apm3.txt                                          analysis\rtti_apm3.txt                                    57529
+
+donnees\rtti_vf5_lind.txt                                      analysis\rtti_vf5_lind.txt                                16176
+
+donnees\rtti_vf5_x360.txt                                      analysis\rtti_vf5_x360.txt                                 4894
+
+donnees\rtti_yakuza6.txt                                       analysis\rtti_yakuza6.txt                                 28805
+
+donnees\selection_a.txt                                        analysis\selection_a.txt                                     29
+
+donnees\selection_b.txt                                        analysis\selection_b.txt                                     29
+
+donnees\serveur_allnet.txt                                     analysis\serveur_allnet.txt                                1181
+
+donnees\sonde_decor.txt                                        analysis\sonde_decor.txt                                    974
+
+donnees\sonde_menu_vivant.txt                                  analysis\sonde_menu_vivant.txt                             1051
+
+donnees\sonde_mode.txt                                         analysis\sonde_mode.txt                                    6710
+
+donnees\sonde_terminal.txt                                     analysis\sonde_terminal.txt                                1530
+
+donnees\sonde_vignettes.txt                                    analysis\sonde_vignettes.txt                                  0
+
+donnees\sp_corrige.txt                                         analysis\sp_corrige.txt                                    4473
+
+donnees\sp_plantage.txt                                        analysis\sp_plantage.txt                                   7205
+
+donnees\sp_poseurs.txt                                         analysis\sp_poseurs.txt                                    4053
+
+donnees\sp_sans_option.txt                                     analysis\sp_sans_option.txt                                4219
+
+donnees\strings_pxd_revo.txt                                   analysis\strings_pxd_revo.txt                           1112942
+
+donnees\strings_pxd_us.txt                                     analysis\strings_pxd_us.txt                             1299683
+
+donnees\strings_vf5_lind.txt                                   analysis\strings_vf5_lind.txt                           1187702
+
+donnees\strings_vf5_lindimg.txt                                analysis\strings_vf5_lindimg.txt                        1182591
+
+donnees\table_decors.csv                                       analysis\table_decors.csv                                  4039
+
+donnees\trace_etats.txt                                        analysis\trace_etats.txt                                   1668
+
+donnees\yamp\Y6-VF5FS.h                                        analysis\yamp\Y6-VF5FS.h                                    280
+
+donnees\yamp\Y6_cs_game.h                                      analysis\yamp\Y6_cs_game.h                                  130
+
+donnees\yamp\Y6_file_access.h                                  analysis\yamp\Y6_file_access.h                             5839
+
+outils\_ajouter_option.py                                      tools\_ajouter_option.py                                   1439
+
+outils\_bornes_227790.py                                       tools\_bornes_227790.py                                    1623
+
+outils\_decor_commun.cmd                                       tools\_decor_commun.cmd                                     875
+
+outils\_lire_227790.py                                         tools\_lire_227790.py                                      2210
+
+outils\_lire_chaines.py                                        tools\_lire_chaines.py                                      757
+
+outils\_lire_fn.py                                             tools\_lire_fn.py                                          2446
+
+outils\_normaliser_cmd.py                                      tools\_normaliser_cmd.py                                   2473
+
+outils\_table_3A0C08.py                                        tools\_table_3A0C08.py                                     1239
+
+outils\_terminal_commun.cmd                                    tools\_terminal_commun.cmd                                 4571
+
+outils\a3d_db.py                                               tools\a3d_db.py                                           11109
+
+outils\adx.py                                                  tools\adx.py                                               5728
+
+outils\aet.py                                                  tools\aet.py                                              14139
+
+outils\aet_echelle.py                                          tools\aet_echelle.py                                       8023
+
+outils\ambiances.py                                            tools\ambiances.py                                         2993
+
+outils\ancres_ecrans.py                                        tools\ancres_ecrans.py                                     6845
+
+outils\ancres_que.py                                           tools\ancres_que.py                                        3323
+
+outils\ancres_tnt.py                                           tools\ancres_tnt.py                                        4044
+
+outils\apercu_polices.py                                       tools\apercu_polices.py                                    6293
+
+outils\api_matrix.py                                           tools\api_matrix.py                                        2476
+
+outils\apm_camera.py                                           tools\apm_camera.py                                        5191
+
+outils\apm_couleurs.py                                         tools\apm_couleurs.py                                      3618
+
+outils\apm_entrees.txt                                         tools\apm_entrees.txt                                      9572
+
+outils\apm_hors_ligne.cmd                                      tools\apm_hors_ligne.cmd                                   3293
+
+outils\apm_icones.py                                           tools\apm_icones.py                                        9550
+
+outils\apm_lancer.py                                           tools\apm_lancer.py                                        6845
+
+outils\apm_sons.py                                             tools\apm_sons.py                                          4405
+
+outils\apm_stub.c                                              tools\apm_stub.c                                         146666
+
+outils\apm_teintes.py                                          tools\apm_teintes.py                                       5334
+
+outils\apm_ui_sons.py                                          tools\apm_ui_sons.py                                       4369
+
+outils\arbre_aet.py                                            tools\arbre_aet.py                                         7884
+
+outils\bases_2d.py                                             tools\bases_2d.py                                         27624
+
+outils\bc.py                                                   tools\bc.py                                                9483
+
+outils\bc_rapide.py                                            tools\bc_rapide.py                                         8424
+
+outils\borne_touche.py                                         tools\borne_touche.py                                      1717
+
+outils\bornes.py                                               tools\bornes.py                                            1396
+
+outils\bouchons.py                                             tools\bouchons.py                                          6733
+
+outils\boutons_style.py                                        tools\boutons_style.py                                     8411
+
+outils\boutons_terminal.cmd                                    tools\boutons_terminal.cmd                                 1417
+
+outils\boutons_terminal.py                                     tools\boutons_terminal.py                                 12530
+
+outils\boutons_xbox_controls.cmd                               tools\boutons_xbox_controls.cmd                            1513
+
+outils\cadres_fenetres.cmd                                     tools\cadres_fenetres.cmd                                   797
+
+outils\cadres_fenetres.py                                      tools\cadres_fenetres.py                                   6750
+
+outils\capture_fenetre.py                                      tools\capture_fenetre.py                                   8145
+
+outils\carte_entrees.cmd                                       tools\carte_entrees.cmd                                     859
+
+outils\carte_entrees.py                                        tools\carte_entrees.py                                     7860
+
+outils\carte_zone.py                                           tools\carte_zone.py                                        7738
+
+outils\cavernes.py                                             tools\cavernes.py                                          3078
+
+outils\champ_x64.py                                            tools\champ_x64.py                                         7127
+
+outils\champs_accesseur.py                                     tools\champs_accesseur.py                                  8549
+
+outils\champs_globale.py                                       tools\champs_globale.py                                    6482
+
+outils\chercher_motif.py                                       tools\chercher_motif.py                                    2841
+
+outils\chercher_selection.py                                   tools\chercher_selection.py                                7343
+
+outils\chrono_lanceur.cmd                                      tools\chrono_lanceur.cmd                                   1195
+
+outils\chrono_lanceur.py                                       tools\chrono_lanceur.py                                    3799
+
+outils\clavier_grille.py                                       tools\clavier_grille.py                                    2586
+
+outils\compare_assets.py                                       tools\compare_assets.py                                    1821
+
+outils\compare_dirs.py                                         tools\compare_dirs.py                                      2367
+
+outils\comparer_bouchons.py                                    tools\comparer_bouchons.py                                 3617
+
+outils\comparer_builds.py                                      tools\comparer_builds.py                                   8145
+
+outils\comparer_sites.py                                       tools\comparer_sites.py                                    6499
+
+outils\config_module.py                                        tools\config_module.py                                     5752
+
+outils\console.cmd                                             tools\console.cmd                                          3839
+
+outils\console_combat.cmd                                      tools\console_combat.cmd                                   3017
+
+outils\construire_stub.cmd                                     tools\construire_stub.cmd                                   607
+
+outils\controle_decor_neuf.py                                  tools\controle_decor_neuf.py                              12634
+
+outils\controle_decors_5r.py                                   tools\controle_decors_5r.py                                1133
+
+outils\controle_decors_vf5.py                                  tools\controle_decors_vf5.py                              35276
+
+outils\controle_quest.cmd                                      tools\controle_quest.cmd                                   1731
+
+outils\controle_quest.py                                       tools\controle_quest.py                                   25812
+
+outils\controls_voir.cmd                                       tools\controls_voir.cmd                                    1072
+
+outils\convert_csv.py                                          tools\convert_csv.py                                       1457
+
+outils\couverture.py                                           tools\couverture.py                                        4948
+
+outils\curseur_customize.py                                    tools\curseur_customize.py                                 9834
+
+outils\decomp.py                                               tools\decomp.py                                            3730
+
+outils\decor_5r_akira.cmd                                      tools\decor_5r_akira.cmd                                   5782
+
+outils\decor_5r_akira_ajout.cmd                                tools\decor_5r_akira_ajout.cmd                             6492
+
+outils\decor_5r_akira_ajout_retirer.cmd                        tools\decor_5r_akira_ajout_retirer.cmd                     1150
+
+outils\decor_5r_retirer.cmd                                    tools\decor_5r_retirer.cmd                                  791
+
+outils\decor_TRM.cmd                                           tools\decor_TRM.cmd                                         327
+
+outils\decor_TS2.cmd                                           tools\decor_TS2.cmd                                         344
+
+outils\decor_ajoute.cmd                                        tools\decor_ajoute.cmd                                     7039
+
+outils\decor_ajoute_retirer.cmd                                tools\decor_ajoute_retirer.cmd                             1001
+
+outils\decor_neuf.py                                           tools\decor_neuf.py                                       38870
+
+outils\decor_perso.cmd                                         tools\decor_perso.cmd                                      1514
+
+outils\decors_44.cmd                                           tools\decors_44.cmd                                        7655
+
+outils\decors_5r.cmd                                           tools\decors_5r.cmd                                        4974
+
+outils\decors_5r_retirer.cmd                                   tools\decors_5r_retirer.cmd                                 634
+
+outils\decors_dural.cmd                                        tools\decors_dural.cmd                                     5518
+
+outils\decors_grille.cmd                                       tools\decors_grille.cmd                                    6819
+
+outils\decors_table.cmd                                        tools\decors_table.cmd                                     5911
+
+outils\decors_vf5.cmd                                          tools\decors_vf5.cmd                                       6033
+
+outils\decors_vf5_retirer.cmd                                  tools\decors_vf5_retirer.cmd                                727
+
+outils\depister_5r.cmd                                         tools\depister_5r.cmd                                      2128
+
+outils\depister_5r_ajoute.cmd                                  tools\depister_5r_ajoute.cmd                               5080
+
+outils\deposer_disasm.py                                       tools\deposer_disasm.py                                   15218
+
+outils\directions_select.cmd                                   tools\directions_select.cmd                                3607
+
+outils\dlc\extract.py                                          tools\dlc\extract.py                                       3967
+
+outils\dlc\extract_raw.py                                      tools\dlc\extract_raw.py                                   3042
+
+outils\dlc\farc_list.py                                        tools\dlc\farc_list.py                                     1856
+
+outils\dlc\inventory.py                                        tools\dlc\inventory.py                                     5078
+
+outils\dlc\inventory_games.py                                  tools\dlc\inventory_games.py                               4448
+
+outils\dlc\item_names.py                                       tools\dlc\item_names.py                                    4017
+
+outils\dlc\make_comparison_xlsx.py                             tools\dlc\make_comparison_xlsx.py                         17622
+
+outils\dlc\make_xlsx.py                                        tools\dlc\make_xlsx.py                                    12015
+
+outils\dlc\match_items.py                                      tools\dlc\match_items.py                                  10426
+
+outils\dlc\sources.py                                          tools\dlc\sources.py                                       5628
+
+outils\dlc\stfs.py                                             tools\dlc\stfs.py                                          9297
+
+outils\dlc\texture_pairs.py                                    tools\dlc\texture_pairs.py                                 1754
+
+outils\dlc\thumbs_games.py                                     tools\dlc\thumbs_games.py                                  2515
+
+outils\dlc\vf5fs.py                                            tools\dlc\vf5fs.py                                         6174
+
+outils\dojo.cmd                                                tools\dojo.cmd                                             1001
+
+outils\dojo_5r.cmd                                             tools\dojo_5r.cmd                                          5117
+
+outils\dojo_5r_repli.cmd                                       tools\dojo_5r_repli.cmd                                    9050
+
+outils\dojo_5r_temoin.cmd                                      tools\dojo_5r_temoin.cmd                                   5134
+
+outils\dotnet.py                                               tools\dotnet.py                                           18193
+
+outils\dump_section.py                                         tools\dump_section.py                                      1223
+
+outils\dural_options.cmd                                       tools\dural_options.cmd                                    3698
+
+outils\eau_eileen.cmd                                          tools\eau_eileen.cmd                                       1623
+
+outils\eau_eileen.py                                           tools\eau_eileen.py                                       23780
+
+outils\eau_sur_le_ring.py                                      tools\eau_sur_le_ring.py                                   7587
+
+outils\echappements.py                                         tools\echappements.py                                      5073
+
+outils\ecrit_champ.py                                          tools\ecrit_champ.py                                       2857
+
+outils\effets_generation.py                                    tools\effets_generation.py                                 4724
+
+outils\effets_tables_fs.py                                     tools\effets_tables_fs.py                                  5426
+
+outils\emplacements.py                                         tools\emplacements.py                                      7098
+
+outils\emu32.py                                                tools\emu32.py                                             5344
+
+outils\entrees.py                                              tools\entrees.py                                           5163
+
+outils\essai_adv.py                                            tools\essai_adv.py                                         2568
+
+outils\essai_attract.cmd                                       tools\essai_attract.cmd                                    1957
+
+outils\essai_legende.cmd                                       tools\essai_legende.cmd                                    2475
+
+outils\essai_menu.cmd                                          tools\essai_menu.cmd                                        698
+
+outils\essai_menu.py                                           tools\essai_menu.py                                        9157
+
+outils\essai_mode.cmd                                          tools\essai_mode.cmd                                       2262
+
+outils\essai_relocations.cmd                                   tools\essai_relocations.cmd                                3848
+
+outils\essai_scenario.py                                       tools\essai_scenario.py                                    5293
+
+outils\essai_sparring.cmd                                      tools\essai_sparring.cmd                                   2247
+
+outils\ext2.py                                                 tools\ext2.py                                              7605
+
+outils\extract_rtti.py                                         tools\extract_rtti.py                                      2613
+
+outils\extract_strings.py                                      tools\extract_strings.py                                   1656
+
+outils\farc.py                                                 tools\farc.py                                              9812
+
+outils\film_essai.cmd                                          tools\film_essai.cmd                                       1272
+
+outils\films_a_regarder.py                                     tools\films_a_regarder.py                                  3419
+
+outils\films_mpg.py                                            tools\films_mpg.py                                         8306
+
+outils\find_ptr_table.py                                       tools\find_ptr_table.py                                    3279
+
+outils\forcer_dural.py                                         tools\forcer_dural.py                                      5397
+
+outils\gen_apm_stub.py                                         tools\gen_apm_stub.py                                    152738
+
+outils\generation.py                                           tools\generation.py                                       33237
+
+outils\ghidra\DecompVF5.java                                   tools\ghidra\DecompVF5.java                                2725
+
+outils\ghidra\PdataX360.java                                   tools\ghidra\PdataX360.java                                1406
+
+outils\ghidra\SauvegardesX360.java                             tools\ghidra\SauvegardesX360.java                          3171
+
+outils\graphe_appels.py                                        tools\graphe_appels.py                                     6796
+
+outils\greffe_xref.py                                          tools\greffe_xref.py                                       2512
+
+outils\grille_console.cmd                                      tools\grille_console.cmd                                   1628
+
+outils\hexva.py                                                tools\hexva.py                                             2354
+
+outils\identifier_entrees.py                                   tools\identifier_entrees.py                                5193
+
+outils\immediat.py                                             tools\immediat.py                                          2191
+
+outils\importer_decor.py                                       tools\importer_decor.py                                   15756
+
+outils\importer_x360_fs.cmd                                    tools\importer_x360_fs.cmd                                 2384
+
+outils\importer_x360_fs.py                                     tools\importer_x360_fs.py                                  5567
+
+outils\index_elf.py                                            tools\index_elf.py                                         3291
+
+outils\instrument.py                                           tools\instrument.py                                       43978
+
+outils\inventaire_decors.py                                    tools\inventaire_decors.py                                 3998
+
+outils\inventory_sources.py                                    tools\inventory_sources.py                                 5188
+
+outils\item_porte.cmd                                          tools\item_porte.cmd                                      19186
+
+outils\jeux.py                                                 tools\jeux.py                                             12239
+
+outils\jeux_convertir.cmd                                      tools\jeux_convertir.cmd                                   1249
+
+outils\jeux_verifier.cmd                                       tools\jeux_verifier.cmd                                    1357
+
+outils\lancer_vfes.cmd                                         tools\lancer_vfes.cmd                                      1644
+
+outils\lancer_vfes_combat.cmd                                  tools\lancer_vfes_combat.cmd                               1430
+
+outils\lancer_vfes_debug.cmd                                   tools\lancer_vfes_debug.cmd                                 756
+
+outils\langue.py                                               tools\langue.py                                            3529
+
+outils\libelles.py                                             tools\libelles.py                                          3501
+
+outils\lind_x86.py                                             tools\lind_x86.py                                          6714
+
+outils\lire_gestionnaires_liste2.py                            tools\lire_gestionnaires_liste2.py                         8665
+
+outils\lire_minidump.py                                        tools\lire_minidump.py                                     2258
+
+outils\lzx.py                                                  tools\lzx.py                                              15600
+
+outils\menu_console.cmd                                        tools\menu_console.cmd                                     1661
+
+outils\menu_operateur.cmd                                      tools\menu_operateur.cmd                                   1277
+
+outils\menu_test.py                                            tools\menu_test.py                                         5450
+
+outils\mesurer_atlas.py                                        tools\mesurer_atlas.py                                     3304
+
+outils\mesurer_decor.cmd                                       tools\mesurer_decor.cmd                                     786
+
+outils\mode_console.cmd                                        tools\mode_console.cmd                                     2996
+
+outils\motdb.py                                                tools\motdb.py                                             6162
+
+outils\mothead.py                                              tools\mothead.py                                          13168
+
+outils\muet.cmd                                                tools\muet.cmd                                              759
+
+outils\muet.py                                                 tools\muet.py                                              3089
+
+outils\musique_quest.py                                        tools\musique_quest.py                                     7533
+
+outils\obj_db.py                                               tools\obj_db.py                                           13140
+
+outils\objet_materiaux.py                                      tools\objet_materiaux.py                                   3553
+
+outils\objets_correspondance.cmd                               tools\objets_correspondance.cmd                            1453
+
+outils\objets_correspondance.py                                tools\objets_correspondance.py                             8840
+
+outils\objets_quest.py                                         tools\objets_quest.py                                      5047
+
+outils\objset.py                                               tools\objset.py                                            2903
+
+outils\objset_pret.cmd                                         tools\objset_pret.cmd                                      4999
+
+outils\options_bin.py                                          tools\options_bin.py                                       3666
+
+outils\options_sauvegarde.cmd                                  tools\options_sauvegarde.cmd                               1272
+
+outils\options_v2.py                                           tools\options_v2.py                                       39695
+
+outils\oracle_handlers.py                                      tools\oracle_handlers.py                                   6384
+
+outils\oracle_liste2.cmd                                       tools\oracle_liste2.cmd                                    1212
+
+outils\oracle_liste2_vivant.py                                 tools\oracle_liste2_vivant.py                             10196
+
+outils\oracle_mottbl.py                                        tools\oracle_mottbl.py                                     4058
+
+outils\oracles.cmd                                             tools\oracles.cmd                                           677
+
+outils\par_ecrire.py                                           tools\par_ecrire.py                                        9685
+
+outils\par_inventaire.py                                       tools\par_inventaire.py                                    3956
+
+outils\par_masquer.py                                          tools\par_masquer.py                                       6182
+
+outils\patch_moteur.py                                         tools\patch_moteur.py                                    127378
+
+outils\patch_resolution.py                                     tools\patch_resolution.py                                  4603
+
+outils\patch_si_besoin.py                                      tools\patch_si_besoin.py                                   4541
+
+outils\pe_disasm.py                                            tools\pe_disasm.py                                         8692
+
+outils\pe_sections.py                                          tools\pe_sections.py                                      17818
+
+outils\pictos_essai.cmd                                        tools\pictos_essai.cmd                                     1141
+
+outils\pictos_essai.py                                         tools\pictos_essai.py                                      4764
+
+outils\pictos_planche.py                                       tools\pictos_planche.py                                    5497
+
+outils\pictos_xbox.py                                          tools\pictos_xbox.py                                       8718
+
+outils\pile_minidump.py                                        tools\pile_minidump.py                                     3727
+
+outils\pister_5c.cmd                                           tools\pister_5c.cmd                                        1766
+
+outils\pister_5c.py                                            tools\pister_5c.py                                         5018
+
+outils\pister_5c_dojo.cmd                                      tools\pister_5c_dojo.cmd                                   6001
+
+outils\pister_5c_stage.py                                      tools\pister_5c_stage.py                                   5642
+
+outils\pister_60_dojo.cmd                                      tools\pister_60_dojo.cmd                                   5719
+
+outils\pister_60_stage.py                                      tools\pister_60_stage.py                                  13179
+
+outils\pister_attract.py                                       tools\pister_attract.py                                    4597
+
+outils\pister_cri.py                                           tools\pister_cri.py                                        5431
+
+outils\pister_decodeur.py                                      tools\pister_decodeur.py                                   5246
+
+outils\pister_decor.py                                         tools\pister_decor.py                                      6852
+
+outils\pister_decor_ajoute.cmd                                 tools\pister_decor_ajoute.cmd                              4520
+
+outils\pister_dessin.cmd                                       tools\pister_dessin.cmd                                    2724
+
+outils\pister_dessin.py                                        tools\pister_dessin.py                                     8072
+
+outils\pister_dojo_5r.cmd                                      tools\pister_dojo_5r.cmd                                   5988
+
+outils\pister_etat.py                                          tools\pister_etat.py                                       6175
+
+outils\pister_fenetres.cmd                                     tools\pister_fenetres.cmd                                  1032
+
+outils\pister_grille.py                                        tools\pister_grille.py                                     6922
+
+outils\pister_http.py                                          tools\pister_http.py                                       5126
+
+outils\pister_import.py                                        tools\pister_import.py                                    18497
+
+outils\pister_item3d.py                                        tools\pister_item3d.py                                    16020
+
+outils\pister_legende.py                                       tools\pister_legende.py                                    5122
+
+outils\pister_link.cmd                                         tools\pister_link.cmd                                      1732
+
+outils\pister_link.py                                          tools\pister_link.py                                      15243
+
+outils\pister_liste2.cmd                                       tools\pister_liste2.cmd                                     923
+
+outils\pister_liste2.py                                        tools\pister_liste2.py                                     5598
+
+outils\pister_menu.py                                          tools\pister_menu.py                                      19217
+
+outils\pister_mode.cmd                                         tools\pister_mode.cmd                                      1493
+
+outils\pister_mode.py                                          tools\pister_mode.py                                       9323
+
+outils\pister_objdb.py                                         tools\pister_objdb.py                                      4837
+
+outils\pister_objset.py                                        tools\pister_objset.py                                     7659
+
+outils\pister_objset_pret.py                                   tools\pister_objset_pret.py                                9416
+
+outils\pister_ordre.cmd                                        tools\pister_ordre.cmd                                     1769
+
+outils\pister_ordre.py                                         tools\pister_ordre.py                                      5882
+
+outils\pister_perso.py                                         tools\pister_perso.py                                     12522
+
+outils\pister_plantage.py                                      tools\pister_plantage.py                                  23174
+
+outils\pister_relocations.py                                   tools\pister_relocations.py                                6903
+
+outils\pister_sauvegarde.py                                    tools\pister_sauvegarde.py                                13963
+
+outils\pister_scene.cmd                                        tools\pister_scene.cmd                                      823
+
+outils\pister_scene.py                                         tools\pister_scene.py                                      6154
+
+outils\pister_scenes.py                                        tools\pister_scenes.py                                     4984
+
+outils\pister_selstage.cmd                                     tools\pister_selstage.cmd                                  1631
+
+outils\pister_selstage.py                                      tools\pister_selstage.py                                   5436
+
+outils\pister_sousmenu.cmd                                     tools\pister_sousmenu.cmd                                   773
+
+outils\pister_sousmenu.py                                      tools\pister_sousmenu.py                                   7233
+
+outils\pister_sp.cmd                                           tools\pister_sp.cmd                                         697
+
+outils\pister_sp.py                                            tools\pister_sp.py                                         6566
+
+outils\pister_tampon.py                                        tools\pister_tampon.py                                     4852
+
+outils\pister_validation.cmd                                   tools\pister_validation.cmd                                 732
+
+outils\pister_validation.py                                    tools\pister_validation.py                                 4874
+
+outils\pister_variantes.cmd                                    tools\pister_variantes.cmd                                 1709
+
+outils\pister_variantes.py                                     tools\pister_variantes.py                                  6399
+
+outils\pister_vga.py                                           tools\pister_vga.py                                        3972
+
+outils\plage.py                                                tools\plage.py                                             2740
+
+outils\planche_police.py                                       tools\planche_police.py                                    5596
+
+outils\plantage_5r.cmd                                         tools\plantage_5r.cmd                                      1646
+
+outils\plantage_quest.cmd                                      tools\plantage_quest.cmd                                   1654
+
+outils\plantage_selpart.cmd                                    tools\plantage_selpart.cmd                                 6859
+
+outils\portes_greffe.py                                        tools\portes_greffe.py                                     2199
+
+outils\poser_roles_liste2.py                                   tools\poser_roles_liste2.py                               17803
+
+outils\presser.cmd                                             tools\presser.cmd                                           998
+
+outils\presser.py                                              tools\presser.py                                           2511
+
+outils\profil_quest.py                                         tools\profil_quest.py                                      7276
+
+outils\psarc.py                                                tools\psarc.py                                             5273
+
+outils\quest.cmd                                               tools\quest.cmd                                            7095
+
+outils\questV2.cmd                                             tools\questV2.cmd                                         20812
+
+outils\quest_auto.cmd                                          tools\quest_auto.cmd                                        844
+
+outils\quest_auto.py                                           tools\quest_auto.py                                        6127
+
+outils\quest_runtime.c                                         tools\quest_runtime.c                                    203929
+
+outils\quest_texte_essai.cmd                                   tools\quest_texte_essai.cmd                                4280
+
+outils\quest_textes.py                                         tools\quest_textes.py                                      8408
+
+outils\quest_textes_map.h                                      tools\quest_textes_map.h                                  26017
+
+outils\quest_x360.py                                           tools\quest_x360.py                                        9883
+
+outils\refs_lineaires.py                                       tools\refs_lineaires.py                                    5767
+
+outils\refs_multi.py                                           tools\refs_multi.py                                        3888
+
+outils\refs_plage.py                                           tools\refs_plage.py                                        4356
+
+outils\regression.cmd                                          tools\regression.cmd                                       1832
+
+outils\regression.py                                           tools\regression.py                                       10395
+
+outils\relever_bouchons.py                                     tools\relever_bouchons.py                                  4402
+
+outils\rendre_le_clavier.cmd                                   tools\rendre_le_clavier.cmd                                1265
+
+outils\renommer_libelle.py                                     tools\renommer_libelle.py                                  4974
+
+outils\reseau.py                                               tools\reseau.py                                           10842
+
+outils\resolution.py                                           tools\resolution.py                                       23073
+
+outils\rivaux.py                                               tools\rivaux.py                                            7218
+
+outils\rtti.py                                                 tools\rtti.py                                              4978
+
+outils\sauvegarde.cmd                                          tools\sauvegarde.cmd                                       5685
+
+outils\scan_elf.py                                             tools\scan_elf.py                                          7030
+
+outils\scenarios\combat_combinaisons.txt                       tools\scenarios\combat_combinaisons.txt                   17789
+
+outils\scenarios\combat_long.txt                               tools\scenarios\combat_long.txt                           13310
+
+outils\scenarios\combat_martelage.txt                          tools\scenarios\combat_martelage.txt                       1507
+
+outils\scenarios\combat_tout_tenu.txt                          tools\scenarios\combat_tout_tenu.txt                      10669
+
+outils\scenarios\console_journal.txt                           tools\scenarios\console_journal.txt                        1263
+
+outils\scenarios\console_start.txt                             tools\scenarios\console_start.txt                           794
+
+outils\scenarios\data_test.txt                                 tools\scenarios\data_test.txt                              1440
+
+outils\scenarios\deux_start.txt                                tools\scenarios\deux_start.txt                              225
+
+outils\scenarios\films_ligne1.txt                              tools\scenarios\films_ligne1.txt                           1155
+
+outils\scenarios\films_reperage.txt                            tools\scenarios\films_reperage.txt                         1265
+
+outils\scenarios\films_theatre.txt                             tools\scenarios\films_theatre.txt                          1804
+
+outils\scenarios\jouer.txt                                     tools\scenarios\jouer.txt                                  2524
+
+outils\scenarios\menu_operateur.txt                            tools\scenarios\menu_operateur.txt                          524
+
+outils\scenarios\menu_test.txt                                 tools\scenarios\menu_test.txt                              2577
+
+outils\scenarios\quest_apres.txt                               tools\scenarios\quest_apres.txt                            1087
+
+outils\scenarios\quest_boutique.txt                            tools\scenarios\quest_boutique.txt                         1163
+
+outils\scenarios\quest_carte.txt                               tools\scenarios\quest_carte.txt                            1178
+
+outils\scenarios\quest_combat.txt                              tools\scenarios\quest_combat.txt                           1144
+
+outils\scenarios\quest_creation.txt                            tools\scenarios\quest_creation.txt                         1077
+
+outils\scenarios\quest_emblemes.txt                            tools\scenarios\quest_emblemes.txt                         1074
+
+outils\scenarios\quest_lieu.txt                                tools\scenarios\quest_lieu.txt                             1161
+
+outils\scenarios\quest_reglages.txt                            tools\scenarios\quest_reglages.txt                         1149
+
+outils\scenarios\quest_rencontre.txt                           tools\scenarios\quest_rencontre.txt                        1069
+
+outils\scenarios\quest_tournoi.txt                             tools\scenarios\quest_tournoi.txt                          1099
+
+outils\scenarios\rester_grille.txt                             tools\scenarios\rester_grille.txt                          1713
+
+outils\scenarios\select_a.txt                                  tools\scenarios\select_a.txt                                235
+
+outils\scenarios\select_b.txt                                  tools\scenarios\select_b.txt                                511
+
+outils\scenarios\sp_plantage.txt                               tools\scenarios\sp_plantage.txt                             963
+
+outils\scenarios\titre.txt                                     tools\scenarios\titre.txt                                   466
+
+outils\schema_manette_xbox.py                                  tools\schema_manette_xbox.py                               8585
+
+outils\selitem_grille.cmd                                      tools\selitem_grille.cmd                                   3822
+
+outils\serveur_allnet.cmd                                      tools\serveur_allnet.cmd                                   2069
+
+outils\serveur_allnet.py                                       tools\serveur_allnet.py                                    9249
+
+outils\settings_plantage.cmd                                   tools\settings_plantage.cmd                                4416
+
+outils\sfd.py                                                  tools\sfd.py                                               4854
+
+outils\sfd_inventaire.py                                       tools\sfd_inventaire.py                                    2576
+
+outils\sfd_vers_usm.cmd                                        tools\sfd_vers_usm.cmd                                     2975
+
+outils\shader_empreintes.py                                    tools\shader_empreintes.py                                12166
+
+outils\sllz.py                                                 tools\sllz.py                                              6126
+
+outils\sonde_decor.py                                          tools\sonde_decor.py                                      16832
+
+outils\sonde_menu_vivant.py                                    tools\sonde_menu_vivant.py                                 5104
+
+outils\sonde_mode.cmd                                          tools\sonde_mode.cmd                                       2066
+
+outils\sonde_quest.cmd                                         tools\sonde_quest.cmd                                      1731
+
+outils\sonde_quest.py                                          tools\sonde_quest.py                                      12127
+
+outils\sonde_terminal.py                                       tools\sonde_terminal.py                                    5438
+
+outils\sonde_vignettes.py                                      tools\sonde_vignettes.py                                  24630
+
+outils\stfs.py                                                 tools\stfs.py                                              6499
+
+outils\stgnyc_hd.cmd                                           tools\stgnyc_hd.cmd                                        1133
+
+outils\substitutions.py                                        tools\substitutions.py                                     3297
+
+outils\summarize_inventory.py                                  tools\summarize_inventory.py                               1963
+
+outils\table_decors.py                                         tools\table_decors.py                                      3383
+
+outils\tables_generation.py                                    tools\tables_generation.py                                18509
+
+outils\terminal.cmd                                            tools\terminal.cmd                                         1495
+
+outils\terminal_sans_wxga.cmd                                  tools\terminal_sans_wxga.cmd                               1143
+
+outils\tex_db.py                                               tools\tex_db.py                                            8604
+
+outils\textes_quest.py                                         tools\textes_quest.py                                     13331
+
+outils\textures_2007.py                                        tools\textures_2007.py                                     1918
+
+outils\textures_decor.py                                       tools\textures_decor.py                                    3321
+
+outils\textures_hd.cmd                                         tools\textures_hd.cmd                                      2248
+
+outils\textures_hd.py                                          tools\textures_hd.py                                      21816
+
+outils\textures_hd3d.py                                        tools\textures_hd3d.py                                    13313
+
+outils\textures_sortir.cmd                                     tools\textures_sortir.cmd                                   858
+
+outils\tracer_eclairage.cmd                                    tools\tracer_eclairage.cmd                                 1918
+
+outils\tracer_etats.py                                         tools\tracer_etats.py                                      8461
+
+outils\tracer_fichiers.py                                      tools\tracer_fichiers.py                                   5088
+
+outils\txp.py                                                  tools\txp.py                                               7005
+
+outils\unpack_ps3_pkg.py                                       tools\unpack_ps3_pkg.py                                    4679
+
+outils\usm.py                                                  tools\usm.py                                               8912
+
+outils\usm_mux.py                                              tools\usm_mux.py                                          24559
+
+outils\variantes.cmd                                           tools\variantes.cmd                                        5741
+
+outils\variantes_5r.py                                         tools\variantes_5r.py                                     11739
+
+outils\variantes_texte.cmd                                     tools\variantes_texte.cmd                                  7164
+
+outils\variantes_vf5.py                                        tools\variantes_vf5.py                                    28615
+
+outils\verifier_cmd.py                                         tools\verifier_cmd.py                                      2062
+
+outils\verifier_decors_table.py                                tools\verifier_decors_table.py                            10875
+
+outils\verifier_formats.cmd                                    tools\verifier_formats.cmd                                 1180
+
+outils\verifier_lanceurs.py                                    tools\verifier_lanceurs.py                                 8393
+
+outils\vignettes_costume.cmd                                   tools\vignettes_costume.cmd                                3947
+
+outils\vignettes_costume.py                                    tools\vignettes_costume.py                                 8743
+
+outils\vitrine.cmd                                             tools\vitrine.cmd                                          2199
+
+outils\voir_films_tv.cmd                                       tools\voir_films_tv.cmd                                    1281
+
+outils\voisinage_x64.py                                        tools\voisinage_x64.py                                     4698
+
+outils\vtable.py                                               tools\vtable.py                                            3190
+
+outils\x360_appels.py                                          tools\x360_appels.py                                       5009
+
+outils\x360_bruitages.py                                       tools\x360_bruitages.py                                    5253
+
+outils\x360_carte.cmd                                          tools\x360_carte.cmd                                       2135
+
+outils\x360_champ.py                                           tools\x360_champ.py                                        5214
+
+outils\x360_fs.cmd                                             tools\x360_fs.cmd                                          3219
+
+outils\x360_mise_en_page.py                                    tools\x360_mise_en_page.py                                 4851
+
+outils\x360_ppc.py                                             tools\x360_ppc.py                                         12769
+
+outils\x360_rtti.py                                            tools\x360_rtti.py                                         4264
+
+outils\x360_savegpr.py                                         tools\x360_savegpr.py                                      3776
+
+outils\x360_suivre.cmd                                         tools\x360_suivre.cmd                                      2402
+
+outils\x360_suivre.py                                          tools\x360_suivre.py                                      18709
+
+outils\x360_xref2007.py                                        tools\x360_xref2007.py                                     3310
+
+outils\xex.py                                                  tools\xex.py                                               7810
+
+outils\zone_chaines.py                                         tools\zone_chaines.py                                      1658
+
+============================================================
+INVENTAIRE FINAL DU DOSSIER LIVRE : 912 fichiers, 50.8 Mo
+(les documents d entree, les scripts de mesure et les lanceurs .cmd
+ ont ete ecrits pour ce dossier et ne viennent pas du depot)
+============================================================
+ANALYSER_ET_MESURER.cmd                                                           218
+DECOMPILER.cmd                                                                    363
+ETAT_DECOMPILATION.md                                                            7032
+LISEZ_MOI.md                                                                     7661
+binaires/apm.dll.notre_greffe                                                  122880
+binaires/apm.reelle.dll                                                       1269760
+binaires/apmgamepad.dll                                                         71680
+binaires/vf5fs-pxd-w64-Retail_APM3.dll.PATCHEE                                7181824
+binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine                                6965248
+binaires/vfes.exe.PATCHE                                                      1987072
+binaires/vfes.exe.origine                                                     1987072
+code_decompile/_aet_conv.c                                                       4145
+code_decompile/_aet_creer_obj.c                                                   631
+code_decompile/_aet_creer_persistant.c                                           1737
+code_decompile/_aet_dessin_quad.c                                                 799
+code_decompile/_aet_lookup_usage.c                                                367
+code_decompile/_aet_parcours.c                                                    620
+code_decompile/_aet_poser_mode.c                                                 7427
+code_decompile/_aet_quad.c                                                       2243
+code_decompile/_aet_remplir.c                                                    2670
+code_decompile/_aet_rendu.c                                                       639
+code_decompile/_aet_spr_dessin.c                                                 7731
+code_decompile/_aet_sprite.c                                                     2633
+code_decompile/_carte_dessin.c                                                    415
+code_decompile/_carte_suite.c                                                    1710
+code_decompile/_charger_spr.c                                                     569
+code_decompile/_composant_cos.c                                                  1037
+code_decompile/_conv_courant.c                                                    240
+code_decompile/_cos_chaine1.c                                                     459
+code_decompile/_cos_chaine2.c                                                     728
+code_decompile/_cos_icon.c                                                       8040
+code_decompile/_cos_quest.c                                                       547
+code_decompile/_costume_2007.c                                                   1136
+code_decompile/_costume_appel.c                                                  1037
+code_decompile/_creer_rang.c                                                     1262
+code_decompile/_desc_boite.c                                                      866
+code_decompile/_descripteur.c                                                    2225
+code_decompile/_dessin_texte.c                                                    637
+code_decompile/_dessin_texte2.c                                                  1946
+code_decompile/_echelle_2d.c                                                     6092
+code_decompile/_espace_source.c                                                 12597
+code_decompile/_gold_win.c                                                       6746
+code_decompile/_mode_2d.c                                                        1367
+code_decompile/_mode_choix.c                                                      228
+code_decompile/_mode_infos.c                                                      906
+code_decompile/_pave_appel.c                                                     1837
+code_decompile/_pave_quest.c                                                     2033
+code_decompile/_pave_sous.c                                                     16596
+code_decompile/_pave_un.c                                                        4398
+code_decompile/_prepare_spr.c                                                     352
+code_decompile/_spr_api.c                                                        1662
+code_decompile/_spr_appelant.c                                                   5762
+code_decompile/_spr_cmd.c                                                        8390
+code_decompile/_spr_ctx.c                                                        2881
+code_decompile/_spr_enreg.c                                                       849
+code_decompile/_spr_enreg2.c                                                     5623
+code_decompile/_spr_insert.c                                                      767
+code_decompile/_texte_conv.c                                                     5256
+code_decompile/apm3_appelant_init.c                                               954
+code_decompile/apm3_deux_inits.c                                                 5647
+code_decompile/apm3_etat_effacement.c                                             369
+code_decompile/apm3_init_statique_tache.c                                        1098
+code_decompile/apm3_init_table.c                                                 1194
+code_decompile/apm3_lecteur_maxi.c                                               3394
+code_decompile/apm3_marqueur.c                                                   1902
+code_decompile/apm3_options_horiz.c                                              1667
+code_decompile/apm3_options_setting.c                                            8076
+code_decompile/apm3_options_vert.c                                               1010
+code_decompile/apm3_reset_bloc.c                                                 1972
+code_decompile/apm3_save_task.c                                                  1548
+code_decompile/apm3_savedata_update.c                                           10102
+code_decompile/apm3_tache_savedata.c                                             2426
+code_decompile/auth3d_fs.c                                                      15061
+code_decompile/auth3d_r.c                                                        7955
+code_decompile/auth3d_verb.c                                                     4788
+code_decompile/charge_fichier.c                                                   940
+code_decompile/d3d_cb12_fs.c                                                     2221
+code_decompile/d3d_cb_gs_fs.c                                                    6640
+code_decompile/d3d_etat_fs.c                                                     7615
+code_decompile/d3d_gs_fs.c                                                      40538
+code_decompile/d3d_viewport2_fs.c                                                4816
+code_decompile/d3d_viewport_fs.c                                                  942
+code_decompile/decomp.c                                                          1740
+code_decompile/decomp_a3da_uid.c                                                13916
+code_decompile/decomp_barriere.c                                                 9024
+code_decompile/decomp_chargement.c                                               7874
+code_decompile/decomp_eff_setstage.c                                             2546
+code_decompile/decomp_eff_start.c                                                8136
+code_decompile/decomp_effets.c                                                  14162
+code_decompile/decomp_objet_par_nom.c                                            1850
+code_decompile/decomp_objset.c                                                   7768
+code_decompile/decomp_poll.c                                                    16447
+code_decompile/decomp_poll_stage.c                                               4135
+code_decompile/decomp_porte_etat4.c                                              2306
+code_decompile/decomp_resolveur.c                                                7487
+code_decompile/decor_cables_fs.c                                                 6128
+code_decompile/effets_fogring_data.c                                            17524
+code_decompile/effets_reste.c                                                    9590
+code_decompile/effets_ringout_r.c                                                6784
+code_decompile/effets_ringout_r2.c                                               3052
+code_decompile/effets_ringout_verb.c                                             1456
+code_decompile/effets_ripple.c                                                   3168
+code_decompile/effets_setstage.c                                                 8392
+code_decompile/effets_snowring_fs.c                                              9755
+code_decompile/effets_wetcloth.c                                                 2201
+code_decompile/effets_wetcloth2.c                                                6572
+code_decompile/effets_yuka_rain_fogring.c                                       12304
+code_decompile/effets_yuka_ringout_fs.c                                         22235
+code_decompile/fog_appli.c                                                       8257
+code_decompile/fog_chemin.c                                                      1193
+code_decompile/fog_get.c                                                          274
+code_decompile/fog_parse.c                                                       7760
+code_decompile/fogring_dessin_fs.c                                               3021
+code_decompile/fs360_backupram.c                                                 1640
+code_decompile/fs360_base_table.c                                                 239
+code_decompile/fs360_bloc_systeme.c                                              4531
+code_decompile/fs360_dataselector.c                                              1946
+code_decompile/fs360_depaquetage.c                                               3389
+code_decompile/fs360_liste.c                                                      537
+code_decompile/fs360_remplisseur.c                                                823
+code_decompile/fs360_selitem_init.c                                              1771
+code_decompile/fs360_system_appelants.c                                          1881
+code_decompile/fs360_system_save.c                                               2083
+code_decompile/fs360_table150.c                                                  3459
+code_decompile/lp_charge.c                                                        403
+code_decompile/lp_stage.c                                                         254
+code_decompile/mur_saku_fs.c                                                    13224
+code_decompile/r_riv_jin.c                                                       6135
+code_decompile/scene_riv_jin_fs.c                                                1613
+code_decompile/shader_archive_fs.c                                               1249
+code_decompile/shader_gsfx2_fs.c                                                11452
+code_decompile/shader_gsfx_fs.c                                                 16392
+code_decompile/snowring_dessin_d3d.c                                             2537
+code_decompile/snowring_os_fs.c                                                  1389
+code_decompile/snowring_pas_fs.c                                                 9125
+code_decompile/snowring_rt_fs.c                                                  2746
+code_decompile/taches_effet_toutes_fs.c                                        127079
+code_decompile/quest/aet_chargement_ecran.c                                     14162
+code_decompile/quest/aet_charger_set.c                                            569
+code_decompile/quest/aet_chargeur_fs.c                                           3950
+code_decompile/quest/aet_creation_fs.c                                          10241
+code_decompile/quest/aet_creation_x360.c                                         5756
+code_decompile/quest/aet_creation_x360b.c                                        7400
+code_decompile/quest/aet_creation_x360c.c                                        2675
+code_decompile/quest/aet_creer.c                                                  990
+code_decompile/quest/aet_creer2.c                                                1893
+code_decompile/quest/aet_db_parse.c                                             13655
+code_decompile/quest/aet_detruire.c                                               986
+code_decompile/quest/aet_ecran.c                                                10241
+code_decompile/quest/aet_frame.c                                                 1424
+code_decompile/quest/aet_lookup.c                                                 966
+code_decompile/quest/aet_mgr.c                                                   5144
+code_decompile/quest/aet_mgr_api.c                                               1230
+code_decompile/quest/aet_mgr_api2.c                                              3846
+code_decompile/quest/aet_mgr_init.c                                              1816
+code_decompile/quest/aet_obj_vtable.c                                            1482
+code_decompile/quest/ecran_dispatch.c                                            3626
+code_decompile/quest/ecran_setstate.c                                           19718
+code_decompile/quest/etats_setters.c                                             4818
+code_decompile/quest/fs_aet_cherche.c                                            2573
+code_decompile/quest/fs_aet_creer_rang.c                                          990
+code_decompile/quest/fs_aet_handle.c                                             3218
+code_decompile/quest/fs_aet_objet.c                                              2131
+code_decompile/quest/fs_aetmgr_phases.c                                         12869
+code_decompile/quest/fs_arbitre.c                                                4520
+code_decompile/quest/fs_bgm.c                                                    1910
+code_decompile/quest/fs_ctx2d.c                                                 12922
+code_decompile/quest/fs_ctx_etat.c                                               2570
+code_decompile/quest/fs_decor_et_config.c                                        2020
+code_decompile/quest/fs_descripteur.c                                            2248
+code_decompile/quest/fs_dessin.c                                                  238
+code_decompile/quest/fs_dessin2.c                                                 637
+code_decompile/quest/fs_dessin3.c                                                1946
+code_decompile/quest/fs_dossier.c                                                 607
+code_decompile/quest/fs_fenetre.c                                                8775
+code_decompile/quest/fs_fiche_copie.c                                            2612
+code_decompile/quest/fs_fin_selecteur.c                                          2210
+code_decompile/quest/fs_force_cpu.c                                              1513
+code_decompile/quest/fs_glyphes.c                                                4986
+code_decompile/quest/fs_perso_sites.c                                           11504
+code_decompile/quest/fs_poser_appelant.c                                         2681
+code_decompile/quest/fs_poser_combattant.c                                       1679
+code_decompile/quest/fs_preparer_match.c                                         3903
+code_decompile/quest/fs_printgc_virt.c                                           7737
+code_decompile/quest/fs_recette.c                                                4534
+code_decompile/quest/fs_selecteur_champs.c                                       1185
+code_decompile/quest/fs_session.c                                                1875
+code_decompile/quest/fs_session_accesseurs.c                                     4273
+code_decompile/quest/fs_son_ui.c                                                 8703
+code_decompile/quest/fs_sprite.c                                                 2575
+code_decompile/quest/fs_sprite2.c                                                1165
+code_decompile/quest/fs_str_get.c                                                1080
+code_decompile/quest/fs_str_load.c                                               1523
+code_decompile/quest/fs_texte.c                                                   999
+code_decompile/quest/fs_texte2.c                                                  326
+code_decompile/quest/fs_texte_api.c                                              3064
+code_decompile/quest/fs_vainqueur.c                                               540
+code_decompile/quest/fs_verdict.c                                                 488
+code_decompile/quest/ia_chargeur.c                                               1700
+code_decompile/quest/machine_sousetat.c                                          5883
+code_decompile/quest/menu_quitter.c                                               588
+code_decompile/quest/menu_scoreboards.c                                          9262
+code_decompile/quest/menu_validation.c                                           1742
+code_decompile/quest/npc_chargeur.c                                              2190
+code_decompile/quest/prepa_b8540.c                                              11955
+code_decompile/quest/quest_gestion2.c                                            5881
+code_decompile/quest/quest_gestion_x360.c                                      214088
+code_decompile/quest/quest_mode_x360.c                                          16241
+code_decompile/quest/quest_reste1.c                                             65417
+code_decompile/quest/quest_reste2.c                                             85639
+code_decompile/quest/quest_x360.c                                              418178
+code_decompile/quest/selecteur_commit.c                                          3463
+code_decompile/quest/selecteur_getters.c                                          914
+code_decompile/quest/spr_chargeur.c                                              7916
+code_decompile/quest/spr_lookup.c                                                 966
+code_decompile/quest/spr_prepare.c                                               1392
+code_decompile/quest/vs_entree.c                                                 3638
+code_decompile/quest/vs_prepa.c                                                  1438
+code_decompile/quest/x360_aet_ancre.c                                            2667
+code_decompile/quest/x360_fenetre.c                                              4481
+code_decompile/quest/x360_fiche_joueur.c                                          536
+code_decompile/quest/x360_force_cpu.c                                            4661
+code_decompile/quest/x360_gains.c                                                1000
+code_decompile/quest/x360_homemenu.c                                             2022
+code_decompile/quest/x360_lancer.c                                                276
+code_decompile/quest/x360_liste_lieu.c                                           1058
+code_decompile/quest/x360_menu_arcade.c                                         14646
+code_decompile/quest/x360_npc_nom.c                                              3550
+code_decompile/quest/x360_prepa_combat.c                                         9850
+code_decompile/quest/x360_print_api.c                                            4974
+code_decompile/quest/x360_profil.c                                                618
+code_decompile/quest/x360_resolveur.c                                            1143
+code_decompile/quest/x360_selecteur_donnees.c                                   10584
+code_decompile/quest/x360_str_get.c                                              1115
+code_decompile/quest/x360_str_get2.c                                              663
+code_decompile/quest/x360_str_load.c                                             1022
+code_decompile/quest/x360_texte.c                                                 742
+code_decompile/quest/x360_texte2.c                                               2177
+code_decompile/quest/x360_txt2.c                                                 1049
+csharp_apm3/Credit.cs                                                             562
+csharp_apm3/Design.cs                                                            1157
+csharp_apm3/Icon.cs                                                              2492
+csharp_apm3/IconCanvas.cs                                                        3034
+csharp_apm3/IconCanvasAnimation.cs                                               1645
+csharp_apm3/IconListCanvas.cs                                                   16487
+csharp_apm3/MainCanvasAnimation.cs                                               1258
+csharp_apm3/MovieButton.cs                                                       1303
+csharp_apm3/MoviePlayer.cs                                                       1395
+csharp_apm3/PageButton.cs                                                        1882
+csharp_apm3/SceneManager.cs                                                     10530
+csharp_apm3/TitleAnimation.cs                                                    3483
+csharp_apm3/WheelEffect3D.cs                                                     5034
+desassemblage/README.md                                                          4622
+desassemblage/aet_marqueurs_customize.txt                                        3766
+desassemblage/chargeur_archive.txt                                               9270
+desassemblage/disasm_decors_A.txt                                               18727
+desassemblage/disasm_decors_B.txt                                               19555
+desassemblage/disasm_decors_C.txt                                               24072
+desassemblage/disasm_decors_D.txt                                                4413
+desassemblage/disasm_match_setup.txt                                            29314
+desassemblage/disasm_mothead_consumers.txt                                      44644
+desassemblage/disasm_mothead_handlers.txt                                      130369
+desassemblage/disasm_mothead_list2.txt                                           8968
+desassemblage/disasm_mothead_loader.txt                                         54953
+desassemblage/disasm_mothead_ondemand.txt                                       11815
+desassemblage/disasm_mothead_readers.txt                                         9332
+desassemblage/disasm_mothead_readers2.txt                                        6466
+desassemblage/disasm_mothead_section1.txt                                       27999
+desassemblage/disasm_selstage.txt                                               61710
+desassemblage/disasm_selstage_liste.txt                                         10711
+desassemblage/itemmain_update.txt                                                4446
+desassemblage/itmeq_basculement.txt                                              2315
+desassemblage/itmeq_update.txt                                                  12247
+desassemblage/lind_itmeq_update.txt                                             11017
+desassemblage/publieur_joueur.txt                                                4338
+desassemblage/repartiteur_curseur.txt                                            6090
+desassemblage/resolveur_objset.txt                                               8002
+desassemblage/selitem_consommateur.txt                                           4490
+desassemblage/selitem_dessin.txt                                                 4996
+desassemblage/selitem_update.txt                                                 7372
+desassemblage/selpart_curseur.txt                                                8505
+desassemblage/selpart_dessin.txt                                                12834
+desassemblage/taskrobsingle_update.txt                                           5987
+desassemblage/x360_grille_deplacement.txt                                        8868
+desassemblage/x360_itmeq_update.txt                                             12379
+desassemblage/x360_page_update.txt                                               8078
+desassemblage/x360_repartiteur.txt                                               5855
+desassemblage/x360_taskrobsingle_update.txt                                      5507
+documentation/API_MATRIX.md                                                      8337
+documentation/CHARACTERS.md                                                      6982
+documentation/CODE_CLASSIFICATION.md                                            10256
+documentation/INITIAL_REPORT.md                                                 16407
+documentation/INSTRUMENTATION.md                                                23457
+documentation/LOADER_ARCHAEOLOGY.md                                              6328
+documentation/MANIFEST.md                                                        4470
+documentation/MODERN_DATA_LINEAGE.md                                             6849
+documentation/PROGRAMME.md                                                       6758
+documentation/SOURCES.md                                                         4594
+documentation/SOURCE_INVENTORY.md                                                8385
+documentation/VERSIONS.md                                                        9166
+documentation/ajouter_un_decor.md                                               21526
+documentation/apm_surimpression.md                                               9741
+documentation/auth_3d_db.md                                                      4842
+documentation/boutons_apm3.md                                                    7356
+documentation/brume_anneau_aoi.md                                               44084
+documentation/carte_customize.md                                                41914
+documentation/carte_menu.md                                                     28251
+documentation/carte_options.md                                                  16811
+documentation/carte_selecteur.md                                                54728
+documentation/carte_sprite2d.md                                                 18861
+documentation/comparaison_builds.md                                             17170
+documentation/comparaison_revo.md                                               11850
+documentation/correspondance_revo.md                                             6463
+documentation/couverture_console.md                                              4208
+documentation/customize_0x299.md                                                81437
+documentation/decors.md                                                        106031
+documentation/decors_lindbergh.md                                                7723
+documentation/decors_vf5r.md                                                     6661
+documentation/dlc_objets.md                                                      5110
+documentation/dural.md                                                          59286
+documentation/eau_slk_console.md                                                15621
+documentation/eau_slk_donnees.md                                                 5201
+documentation/ecrans_demarrage.md                                                5218
+documentation/etats_console_essais.md                                            6849
+documentation/fenetres_temporelles.md                                           14913
+documentation/films_usm.md                                                       8292
+documentation/greffe_relocations.md                                              6259
+documentation/import_decors.md                                                  17847
+documentation/interface_apm3.md                                                 12521
+documentation/interface_apm3_code.md                                            16804
+documentation/knockout_trial.md                                                  8872
+documentation/langue.md                                                          2905
+documentation/liste2_repartiteur.md                                              9477
+documentation/machine_console.md                                                 8872
+documentation/machine_etats.md                                                   5574
+documentation/menu_console.md                                                  125736
+documentation/mode_de_jeu.md                                                    35248
+documentation/mode_quest.md                                                    382967
+documentation/mode_selector.md                                                  26958
+documentation/mothead_liste2_roles.md                                           17741
+documentation/obj_db.md                                                          4764
+documentation/parente_console.md                                                 7665
+documentation/polices_et_pictos.md                                              10919
+documentation/quest_regles.md                                                    7737
+documentation/repartiteur.md                                                     6488
+documentation/reseau.md                                                          7295
+documentation/reseau_allnet.md                                                  74511
+documentation/reseau_machine.md                                                 14272
+documentation/reseau_transport.md                                               34980
+documentation/resolution.md                                                      4902
+documentation/tex_db.md                                                          2963
+documentation/texte_2d.md                                                       16232
+documentation/vs_gameover.md                                                     9822
+documentation/x360_fs.md                                                        11504
+documentation/_journal/A FAIRE.txt                                              14027
+documentation/_journal/PROMPT_TERMINAL_ET_QUEST.md                              18321
+documentation/_journal/REPRISE.md                                              944944
+documentation/_journal/REPRISE_PROMPT.md                                         8182
+documentation/_journal/REPRISE_QUEST.md                                          8808
+documentation/docs/formats/apm_input.md                                         18216
+documentation/docs/formats/farc.md                                               4476
+documentation/docs/formats/mot_tables.md                                         8165
+documentation/docs/formats/mothead.md                                           68211
+documentation/docs/formats/xbox360_outils.md                                     5075
+donnees/API_MATRIX_raw.txt                                                      18183
+donnees/_lanceurs_20261004.txt                                                   2307
+donnees/_ps3_liste.txt                                                          26462
+donnees/_refs_libelle.txt                                                       26917
+donnees/_selstage_upd.txt                                                       27062
+donnees/_temoin_reloc.txt                                                          18
+donnees/_titres.txt                                                              1603
+donnees/apm_creneaux.json                                                        4317
+donnees/cadence.txt                                                           1216463
+donnees/cadence2.txt                                                          1397632
+donnees/carte_entrees.txt                                                        2640
+donnees/config_module.txt                                                        2777
+donnees/controle_quest.txt                                                      18631
+donnees/dbg2.txt                                                              2122641
+donnees/dbg3.txt                                                              1994278
+donnees/dbg_start.txt                                                         2225702
+donnees/decors_lindbergh.csv                                                     2389
+donnees/empreinte_quest.json                                                    14371
+donnees/fichiers_demandes.txt                                                    8002
+donnees/forcer_dural.txt                                                          999
+donnees/functions.csv                                                           36736
+donnees/langue.txt                                                               1000
+donnees/libelles_renommes.json                                                     33
+donnees/mothead_fenetres_sites.csv                                               6491
+donnees/mothead_list2_consumers.csv                                              1121
+donnees/mothead_liste2_gestionnaires.csv                                         1960
+donnees/mothead_opcodes.csv                                                     50475
+donnees/mothead_state_readers.csv                                               76175
+donnees/oracle_handlers_sortie.txt                                               4501
+donnees/oracle_liste1_vivant.txt                                                 6459
+donnees/oracle_liste2_v2.txt                                                     7059
+donnees/oracle_liste2_v3.txt                                                     4890
+donnees/oracle_liste2_v4.txt                                                     3056
+donnees/oracle_liste2_v5.txt                                                     8776
+donnees/oracle_liste2_v6.txt                                                     6024
+donnees/oracle_liste2_v7.txt                                                     2533
+donnees/oracle_liste2_vivant.txt                                                 5526
+donnees/par_entrees_origine.json                                                  129
+donnees/passe_reconnaissance.txt                                                 2225
+donnees/pistage_fenetres.txt                                                    15212
+donnees/pistage_liste2.txt                                                       4738
+donnees/pistage_perso.txt                                                        3055
+donnees/pister_5c.txt                                                            6533
+donnees/pister_5c_stage.txt                                                      1668
+donnees/pister_60_stage.txt                                                      1897
+donnees/pister_attract.txt                                                       1786
+donnees/pister_attract_bilan.txt                                                 1013
+donnees/pister_cri.txt                                                           1159
+donnees/pister_cri_bilan.txt                                                      246
+donnees/pister_decodeur.txt                                                      1604
+donnees/pister_decodeur_bilan.txt                                                 958
+donnees/pister_decor.txt                                                         1528
+donnees/pister_dessin.txt                                                        2752
+donnees/pister_grille.txt                                                        2327
+donnees/pister_http.txt                                                          4145
+donnees/pister_http_bilan.txt                                                     725
+donnees/pister_import_d5r.txt                                                    3491
+donnees/pister_import_djo.txt                                                    3022
+donnees/pister_item3d.20261004-013317.txt                                        8784
+donnees/pister_item3d.20261004-013503.txt                                        3873
+donnees/pister_item3d.20261004-013615.txt                                        7826
+donnees/pister_item3d.20261004-014559.txt                                        7662
+donnees/pister_item3d.20261004-103034.txt                                       30382
+donnees/pister_item3d.txt                                                       14357
+donnees/pister_legende.txt                                                       1743
+donnees/pister_legende_bilan.txt                                                  820
+donnees/pister_link.txt                                                          5007
+donnees/pister_link_bilan.txt                                                    4226
+donnees/pister_menu.txt                                                          1243
+donnees/pister_mode.txt                                                          2150
+donnees/pister_mode_bilan.txt                                                    1467
+donnees/pister_objdb.txt                                                         1299
+donnees/pister_objset.txt                                                        1272
+donnees/pister_objset_pret.txt                                                   5969
+donnees/pister_ordre.txt                                                         4683
+donnees/pister_perso.txt                                                         1726
+donnees/pister_perso_TAK.txt                                                     2018
+donnees/pister_plantage.txt                                                      7816
+donnees/pister_sauvegarde.txt                                                   47133
+donnees/pister_scene.txt                                                         1459
+donnees/pister_scene_bilan.txt                                                   4665
+donnees/pister_scenes.txt                                                         833
+donnees/pister_selstage.txt                                                      1626
+donnees/pister_sousmenu.txt                                                      1146
+donnees/pister_sousmenu_bilan.txt                                                 753
+donnees/pister_sp.txt                                                            1726
+donnees/pister_sp_bilan.txt                                                      1054
+donnees/pister_tampon.txt                                                        2803
+donnees/pister_tampon_bilan.txt                                                  2194
+donnees/pister_validation.txt                                                     965
+donnees/pister_validation_bilan.txt                                               658
+donnees/pister_variantes.txt                                                     2030
+donnees/pister_vga.txt                                                            905
+donnees/plantage_essai.txt                                                       4478
+donnees/plantage_f1_arcade.txt                                                   1865
+donnees/plantage_t1.txt                                                          1093
+donnees/plantage_vide.txt                                                        3256
+donnees/regression.txt                                                            925
+donnees/resolution.txt                                                           7022
+donnees/rtti_apm3.txt                                                           57529
+donnees/rtti_vf5_lind.txt                                                       16176
+donnees/rtti_vf5_x360.txt                                                        4894
+donnees/rtti_yakuza6.txt                                                        28805
+donnees/selection_a.txt                                                            29
+donnees/selection_b.txt                                                            29
+donnees/serveur_allnet.txt                                                       1181
+donnees/sonde_decor.txt                                                           974
+donnees/sonde_menu_vivant.txt                                                    1051
+donnees/sonde_mode.txt                                                           6710
+donnees/sonde_terminal.txt                                                       1530
+donnees/sonde_vignettes.txt                                                         0
+donnees/sp_corrige.txt                                                           4473
+donnees/sp_plantage.txt                                                          7205
+donnees/sp_poseurs.txt                                                           4053
+donnees/sp_sans_option.txt                                                       4219
+donnees/strings_pxd_revo.txt                                                  1112942
+donnees/strings_pxd_us.txt                                                    1299683
+donnees/strings_vf5_lind.txt                                                  1187702
+donnees/strings_vf5_lindimg.txt                                               1182591
+donnees/table_decors.csv                                                         4039
+donnees/trace_etats.txt                                                          1668
+donnees/dlc/vf5_item_names_en.json                                             713646
+donnees/inventory/APM3_FS.csv                                                 1123404
+donnees/inventory/APM3_US.csv                                                  164728
+donnees/inventory/LIND_FS.csv                                                     146
+donnees/inventory/LIND_R_7z.listing.txt                                           781
+donnees/inventory/LIND_R_rom.listing.txt                                       481799
+donnees/inventory/LIND_R_sys.listing.txt                                       291389
+donnees/inventory/LIND_VF5.listing.txt                                         571512
+donnees/inventory/LIND_vf5fs_bin.listing.txt                                  6244284
+donnees/inventory/LIND_vf5fs_ext_bin.listing.txt                                26421
+donnees/inventory/PC_REVO.csv                                                 1103608
+donnees/inventory/PS3_FS.csv                                                      333
+donnees/inventory/X360_FS.csv                                                     180
+donnees/quest/_liste_quest.txt                                                   3228
+donnees/quest/_manque_quest.txt                                                   994
+donnees/quest/ancres_qwin.txt                                                   16972
+donnees/quest/methodes_quest.txt                                                 2436
+donnees/quest/objets_2007_vers_fs.json                                          48800
+donnees/quest/textes.md                                                         29307
+donnees/yamp/Y6-VF5FS.h                                                           280
+donnees/yamp/Y6_cs_game.h                                                         130
+donnees/yamp/Y6_file_access.h                                                    5839
+mesures/ClasserNoms.java                                                         1595
+mesures/CompterVF5.java                                                          2731
+mesures/CouvVF5.java                                                             1734
+mesures/DecompVF5.java                                                           2725
+mesures/analyser.py                                                              5797
+mesures/construire_dossier.py                                                    6451
+mesures/extraire_adresses.py                                                     2722
+outils/_ajouter_option.py                                                        1439
+outils/_bornes_227790.py                                                         1623
+outils/_decor_commun.cmd                                                          875
+outils/_lire_227790.py                                                           2210
+outils/_lire_chaines.py                                                           757
+outils/_lire_fn.py                                                               2446
+outils/_normaliser_cmd.py                                                        2473
+outils/_table_3A0C08.py                                                          1239
+outils/_terminal_commun.cmd                                                      4571
+outils/a3d_db.py                                                                11109
+outils/adx.py                                                                    5728
+outils/aet.py                                                                   14139
+outils/aet_echelle.py                                                            8023
+outils/ambiances.py                                                              2993
+outils/ancres_ecrans.py                                                          6845
+outils/ancres_que.py                                                             3323
+outils/ancres_tnt.py                                                             4044
+outils/apercu_polices.py                                                         6293
+outils/api_matrix.py                                                             2476
+outils/apm_camera.py                                                             5191
+outils/apm_couleurs.py                                                           3618
+outils/apm_entrees.txt                                                           9572
+outils/apm_hors_ligne.cmd                                                        3293
+outils/apm_icones.py                                                             9550
+outils/apm_lancer.py                                                             6845
+outils/apm_sons.py                                                               4405
+outils/apm_stub.c                                                              146666
+outils/apm_teintes.py                                                            5334
+outils/apm_ui_sons.py                                                            4369
+outils/arbre_aet.py                                                              7884
+outils/bases_2d.py                                                              27624
+outils/bc.py                                                                     9483
+outils/bc_rapide.py                                                              8424
+outils/borne_touche.py                                                           1717
+outils/bornes.py                                                                 1396
+outils/bouchons.py                                                               6733
+outils/boutons_style.py                                                          8411
+outils/boutons_terminal.cmd                                                      1417
+outils/boutons_terminal.py                                                      12530
+outils/boutons_xbox_controls.cmd                                                 1513
+outils/cadres_fenetres.cmd                                                        797
+outils/cadres_fenetres.py                                                        6750
+outils/capture_fenetre.py                                                        8145
+outils/carte_entrees.cmd                                                          859
+outils/carte_entrees.py                                                          7860
+outils/carte_zone.py                                                             7738
+outils/cavernes.py                                                               3078
+outils/champ_x64.py                                                              7127
+outils/champs_accesseur.py                                                       8549
+outils/champs_globale.py                                                         6482
+outils/chercher_motif.py                                                         2841
+outils/chercher_selection.py                                                     7343
+outils/chrono_lanceur.cmd                                                        1195
+outils/chrono_lanceur.py                                                         3799
+outils/clavier_grille.py                                                         2586
+outils/compare_assets.py                                                         1821
+outils/compare_dirs.py                                                           2367
+outils/comparer_bouchons.py                                                      3617
+outils/comparer_builds.py                                                        8145
+outils/comparer_sites.py                                                         6499
+outils/config_module.py                                                          5752
+outils/console.cmd                                                               3839
+outils/console_combat.cmd                                                        3017
+outils/construire_stub.cmd                                                        607
+outils/controle_decor_neuf.py                                                   12634
+outils/controle_decors_5r.py                                                     1133
+outils/controle_decors_vf5.py                                                   35276
+outils/controle_quest.cmd                                                        1731
+outils/controle_quest.py                                                        25812
+outils/controls_voir.cmd                                                         1072
+outils/convert_csv.py                                                            1457
+outils/couverture.py                                                             4948
+outils/curseur_customize.py                                                      9834
+outils/decomp.py                                                                 3730
+outils/decor_5r_akira.cmd                                                        5782
+outils/decor_5r_akira_ajout.cmd                                                  6492
+outils/decor_5r_akira_ajout_retirer.cmd                                          1150
+outils/decor_5r_retirer.cmd                                                       791
+outils/decor_TRM.cmd                                                              327
+outils/decor_TS2.cmd                                                              344
+outils/decor_ajoute.cmd                                                          7039
+outils/decor_ajoute_retirer.cmd                                                  1001
+outils/decor_neuf.py                                                            38870
+outils/decor_perso.cmd                                                           1514
+outils/decors_44.cmd                                                             7655
+outils/decors_5r.cmd                                                             4974
+outils/decors_5r_retirer.cmd                                                      634
+outils/decors_dural.cmd                                                          5518
+outils/decors_grille.cmd                                                         6819
+outils/decors_table.cmd                                                          5911
+outils/decors_vf5.cmd                                                            6033
+outils/decors_vf5_retirer.cmd                                                     727
+outils/depister_5r.cmd                                                           2128
+outils/depister_5r_ajoute.cmd                                                    5080
+outils/deposer_disasm.py                                                        15218
+outils/directions_select.cmd                                                     3607
+outils/dojo.cmd                                                                  1001
+outils/dojo_5r.cmd                                                               5117
+outils/dojo_5r_repli.cmd                                                         9050
+outils/dojo_5r_temoin.cmd                                                        5134
+outils/dotnet.py                                                                18193
+outils/dump_section.py                                                           1223
+outils/dural_options.cmd                                                         3698
+outils/eau_eileen.cmd                                                            1623
+outils/eau_eileen.py                                                            23780
+outils/eau_sur_le_ring.py                                                        7587
+outils/echappements.py                                                           5073
+outils/ecrit_champ.py                                                            2857
+outils/effets_generation.py                                                      4724
+outils/effets_tables_fs.py                                                       5426
+outils/emplacements.py                                                           7098
+outils/emu32.py                                                                  5344
+outils/entrees.py                                                                5163
+outils/essai_adv.py                                                              2568
+outils/essai_attract.cmd                                                         1957
+outils/essai_legende.cmd                                                         2475
+outils/essai_menu.cmd                                                             698
+outils/essai_menu.py                                                             9157
+outils/essai_mode.cmd                                                            2262
+outils/essai_relocations.cmd                                                     3848
+outils/essai_scenario.py                                                         5293
+outils/essai_sparring.cmd                                                        2247
+outils/ext2.py                                                                   7605
+outils/extract_rtti.py                                                           2613
+outils/extract_strings.py                                                        1656
+outils/farc.py                                                                   9812
+outils/film_essai.cmd                                                            1272
+outils/films_a_regarder.py                                                       3419
+outils/films_mpg.py                                                              8306
+outils/find_ptr_table.py                                                         3279
+outils/forcer_dural.py                                                           5397
+outils/gen_apm_stub.py                                                         152738
+outils/generation.py                                                            33237
+outils/graphe_appels.py                                                          6796
+outils/greffe_xref.py                                                            2512
+outils/grille_console.cmd                                                        1628
+outils/hexva.py                                                                  2354
+outils/identifier_entrees.py                                                     5193
+outils/immediat.py                                                               2191
+outils/importer_decor.py                                                        15756
+outils/importer_x360_fs.cmd                                                      2384
+outils/importer_x360_fs.py                                                       5567
+outils/index_elf.py                                                              3291
+outils/instrument.py                                                            43978
+outils/inventaire_decors.py                                                      3998
+outils/inventory_sources.py                                                      5188
+outils/item_porte.cmd                                                           19186
+outils/jeux.py                                                                  12239
+outils/jeux_convertir.cmd                                                        1249
+outils/jeux_verifier.cmd                                                         1357
+outils/lancer_vfes.cmd                                                           1644
+outils/lancer_vfes_combat.cmd                                                    1430
+outils/lancer_vfes_debug.cmd                                                      756
+outils/langue.py                                                                 3529
+outils/libelles.py                                                               3501
+outils/lind_x86.py                                                               6714
+outils/lire_gestionnaires_liste2.py                                              8665
+outils/lire_minidump.py                                                          2258
+outils/lzx.py                                                                   15600
+outils/menu_console.cmd                                                          1661
+outils/menu_operateur.cmd                                                        1277
+outils/menu_test.py                                                              5450
+outils/mesurer_atlas.py                                                          3304
+outils/mesurer_decor.cmd                                                          786
+outils/mode_console.cmd                                                          2996
+outils/motdb.py                                                                  6162
+outils/mothead.py                                                               13168
+outils/muet.cmd                                                                   759
+outils/muet.py                                                                   3089
+outils/musique_quest.py                                                          7533
+outils/obj_db.py                                                                13140
+outils/objet_materiaux.py                                                        3553
+outils/objets_correspondance.cmd                                                 1453
+outils/objets_correspondance.py                                                  8840
+outils/objets_quest.py                                                           5047
+outils/objset.py                                                                 2903
+outils/objset_pret.cmd                                                           4999
+outils/options_bin.py                                                            3666
+outils/options_sauvegarde.cmd                                                    1272
+outils/options_v2.py                                                            39695
+outils/oracle_handlers.py                                                        6384
+outils/oracle_liste2.cmd                                                         1212
+outils/oracle_liste2_vivant.py                                                  10196
+outils/oracle_mottbl.py                                                          4058
+outils/oracles.cmd                                                                677
+outils/par_ecrire.py                                                             9685
+outils/par_inventaire.py                                                         3956
+outils/par_masquer.py                                                            6182
+outils/patch_moteur.py                                                         127378
+outils/patch_resolution.py                                                       4603
+outils/patch_si_besoin.py                                                        4541
+outils/pe_disasm.py                                                              8692
+outils/pe_sections.py                                                           17818
+outils/pictos_essai.cmd                                                          1141
+outils/pictos_essai.py                                                           4764
+outils/pictos_planche.py                                                         5497
+outils/pictos_xbox.py                                                            8718
+outils/pile_minidump.py                                                          3727
+outils/pister_5c.cmd                                                             1766
+outils/pister_5c.py                                                              5018
+outils/pister_5c_dojo.cmd                                                        6001
+outils/pister_5c_stage.py                                                        5642
+outils/pister_60_dojo.cmd                                                        5719
+outils/pister_60_stage.py                                                       13179
+outils/pister_attract.py                                                         4597
+outils/pister_cri.py                                                             5431
+outils/pister_decodeur.py                                                        5246
+outils/pister_decor.py                                                           6852
+outils/pister_decor_ajoute.cmd                                                   4520
+outils/pister_dessin.cmd                                                         2724
+outils/pister_dessin.py                                                          8072
+outils/pister_dojo_5r.cmd                                                        5988
+outils/pister_etat.py                                                            6175
+outils/pister_fenetres.cmd                                                       1032
+outils/pister_grille.py                                                          6922
+outils/pister_http.py                                                            5126
+outils/pister_import.py                                                         18497
+outils/pister_item3d.py                                                         16020
+outils/pister_legende.py                                                         5122
+outils/pister_link.cmd                                                           1732
+outils/pister_link.py                                                           15243
+outils/pister_liste2.cmd                                                          923
+outils/pister_liste2.py                                                          5598
+outils/pister_menu.py                                                           19217
+outils/pister_mode.cmd                                                           1493
+outils/pister_mode.py                                                            9323
+outils/pister_objdb.py                                                           4837
+outils/pister_objset.py                                                          7659
+outils/pister_objset_pret.py                                                     9416
+outils/pister_ordre.cmd                                                          1769
+outils/pister_ordre.py                                                           5882
+outils/pister_perso.py                                                          12522
+outils/pister_plantage.py                                                       23174
+outils/pister_relocations.py                                                     6903
+outils/pister_sauvegarde.py                                                     13963
+outils/pister_scene.cmd                                                           823
+outils/pister_scene.py                                                           6154
+outils/pister_scenes.py                                                          4984
+outils/pister_selstage.cmd                                                       1631
+outils/pister_selstage.py                                                        5436
+outils/pister_sousmenu.cmd                                                        773
+outils/pister_sousmenu.py                                                        7233
+outils/pister_sp.cmd                                                              697
+outils/pister_sp.py                                                              6566
+outils/pister_tampon.py                                                          4852
+outils/pister_validation.cmd                                                      732
+outils/pister_validation.py                                                      4874
+outils/pister_variantes.cmd                                                      1709
+outils/pister_variantes.py                                                       6399
+outils/pister_vga.py                                                             3972
+outils/plage.py                                                                  2740
+outils/planche_police.py                                                         5596
+outils/plantage_5r.cmd                                                           1646
+outils/plantage_quest.cmd                                                        1654
+outils/plantage_selpart.cmd                                                      6859
+outils/portes_greffe.py                                                          2199
+outils/poser_roles_liste2.py                                                    17803
+outils/presser.cmd                                                                998
+outils/presser.py                                                                2511
+outils/profil_quest.py                                                           7276
+outils/psarc.py                                                                  5273
+outils/quest.cmd                                                                 7095
+outils/questV2.cmd                                                              20812
+outils/quest_auto.cmd                                                             844
+outils/quest_auto.py                                                             6127
+outils/quest_runtime.c                                                         203929
+outils/quest_texte_essai.cmd                                                     4280
+outils/quest_textes.py                                                           8408
+outils/quest_textes_map.h                                                       26017
+outils/quest_x360.py                                                             9883
+outils/refs_lineaires.py                                                         5767
+outils/refs_multi.py                                                             3888
+outils/refs_plage.py                                                             4356
+outils/regression.cmd                                                            1832
+outils/regression.py                                                            10395
+outils/relever_bouchons.py                                                       4402
+outils/rendre_le_clavier.cmd                                                     1265
+outils/renommer_libelle.py                                                       4974
+outils/reseau.py                                                                10842
+outils/resolution.py                                                            23073
+outils/rivaux.py                                                                 7218
+outils/rtti.py                                                                   4978
+outils/sauvegarde.cmd                                                            5685
+outils/scan_elf.py                                                               7030
+outils/schema_manette_xbox.py                                                    8585
+outils/selitem_grille.cmd                                                        3822
+outils/serveur_allnet.cmd                                                        2069
+outils/serveur_allnet.py                                                         9249
+outils/settings_plantage.cmd                                                     4416
+outils/sfd.py                                                                    4854
+outils/sfd_inventaire.py                                                         2576
+outils/sfd_vers_usm.cmd                                                          2975
+outils/shader_empreintes.py                                                     12166
+outils/sllz.py                                                                   6126
+outils/sonde_decor.py                                                           16832
+outils/sonde_menu_vivant.py                                                      5104
+outils/sonde_mode.cmd                                                            2066
+outils/sonde_quest.cmd                                                           1731
+outils/sonde_quest.py                                                           12127
+outils/sonde_terminal.py                                                         5438
+outils/sonde_vignettes.py                                                       24630
+outils/stfs.py                                                                   6499
+outils/stgnyc_hd.cmd                                                             1133
+outils/substitutions.py                                                          3297
+outils/summarize_inventory.py                                                    1963
+outils/table_decors.py                                                           3383
+outils/tables_generation.py                                                     18509
+outils/terminal.cmd                                                              1495
+outils/terminal_sans_wxga.cmd                                                    1143
+outils/tex_db.py                                                                 8604
+outils/textes_quest.py                                                          13331
+outils/textures_2007.py                                                          1918
+outils/textures_decor.py                                                         3321
+outils/textures_hd.cmd                                                           2248
+outils/textures_hd.py                                                           21816
+outils/textures_hd3d.py                                                         13313
+outils/textures_sortir.cmd                                                        858
+outils/tracer_eclairage.cmd                                                      1918
+outils/tracer_etats.py                                                           8461
+outils/tracer_fichiers.py                                                        5088
+outils/txp.py                                                                    7005
+outils/unpack_ps3_pkg.py                                                         4679
+outils/usm.py                                                                    8912
+outils/usm_mux.py                                                               24559
+outils/variantes.cmd                                                             5741
+outils/variantes_5r.py                                                          11739
+outils/variantes_texte.cmd                                                       7164
+outils/variantes_vf5.py                                                         28615
+outils/verifier_cmd.py                                                           2062
+outils/verifier_decors_table.py                                                 10875
+outils/verifier_formats.cmd                                                      1180
+outils/verifier_lanceurs.py                                                      8393
+outils/vignettes_costume.cmd                                                     3947
+outils/vignettes_costume.py                                                      8743
+outils/vitrine.cmd                                                               2199
+outils/voir_films_tv.cmd                                                         1281
+outils/voisinage_x64.py                                                          4698
+outils/vtable.py                                                                 3190
+outils/x360_appels.py                                                            5009
+outils/x360_bruitages.py                                                         5253
+outils/x360_carte.cmd                                                            2135
+outils/x360_champ.py                                                             5214
+outils/x360_fs.cmd                                                               3219
+outils/x360_mise_en_page.py                                                      4851
+outils/x360_ppc.py                                                              12769
+outils/x360_rtti.py                                                              4264
+outils/x360_savegpr.py                                                           3776
+outils/x360_suivre.cmd                                                           2402
+outils/x360_suivre.py                                                           18709
+outils/x360_xref2007.py                                                          3310
+outils/xex.py                                                                    7810
+outils/zone_chaines.py                                                           1658
+outils/dlc/extract.py                                                            3967
+outils/dlc/extract_raw.py                                                        3042
+outils/dlc/farc_list.py                                                          1856
+outils/dlc/inventory.py                                                          5078
+outils/dlc/inventory_games.py                                                    4448
+outils/dlc/item_names.py                                                         4017
+outils/dlc/make_comparison_xlsx.py                                              17622
+outils/dlc/make_xlsx.py                                                         12015
+outils/dlc/match_items.py                                                       10426
+outils/dlc/sources.py                                                            5628
+outils/dlc/stfs.py                                                               9297
+outils/dlc/texture_pairs.py                                                      1754
+outils/dlc/thumbs_games.py                                                       2515
+outils/dlc/vf5fs.py                                                              6174
+outils/ghidra/DecompVF5.java                                                     2725
+outils/ghidra/PdataX360.java                                                     1406
+outils/ghidra/SauvegardesX360.java                                               3171
+outils/scenarios/combat_combinaisons.txt                                        17789
+outils/scenarios/combat_long.txt                                                13310
+outils/scenarios/combat_martelage.txt                                            1507
+outils/scenarios/combat_tout_tenu.txt                                           10669
+outils/scenarios/console_journal.txt                                             1263
+outils/scenarios/console_start.txt                                                794
+outils/scenarios/data_test.txt                                                   1440
+outils/scenarios/deux_start.txt                                                   225
+outils/scenarios/films_ligne1.txt                                                1155
+outils/scenarios/films_reperage.txt                                              1265
+outils/scenarios/films_theatre.txt                                               1804
+outils/scenarios/jouer.txt                                                       2524
+outils/scenarios/menu_operateur.txt                                               524
+outils/scenarios/menu_test.txt                                                   2577
+outils/scenarios/quest_apres.txt                                                 1087
+outils/scenarios/quest_boutique.txt                                              1163
+outils/scenarios/quest_carte.txt                                                 1178
+outils/scenarios/quest_combat.txt                                                1144
+outils/scenarios/quest_creation.txt                                              1077
+outils/scenarios/quest_emblemes.txt                                              1074
+outils/scenarios/quest_lieu.txt                                                  1161
+outils/scenarios/quest_reglages.txt                                              1149
+outils/scenarios/quest_rencontre.txt                                             1069
+outils/scenarios/quest_tournoi.txt                                               1099
+outils/scenarios/rester_grille.txt                                               1713
+outils/scenarios/select_a.txt                                                     235
+outils/scenarios/select_b.txt                                                     511
+outils/scenarios/sp_plantage.txt                                                  963
+outils/scenarios/titre.txt                                                        466

@@ -1,0 +1,11 @@
+# ---------------------------------------------------------------------------
+# L ECRAN TITRE, sans rien toucher. Trois captures pour voir ce qu il porte.
+#
+# Le titre joue rom/movie/vf5title_bg.usm en fond. La question est de savoir
+# si le LOGO est dans cette video ou pose par-dessus -- aucune planche 2D ne
+# le porte (verifie sur les seize aet_n_*.bin).
+# ---------------------------------------------------------------------------
+
+nom start = 7
+
+0       rien

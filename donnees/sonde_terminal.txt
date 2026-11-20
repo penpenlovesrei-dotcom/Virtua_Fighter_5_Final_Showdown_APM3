@@ -1,0 +1,39 @@
+processus 18224 lance sous debogage
+  image     0x00007FF63E390000  vfes.exe
+  dll       0x00007FFEC09C0000  apm.dll
+  dll       0x00007FFEF5930000  d3d11.dll
+  dll       0x00007FFEF69E0000  dxgi.dll
+  dll       0x00007FFEF49B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFEFC7E2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFEFA0941CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFE45BE0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur SEQ = 0x7FFE45DA3D60 (octet d'origine 0x48)
+  BP arme sur CUST = 0x7FFE45DA2EC0 (octet d'origine 0x48)
+  2 points poses (t=1.4 s)
+  sourdine : session audio du processus 18224 coupee apres 2 s
+     0.0 s   CUST  etat = 0
+     0.2 s   CUST  etat = 1
+     0.2 s   CUST  etat = 2
+     0.2 s   CUST  etat = 3
+     0.3 s   CUST  etat = 10
+     0.3 s   SEQ   etat = 0
+     0.3 s   SEQ   etat = 10
+    13.6 s   SEQ   etat = 20
+    13.6 s   SEQ   etat = 40
+    13.6 s   SEQ   etat = 41
+    13.8 s   SEQ   etat = 42
+    13.8 s   SEQ   etat = 43
+    14.5 s   SEQ   etat = 44
+    14.8 s   SEQ   etat = 50
+    14.8 s   SEQ   etat = 51
+    14.8 s   SEQ   etat = 52
+    14.9 s   SEQ   etat = 53
+    17.7 s   SEQ   etat = 60
+  sourdine : plus de session a lever -- si le jeu reste muet : py -3 tools/muet.py --rendre, jeu lance
+--- 78 s ecoulees, on arrete ---
+
+78 module(s) charge(s)
+  BP SEQ : 1074 passage(s)
+  BP CUST : 1090 passage(s)
+  scenario d entrees remis en jeu manuel

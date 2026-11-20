@@ -1,0 +1,63 @@
+processus 17728 lance sous debogage
+  image     0x00007FF6B1190000  vfes.exe
+  dll       0x00007FF83A280000  apm.dll
+  dll       0x00007FF856F30000  d3d11.dll
+  dll       0x00007FF858080000  dxgi.dll
+  dll       0x00007FF8561F0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF85DE1D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF85B3A187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFF9D510000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur requestTurnInfo = 0x7FFF9D7E8F80 (octet d'origine 0x40)
+  BP arme sur route turninfo = 0x7FFF9D7E5C50 (octet d'origine 0x40)
+  BP arme sur emetteur = 0x7FFF9D7E57C0 (octet d'origine 0x40)
+  BP arme sur emetteur OCCUPE = 0x7FFF9D7E5805 (octet d'origine 0x66)
+  BP arme sur Request::send = 0x7FFF9D7FBA20 (octet d'origine 0x48)
+  BP arme sur Request::sendData = 0x7FFF9D7FBAC0 (octet d'origine 0x40)
+  BP arme sur make request = 0x7FFF9D80A7F0 (octet d'origine 0x40)
+  BP arme sur post = 0x7FFF9D7A22B0 (octet d'origine 0x40)
+  BP arme sur URL = 0x7FFF9D7A23BA (octet d'origine 0xBA)
+  BP arme sur curl update = 0x7FFF9D7A27D0 (octet d'origine 0x48)
+  points d'arret poses a t=1 s
+  sourdine : session audio du processus 17728 coupee apres 2 s
+      0.0 ms  PREMIERE FOIS : requestTurnInfo
+      1.9 ms  --- comptes : requestTurnInfo=2
+     49.8 ms  PREMIERE FOIS : curl update
+   1998.6 ms  PREMIERE FOIS : route turninfo
+   1999.0 ms  PREMIERE FOIS : Request::sendData
+   1999.4 ms  PREMIERE FOIS : make request
+   2000.6 ms  PREMIERE FOIS : post
+   2001.0 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8080:80/api/turninfo'
+   3432.4 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+   6745.3 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8080:80/api/turninfo'
+   6750.6 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  10002.5 ms  --- comptes : Request::sendData=2, URL=4, curl update=2770, make request=2, post=4, requestTurnInfo=4729, route turninfo=2
+  10033.4 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  13022.1 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8080:80/api/turninfo'
+  13333.1 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFF9D7A27D0 = vf5fs-pxd-w64-Retail_APM3.dll+0x2927D0
+  16633.0 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  19933.3 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  20002.6 ms  --- comptes : Request::sendData=3, URL=9, curl update=4480, make request=3, post=9, requestTurnInfo=9683, route turninfo=3
+  23199.9 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  23324.0 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8080:80/api/turninfo'
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFF9D7A27D0 = vf5fs-pxd-w64-Retail_APM3.dll+0x2927D0
+  26516.6 ms  URL donnee a libcurl : b'http://http://127.0.0.1:8081:80/api/data/load'
+  29800.1 ms  PREMIERE FOIS : URL
+  30004.5 ms  --- comptes : Request::sendData=4, URL=13, curl update=6193, make request=4, post=13, requestTurnInfo=14642, route turninfo=4
+  40005.1 ms  --- comptes : Request::sendData=4, URL=16, curl update=6793, make request=4, post=16, requestTurnInfo=19638, route turninfo=4
+  50005.6 ms  --- comptes : Request::sendData=5, URL=20, curl update=8499, make request=5, post=20, requestTurnInfo=24571, route turninfo=5
+  60006.4 ms  --- comptes : Request::sendData=6, URL=24, curl update=10075, make request=6, post=24, requestTurnInfo=29508, route turninfo=6
+--- 70 s ecoulees, on arrete ---
+
+83 module(s) charge(s)
+  BP requestTurnInfo : 32847 passage(s)
+  BP route turninfo : 6 passage(s)
+  BP emetteur : 0 passage(s)
+  BP emetteur OCCUPE : 0 passage(s)
+  BP Request::send : 0 passage(s)
+  BP Request::sendData : 6 passage(s)
+  BP make request : 6 passage(s)
+  BP post : 26 passage(s)
+  BP URL : 26 passage(s)
+  BP curl update : 10597 passage(s)

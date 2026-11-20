@@ -1,0 +1,138 @@
+@echo off
+rem ===========================================================================
+rem  monter_banc_gog.cmd : fabrique FS APM3\banc_gog -- le CODE d'APM3 sur les
+rem  DONNEES du GOG. Idempotent.
+rem
+rem  LA QUESTION, telle qu'elle a ete posee le 4 novembre 2026 :
+rem    " peut-on mettre le vfes.exe et le vf5fs-pxd-w64-Retail_APM3.dll de
+rem      SOURCES\APM3_US\runtime\media\vf5fs dans le dossier
+rem      SOURCES\Yakuza_6_FS_GOG\Yakuza 6 - vf5fs et lancer le jeu ? "
+rem
+rem  CE BANC EST CETTE QUESTION, MONTEE.
+rem
+rem  Ce n'est PAS banc\ (relais apm, donnees APM3) ni VF5RE\runtime\media\vf5fs
+rem  (le banc du projet, exe et module PATCHES, donnees APM3 reconstruites).
+rem  Ici tout est VIERGE cote code -- les octets de SOURCES, pas nos correctifs
+rem  -- parce que la question porte sur les fichiers d'origine.
+rem
+rem  CE QU'ON NE PEUT PAS FAIRE, ET POURQUOI ON MONTE AILLEURS. Ecrire dans
+rem  SOURCES est interdit : la matiere doit rester re-mesurable a l'identique,
+rem  et notre apm.dll deposee la masquerait la vraie.
+rem
+rem  LE MUR PREVU, NOMME D'AVANCE. Le module APM3 connait
+rem  vf5fs_media\w64\shader_vf5_w64.farc, que le GOG n'a pas. Si le jeu tombe
+rem  en reclamant ce fichier, la mesure est bonne et l'emprunt suivant est
+rem  d'un seul fichier. Relancer alors avec l'argument " emprunt ".
+rem ===========================================================================
+setlocal EnableDelayedExpansion
+
+set "ICI=%~dp0"
+set "RACINE=%ICI%.."
+set "SRC=%ICI%..\..\SOURCES"
+set "APM3=%SRC%\APM3_US\runtime\media\vf5fs"
+set "GOG=%SRC%\Yakuza_6_FS_GOG\Yakuza 6 - vf5fs"
+set "LIB=%SRC%\lib"
+set "BOUCHON=%ICI%..\..\VF5RE\runtime\media\vf5fs\apm.dll"
+set "BANC=%RACINE%\banc_gog"
+
+echo === controle de la matiere premiere ===
+for %%F in ("%APM3%\vfes.exe" "%APM3%\vf5fs-pxd-w64-Retail_APM3.dll" "%GOG%\vf5fs_data.par" "%GOG%\vf5fs-pxd-w64-Retail_GOG.dll" "%BOUCHON%") do (
+    if not exist "%%~F" ( echo   ECHEC : introuvable : %%~F & exit /b 1 )
+    echo   ok  %%~nxF  %%~zF octets
+)
+if not exist "%GOG%\vf5fs_media\w64" ( echo   ECHEC : vf5fs_media du GOG introuvable & exit /b 1 )
+echo   ok  vf5fs_media du GOG
+
+if not exist "%BANC%" mkdir "%BANC%"
+
+echo.
+echo === le CODE : APM3, vierge, en liens durs ===
+call :LIEN "%APM3%\vfes.exe"                        "%BANC%\vfes.exe"
+call :LIEN "%APM3%\vf5fs-pxd-w64-Retail_APM3.dll"   "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll"
+
+echo.
+echo === les DONNEES : GOG, en liens durs ===
+call :LIEN "%GOG%\vf5fs_data.par"                   "%BANC%\vf5fs_data.par"
+rem Le module GOG est pose a cote sans etre charge : il est le temoin de
+rem l'essai reciproque (module GOG sous vfes.exe), jamais tente non plus.
+call :LIEN "%GOG%\vf5fs-pxd-w64-Retail_GOG.dll"     "%BANC%\vf5fs-pxd-w64-Retail_GOG.dll"
+
+echo.
+echo === vf5fs_media : un VRAI dossier, pas une jonction ===
+rem Une jonction vers le GOG nous interdirait d'y ajouter le fichier emprunte
+rem a APM3 sans ecrire dans SOURCES. On fabrique donc l'arborescence et on
+rem lie les feuilles.
+if not exist "%BANC%\vf5fs_media"     mkdir "%BANC%\vf5fs_media"
+if not exist "%BANC%\vf5fs_media\w64" mkdir "%BANC%\vf5fs_media\w64"
+call :LIEN "%GOG%\vf5fs_media\w64\shader_pxd_w64.farc" "%BANC%\vf5fs_media\w64\shader_pxd_w64.farc"
+if not exist "%BANC%\vf5fs_media\rom" (
+    mklink /J "%BANC%\vf5fs_media\rom" "%GOG%\vf5fs_media\rom" >nul
+    if errorlevel 1 ( echo   ECHEC : mklink /J rom & exit /b 1 )
+    echo   creee    vf5fs_media\rom ^(jonction vers le GOG^)
+) else ( echo   deja la  vf5fs_media\rom )
+
+if /i "%~1"=="emprunt" (
+    echo.
+    echo === EMPRUNT EXPLICITE A APM3 : shader_vf5_w64.farc ===
+    call :LIEN "%APM3%\vf5fs_media\w64\shader_vf5_w64.farc" "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc"
+) else (
+    if exist "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc" (
+        echo.
+        echo === retrait de l'emprunt ^(appel sans " emprunt "^) ===
+        del "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc"
+        echo   retire   shader_vf5_w64.farc
+    )
+)
+
+echo.
+echo === notre apm.dll ^(copie : elle est recompilee souvent^) ===
+copy /y "%BOUCHON%" "%BANC%\apm.dll" >nul
+if errorlevel 1 ( echo   ECHEC : copie de notre apm.dll & exit /b 1 )
+echo   posee    apm.dll  ^(le bouchon en service depuis septembre^)
+
+rem SANS CE FICHIER, PAS DE CLAVIER NI DE MANETTE. Le bouchon lit clavier=1
+rem et manette=1 dedans ; absent, il ne repond qu'au scenario, et un scenario
+rem vide ne presse jamais rien. C'est ce qui manquait au premier essai du
+rem 4 novembre 2026 : le jeu tournait et n'obeissait a personne.
+copy /y "%ICI%..\..\VF5RE\runtime\media\vf5fs\apm_entrees.txt" "%BANC%\apm_entrees.txt" >nul
+if errorlevel 1 ( echo   ECHEC : copie de apm_entrees.txt & exit /b 1 )
+echo   pose     apm_entrees.txt  ^(clavier et manette^)
+
+rem ---------------------------------------------------------------------------
+rem  Le lanceur. Genere ici, donc jamais desynchronise du montage.
+rem ---------------------------------------------------------------------------
+> "%BANC%\LANCER.cmd" (
+  echo @echo off
+  echo rem GENERE PAR outils\monter_banc_gog.cmd -- NE PAS MODIFIER A LA MAIN.
+  echo setlocal
+  echo set "ICI=%%~dp0"
+  echo set "APM_INERTE=1"
+  echo set "APM_JOURNAL=%%ICI%%apm_journal.txt"
+  echo set "APM_DETAIL=8"
+  echo if exist "%%APM_JOURNAL%%" del "%%APM_JOURNAL%%"
+  echo echo journal=%%APM_JOURNAL%%
+  echo pushd "%%ICI%%"
+  echo vfes.exe
+  echo set "CODE=%%ERRORLEVEL%%"
+  echo popd
+  echo echo.
+  echo echo vfes.exe a rendu %%CODE%%
+  echo if exist "%%APM_JOURNAL%%" ^( echo --- bilan du journal --- ^& findstr /c:">>>" /c:"appels" /c:"ECHEC" "%%APM_JOURNAL%%" ^) else ^( echo AUCUN JOURNAL : notre apm.dll n'a jamais ete chargee. ^)
+  echo endlocal
+)
+echo   ecrit    LANCER.cmd
+
+echo.
+echo === le banc ===
+dir /b "%BANC%"
+echo.
+echo Pret.
+endlocal
+exit /b 0
+
+:LIEN
+if exist "%~2" ( echo   deja la  %~nx2 & exit /b 0 )
+mklink /H "%~2" "%~1" >nul
+if errorlevel 1 ( echo   ECHEC : mklink /H %~nx2 & exit /b 1 )
+echo   cree     %~nx2
+exit /b 0

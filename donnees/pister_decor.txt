@@ -1,0 +1,29 @@
+processus 2520 lance sous debogage
+  image     0x00007FF783500000  vfes.exe
+  dll       0x00007FFD0FC20000  apm.dll
+  dll       0x00007FFD25830000  d3d11.dll
+  dll       0x00007FFD26780000  dxgi.dll
+  dll       0x00007FFD247D0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD2F0C2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD2C6441CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFC816C0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 2520 coupee apres 2 s
+  BP arme sur Chargeur = 0x7FFC81797130 (octet d'origine 0x83)
+  BP arme sur Etape1 = 0x7FFC81884DBE (octet d'origine 0xE8)
+  BP arme sur Etape2 = 0x7FFC81884DE3 (octet d'origine 0xE8)
+  BP arme sur Choix:Rcx:demande du combat        ecx = 0x7FFC8177C6AD (octet d'origine 0xE8)
+  BP arme sur Choix:Rax:choix EN DUR du mode 1   eax = 0x7FFC818CAE78 (octet d'origine 0x0F)
+  BP arme sur Choix:Rax:decor maison             eax = 0x7FFC81778AFF (octet d'origine 0x44)
+  points d'arret poses a t=8 s
+  CHARGEMENT : index 39 (gym)  <- CHARGEUR GENERAL (index variable)
+  sortie du processus, code 0x00000000
+
+77 module(s) charge(s)
+  BP Chargeur : 1 passage(s)
+  BP Etape1 : 0 passage(s)
+  BP Etape2 : 0 passage(s)
+  BP Choix:Rcx:demande du combat        ecx : 0 passage(s)
+  BP Choix:Rax:choix EN DUR du mode 1   eax : 0 passage(s)
+  BP Choix:Rax:decor maison             eax : 0 passage(s)
+  scenario d entrees remis en jeu manuel

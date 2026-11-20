@@ -1,0 +1,308 @@
+; Xbox 360, Virtua Fighter 5 Final Showdown (VERSION A, 2012-04-06)
+; image   VF5RE/extracted/X360_FS/sel/default.img
+; PE PowerPC gros-boutiste, machine 0x1F2, base 0x82000000, 17 629 184 o
+; bornes  .pdata  (BeginAddress + mot empaquete : prologue sur 8 bits de
+;         poids faible, longueur en INSTRUCTIONS sur les bits 8-29)
+; Aucun jeu lance, aucun binaire patche, Ghidra pas touche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x82214FE8  Terminal_EcranAutorise(indice, joueur) -- refuse tout indice >= 0x13 (19 ECRANS, 0..18) ; joueur == -1 prend le masque global en [terminal+0xA004], sinon cherche le joueur dans les deux mots de [terminal+0x9FF8] ; rend le BIT indice du masque.
+============================================================================
+; 0x82214FE8, 25 mots bruts
+0x82214FE8  2b030013  cmplwi     cr6, r3, 0x13
+0x82214FEC  40980050  bge        cr6, 0x8221503c
+0x82214FF0  2f04ffff  cmpwi      cr6, r4, -1
+0x82214FF4  409a0018  bne        cr6, 0x8221500c
+0x82214FF8  3d60829b  lis        r11, -0x7d65
+0x82214FFC  394baa68  addi       r10, r11, -0x5598
+0x82215000  3d6a0001  addis      r11, r10, 1
+0x82215004  396ba004  addi       r11, r11, -0x5ffc
+0x82215008  48000050  b          0x82215058
+0x8221500C  3d40829b  lis        r10, -0x7d65
+0x82215010  39600000  li         r11, 0
+0x82215014  392aaa68  addi       r9, r10, -0x5598
+0x82215018  3d490001  addis      r10, r9, 1
+0x8221501C  394a9ff8  addi       r10, r10, -0x6008
+0x82215020  810a0000  lwz        r8, 0(r10)
+0x82215024  7f082000  cmpw       cr6, r8, r4
+0x82215028  419a001c  beq        cr6, 0x82215044
+0x8221502C  396b0001  addi       r11, r11, 1
+0x82215030  394a0004  addi       r10, r10, 4
+0x82215034  2b0b0002  cmplwi     cr6, r11, 2
+0x82215038  4198ffe8  blt        cr6, 0x82215020
+0x8221503C  38600000  li         r3, 0
+0x82215040  4e800020  blr        
+0x82215044  3d490001  addis      r10, r9, 1
+0x82215048  556b103a  slwi       r11, r11, 2
+
+============================================================================
+0x821F7D00  Terminal_EcranAutoriseSiPasDeFondu(indice) -- rend 0 si 0x823A0268 (un fondu est en cours), sinon 0x82214FE8(indice,-1). 11 appels directs. (92 o)
+============================================================================
+; fonction 0x821F7D00 .. 0x821F7D58  (92 o, 23 instructions) -- bornes .pdata
+0x821F7D00  7d8802a6  mflr       r12
+0x821F7D04  9181fff8  stw        r12, -8(r1)
+0x821F7D08  fbe1fff0  std        r31, -0x10(r1)
+0x821F7D0C  9421ffa0  stwu       r1, -0x60(r1)
+0x821F7D10  7c7f1b78  mr         r31, r3
+0x821F7D14  481a8555  bl         0x823a0268
+0x821F7D18  546b063e  clrlwi     r11, r3, 0x18
+0x821F7D1C  2b0b0000  cmplwi     cr6, r11, 0
+0x821F7D20  419a001c  beq        cr6, 0x821f7d3c
+0x821F7D24  38600000  li         r3, 0
+0x821F7D28  38210060  addi       r1, r1, 0x60
+0x821F7D2C  8181fff8  lwz        r12, -8(r1)
+0x821F7D30  7d8803a6  mtlr       r12
+0x821F7D34  ebe1fff0  ld         r31, -0x10(r1)
+0x821F7D38  4e800020  blr        
+0x821F7D3C  3880ffff  li         r4, -1
+0x821F7D40  7fe3fb78  mr         r3, r31
+0x821F7D44  4801d2a5  bl         0x82214fe8
+0x821F7D48  38210060  addi       r1, r1, 0x60
+0x821F7D4C  8181fff8  lwz        r12, -8(r1)
+0x821F7D50  7d8803a6  mtlr       r12
+0x821F7D54  ebe1fff0  ld         r31, -0x10(r1)
+0x821F7D58  4e800020  blr        
+
+============================================================================
+0x821F8108  Terminal_TousLesEcransAutorises() -- boucle 0..0x12 et rend 1 seulement si les DIX-NEUF passent. 4 appels. (124 o)
+============================================================================
+; fonction 0x821F8108 .. 0x821F8180  (124 o, 31 instructions) -- bornes .pdata
+0x821F8108  7d8802a6  mflr       r12
+0x821F810C  9181fff8  stw        r12, -8(r1)
+0x821F8110  fbc1ffe8  std        r30, -0x18(r1)
+0x821F8114  fbe1fff0  std        r31, -0x10(r1)
+0x821F8118  9421ff90  stwu       r1, -0x70(r1)
+0x821F811C  3bc00001  li         r30, 1
+0x821F8120  3be00000  li         r31, 0
+0x821F8124  481a8145  bl         0x823a0268
+0x821F8128  546b063e  clrlwi     r11, r3, 0x18
+0x821F812C  2b0b0000  cmplwi     cr6, r11, 0
+0x821F8130  419a000c  beq        cr6, 0x821f813c
+0x821F8134  38600000  li         r3, 0
+0x821F8138  48000010  b          0x821f8148
+0x821F813C  3880ffff  li         r4, -1
+0x821F8140  7fe3fb78  mr         r3, r31
+0x821F8144  4801cea5  bl         0x82214fe8
+0x821F8148  546b063e  clrlwi     r11, r3, 0x18
+0x821F814C  2b0b0000  cmplwi     cr6, r11, 0
+0x821F8150  419a0018  beq        cr6, 0x821f8168
+0x821F8154  3bff0001  addi       r31, r31, 1
+0x821F8158  2b1f0012  cmplwi     cr6, r31, 0x12
+0x821F815C  4099ffc8  ble        cr6, 0x821f8124
+0x821F8160  7fc3f378  mr         r3, r30
+0x821F8164  48000008  b          0x821f816c
+0x821F8168  38600000  li         r3, 0
+0x821F816C  38210070  addi       r1, r1, 0x70
+0x821F8170  8181fff8  lwz        r12, -8(r1)
+0x821F8174  7d8803a6  mtlr       r12
+0x821F8178  ebc1ffe8  ld         r30, -0x18(r1)
+0x821F817C  ebe1fff0  ld         r31, -0x10(r1)
+0x821F8180  4e800020  blr        
+
+============================================================================
+0x821F8188  Terminal_AuMoinsUnEcranAutorise() -- meme boucle, rend 1 des qu UN passe. 3 appels. (124 o)
+============================================================================
+; fonction 0x821F8188 .. 0x821F8200  (124 o, 31 instructions) -- bornes .pdata
+0x821F8188  7d8802a6  mflr       r12
+0x821F818C  9181fff8  stw        r12, -8(r1)
+0x821F8190  fbc1ffe8  std        r30, -0x18(r1)
+0x821F8194  fbe1fff0  std        r31, -0x10(r1)
+0x821F8198  9421ff90  stwu       r1, -0x70(r1)
+0x821F819C  3bc00000  li         r30, 0
+0x821F81A0  3be00000  li         r31, 0
+0x821F81A4  481a80c5  bl         0x823a0268
+0x821F81A8  546b063e  clrlwi     r11, r3, 0x18
+0x821F81AC  2b0b0000  cmplwi     cr6, r11, 0
+0x821F81B0  419a000c  beq        cr6, 0x821f81bc
+0x821F81B4  38600000  li         r3, 0
+0x821F81B8  48000010  b          0x821f81c8
+0x821F81BC  3880ffff  li         r4, -1
+0x821F81C0  7fe3fb78  mr         r3, r31
+0x821F81C4  4801ce25  bl         0x82214fe8
+0x821F81C8  546b063e  clrlwi     r11, r3, 0x18
+0x821F81CC  2b0b0000  cmplwi     cr6, r11, 0
+0x821F81D0  409a0018  bne        cr6, 0x821f81e8
+0x821F81D4  3bff0001  addi       r31, r31, 1
+0x821F81D8  2b1f0012  cmplwi     cr6, r31, 0x12
+0x821F81DC  4099ffc8  ble        cr6, 0x821f81a4
+0x821F81E0  7fc3f378  mr         r3, r30
+0x821F81E4  48000008  b          0x821f81ec
+0x821F81E8  38600001  li         r3, 1
+0x821F81EC  38210070  addi       r1, r1, 0x70
+0x821F81F0  8181fff8  lwz        r12, -8(r1)
+0x821F81F4  7d8803a6  mtlr       r12
+0x821F81F8  ebc1ffe8  ld         r30, -0x18(r1)
+0x821F81FC  ebe1fff0  ld         r31, -0x10(r1)
+0x821F8200  4e800020  blr        
+
+============================================================================
+0x8222C9F0  Terminal_EcranDemandeParLenregistrement() -- indice courant en [0x829C8BA8], table de 150 enregistrements de 0x80 o rendue par 0x822146A8, champ +0x29 ; valeur de repli 0x15 = 21, donc VOLONTAIREMENT hors des 19 ecrans (104 o)
+============================================================================
+; fonction 0x8222C9F0 .. 0x8222CA54  (104 o, 26 instructions) -- bornes .pdata
+0x8222C9F0  7d8802a6  mflr       r12
+0x8222C9F4  9181fff8  stw        r12, -8(r1)
+0x8222C9F8  fbe1fff0  std        r31, -0x10(r1)
+0x8222C9FC  9421ffa0  stwu       r1, -0x60(r1)
+0x8222CA00  3d60829c  lis        r11, -0x7d64
+0x8222CA04  394b89a8  addi       r10, r11, -0x7658
+0x8222CA08  83ea0200  lwz        r31, 0x200(r10)
+0x8222CA0C  2f1f0000  cmpwi      cr6, r31, 0
+0x8222CA10  41980030  blt        cr6, 0x8222ca40
+0x8222CA14  2f1f0096  cmpwi      cr6, r31, 0x96
+0x8222CA18  40980028  bge        cr6, 0x8222ca40
+0x8222CA1C  4bfe7c8d  bl         0x822146a8
+0x8222CA20  57eb3830  slwi       r11, r31, 7
+0x8222CA24  7d635a14  add        r11, r3, r11
+0x8222CA28  886b0029  lbz        r3, 0x29(r11)
+0x8222CA2C  38210060  addi       r1, r1, 0x60
+0x8222CA30  8181fff8  lwz        r12, -8(r1)
+0x8222CA34  7d8803a6  mtlr       r12
+0x8222CA38  ebe1fff0  ld         r31, -0x10(r1)
+0x8222CA3C  4e800020  blr        
+0x8222CA40  38600015  li         r3, 0x15
+0x8222CA44  38210060  addi       r1, r1, 0x60
+0x8222CA48  8181fff8  lwz        r12, -8(r1)
+0x8222CA4C  7d8803a6  mtlr       r12
+0x8222CA50  ebe1fff0  ld         r31, -0x10(r1)
+0x8222CA54  4e800020  blr        
+
+============================================================================
+0x8222C970  CustomizeMenu_Creer -- Tache_CreerParNom(objet, "CUSTOMIZE MENU" @0x82010ACC) via 0x823AD378 (64 o)
+============================================================================
+; fonction 0x8222C970 .. 0x8222C9AC  (64 o, 16 instructions) -- bornes .pdata
+0x8222C970  7d8802a6  mflr       r12
+0x8222C974  9181fff8  stw        r12, -8(r1)
+0x8222C978  fbe1fff0  std        r31, -0x10(r1)
+0x8222C97C  9421ffa0  stwu       r1, -0x60(r1)
+0x8222C980  3d60829c  lis        r11, -0x7d64
+0x8222C984  3d408201  lis        r10, -0x7dff
+0x8222C988  3beb89a8  addi       r31, r11, -0x7658
+0x8222C98C  388a0acc  addi       r4, r10, 0xacc
+0x8222C990  7fe3fb78  mr         r3, r31
+0x8222C994  481809e5  bl         0x823ad378
+0x8222C998  7fe3fb78  mr         r3, r31
+0x8222C99C  38210060  addi       r1, r1, 0x60
+0x8222C9A0  8181fff8  lwz        r12, -8(r1)
+0x8222C9A4  7d8803a6  mtlr       r12
+0x8222C9A8  ebe1fff0  ld         r31, -0x10(r1)
+0x8222C9AC  4e800020  blr        
+
+============================================================================
+0x82214520  Terminal_PoserActif(b) : [terminal+0xA13D] = b
+============================================================================
+; 0x82214520, 6 mots bruts
+0x82214520  3d60829b  lis        r11, -0x7d65
+0x82214524  3d400000  lis        r10, 0
+0x82214528  392baa68  addi       r9, r11, -0x5598
+0x8221452C  6148a13d  ori        r8, r10, 0xa13d
+0x82214530  7c6941ae  stbx       r3, r9, r8
+0x82214534  4e800020  blr        
+
+============================================================================
+0x82214538  Terminal_EstActif() : rend [terminal+0xA13D]
+============================================================================
+; 0x82214538, 6 mots bruts
+0x82214538  3d60829b  lis        r11, -0x7d65
+0x8221453C  3d400000  lis        r10, 0
+0x82214540  392baa68  addi       r9, r11, -0x5598
+0x82214544  6148a13d  ori        r8, r10, 0xa13d
+0x82214548  7c6940ae  lbzx       r3, r9, r8
+0x8221454C  4e800020  blr        
+
+============================================================================
+0x82214550  Terminal_RetourAuTitreDemande() : consomme [terminal+0xA13E]
+============================================================================
+; 0x82214550, 11 mots bruts
+0x82214550  3d60829b  lis        r11, -0x7d65
+0x82214554  3d400000  lis        r10, 0
+0x82214558  396baa68  addi       r11, r11, -0x5598
+0x8221455C  6149a13d  ori        r9, r10, 0xa13d
+0x82214560  38600000  li         r3, 0
+0x82214564  7d0b48ae  lbzx       r8, r11, r9
+0x82214568  2b080000  cmplwi     cr6, r8, 0
+0x8221456C  4d9a0020  beqlr      cr6
+0x82214570  3d400000  lis        r10, 0
+0x82214574  6149a13e  ori        r9, r10, 0xa13e
+0x82214578  7d0b48ae  lbzx       r8, r11, r9
+
+============================================================================
+0x822145A0  Terminal_RetourAuMenuDemande() : consomme [terminal+0xA13F]  <<< LE JUMEAU DE 0x1801B6E40 D APM3
+============================================================================
+; 0x822145A0, 21 mots bruts
+0x822145A0  3d60829b  lis        r11, -0x7d65
+0x822145A4  3d400000  lis        r10, 0
+0x822145A8  396baa68  addi       r11, r11, -0x5598
+0x822145AC  6149a13d  ori        r9, r10, 0xa13d
+0x822145B0  38600000  li         r3, 0
+0x822145B4  7d0b48ae  lbzx       r8, r11, r9
+0x822145B8  2b080000  cmplwi     cr6, r8, 0
+0x822145BC  4d9a0020  beqlr      cr6
+0x822145C0  3d400000  lis        r10, 0
+0x822145C4  6149a13f  ori        r9, r10, 0xa13f
+0x822145C8  7d0b48ae  lbzx       r8, r11, r9
+0x822145CC  2b080000  cmplwi     cr6, r8, 0
+0x822145D0  4d9a0020  beqlr      cr6
+0x822145D4  3d400000  lis        r10, 0
+0x822145D8  38600001  li         r3, 1
+0x822145DC  6149a13f  ori        r9, r10, 0xa13f
+0x822145E0  39400000  li         r10, 0
+0x822145E4  7d4b49ae  stbx       r10, r11, r9
+0x822145E8  4e800020  blr        
+0x822145EC  00000000  .long      0x00000000
+0x822145F0  7d8802a6  mflr       r12
+
+============================================================================
+0x82237D10  DataSelector_Etat() -- 0 si la tache n est pas vivante, sinon 1 ou 2 selon [tache+0x54] (108 o)
+============================================================================
+; fonction 0x82237D10 .. 0x82237D78  (108 o, 27 instructions) -- bornes .pdata
+0x82237D10  7d8802a6  mflr       r12
+0x82237D14  9181fff8  stw        r12, -8(r1)
+0x82237D18  fbe1fff0  std        r31, -0x10(r1)
+0x82237D1C  9421ffa0  stwu       r1, -0x60(r1)
+0x82237D20  3d60829d  lis        r11, -0x7d63
+0x82237D24  3beba1f0  addi       r31, r11, -0x5e10
+0x82237D28  7fe3fb78  mr         r3, r31
+0x82237D2C  4817486d  bl         0x823ac598
+0x82237D30  546b063e  clrlwi     r11, r3, 0x18
+0x82237D34  2b0b0000  cmplwi     cr6, r11, 0
+0x82237D38  419a001c  beq        cr6, 0x82237d54
+0x82237D3C  38600000  li         r3, 0
+0x82237D40  38210060  addi       r1, r1, 0x60
+0x82237D44  8181fff8  lwz        r12, -8(r1)
+0x82237D48  7d8803a6  mtlr       r12
+0x82237D4C  ebe1fff0  ld         r31, -0x10(r1)
+0x82237D50  4e800020  blr        
+0x82237D54  897f0054  lbz        r11, 0x54(r31)
+0x82237D58  7d6a0034  cntlzw     r10, r11
+0x82237D5C  5549dffe  rlwinm     r9, r10, 0x1b, 0x1f, 0x1f
+0x82237D60  692b0001  xori       r11, r9, 1
+0x82237D64  386b0001  addi       r3, r11, 1
+0x82237D68  38210060  addi       r1, r1, 0x60
+0x82237D6C  8181fff8  lwz        r12, -8(r1)
+0x82237D70  7d8803a6  mtlr       r12
+0x82237D74  ebe1fff0  ld         r31, -0x10(r1)
+0x82237D78  4e800020  blr        
+
+============================================================================
+0x82237D98  DataSelector_Resultat() -- -1 si l etat n est pas 2 (72 o)
+============================================================================
+; fonction 0x82237D98 .. 0x82237DDC  (72 o, 18 instructions) -- bornes .pdata
+0x82237D98  7d8802a6  mflr       r12
+0x82237D9C  9181fff8  stw        r12, -8(r1)
+0x82237DA0  9421ffa0  stwu       r1, -0x60(r1)
+0x82237DA4  4bffff6d  bl         0x82237d10
+0x82237DA8  2f030002  cmpwi      cr6, r3, 2
+0x82237DAC  419a0018  beq        cr6, 0x82237dc4
+0x82237DB0  3860ffff  li         r3, -1
+0x82237DB4  38210060  addi       r1, r1, 0x60
+0x82237DB8  8181fff8  lwz        r12, -8(r1)
+0x82237DBC  7d8803a6  mtlr       r12
+0x82237DC0  4e800020  blr        
+0x82237DC4  3d60829d  lis        r11, -0x7d63
+0x82237DC8  386ba1f0  addi       r3, r11, -0x5e10
+0x82237DCC  4bfffc75  bl         0x82237a40
+0x82237DD0  38210060  addi       r1, r1, 0x60
+0x82237DD4  8181fff8  lwz        r12, -8(r1)
+0x82237DD8  7d8803a6  mtlr       r12
+0x82237DDC  4e800020  blr        

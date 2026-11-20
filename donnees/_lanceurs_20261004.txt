@@ -1,0 +1,63 @@
+==========================================================================
+CONTROLE DES 93 LANCEURS
+==========================================================================
+
+0. CARACTERES DE CONTROLE
+   aucun caractere de controle parasite, aucun CR isole.
+
+1. FINS DE LIGNE
+   les 93 sont en CRLF.
+
+2. FICHIERS CITES
+   tous les tools\*.py et tools\*.cmd cites existent.
+
+3. LIGNE DE PATCH
+   ok     _decor_commun.cmd       
+   ok     _terminal_commun.cmd    
+   ok     console.cmd             
+   ok     console_combat.cmd      
+   ok     customize_curseurs.cmd  
+   ok     decor_5r_akira.cmd      
+   ok     decor_5r_akira_ajout.cmd
+   ok     decor_ajoute.cmd        
+   ECHEC  decors_44.cmd            code 1
+          Traceback (most recent call last):
+   ok     decors_5r.cmd           
+   ECHEC  decors_dural.cmd         code 1
+          Traceback (most recent call last):
+   ECHEC  decors_grille.cmd        code 1
+          Traceback (most recent call last):
+   ok     decors_table.cmd        
+   ok     decors_vf5.cmd          
+   ok     depister_5r_ajoute.cmd  
+   ok     directions_select.cmd   
+   ok     dojo_5r.cmd             
+   ok     dojo_5r_repli.cmd       
+   ok     dojo_5r_temoin.cmd      
+   ok     essai_attract.cmd       
+   ok     essai_legende.cmd       
+   ok     essai_mode.cmd          
+   ok     essai_relocations.cmd   
+   ok     essai_sparring.cmd      
+   ok     grille_console.cmd      
+   ok     item3d.cmd              
+   ok     item_porte.cmd          
+   ok     menu_console.cmd        
+   ok     objset_pret.cmd         
+   ok     pister_5c_dojo.cmd      
+   ok     pister_60_dojo.cmd      
+   ok     pister_decor_ajoute.cmd 
+   ok     pister_dojo_5r.cmd      
+   ok     pister_link.cmd         
+   ok     pister_mode.cmd         
+   ok     quest.cmd               
+   ok     quest_texte_essai.cmd   
+   ok     selitem_grille.cmd      
+   ok     serveur_allnet.cmd      
+   ok     variantes.cmd           
+   ok     variantes_texte.cmd     
+   ok     vignettes_costume.cmd   
+
+==========================================================================
+3 LANCEUR(S) A REPARER : decors_44.cmd decors_dural.cmd decors_grille.cmd
+==========================================================================

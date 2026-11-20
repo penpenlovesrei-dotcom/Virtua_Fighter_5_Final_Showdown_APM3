@@ -1,0 +1,40 @@
+processus 18092 lance sous debogage
+  image     0x00007FF6077A0000  vfes.exe
+  dll       0x00007FFB0BB30000  apm.dll
+  dll       0x00007FFB273B0000  d3d11.dll
+  dll       0x00007FFB28380000  dxgi.dll
+  dll       0x00007FFB26430000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB2E11D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2B86187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFA8A040000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 18092 coupee apres 2 s
+  BP arme sur MothApplyRecord = 0x7FFA8A198B40 (octet d'origine 0x4D)
+  BP arme sur SourceIndice = 0x7FFA8A18F5B3 (octet d'origine 0x8B)
+  BP arme sur MothOnMotionEnd = 0x7FFA8A173010 (octet d'origine 0x06)
+  BP arme sur RoleToMotionId = 0x7FFA8A187680 (octet d'origine 0x89)
+  points d'arret poses a t=6 s
+  SourceIndice : rbx=0x1FDA5FE17D8  [rbx-0x10C]=0x1FDA5FE16CC vaut 0 (AKI)
+      >>> ecrit 18 (TAK) a 0x1FDA5FE16CC
+  SourceIndice : rbx=0x1FDA5FE19A0  [rbx-0x10C]=0x1FDA5FE1894 vaut 13 (BRA)
+  en combat : ROB 1 = 0x1FDA1F1A1A0   personnage AKI
+    ROB1  perso AKI   posture 0       etat 0x1C
+      >>> ROB 0x1FDA1F1A1A0 +0x10 : AKI -> TAK
+  en combat : ROB 2 = 0x1FDA1F1FF08   personnage BRA
+    ROB1  perso TAK   posture 0       etat 0x36E2
+    ROB1  perso TAK   posture 0       etat 0x4EEC
+    ROB1  perso TAK   posture 0       etat 0x4344
+    ROB1  perso TAK   posture 0       etat 0xC56
+    ROB1  perso TAK   posture 0       etat 0x36E2
+    ROB1  perso TAK   posture 0       etat 0xBCD
+    ROB1  perso TAK   posture 0       etat 0x36E2
+    ROB1  perso TAK   posture 0       etat 0xBE1
+    ROB1  perso TAK   posture 0       etat 0x36E2
+    ROB1  perso TAK   posture 0       etat 0x4392
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP MothApplyRecord : 1386 passage(s)
+  BP SourceIndice : 18 passage(s)
+  BP MothOnMotionEnd : 0 passage(s)
+  BP RoleToMotionId : 0 passage(s)

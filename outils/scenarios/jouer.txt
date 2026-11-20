@@ -1,0 +1,67 @@
+# ---------------------------------------------------------------------------
+# JOUER : aucune entree scriptee, tout vient du clavier et de la manette.
+#
+# Le stub apm.dll combine trois sources par OU : le scenario (ci-dessous, vide),
+# le clavier et la manette. Il relit ce fichier toutes les 500 ms tant qu'aucun
+# scenario ne joue -- et toutes les 30 ms des qu'il y en a un, parce que les
+# instants d'un scenario ne peuvent pas etre plus fins que la relecture. Dans
+# les deux cas, toute modification est prise en compte SANS relancer le jeu.
+#
+# Le clavier n'agit que si la fenetre du jeu est au premier plan.
+# ---------------------------------------------------------------------------
+
+journal = 0
+clavier = 1
+manette = 1
+
+# --- disposition clavier -----------------------------------------------------
+# " touche <code> = <nom> ". Une lettre ou un chiffre valent pour eux-memes.
+# Noms acceptes : haut bas gauche droite, entree, espace, echap, tab, maj,
+#                 ctrl, alt, retour, suppr, f1..f12, pave0..pave9, rien.
+#
+# Codes CONNUS :  0 = TEST   1 = SERVICE   7 = START
+#                 8 = KICK   11 = GUARD    12 = PUNCH
+# Restent inconnus : 6, 9, 10, 13, 14 -- et les directions 2 a 5 restent une
+# hypothese de disposition, pas une identification.
+
+touche 0  = f1          # TEST
+touche 1  = f2          # SERVICE
+touche 2  = haut
+touche 3  = bas
+touche 4  = gauche
+touche 5  = droite
+touche 6  = espace      # piece, probablement
+touche 7  = entree      # START
+# Identifies en jouant, le 03/09/2026. W X C : la rangee du bas en AZERTY,
+# sous les trois doigts de la main gauche.
+touche 11 = w           # GUARD
+touche 12 = x           # PUNCH
+touche 8  = c           # KICK
+# Encore inconnus :
+touche 9  = v
+touche 10 = b
+touche 13 = n
+touche 14 = a
+
+# --- disposition manette (XInput) --------------------------------------------
+# " bouton <code> = <nom> ". Noms : haut bas gauche droite, a b x y,
+#                                   lb rb lt rt, start, back, rien.
+# Le stick gauche vaut la croix directionnelle.
+
+bouton 2  = haut
+bouton 3  = bas
+bouton 4  = gauche
+bouton 5  = droite
+bouton 6  = back
+bouton 7  = start
+bouton 12 = x           # PUNCH
+bouton 8  = a           # KICK
+bouton 11 = b           # GUARD
+bouton 9  = y
+bouton 10 = lb
+bouton 13 = rb
+bouton 14 = rt
+
+# --- scenario ---------------------------------------------------------------
+# Vide : rien n'est joue automatiquement. Ajouter une ligne " <ms> <codes> "
+# reintroduirait des entrees scriptees par-dessus les votres.

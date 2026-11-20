@@ -1,0 +1,30 @@
+  0x081170D0  55                   push ebp
+  0x081170D1  89e5                 mov ebp, esp
+  0x081170D3  8b4508               mov eax, dword ptr [ebp + 8]
+  0x081170D6  5d                   pop ebp
+  0x081170D7  8b00                 mov eax, dword ptr [eax]
+  0x081170D9  c3                   ret 
+  0x081170DA  55                   push ebp
+  0x081170DB  89e5                 mov ebp, esp
+  0x081170DD  8b4508               mov eax, dword ptr [ebp + 8]
+  0x081170E0  5d                   pop ebp
+  0x081170E1  d94004               fld dword ptr [eax + 4]
+  0x081170E4  c3                   ret 
+  0x081170E5  90                   nop 
+  0x081170E6  55                   push ebp
+  0x081170E7  89e5                 mov ebp, esp
+  0x081170E9  8b4508               mov eax, dword ptr [ebp + 8]
+  0x081170EC  5d                   pop ebp
+  0x081170ED  d94008               fld dword ptr [eax + 8]
+  0x081170F0  c3                   ret 
+  0x081170F1  90                   nop 
+  0x081170F2  55                   push ebp
+  0x081170F3  89e5                 mov ebp, esp
+  0x081170F5  8b4508               mov eax, dword ptr [ebp + 8]
+  0x081170F8  5d                   pop ebp
+  0x081170F9  d9400c               fld dword ptr [eax + 0xc]
+  0x081170FC  c3                   ret 
+  0x081170FD  90                   nop 
+  0x081170FE  55                   push ebp
+  0x081170FF  89e5                 mov ebp, esp
+  0x08117101  8b4508               mov eax, dword ptr [ebp + 8]

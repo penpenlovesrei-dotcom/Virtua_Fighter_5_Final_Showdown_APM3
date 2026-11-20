@@ -1,0 +1,72 @@
+# APM3 (borne) 0x1801437E0 -- 288 octets
+#
+# Le publieur de la structure joueur : il recopie les champs d'un objet
+# source dans [0x180C3B6F0] + index*0xFA88. Il ecrit +0x790, +0x794
+# (0x180143859) et +0x797, et saute +0x795 et +0x796. La sonde l'a mesure a
+# 2758 passages dans Customize, pour les DEUX joueurs : c'etait le candidat
+# pour poser le drapeau, ecarte au profit du saut. Attention, 0x180143720
+# qui le precede est un destructeur recursif, pas lui. REPRISE (114).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801437E0  488bc4               mov rax, rsp
+  0x1801437E3  55                   push rbp
+  0x1801437E4  57                   push rdi
+  0x1801437E5  488da848ffffff       lea rbp, [rax - 0xb8]
+  0x1801437EC  4881eca8010000       sub rsp, 0x1a8
+  0x1801437F3  488bf9               mov rdi, rcx
+  0x1801437F6  488b0df37eaf00       mov rcx, qword ptr [rip + 0xaf7ef3]  ; -> 0x180C3B6F0
+  0x1801437FD  4885c9               test rcx, rcx
+  0x180143800  0f84b4070000         je 0x180143fba
+  0x180143806  48895808             mov qword ptr [rax + 8], rbx
+  0x18014380A  48897010             mov qword ptr [rax + 0x10], rsi
+  0x18014380E  4c896018             mov qword ptr [rax + 0x18], r12
+  0x180143812  4c8968e8             mov qword ptr [rax - 0x18], r13
+  0x180143816  4c8970e0             mov qword ptr [rax - 0x20], r14
+  0x18014381A  4c8978d8             mov qword ptr [rax - 0x28], r15
+  0x18014381E  c5f82970c8           vmovaps xmmword ptr [rax - 0x38], xmm6
+  0x180143823  c5f82978b8           vmovaps xmmword ptr [rax - 0x48], xmm7
+  0x180143828  480fbe07             movsx rax, byte ptr [rdi]
+  0x18014382C  4869d088fa0000       imul rdx, rax, 0xfa88
+  0x180143833  8b4710               mov eax, dword ptr [rdi + 0x10]
+  0x180143836  89840a90070000       mov dword ptr [rdx + rcx + 0x790], eax
+  0x18014383D  480fbe07             movsx rax, byte ptr [rdi]
+  0x180143841  0fb69740040000       movzx edx, byte ptr [rdi + 0x440]
+  0x180143848  4869c888fa0000       imul rcx, rax, 0xfa88
+  0x18014384F  488b059a7eaf00       mov rax, qword ptr [rip + 0xaf7e9a]  ; -> 0x180C3B6F0
+  0x180143856  80e201               and dl, 1
+  0x180143859  88940194070000       mov byte ptr [rcx + rax + 0x794], dl
+  0x180143860  e8cbff0700           call 0x1801c3830
+  0x180143865  488bc8               mov rcx, rax
+  0x180143868  e8f31ff7ff           call 0x1800b5860
+  0x18014386D  0fb60f               movzx ecx, byte ptr [rdi]
+  0x180143870  84c0                 test al, al
+  0x180143872  742d                 je 0x1801438a1
+  0x180143874  0fbed9               movsx ebx, cl
+  0x180143877  e834d10000           call 0x1801509b0
+  0x18014387C  488bc8               mov rcx, rax
+  0x18014387F  8bd3                 mov edx, ebx
+  0x180143881  e8facf0000           call 0x180150880
+  0x180143886  480fbe0f             movsx rcx, byte ptr [rdi]
+  0x18014388A  4869d188fa0000       imul rdx, rcx, 0xfa88
+  0x180143891  488b0d587eaf00       mov rcx, qword ptr [rip + 0xaf7e58]  ; -> 0x180C3B6F0
+  0x180143898  88840a97070000       mov byte ptr [rdx + rcx + 0x797], al
+  0x18014389F  eb1d                 jmp 0x1801438be
+> 0x1801438A1  480fbec1             movsx rax, cl
+  0x1801438A5  0fb64f14             movzx ecx, byte ptr [rdi + 0x14]
+  0x1801438A9  4869d088fa0000       imul rdx, rax, 0xfa88
+  0x1801438B0  488b05397eaf00       mov rax, qword ptr [rip + 0xaf7e39]  ; -> 0x180C3B6F0
+  0x1801438B7  888c0297070000       mov byte ptr [rdx + rax + 0x797], cl
+> 0x1801438BE  480fbe07             movsx rax, byte ptr [rdi]
+  0x1801438C2  0fb6975c060000       movzx edx, byte ptr [rdi + 0x65c]
+  0x1801438C9  c5fa103d6b342000     vmovss xmm7, dword ptr [rip + 0x20346b]  ; -> 0x180346D3C
+  0x1801438D1  4869c888fa0000       imul rcx, rax, 0xfa88
+  0x1801438D8  488b05117eaf00       mov rax, qword ptr [rip + 0xaf7e11]  ; -> 0x180C3B6F0
+  0x1801438DF  c5c857f6             vxorps xmm6, xmm6, xmm6
+  0x1801438E3  899401bc060000       mov dword ptr [rcx + rax + 0x6bc], edx
+  0x1801438EA  837f1003             cmp dword ptr [rdi + 0x10], 3
+  0x1801438EE  0f85b4000000         jne 0x1801439a8
+  0x1801438F4  8b878c060000         mov eax, dword ptr [rdi + 0x68c]
+  0x1801438FA  85c0                 test eax, eax
+  0x1801438FC  7906                 jns 0x180143904

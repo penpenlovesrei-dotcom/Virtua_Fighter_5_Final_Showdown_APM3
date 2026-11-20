@@ -1,0 +1,19 @@
+
+====================================================================
+OUVERTURES DE SOUS-MENU :
+   OFFLINE VERSUS : ECHOUEE           x2
+   OFFLINE VERSUS : reussie           x1
+
+GARDE DU MENU PRINCIPAL (0x1801DC64E, atteinte seulement quand
+[menu+0x650] n est PAS vide) :
+   sous-page rangee ET vivante             1  (100.0 %)
+
+SOUS-PAGE EFFACEE (0x1801DC656) : 1 fois
+CURSEUR DU MENU PRINCIPAL DEPLACE (0x1801DD12B) : 1323 fois
+
+RECIT (les 60 premiers evenements, dans l ordre) :
+   OUVRE  OFFLINE VERSUS -> reussie
+   GARDE  sous-page=0x2535ABEB288  vivante=1  (curseur deja bouge 320 x)
+   OUBLI  la sous-page est effacee de [menu+0x650]
+   OUVRE  OFFLINE VERSUS -> ECHOUEE
+   OUVRE  OFFLINE VERSUS -> ECHOUEE

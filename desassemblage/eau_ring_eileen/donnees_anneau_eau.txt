@@ -1,0 +1,69 @@
+# LES DONNEES DU DISQUE DU RING, LES QUATRE GENERATIONS
+#
+# `stgslk_water_ring` est le disque du ring ; `stgslk_eff_water` est le
+# grand plan autour. Les deux sont dans l objset du decor. `skb POSE` est
+# l archive REELLEMENT en place aujourd hui,
+# `runtime/media/vf5fs/vf5fs_media/rom/objset/stgskb.farc` (23 468 425 o,
+# datee du 2026-09-11, AUCUNE sauvegarde `.avant_eau` a cote : rien de
+# `tools/eau_eileen.py` n y est applique).
+#
+# Les identifiants de texture de `skb POSE` ne sont pas ceux de ver.B : notre
+# import renumerote l archive (voir `reference_vf5_verb_textures_rangs`).
+# 11800 -> 12674, 11801 -> 12675, 11790 -> 9207, 13599 -> 9261,
+# 14043 -> 9085. Les IMAGES, elles, sont les memes : memes rangs dans la
+# planche, memes moyennes.
+#
+# Le champ +0x3D4 vaut 0x10000A80 dans les QUATRE : le bit 28 court-circuite
+# le melange au repartiteur et envoie le trace dans la file OPAQUE. La
+# transparence de la console ne vient donc pas de ce champ -- elle vient de
+# l etat que pose le rappel de dessin de TaskEffectWaterRing.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== stgslk_water_ring ===
+jeu       shader  +0x04    +0x10    +0x3D4    +0x3D8 diffuse         emplacements de texture
+skb POSE  WATRING 0000010D 00001570 10000A80  (1.00 1.00 1.00 0.90)  0:12674(002418D3) 1:12675(002418D3) 2:9207(000418C3)
+ver.B     WATRING 0000010D 00001570 10000A80  (1.00 1.00 1.00 0.90)  0:11800(002418D3) 1:11801(002418D3) 2:11790(000418C3)
+VF5 R     WATRING 0000010D 00000D70 10000A80  (1.00 1.00 1.00 0.90)  0:9205(002418D3) 1:9206(002418D3) 2:9207(000418D3)
+FS/APM3   WATRING 0000010D 00000D70 10000A80  (1.00 1.00 1.00 0.90)  0:27360(002418D3) 1:27361(002418D3) 2:9207(000418D3)
+
+=== stgslk_eff_water ===
+jeu       shader  +0x04    +0x10    +0x3D4    +0x3D8 diffuse         emplacements de texture
+skb POSE  WATER01 00000101 00000D70 10000A80  (1.00 0.85 0.65 1.00)  0:9261(002418D3) 2:9085(07A418C3)
+ver.B     WATER01 00000101 00000D70 10000A80  (1.00 0.85 0.65 1.00)  0:13599(002418D3) 2:14043(07A418C3)
+VF5 R     WATER01 00008529 00000E30 10000A80  (0.10 0.10 0.10 1.00)  0:9261(002418D3) 2:9085(07A418D3) 5:14164(00000433)
+FS/APM3   WATER01 00008529 00001630 10000A80  (0.80 0.70 0.50 1.00)  0:9261(002418D3) 2:9085(07A418D3) 5:14164(00000433)
+
+=== LES TEXTURES DU DISQUE DU RING, MESUREES ET REGARDEES ===
+    (moyenne RGB sur une reduction en 32x32 ; converties en PNG et
+     regardees, pas seulement comptees)
+
+jeu       ident   taille     moyenne   fmt  aspect
+skb POSE  12674   512x512    ( 70, 71, 84) 6    gris-bleu sombre nuageux -- le fond trouble
+skb POSE  12675   512x512    (184,197,218) 6    blanc BLEUTE froid, quadrillage d ombres
+skb POSE  9261    512x512    (188,179,158) 6    SABLE BEIGE nuageux (MU_RINGOUTMIZU)
+ver.B     11800   512x512    ( 70, 71, 84) 6    identique a 12674 de skb
+ver.B     11801   512x512    (184,197,218) 6    identique a 12675 de skb
+VF5 R     9205    512x512    ( 70, 71, 84) 6    gris-bleu sombre, le meme fond
+VF5 R     9206    512x512    (192,183,170) 6    haut-fond BEIGE CHAUD
+FS/APM3   27360   2048x2048  (244,244,244) 6    presque blanc, 2048 carre
+FS/APM3   27361   2048x2048  (209,184,156) 6    SABLE CHAUD, 2048 carre
+
+LE DISQUE DU RING DE `skb` NE PORTE DONC PAS DE TEXTURE DE SABLE :
+ses deux cartes sont celles de ver.B, et elles sont FROIDES. Le sable
+vu a l ecran est la couleur d un disque OPAQUE et DIFFUS eclaire par
+le jour chaud de ver.B.
+
+=== L ECLAIRAGE POSE, lu dans rom/light_param ===
+
+                       skb (ver.B) -- POSE        sk5 (VF5 R)
+fog / density          0.600000                   0.300000
+fog / color            1.30000 1.20000 1.00000 1.00000 0.100000 0.300000 0.700000 1.00000
+
+fog_skb.txt est bien celui de ver.B (color 1.30 1.20 1.00,
+density 0.60) : rien de `sk5` n est pose aujourd hui.

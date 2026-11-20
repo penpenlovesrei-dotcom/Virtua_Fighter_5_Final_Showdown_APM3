@@ -1,0 +1,55 @@
+processus 9068 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85C690000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFBB190000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 9068 coupee apres 2 s
+  BP arme sur gestionnaire liste2 code 13 = 0x7FFFBB2E4670 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 19 = 0x7FFFBB2E3030 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 20 = 0x7FFFBB2E4C10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 24 = 0x7FFFBB2E3A10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 25 = 0x7FFFBB2E3830 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 27 = 0x7FFFBB2E4140 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 54 = 0x7FFFBB2E2F70 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 22 = 0x7FFFBB2E3BE0 (octet d'origine 0x40)
+  t=55 s : 8 gestionnaire(s) sous surveillance
+  BP arme sur retour 25 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 010000007f0000000000000000000000   entree = 190000002c00000058000000
+  BP arme sur retour 25 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 020000007f0000000000000000000000   entree = 190000001000000058000000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 09000000000400000000000000000000   entree = 14000000000000002c000000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 09000000000400000000000000000000   entree = 14000000000000002c000000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 0a000000000400000000000000000000   entree = 140000000000000020000000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 0a000000000400000000000000000000   entree = 140000000000000020000000
+--- 260 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP gestionnaire liste2 code 13 : 0 passage(s)
+  BP gestionnaire liste2 code 19 : 0 passage(s)
+  BP gestionnaire liste2 code 20 : 4 passage(s)
+  BP gestionnaire liste2 code 24 : 0 passage(s)
+  BP gestionnaire liste2 code 25 : 2 passage(s)
+  BP gestionnaire liste2 code 27 : 0 passage(s)
+  BP gestionnaire liste2 code 54 : 0 passage(s)
+  BP gestionnaire liste2 code 22 : 0 passage(s)
+  BP retour 25 : 1 passage(s)
+  BP retour 25 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 20 : 1 passage(s)

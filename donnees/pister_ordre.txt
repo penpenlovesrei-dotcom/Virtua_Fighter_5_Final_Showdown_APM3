@@ -1,0 +1,152 @@
+processus 17724 lance sous debogage
+  image     0x00007FF74F860000  vfes.exe
+  dll       0x00007FFE3A680000  apm.dll
+  dll       0x00007FFE57C80000  d3d11.dll
+  dll       0x00007FFE58E10000  dxgi.dll
+  dll       0x00007FFE56F40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFE5EAFD78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFE5BCB187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  sourdine : session audio du processus 17724 coupee apres 1 s
+  dll       0x00007FFDB0670000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur NOTRE DESSIN = 0x7FFDB1511300 (octet d'origine 0x48)
+  BP arme sur AetMgr creneau 0 = 0x7FFDB0691980 (octet d'origine 0x40)
+  BP arme sur AetMgr creneau 1 = 0x7FFDB0694A00 (octet d'origine 0x40)
+  BP arme sur AetMgr creneau 2 = 0x7FFDB0693150 (octet d'origine 0x48)
+  BP arme sur AetMgr creneau 3 = 0x7FFDB06935A0 (octet d'origine 0x48)
+  BP arme sur AetMgr creneau 4 = 0x7FFDB06935C0 (octet d'origine 0x48)
+  BP arme sur AetMgr creneau 6 = 0x7FFDB06951A0 (octet d'origine 0x40)
+  7 points poses (t=1.3 s)
+  --- debut du releve ---
+      1  NOTRE DESSIN
+      2  AetMgr creneau 4
+      3  AetMgr creneau 6
+      4  AetMgr creneau 2
+      5  NOTRE DESSIN
+      6  AetMgr creneau 4
+      7  AetMgr creneau 6
+      8  AetMgr creneau 2
+      9  NOTRE DESSIN
+     10  AetMgr creneau 4
+     11  AetMgr creneau 6
+     12  AetMgr creneau 2
+     13  NOTRE DESSIN
+     14  AetMgr creneau 4
+     15  AetMgr creneau 6
+     16  AetMgr creneau 2
+     17  NOTRE DESSIN
+     18  AetMgr creneau 4
+     19  AetMgr creneau 6
+     20  AetMgr creneau 2
+     21  NOTRE DESSIN
+     22  AetMgr creneau 4
+     23  AetMgr creneau 6
+     24  AetMgr creneau 2
+     25  NOTRE DESSIN
+     26  AetMgr creneau 4
+     27  AetMgr creneau 6
+     28  AetMgr creneau 2
+     29  NOTRE DESSIN
+     30  AetMgr creneau 4
+     31  AetMgr creneau 6
+     32  AetMgr creneau 2
+     33  NOTRE DESSIN
+     34  AetMgr creneau 4
+     35  AetMgr creneau 6
+     36  AetMgr creneau 2
+     37  NOTRE DESSIN
+     38  AetMgr creneau 4
+     39  AetMgr creneau 6
+     40  AetMgr creneau 2
+     41  NOTRE DESSIN
+     42  AetMgr creneau 4
+     43  AetMgr creneau 6
+     44  AetMgr creneau 2
+     45  NOTRE DESSIN
+     46  AetMgr creneau 4
+     47  AetMgr creneau 6
+     48  AetMgr creneau 2
+     49  NOTRE DESSIN
+     50  AetMgr creneau 4
+     51  AetMgr creneau 6
+     52  AetMgr creneau 2
+     53  NOTRE DESSIN
+     54  AetMgr creneau 4
+     55  AetMgr creneau 6
+     56  AetMgr creneau 2
+     57  NOTRE DESSIN
+     58  AetMgr creneau 4
+     59  AetMgr creneau 6
+     60  AetMgr creneau 2
+     61  NOTRE DESSIN
+     62  AetMgr creneau 4
+     63  AetMgr creneau 6
+     64  AetMgr creneau 2
+     65  NOTRE DESSIN
+     66  AetMgr creneau 4
+     67  AetMgr creneau 6
+     68  AetMgr creneau 2
+     69  NOTRE DESSIN
+     70  AetMgr creneau 4
+     71  AetMgr creneau 6
+     72  AetMgr creneau 2
+     73  NOTRE DESSIN
+     74  AetMgr creneau 4
+     75  AetMgr creneau 6
+     76  AetMgr creneau 2
+     77  NOTRE DESSIN
+     78  AetMgr creneau 4
+     79  AetMgr creneau 6
+     80  AetMgr creneau 2
+     81  NOTRE DESSIN
+     82  AetMgr creneau 4
+     83  AetMgr creneau 6
+     84  AetMgr creneau 2
+     85  NOTRE DESSIN
+     86  AetMgr creneau 4
+     87  AetMgr creneau 6
+     88  AetMgr creneau 2
+     89  NOTRE DESSIN
+     90  AetMgr creneau 4
+     91  AetMgr creneau 6
+     92  AetMgr creneau 2
+     93  NOTRE DESSIN
+     94  AetMgr creneau 4
+     95  AetMgr creneau 6
+     96  AetMgr creneau 2
+     97  NOTRE DESSIN
+     98  AetMgr creneau 4
+     99  AetMgr creneau 6
+    100  AetMgr creneau 2
+    101  NOTRE DESSIN
+    102  AetMgr creneau 4
+    103  AetMgr creneau 6
+    104  AetMgr creneau 2
+    105  NOTRE DESSIN
+    106  AetMgr creneau 4
+    107  AetMgr creneau 6
+    108  AetMgr creneau 2
+    109  NOTRE DESSIN
+    110  AetMgr creneau 4
+    111  AetMgr creneau 6
+    112  AetMgr creneau 2
+    113  NOTRE DESSIN
+    114  AetMgr creneau 4
+    115  AetMgr creneau 6
+    116  AetMgr creneau 2
+    117  NOTRE DESSIN
+    118  AetMgr creneau 4
+    119  AetMgr creneau 6
+    120  AetMgr creneau 2
+  --- arret : 120 evenements releves ---
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP NOTRE DESSIN : 852 passage(s)
+  BP AetMgr creneau 0 : 1 passage(s)
+  BP AetMgr creneau 1 : 2 passage(s)
+  BP AetMgr creneau 2 : 1979 passage(s)
+  BP AetMgr creneau 3 : 1 passage(s)
+  BP AetMgr creneau 4 : 1979 passage(s)
+  BP AetMgr creneau 6 : 1979 passage(s)
+  scenario d entrees remis en jeu manuel

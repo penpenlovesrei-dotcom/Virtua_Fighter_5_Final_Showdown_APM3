@@ -1,0 +1,887 @@
+==========================================================================
+SONDE DE SAUVEGARDE -- 900 s, le clavier et la manette vous restent
+==========================================================================
+notre bloc de sauvegarde : COUPE (ancienne valeur du scenario : 1)
+sections de vf5fs-pxd-w64-Retail_APM3.dll (RVA) :
+   .text      0x00001000 .. 0x00345800   (VA preferee 0x180001000)
+   .rdata     0x00346000 .. 0x00641C00   (VA preferee 0x180346000)
+   .data      0x00642000 .. 0x00E6437C   (VA preferee 0x180642000)
+   .pdata     0x00E65000 .. 0x00E8D200   (VA preferee 0x180E65000)
+   .rsrc      0x00E8E000 .. 0x00E91600   (VA preferee 0x180E8E000)
+   .reloc     0x00E92000 .. 0x00EA1000   (VA preferee 0x180E92000)
+   .greffe    0x00EA1000 .. 0x00EA4C40   (VA preferee 0x180EA1000)
+
+processus 22012 lance sous debogage
+  image     0x00007FF73D370000  vfes.exe
+  dll       0x00007FFA13FA0000  apm.dll
+  dll       0x00007FFA31600000  d3d11.dll
+  dll       0x00007FFA325E0000  dxgi.dll
+  dll       0x00007FFA30680000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFA383E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFA359F41CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FF97B600000  vf5fs-pxd-w64-Retail_APM3.dll
+  DR0 arme sur ptr perso (8 o, w) -- 48 thread(s)
+  DR1 arme sur ptr travail (8 o, w) -- 48 thread(s)
+
+  ALLEZ SAUVEGARDER UN PERSONNAGE. Tout ce qui ecrit ces
+  adresses sera nomme ici, avec le compte avant/apres.
+
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 1 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  DR1 ptr travail acces 1 : apres 0x00007FF97B6FF816 = vf5fs-pxd-w64-Retail_APM3.dll+0xFF816, valeur a0dd7b4dfc010000
+
+  LE POINTEUR travail est pose : 0x1FC4D7BDDA0
+      par : vf5fs-pxd-w64-Retail_APM3.dll!.text+0xFE816 (VA preferee 0x1800FF816)
+     enregistrement de travail : 0x1FC4D7BDDB8
+  DR2 arme sur travail (1re partie equipee) (2 o, w) -- 48 thread(s)
+     (surveillance du pointeur travail rendue)
+  DR0 ptr perso acces 1 : apres 0x00007FF97B7B5050 = vf5fs-pxd-w64-Retail_APM3.dll+0x1B5050, valeur f0d17f4dfc010000
+
+  LE POINTEUR perso est pose : 0x1FC4D7FD1F0
+      par : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1B4050 (VA preferee 0x1801B5050)
+     table des personnages : 0x1FC4D7FD218  (150 entrees occupees)
+  DR1 arme sur perso (tete de table) (8 o, w) -- 48 thread(s)
+     (surveillance du pointeur perso rendue)
+  DR1 perso (tete de table) acces 1 : apres 0x00007FF97B7C5CE4 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CE4, valeur 00f0adba0df0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 1)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CE4 (VA preferee 0x1801C5CE4)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 149
+      valeur maintenant : 00f0adba0df0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CE4  lea r8, [rbx - 2]
+          0x1801C5CE8  mov word ptr [rbx - 1], si
+          0x1801C5CEC  lea rcx, [rbx + 0x66]
+          0x1801C5CF0  mov byte ptr [rbx + 2], sil
+          0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+  DR1 perso (tete de table) acces 2 : apres 0x00007FF97B7C5CEC = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CEC, valeur 000000ba0df0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 2)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CEC (VA preferee 0x1801C5CEC)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 149 -> 149
+      valeur maintenant : 000000ba0df0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CEC  lea rcx, [rbx + 0x66]
+          0x1801C5CF0  mov byte ptr [rbx + 2], sil
+          0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+          0x1801C5CFB  add r8, 0x7d
+          0x1801C5CFF  mov qword ptr [rbx + 0xe], rsi
+  DR1 perso (tete de table) acces 3 : apres 0x00007FF97B7C5CF4 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CF4, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 3)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CF4 (VA preferee 0x1801C5CF4)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 149 -> 149
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+          0x1801C5CFB  add r8, 0x7d
+          0x1801C5CFF  mov qword ptr [rbx + 0xe], rsi
+          0x1801C5D03  xor edx, edx
+          0x1801C5D05  mov qword ptr [rbx + 0x16], rsi
+  [dbg] [quest] moteur trouve, base 140709493473280
+  [dbg] [quest] notre fil d execution 12528
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=47 ms, masque=0x00000000
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 3
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  DR1 perso (tete de table) acces 4 : apres 0x00007FF97B7C5CE4 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CE4, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 4)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CE4 (VA preferee 0x1801C5CE4)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 149 -> 0
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CE4  lea r8, [rbx - 2]
+          0x1801C5CE8  mov word ptr [rbx - 1], si
+          0x1801C5CEC  lea rcx, [rbx + 0x66]
+          0x1801C5CF0  mov byte ptr [rbx + 2], sil
+          0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+  DR1 perso (tete de table) acces 5 : apres 0x00007FF97B7C5CEC = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CEC, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 5)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CEC (VA preferee 0x1801C5CEC)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 0 -> 0
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CEC  lea rcx, [rbx + 0x66]
+          0x1801C5CF0  mov byte ptr [rbx + 2], sil
+          0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+          0x1801C5CFB  add r8, 0x7d
+          0x1801C5CFF  mov qword ptr [rbx + 0xe], rsi
+  DR1 perso (tete de table) acces 6 : apres 0x00007FF97B7C5CF4 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C5CF4, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 6)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C4CF4 (VA preferee 0x1801C5CF4)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 0 -> 0
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C5CF4  sub r8, rcx
+          0x1801C5CF7  mov qword ptr [rbx + 6], rsi
+          0x1801C5CFB  add r8, 0x7d
+          0x1801C5CFF  mov qword ptr [rbx + 0xe], rsi
+          0x1801C5D03  xor edx, edx
+          0x1801C5D05  mov qword ptr [rbx + 0x16], rsi
+  [dbg] [quest] machine : mode 0, sous-etat 4
+  [dbg] [quest] machine : mode 0, sous-etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 5
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [quest] machine : mode 5, sous-etat 37
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  DR1 perso (tete de table) acces 7 : apres 0x00007FF97B7C4CEB = vf5fs-pxd-w64-Retail_APM3.dll+0x1C4CEB, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 7)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C3CEB (VA preferee 0x1801C4CEB)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 0 -> 0
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C4CEB  vmovups ymm0, ymmword ptr [rax]
+          0x1801C4CEF  vmovups ymmword ptr [rdi + 0x30], ymm0
+          0x1801C4CF4  vmovups ymm1, ymmword ptr [rax + 0x20]
+          0x1801C4CF9  vmovups ymmword ptr [rdi + 0x50], ymm1
+          0x1801C4CFE  vmovups ymm0, ymmword ptr [rax + 0x40]
+  DR1 perso (tete de table) acces 8 : apres 0x00007FF97B7C4D42 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C4D42, valeur 000000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 8)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C3D42 (VA preferee 0x1801C4D42)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 0 -> 0
+      valeur maintenant : 000000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C4D42  mov rsi, qword ptr [rsp + 0x50]
+          0x1801C4D47  mov byte ptr [rdi + 0x28], 1
+          0x1801C4D4B  add rsp, 0x30
+          0x1801C4D4F  pop rdi
+          0x1801C4D50  ret 
+          0x1801C4D51  int3 
+          0x1801C4D52  int3 
+          0x1801C4D53  int3 
+  DR1 perso (tete de table) acces 9 : apres 0x00007FF97B7C4D4B = vf5fs-pxd-w64-Retail_APM3.dll+0x1C4D4B, valeur 010000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 9)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C3D4B (VA preferee 0x1801C4D4B)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 0 -> 1
+      valeur maintenant : 010000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801C4D4B  add rsp, 0x30
+          0x1801C4D4F  pop rdi
+          0x1801C4D50  ret 
+          0x1801C4D51  int3 
+          0x1801C4D52  int3 
+          0x1801C4D53  int3 
+          0x1801C4D54  int3 
+          0x1801C4D55  int3 
+          0x1801C4D56  int3 
+          0x1801C4D57  int3 
+          0x1801C4D58  int3 
+          0x1801C4D59  int3 
+          0x1801C4D5A  int3 
+          0x1801C4D5B  int3 
+          0x1801C4D5C  int3 
+  DR1 perso (tete de table) acces 10 : apres 0x00007FF97B7CF44D = vf5fs-pxd-w64-Retail_APM3.dll+0x1CF44D, valeur 010000ba00f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 10)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1CE44D (VA preferee 0x1801CF44D)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 010000ba00f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801CF44D  lea ebx, [rcx + 1]
+          0x1801CF450  movzx ecx, byte ptr [rax + 1]
+          0x1801CF454  call 0x7ff97b72cab0
+          0x1801CF459  mov r9, rax
+          0x1801CF45C  mov dword ptr [rsp + 0x20], ebx
+          0x1801CF460  lea rcx, [rdi + 0x68]
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  DR2 travail (1re partie equipee) acces 1 : apres 0x00007FF97B7CD21D = vf5fs-pxd-w64-Retail_APM3.dll+0x1CD21D, valeur 0000
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 1)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1CC21D (VA preferee 0x1801CD21D)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 0000
+      --- code a partir de RIP ---
+      >>> 0x1801CD21D  movzx ecx, word ptr [rdi + 0x34]
+          0x1801CD221  mov word ptr [rax + 0x264], cx
+          0x1801CD228  movzx ecx, word ptr [rdi + 0x38]
+          0x1801CD22C  mov word ptr [rax + 0x266], cx
+          0x1801CD233  movzx ecx, word ptr [rdi + 0x3c]
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  DR2 travail (1re partie equipee) acces 2 : apres 0x00007FF97B6986EF = vf5fs-pxd-w64-Retail_APM3.dll+0x986EF, valeur 0000
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 2)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x976EF (VA preferee 0x1800986EF)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 0000
+      --- code a partir de RIP ---
+      >>> 0x1800986EF  movzx eax, word ptr [rdx + 2]
+          0x1800986F3  mov word ptr [rcx + 2], ax
+          0x1800986F7  movzx eax, word ptr [rdx + 4]
+          0x1800986FB  mov word ptr [rcx + 4], ax
+          0x1800986FF  movzx eax, word ptr [rdx + 6]
+          0x180098703  mov word ptr [rcx + 6], ax
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  DR2 travail (1re partie equipee) acces 3 : apres 0x00007FF97B7C4BD6 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C4BD6, valeur 0000
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 3)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C3BD6 (VA preferee 0x1801C4BD6)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 0000
+      --- code a partir de RIP ---
+      >>> 0x1801C4BD6  movzx eax, word ptr [rcx + 4]
+          0x1801C4BDA  mov word ptr [rdx + 2], ax
+          0x1801C4BDE  movzx eax, word ptr [rcx + 8]
+          0x1801C4BE2  mov word ptr [rdx + 4], ax
+          0x1801C4BE6  movzx eax, word ptr [rcx + 0xc]
+          0x1801C4BEA  mov word ptr [rdx + 6], ax
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000500 montants=0x00000500 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000500
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000500 montants=0x00000500 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000500
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  DR2 travail (1re partie equipee) acces 4 : apres 0x00007FF97B7C4BD6 = vf5fs-pxd-w64-Retail_APM3.dll+0x1C4BD6, valeur 0000
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 4)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C3BD6 (VA preferee 0x1801C4BD6)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 0000
+      --- code a partir de RIP ---
+      >>> 0x1801C4BD6  movzx eax, word ptr [rcx + 4]
+          0x1801C4BDA  mov word ptr [rdx + 2], ax
+          0x1801C4BDE  movzx eax, word ptr [rcx + 8]
+          0x1801C4BE2  mov word ptr [rdx + 4], ax
+          0x1801C4BE6  movzx eax, word ptr [rcx + 0xc]
+          0x1801C4BEA  mov word ptr [rdx + 6], ax
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] fronts: courant=0x00000040 montants=0x00000040 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000040
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  DR1 perso (tete de table) acces 11 : apres 0x00007FF97B7CAD4A = vf5fs-pxd-w64-Retail_APM3.dll+0x1CAD4A, valeur 010000ba03f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 11)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C9D4A (VA preferee 0x1801CAD4A)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 010000ba03f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801CAD4A  movzx ecx, word ptr [rax + 0x262]
+          0x1801CAD51  mov dword ptr [rbx + 0x30], ecx
+          0x1801CAD54  movzx ecx, word ptr [rax + 0x264]
+          0x1801CAD5B  mov dword ptr [rbx + 0x34], ecx
+  DR1 perso (tete de table) acces 12 : apres 0x00007FF97B7CAD4A = vf5fs-pxd-w64-Retail_APM3.dll+0x1CAD4A, valeur 010000ba03f0adba
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 12)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1C9D4A (VA preferee 0x1801CAD4A)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 010000ba03f0adba
+      --- code a partir de RIP ---
+      >>> 0x1801CAD4A  movzx ecx, word ptr [rax + 0x262]
+          0x1801CAD51  mov dword ptr [rbx + 0x30], ecx
+          0x1801CAD54  movzx ecx, word ptr [rax + 0x264]
+          0x1801CAD5B  mov dword ptr [rbx + 0x34], ecx
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  DR2 travail (1re partie equipee) acces 5 : apres 0x00007FF97B7CD21D = vf5fs-pxd-w64-Retail_APM3.dll+0x1CD21D, valeur 0000
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 5)
+      qui ecrit : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1CC21D (VA preferee 0x1801CD21D)
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : 0000
+      --- code a partir de RIP ---
+      >>> 0x1801CD21D  movzx ecx, word ptr [rdi + 0x34]
+          0x1801CD221  mov word ptr [rax + 0x264], cx
+          0x1801CD228  movzx ecx, word ptr [rdi + 0x38]
+          0x1801CD22C  mov word ptr [rax + 0x266], cx
+          0x1801CD233  movzx ecx, word ptr [rdi + 0x3c]
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  DR1 perso (tete de table) acces 13 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 13)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 1
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 14 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 14)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 1 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 15 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 15)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 16 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 16)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 17 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 17)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 18 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 18)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 19 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 19)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 20 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 20)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 21 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 21)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 22 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 22)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 23 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 23)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 24 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 24)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 6 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 6)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 7 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 7)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 8 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 8)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 9 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 9)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 10 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 10)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 11 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 11)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 12 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 12)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 13 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 13)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 14 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 14)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 15 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 15)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 16 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 16)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 17 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 17)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 18 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 18)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 19 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 19)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 25 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 25)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 20 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 20)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 26 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 26)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 27 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 27)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR2 travail (1re partie equipee) acces 21 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefe
+
+  ECRITURE sur la ENREGISTREMENT DE TRAVAIL (acces 21)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 28 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 28)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 29 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 29)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  DR1 perso (tete de table) acces 30 : apres 0x00007FFA38320B82 = ntdll.dll+0x60B82, valeur eefeeefeeefeeefe
+
+  ECRITURE sur la TABLE DES PERSONNAGES (acces 30)
+      qui ecrit : ntdll.dll+0x60B82
+      (le RIP materiel est l instruction SUIVANTE)
+      entrees occupees : 150 -> 150
+      valeur maintenant : eefeeefeeefeeefe
+      --- code a partir de RIP ---
+      >>> 0x23CD20B82  rep stosq qword ptr [rdi], rax
+          0x23CD20B85  test dl, 1
+          0x23CD20B88  je 0x7ffa38320b93
+          0x23CD20B8A  mov dword ptr [r8 + rdx*4 - 4], 0xfeeefeee
+          0x23CD20B93  or byte ptr [rbx + 0xa], 4
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  DR1 perso (tete de table) : 30 acces
+  DR2 travail (1re partie equipee) : 21 acces
+  DR1 ptr travail : 1 acces
+  DR0 ptr perso : 1 acces
+  scenario d entrees remis en jeu manuel
+
+--------------------------------------------------------------------------
+entrees occupees a la fin : 150

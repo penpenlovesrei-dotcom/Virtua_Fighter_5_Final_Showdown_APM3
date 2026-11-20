@@ -1,0 +1,74 @@
+processus 1508 lance sous debogage
+  image     0x00007FF758630000  vfes.exe
+  dll       0x00007FFE3A680000  apm.dll
+  dll       0x00007FFE57C80000  d3d11.dll
+  dll       0x00007FFE58E10000  dxgi.dll
+  dll       0x00007FFE56F40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFE5EAFD78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFE5BCB187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFDB0620000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 1508 coupee apres 2 s
+  DR0 arme sur TaskSelStage+0x5C (4 o, w) -- 48 thread(s)
+  DR arme sur 0x1B0E723352C (t=2.7 s) -- valeur actuelle -1
+  DR0 TaskSelStage+0x5C acces 1 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 10000000
+  ecriture depuis 0x7FFDB0795354 (rva 0x175354) -> yuk
+  DR0 TaskSelStage+0x5C acces 2 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 27000000
+  ecriture depuis 0x7FFDB0795354 (rva 0x175354) -> 39
+  DR0 TaskSelStage+0x5C acces 3 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 28000000
+  ecriture depuis 0x7FFDB0795354 (rva 0x175354) -> 40
+  DR0 TaskSelStage+0x5C acces 4 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 09000000
+  DR0 TaskSelStage+0x5C acces 5 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0b000000
+  DR0 TaskSelStage+0x5C acces 6 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 11000000
+  DR0 TaskSelStage+0x5C acces 7 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 13000000
+  DR0 TaskSelStage+0x5C acces 8 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0c000000
+  DR0 TaskSelStage+0x5C acces 9 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0e000000
+  DR0 TaskSelStage+0x5C acces 10 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 08000000
+  DR0 TaskSelStage+0x5C acces 11 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0d000000
+  DR0 TaskSelStage+0x5C acces 12 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 14000000
+  DR0 TaskSelStage+0x5C acces 13 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 06000000
+  DR0 TaskSelStage+0x5C acces 14 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 15000000
+  DR0 TaskSelStage+0x5C acces 15 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0f000000
+  DR0 TaskSelStage+0x5C acces 16 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 07000000
+  DR0 TaskSelStage+0x5C acces 17 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0a000000
+  DR0 TaskSelStage+0x5C acces 18 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 05000000
+  DR0 TaskSelStage+0x5C acces 19 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 04000000
+  DR0 TaskSelStage+0x5C acces 20 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 12000000
+  DR0 TaskSelStage+0x5C acces 21 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 10000000
+  DR0 TaskSelStage+0x5C acces 22 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 12000000
+  DR0 TaskSelStage+0x5C acces 23 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 13000000
+  DR0 TaskSelStage+0x5C acces 24 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0d000000
+  DR0 TaskSelStage+0x5C acces 25 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 14000000
+  DR0 TaskSelStage+0x5C acces 26 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 04000000
+  DR0 TaskSelStage+0x5C acces 27 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0c000000
+  DR0 TaskSelStage+0x5C acces 28 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 08000000
+  DR0 TaskSelStage+0x5C acces 29 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 09000000
+  DR0 TaskSelStage+0x5C acces 30 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0f000000
+  DR0 TaskSelStage+0x5C acces 31 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0b000000
+  DR0 TaskSelStage+0x5C acces 32 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 15000000
+  DR0 TaskSelStage+0x5C acces 33 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 28000000
+  DR0 TaskSelStage+0x5C acces 34 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 05000000
+  DR0 TaskSelStage+0x5C acces 35 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0a000000
+  DR0 TaskSelStage+0x5C acces 36 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 06000000
+  DR0 TaskSelStage+0x5C acces 37 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 0e000000
+  DR0 TaskSelStage+0x5C acces 38 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 27000000
+  DR0 TaskSelStage+0x5C acces 39 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 07000000
+  DR0 TaskSelStage+0x5C acces 40 : apres 0x00007FFDB0795354 = vf5fs-pxd-w64-Retail_APM3.dll+0x175354, valeur 11000000
+  DR0 TaskSelStage+0x5C : 40 acces atteints, on cesse de detailler
+  ecriture depuis 0x7FFDB079477D (rva 0x17477D) -> -1
+  ecriture depuis 0x7FFDB079477D (rva 0x17477D) -> -1
+  ecriture depuis 0x7FFDB0794784 (rva 0x174784) -> ALEA
+  ecriture depuis 0x7FFDB079477D (rva 0x17477D) -> -1
+  ecriture depuis 0x7FFDB0794784 (rva 0x174784) -> ALEA
+  ecriture depuis 0x7FFDB0794784 (rva 0x174784) -> ALEA
+  ecriture depuis 0x7FFDB14C1039 (rva 0xEA1039) -> du2
+  ecriture depuis 0x7FFDB14C1039 (rva 0xEA1039) -> du2
+  ecriture depuis 0x7FFDB14C1039 (rva 0xEA1039) -> du2
+  ecriture depuis 0x7FFE5E9EFD92 (rva 0xAE3CFD92) -> 4277075694
+  ecriture depuis 0x7FFE5E9EFD92 (rva 0xAE3CFD92) -> 4277075694
+  ecriture depuis 0x7FFE5E9EFD92 (rva 0xAE3CFD92) -> 4277075694
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  DR0 TaskSelStage+0x5C : 1372 acces
+  scenario d entrees remis en jeu manuel

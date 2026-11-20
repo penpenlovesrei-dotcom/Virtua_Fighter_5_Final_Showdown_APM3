@@ -1,0 +1,96 @@
+processus 19724 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85C710000  apm.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFBB190000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 19724 coupee apres 2 s
+  BP arme sur gestionnaire liste2 code 20 = 0x7FFFBB2E4C10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 24 = 0x7FFFBB2E3A10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 51 = 0x7FFFBB2E4740 (octet d'origine 0x4C)
+  BP arme sur gestionnaire liste2 code 10 = 0x7FFFBB2E4B80 (octet d'origine 0x48)
+  t=55 s : 4 gestionnaire(s) sous surveillance
+  -- code 51, gardes a l entree : ROB+0x508=00040001  ROB+0x510=00000000  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 51, gardes a l entree : ROB+0x508=00040001  ROB+0x510=00040001  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 51, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 51, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 20, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41880000  etat+0x07C=00000001
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 09000000000408000000000000000000   entree = 140000000000000034000000
+  -- code 24, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41880000  etat+0x07C=00000001
+  BP arme sur retour 24 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 24 : 0 mot(s) change(s) ==
+     charge = 04000c00000004000900000000040800   entree = 180000000000000020000000
+  -- code 20, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00080003  etat+0x06C=41700000  etat+0x07C=00000001
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 07000000000400000000000000000000   entree = 14000000000000002c000000
+  -- code 10, gardes a l entree : ROB+0x508=00000015  ROB+0x510=00000000  etat+0x06C=41980000  etat+0x07C=00000000
+  BP arme sur retour 10 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 10 : 1 mot(s) change(s) ==
+     charge = 05000000020000008400000000000000   entree = 0a0000007700000010000000
+     ROB+0x668      00000000 -> 0000a040
+  -- code 10, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41980000  etat+0x07C=00000000
+  BP arme sur retour 10 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 10 : 2 mot(s) change(s) ==
+     charge = 05000000020000008400000000000000   entree = 0a0000007700000010000000
+     ROB+0x668      00000000 -> 0000a040
+     ROB+0x66C      00004842 -> 00000000
+  -- code 51, gardes a l entree : ROB+0x508=00000001  ROB+0x510=00000000  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 51, gardes a l entree : ROB+0x508=02080003  ROB+0x510=00000001  etat+0x06C=00000000  etat+0x07C=00000000
+  BP arme sur retour 51 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 51 : 0 mot(s) change(s) ==
+     charge = 1e000000000000000000000000000000   entree = 3300000000000000cc000000
+  -- code 20, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41880000  etat+0x07C=00000001
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 09000000000408000000000000000000   entree = 140000000000000034000000
+  -- code 24, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41880000  etat+0x07C=00000001
+  BP arme sur retour 24 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 24 : 0 mot(s) change(s) ==
+     charge = 04000c00000004000900000000040800   entree = 180000000000000020000000
+  -- code 20, gardes a l entree : ROB+0x508=00000000  ROB+0x510=00000000  etat+0x06C=41800000  etat+0x07C=00000001
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 08000000000408000000000000000000   entree = 140000000000000020000000
+--- 240 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP gestionnaire liste2 code 20 : 4 passage(s)
+  BP gestionnaire liste2 code 24 : 2 passage(s)
+  BP gestionnaire liste2 code 51 : 6 passage(s)
+  BP gestionnaire liste2 code 10 : 2 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 24 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 10 : 1 passage(s)
+  BP retour 10 : 1 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 51 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 24 : 1 passage(s)
+  BP retour 20 : 1 passage(s)

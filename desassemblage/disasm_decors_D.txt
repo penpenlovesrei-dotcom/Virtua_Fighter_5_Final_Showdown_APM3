@@ -1,0 +1,83 @@
+﻿  0x18018EE30  4053                 push rbx
+  0x18018EE32  4883ec30             sub rsp, 0x30
+  0x18018EE36  48c7442420feffffff   mov qword ptr [rsp + 0x20], 0xfffffffffffffffe
+  0x18018EE3F  ba10000000           mov edx, 0x10
+  0x18018EE44  b9c0000000           mov ecx, 0xc0
+  0x18018EE49  e812dc0e00           call 0x18027ca60
+  0x18018EE4E  488bd8               mov rbx, rax
+  0x18018EE51  4889442440           mov qword ptr [rsp + 0x40], rax
+  0x18018EE56  4885c0               test rax, rax
+  0x18018EE59  742a                 je 0x18018ee85
+  0x18018EE5B  488bc8               mov rcx, rax
+  0x18018EE5E  e81d5e0b00           call 0x180244c80
+  0x18018EE63  90                   nop 
+  0x18018EE64  488d05a5932700       lea rax, [rip + 0x2793a5]  ; -> 0x180408210
+  0x18018EE6B  488903               mov qword ptr [rbx], rax
+  0x18018EE6E  488d4b78             lea rcx, [rbx + 0x78]
+  0x18018EE72  e8892b0800           call 0x180211a00
+  0x18018EE77  90                   nop 
+  0x18018EE78  48891d59ab5b00       mov qword ptr [rip + 0x5bab59], rbx  ; -> 0x1807499D8
+  0x18018EE7F  4883c430             add rsp, 0x30
+  0x18018EE83  5b                   pop rbx
+  0x18018EE84  c3                   ret 
+> 0x18018EE85  48c70548ab5b0000000000 mov qword ptr [rip + 0x5bab48], 0  ; -> 0x1807499D8
+  0x18018EE90  4883c430             add rsp, 0x30
+  0x18018EE94  5b                   pop rbx
+  0x18018EE95  c3                   ret 
+  0x18018EE96  cc                   int3 
+  0x18018EE97  cc                   int3 
+  0x18018EE98  cc                   int3 
+  0x18018EE99  cc                   int3 
+  0x18018EE9A  cc                   int3 
+  0x18018EE9B  cc                   int3 
+  0x18018EE9C  cc                   int3 
+  0x18018EE9D  cc                   int3 
+  0x18018EE9E  cc                   int3 
+  0x18018EE9F  cc                   int3 
+  0x18018EEA0  4883ec28             sub rsp, 0x28
+  0x18018EEA4  488b0d2dab5b00       mov rcx, qword ptr [rip + 0x5bab2d]  ; -> 0x1807499D8
+  0x18018EEAB  4885c9               test rcx, rcx
+  0x18018EEAE  740a                 je 0x18018eeba
+  0x18018EEB0  488b01               mov rax, qword ptr [rcx]
+  0x18018EEB3  ba01000000           mov edx, 1
+  0x18018EEB8  ff10                 call qword ptr [rax]
+> 0x18018EEBA  48c70513ab5b0000000000 mov qword ptr [rip + 0x5bab13], 0  ; -> 0x1807499D8
+  0x18018EEC5  4883c428             add rsp, 0x28
+  0x18018EEC9  c3                   ret 
+  0x18018EECA  cc                   int3 
+  0x18018EECB  cc                   int3 
+  0x18018EECC  cc                   int3 
+  0x18018EECD  cc                   int3 
+  0x18018EECE  cc                   int3 
+  0x18018EECF  cc                   int3 
+  0x18018EED0  c5f25815f8aa5b00     vaddss xmm2, xmm1, dword ptr [rip + 0x5baaf8]  ; -> 0x1807499D0
+  0x18018EED8  c5fa1009             vmovss xmm1, dword ptr [rcx]
+  0x18018EEDC  c5fb101d6c7e1b00     vmovsd xmm3, qword ptr [rip + 0x1b7e6c]  ; -> 0x180346D50
+  0x18018EEE4  c5f25ac9             vcvtss2sd xmm1, xmm1, xmm1
+  0x18018EEE8  c5f154cb             vandpd xmm1, xmm1, xmm3
+  0x18018EEEC  c5f35ac1             vcvtsd2ss xmm0, xmm1, xmm1
+  0x18018EEF0  c5f82fc2             vcomiss xmm0, xmm2
+  0x18018EEF4  771a                 ja 0x18018ef10
+  0x18018EEF6  c5fa104108           vmovss xmm0, dword ptr [rcx + 8]
+  0x18018EEFB  c5fa5ac0             vcvtss2sd xmm0, xmm0, xmm0
+  0x18018EEFF  c5f954c3             vandpd xmm0, xmm0, xmm3
+  0x18018EF03  c5fb5ac0             vcvtsd2ss xmm0, xmm0, xmm0
+  0x18018EF07  c5f82fc2             vcomiss xmm0, xmm2
+  0x18018EF0B  7703                 ja 0x18018ef10
+  0x18018EF0D  32c0                 xor al, al
+  0x18018EF0F  c3                   ret 
+> 0x18018EF10  b001                 mov al, 1
+  0x18018EF12  c3                   ret 
+  0x18018EF13  cc                   int3 
+  0x18018EF14  cc                   int3 
+  0x18018EF15  cc                   int3 
+  0x18018EF16  cc                   int3 
+  0x18018EF17  cc                   int3 
+  0x18018EF18  cc                   int3 
+  0x18018EF19  cc                   int3 
+  0x18018EF1A  cc                   int3 
+  0x18018EF1B  cc                   int3 
+  0x18018EF1C  cc                   int3 
+  0x18018EF1D  cc                   int3 
+  0x18018EF1E  cc                   int3 
+  0x18018EF1F  cc                   int3 

@@ -1,0 +1,45 @@
+processus 5680 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF818E30000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFA84C0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 5680 coupee apres 2 s
+  BP arme sur gestionnaire liste2 code 13 = 0x7FFFA8614670 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 19 = 0x7FFFA8613030 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 22 = 0x7FFFA8613BE0 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 25 = 0x7FFFA8613830 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 27 = 0x7FFFA8614140 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 54 = 0x7FFFA8612F70 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 7 = 0x7FFFA8613FD0 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 21 = 0x7FFFA8613B40 (octet d'origine 0x40)
+  t=55 s : 8 gestionnaire(s) de la liste 2 sous surveillance
+  combattant : ROB=0x2B3E4070BE8  personnage=13 (ROB+0x10)
+  BP arme sur retour 25 = 0x7FFFA8612DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 010000007f0000000000000000000000   entree = 190000002c00000058000000
+  combattant : ROB=0x2B3E406AE80  personnage=0 (ROB+0x10)
+  BP arme sur retour 13 = 0x7FFFA8612DB3 (octet d'origine 0x48)
+  == code 13 : 0 mot(s) change(s) ==
+     charge = 6403000004000000280000002d000000   entree = 0d0000000b00000058000000
+  BP arme sur retour 25 = 0x7FFFA8612DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 02000000160000000000000000000000   entree = 190000003400000010000000
+--- 280 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP gestionnaire liste2 code 13 : 1 passage(s)
+  BP gestionnaire liste2 code 19 : 0 passage(s)
+  BP gestionnaire liste2 code 22 : 0 passage(s)
+  BP gestionnaire liste2 code 25 : 2 passage(s)
+  BP gestionnaire liste2 code 27 : 0 passage(s)
+  BP gestionnaire liste2 code 54 : 0 passage(s)
+  BP gestionnaire liste2 code 7 : 0 passage(s)
+  BP gestionnaire liste2 code 21 : 0 passage(s)
+  BP retour 25 : 1 passage(s)
+  BP retour 13 : 1 passage(s)
+  BP retour 25 : 1 passage(s)

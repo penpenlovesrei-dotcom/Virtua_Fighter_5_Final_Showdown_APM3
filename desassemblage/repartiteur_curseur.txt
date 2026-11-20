@@ -1,0 +1,113 @@
+# APM3 (borne) 0x1801BBBE0 -- 384 octets
+#
+# Le repartiteur de curseur, celui que toutes les pages de personnalisation
+# appellent. Il lit les comptes +0x224/+0x22C et les bouclages
+# +0x228/+0x230, et deplace +0x58/+0x5C.
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801BBBE0  4053                 push rbx
+  0x1801BBBE2  4883ec20             sub rsp, 0x20
+  0x1801BBBE6  80b93102000000       cmp byte ptr [rcx + 0x231], 0
+  0x1801BBBED  488bd9               mov rbx, rcx
+  0x1801BBBF0  740c                 je 0x1801bbbfe
+  0x1801BBBF2  c6813102000000       mov byte ptr [rcx + 0x231], 0
+  0x1801BBBF9  e903010000           jmp 0x1801bbd01
+> 0x1801BBBFE  83b92402000000       cmp dword ptr [rcx + 0x224], 0
+  0x1801BBC05  48896c2430           mov qword ptr [rsp + 0x30], rbp
+  0x1801BBC0A  bdffffffff           mov ebp, 0xffffffff
+  0x1801BBC0F  4889742438           mov qword ptr [rsp + 0x38], rsi
+  0x1801BBC14  48897c2440           mov qword ptr [rsp + 0x40], rdi
+  0x1801BBC19  7e4e                 jle 0x1801bbc69
+  0x1801BBC1B  8b7158               mov esi, dword ptr [rcx + 0x58]
+  0x1801BBC1E  6690                 nop 
+> 0x1801BBC20  440fb68328020000     movzx r8d, byte ptr [rbx + 0x228]
+  0x1801BBC28  488d4b58             lea rcx, [rbx + 0x58]
+  0x1801BBC2C  8b9324020000         mov edx, dword ptr [rbx + 0x224]
+  0x1801BBC32  e88972feff           call 0x1801a2ec0
+  0x1801BBC37  84c0                 test al, al
+  0x1801BBC39  742b                 je 0x1801bbc66
+  0x1801BBC3B  397358               cmp dword ptr [rbx + 0x58], esi
+  0x1801BBC3E  7426                 je 0x1801bbc66
+  0x1801BBC40  b900100100           mov ecx, 0x11000
+  0x1801BBC45  e8c66ffeff           call 0x1801a2c10
+  0x1801BBC4A  85c0                 test eax, eax
+  0x1801BBC4C  ba01000000           mov edx, 1
+  0x1801BBC51  488b03               mov rax, qword ptr [rbx]
+  0x1801BBC54  488bcb               mov rcx, rbx
+  0x1801BBC57  0f49d5               cmovns edx, ebp
+  0x1801BBC5A  ff5038               call qword ptr [rax + 0x38]
+  0x1801BBC5D  84c0                 test al, al
+  0x1801BBC5F  74bf                 je 0x1801bbc20
+  0x1801BBC61  e98c000000           jmp 0x1801bbcf2
+> 0x1801BBC66  897358               mov dword ptr [rbx + 0x58], esi
+> 0x1801BBC69  83bb2c02000000       cmp dword ptr [rbx + 0x22c], 0
+  0x1801BBC70  7e54                 jle 0x1801bbcc6
+  0x1801BBC72  8b735c               mov esi, dword ptr [rbx + 0x5c]
+  0x1801BBC75  6666660f1f840000000000 nop word ptr [rax + rax]
+> 0x1801BBC80  440fb68330020000     movzx r8d, byte ptr [rbx + 0x230]
+  0x1801BBC88  488d4b5c             lea rcx, [rbx + 0x5c]
+  0x1801BBC8C  8b932c020000         mov edx, dword ptr [rbx + 0x22c]
+  0x1801BBC92  e8c970feff           call 0x1801a2d60
+  0x1801BBC97  84c0                 test al, al
+  0x1801BBC99  7428                 je 0x1801bbcc3
+  0x1801BBC9B  39735c               cmp dword ptr [rbx + 0x5c], esi
+  0x1801BBC9E  7423                 je 0x1801bbcc3
+  0x1801BBCA0  b900800800           mov ecx, 0x88000
+  0x1801BBCA5  e8666ffeff           call 0x1801a2c10
+  0x1801BBCAA  85c0                 test eax, eax
+  0x1801BBCAC  ba01000000           mov edx, 1
+  0x1801BBCB1  488b03               mov rax, qword ptr [rbx]
+  0x1801BBCB4  488bcb               mov rcx, rbx
+  0x1801BBCB7  0f49d5               cmovns edx, ebp
+  0x1801BBCBA  ff5040               call qword ptr [rax + 0x40]
+  0x1801BBCBD  84c0                 test al, al
+  0x1801BBCBF  74bf                 je 0x1801bbc80
+  0x1801BBCC1  eb2f                 jmp 0x1801bbcf2
+> 0x1801BBCC3  89735c               mov dword ptr [rbx + 0x5c], esi
+> 0x1801BBCC6  e8c56efeff           call 0x1801a2b90
+  0x1801BBCCB  85c0                 test eax, eax
+  0x1801BBCCD  780e                 js 0x1801bbcdd
+  0x1801BBCCF  4c8b03               mov r8, qword ptr [rbx]
+  0x1801BBCD2  8bd0                 mov edx, eax
+  0x1801BBCD4  488bcb               mov rcx, rbx
+  0x1801BBCD7  41ff5048             call qword ptr [r8 + 0x48]
+  0x1801BBCDB  eb15                 jmp 0x1801bbcf2
+> 0x1801BBCDD  e8de6efeff           call 0x1801a2bc0
+  0x1801BBCE2  85c0                 test eax, eax
+  0x1801BBCE4  780c                 js 0x1801bbcf2
+  0x1801BBCE6  4c8b03               mov r8, qword ptr [rbx]
+  0x1801BBCE9  8bd0                 mov edx, eax
+  0x1801BBCEB  488bcb               mov rcx, rbx
+  0x1801BBCEE  41ff5050             call qword ptr [r8 + 0x50]
+> 0x1801BBCF2  488b742438           mov rsi, qword ptr [rsp + 0x38]
+  0x1801BBCF7  488b6c2430           mov rbp, qword ptr [rsp + 0x30]
+  0x1801BBCFC  488b7c2440           mov rdi, qword ptr [rsp + 0x40]
+> 0x1801BBD01  8b8b1c020000         mov ecx, dword ptr [rbx + 0x21c]
+  0x1801BBD07  81f90c5a0000         cmp ecx, 0x5a0c
+  0x1801BBD0D  740c                 je 0x1801bbd1b
+  0x1801BBD0F  e8fc3f0300           call 0x1801efd10
+  0x1801BBD14  488983c0000000       mov qword ptr [rbx + 0xc0], rax
+> 0x1801BBD1B  8b8b20020000         mov ecx, dword ptr [rbx + 0x220]
+  0x1801BBD21  81f90c5a0000         cmp ecx, 0x5a0c
+  0x1801BBD27  740c                 je 0x1801bbd35
+  0x1801BBD29  e8e23f0300           call 0x1801efd10
+  0x1801BBD2E  48898398010000       mov qword ptr [rbx + 0x198], rax
+> 0x1801BBD35  32c0                 xor al, al
+  0x1801BBD37  4883c420             add rsp, 0x20
+  0x1801BBD3B  5b                   pop rbx
+  0x1801BBD3C  c3                   ret 
+  0x1801BBD3D  cc                   int3 
+  0x1801BBD3E  cc                   int3 
+  0x1801BBD3F  cc                   int3 
+  0x1801BBD40  4883ec28             sub rsp, 0x28
+  0x1801BBD44  ff81c0000000         inc dword ptr [rcx + 0xc0]
+  0x1801BBD4A  4883c160             add rcx, 0x60
+  0x1801BBD4E  833900               cmp dword ptr [rcx], 0
+  0x1801BBD51  7405                 je 0x1801bbd58
+  0x1801BBD53  e8b8fdffff           call 0x1801bbb10
+> 0x1801BBD58  32c0                 xor al, al
+  0x1801BBD5A  4883c428             add rsp, 0x28
+  0x1801BBD5E  c3                   ret 
+  0x1801BBD5F  cc                   int3 

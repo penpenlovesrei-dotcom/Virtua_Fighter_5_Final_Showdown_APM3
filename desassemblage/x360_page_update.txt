@@ -1,0 +1,176 @@
+# Xbox 360 (console) 0x82231A50 -- 170 instructions
+#
+# La mise a jour de la page. 0x82231BA0 calcule table[+0x750 + +0x74C], le
+# jumeau de notre 0x1801C8139, et 0x82231CB0 appelle la fonction de
+# deplacement. Etiquetee « page part » parce qu'elle porte `p_part_plt_lt` :
+# sa GEOMETRIE dit item. Un nom de planche n'identifie pas une page. REPRISE
+# (96).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+0x82231A50  7d8802a6   mflr       r12
+0x82231A54  484a716d   bl         0x826d8bc0
+0x82231A58  9421ff50   stwu       r1, -0xb0(r1)
+0x82231A5C  3b8301c4   addi       r28, r3, 0x1c4
+0x82231A60  7c7f1b78   mr         r31, r3
+0x82231A64  3ba00000   li         r29, 0
+0x82231A68  7f83e378   mr         r3, r28
+0x82231A6C  7fbbeb78   mr         r27, r29
+0x82231A70  4bfe7be9   bl         0x82219658
+0x82231A74  3d608200   lis        r11, -0x7e00
+0x82231A78  3d408201   lis        r10, -0x7dff
+0x82231A7C  38e00000   li         r7, 0
+0x82231A80  38aa0d68   addi       r5, r10, 0xd68
+0x82231A84  38c00001   li         r6, 1
+0x82231A88  c00b0838   lfs        f0, 0x838(r11)
+0x82231A8C  38810050   addi       r4, r1, 0x50
+0x82231A90  d0010050   stfs       f0, 0x50(r1)
+0x82231A94  7f83e378   mr         r3, r28
+0x82231A98  d0010054   stfs       f0, 0x54(r1)
+0x82231A9C  d0010058   stfs       f0, 0x58(r1)
+0x82231AA0  4bfe6931   bl         0x822183d0
+0x82231AA4  c0010050   lfs        f0, 0x50(r1)
+0x82231AA8  c1a10054   lfs        f13, 0x54(r1)
+0x82231AAC  38810060   addi       r4, r1, 0x60
+0x82231AB0  c1810058   lfs        f12, 0x58(r1)
+0x82231AB4  807f0734   lwz        r3, 0x734(r31)
+0x82231AB8  d0010060   stfs       f0, 0x60(r1)
+0x82231ABC  d1a10064   stfs       f13, 0x64(r1)
+0x82231AC0  d1810068   stfs       f12, 0x68(r1)
+0x82231AC4  4bf94395   bl         0x821c5e58
+0x82231AC8  38600000   li         r3, 0
+0x82231ACC  4bfcc205   bl         0x821fdcd0
+0x82231AD0  7fe3fb78   mr         r3, r31
+0x82231AD4  38805a0c   li         r4, 0x5a0c
+0x82231AD8  4bfe62b1   bl         0x82217d88
+0x82231ADC  7fe3fb78   mr         r3, r31
+0x82231AE0  38805a0c   li         r4, 0x5a0c
+0x82231AE4  4bfe62ed   bl         0x82217dd0
+0x82231AE8  7fe3fb78   mr         r3, r31
+0x82231AEC  4bfe63ed   bl         0x82217ed8
+0x82231AF0  5469063e   clrlwi     r9, r3, 0x18
+0x82231AF4  2b090000   cmplwi     cr6, r9, 0
+0x82231AF8  409a0018   bne        cr6, 0x82231b10
+0x82231AFC  7f83e378   mr         r3, r28
+0x82231B00  4bfe5e41   bl         0x82217940
+0x82231B04  546b063e   clrlwi     r11, r3, 0x18
+0x82231B08  7d6a0034   cntlzw     r10, r11
+0x82231B0C  5543dffe   rlwinm     r3, r10, 0x1b, 0x1f, 0x1f
+0x82231B10  546b063e   clrlwi     r11, r3, 0x18
+0x82231B14  2b0b0000   cmplwi     cr6, r11, 0
+0x82231B18  409a0008   bne        cr6, 0x82231b20
+0x82231B1C  3b600001   li         r27, 1
+0x82231B20  897f0738   lbz        r11, 0x738(r31)
+0x82231B24  2b0b0000   cmplwi     cr6, r11, 0
+0x82231B28  409a01a8   bne        cr6, 0x82231cd0
+0x82231B2C  807f0704   lwz        r3, 0x704(r31)
+0x82231B30  2b030000   cmplwi     cr6, r3, 0
+0x82231B34  419a0038   beq        cr6, 0x82231b6c
+0x82231B38  4817aa61   bl         0x823ac598
+0x82231B3C  546b063e   clrlwi     r11, r3, 0x18
+0x82231B40  2b0b0000   cmplwi     cr6, r11, 0
+0x82231B44  419a0028   beq        cr6, 0x82231b6c
+0x82231B48  3d40829c   lis        r10, -0x7d64
+0x82231B4C  38600002   li         r3, 2
+0x82231B50  392a9218   addi       r9, r10, -0x6de8
+0x82231B54  7fabeb78   mr         r11, r29
+0x82231B58  93a900f8   stw        r29, 0xf8(r9)
+0x82231B5C  4bfcc175   bl         0x821fdcd0
+0x82231B60  7f63db78   mr         r3, r27
+0x82231B64  382100b0   addi       r1, r1, 0xb0
+0x82231B68  484a70a8   b          0x826d8c10
+0x82231B6C  93bf0704   stw        r29, 0x704(r31)
+0x82231B70  3bdf02e8   addi       r30, r31, 0x2e8
+0x82231B74  897f033c   lbz        r11, 0x33c(r31)
+0x82231B78  2b0b0000   cmplwi     cr6, r11, 0
+0x82231B7C  419a00b0   beq        cr6, 0x82231c2c
+0x82231B80  7fc3f378   mr         r3, r30
+0x82231B84  4817aa15   bl         0x823ac598
+0x82231B88  546b063e   clrlwi     r11, r3, 0x18
+0x82231B8C  2b0b0000   cmplwi     cr6, r11, 0
+0x82231B90  409a009c   bne        cr6, 0x82231c2c
+0x82231B94  817e004c   lwz        r11, 0x4c(r30)
+0x82231B98  2f0b0000   cmpwi      cr6, r11, 0
+0x82231B9C  409a0090   bne        cr6, 0x82231c2c
+0x82231BA0  815f0750   lwz        r10, 0x750(r31)
+0x82231BA4  817f074c   lwz        r11, 0x74c(r31)
+0x82231BA8  813f073c   lwz        r9, 0x73c(r31)
+0x82231BAC  7d0a5a14   add        r8, r10, r11
+0x82231BB0  a35f073a   lhz        r26, 0x73a(r31)
+0x82231BB4  5507083c   slwi       r7, r8, 1
+0x82231BB8  7fc74a2e   lhzx       r30, r7, r9
+0x82231BBC  4bff9c0d   bl         0x8222b7c8
+0x82231BC0  7fc5f378   mr         r5, r30
+0x82231BC4  7f44d378   mr         r4, r26
+0x82231BC8  4bffa161   bl         0x8222bd28
+0x82231BCC  4bff9bfd   bl         0x8222b7c8
+0x82231BD0  7fc4f378   mr         r4, r30
+0x82231BD4  4bff9fcd   bl         0x8222bba0
+0x82231BD8  5465063e   clrlwi     r5, r3, 0x18
+0x82231BDC  2b050000   cmplwi     cr6, r5, 0
+0x82231BE0  419a003c   beq        cr6, 0x82231c1c
+0x82231BE4  3bdf01fc   addi       r30, r31, 0x1fc
+0x82231BE8  7fc3f378   mr         r3, r30
+0x82231BEC  4bfe5e55   bl         0x82217a40
+0x82231BF0  9bbf0274   stb        r29, 0x274(r31)
+0x82231BF4  3d608201   lis        r11, -0x7dff
+0x82231BF8  7fc3f378   mr         r3, r30
+0x82231BFC  388b0c90   addi       r4, r11, 0xc90
+0x82231C00  4817b779   bl         0x823ad378
+0x82231C04  93bf0270   stw        r29, 0x270(r31)
+0x82231C08  38600420   li         r3, 0x420
+0x82231C0C  4816bfd5   bl         0x8239dbe0
+0x82231C10  907f025c   stw        r3, 0x25c(r31)
+0x82231C14  93df0704   stw        r30, 0x704(r31)
+0x82231C18  48000010   b          0x82231c28
+0x82231C1C  4bff9bad   bl         0x8222b7c8
+0x82231C20  7fc4f378   mr         r4, r30
+0x82231C24  4bff9ed5   bl         0x8222baf8
+0x82231C28  9bbf033c   stb        r29, 0x33c(r31)
+0x82231C2C  3d60829c   lis        r11, -0x7d64
+0x82231C30  394b8bbc   addi       r10, r11, -0x7444
+0x82231C34  896a0054   lbz        r11, 0x54(r10)
+0x82231C38  2b0b0000   cmplwi     cr6, r11, 0
+0x82231C3C  419a0014   beq        cr6, 0x82231c50
+0x82231C40  892a05f5   lbz        r9, 0x5f5(r10)
+0x82231C44  2b090000   cmplwi     cr6, r9, 0
+0x82231C48  39200001   li         r9, 1
+0x82231C4C  409a0008   bne        cr6, 0x82231c54
+0x82231C50  7fa9eb78   mr         r9, r29
+0x82231C54  5529063e   clrlwi     r9, r9, 0x18
+0x82231C58  2b090000   cmplwi     cr6, r9, 0
+0x82231C5C  409a0038   bne        cr6, 0x82231c94
+0x82231C60  812a004c   lwz        r9, 0x4c(r10)
+0x82231C64  2f090001   cmpwi      cr6, r9, 1
+0x82231C68  419a001c   beq        cr6, 0x82231c84
+0x82231C6C  2f090002   cmpwi      cr6, r9, 2
+0x82231C70  4099000c   ble        cr6, 0x82231c7c
+0x82231C74  2f090004   cmpwi      cr6, r9, 4
+0x82231C78  40990010   ble        cr6, 0x82231c88
+0x82231C7C  7fabeb78   mr         r11, r29
+0x82231C80  48000008   b          0x82231c88
+0x82231C84  896a0250   lbz        r11, 0x250(r10)
+0x82231C88  556b063e   clrlwi     r11, r11, 0x18
+0x82231C8C  2b0b0000   cmplwi     cr6, r11, 0
+0x82231C90  419a001c   beq        cr6, 0x82231cac
+0x82231C94  7fe3fb78   mr         r3, r31
+0x82231C98  4bfe6209   bl         0x82217ea0
+0x82231C9C  7f83e378   mr         r3, r28
+0x82231CA0  4bfe6fe1   bl         0x82218c80
+0x82231CA4  39600001   li         r11, 1
+0x82231CA8  997f0738   stb        r11, 0x738(r31)
+0x82231CAC  7fe3fb78   mr         r3, r31
+0x82231CB0  4bffeb69   bl         0x82230818
+0x82231CB4  38800000   li         r4, 0
+0x82231CB8  38600200   li         r3, 0x200
+0x82231CBC  4bfcc765   bl         0x821fe420
+0x82231CC0  2f030000   cmpwi      cr6, r3, 0
+0x82231CC4  4098000c   bge        cr6, 0x82231cd0
+0x82231CC8  7fe3fb78   mr         r3, r31
+0x82231CCC  4bfe5e65   bl         0x82217b30
+0x82231CD0  38600002   li         r3, 2
+0x82231CD4  4bfcbffd   bl         0x821fdcd0
+0x82231CD8  7f63db78   mr         r3, r27
+0x82231CDC  382100b0   addi       r1, r1, 0xb0
+0x82231CE0  484a6f30   b          0x826d8c10

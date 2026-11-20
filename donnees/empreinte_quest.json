@@ -1,0 +1,751 @@
+{
+ "note": "2026-10-01 : VU A L ECRAN -- vignettes, gauche/droite du Character Select, et gauche/droite du Costume settings (CURSEUR_REBATI). NOUVEAU, PAS ENCORE VU : DataSelector (les cinq lignes ---) recoit 4 crans par relais GRE_DSEL. PAS REPARABLES PAR UN COMPTE : TaskSelItemMenu et TaskSelPartMenu, dont le dessin ne lit pas le curseur du repartiteur.",
+ "plages": [
+  {
+   "longueur": 1,
+   "offset": 342,
+   "revendique": [
+    ".greffe"
+   ],
+   "sha": "ca358758f6d27e6c",
+   "va": null
+  },
+  {
+   "longueur": 1,
+   "offset": 417,
+   "revendique": [
+    ".greffe"
+   ],
+   "sha": "5c62e091b8c0565f",
+   "va": null
+  },
+  {
+   "longueur": 40,
+   "offset": 840,
+   "revendique": [
+    ".greffe"
+   ],
+   "sha": "93945d3399474c45",
+   "va": null
+  },
+  {
+   "longueur": 5,
+   "offset": 438225,
+   "revendique": [],
+   "sha": "dbad84c6ed9edd78",
+   "va": "0x18006BBD1"
+  },
+  {
+   "longueur": 3,
+   "offset": 670890,
+   "revendique": [],
+   "sha": "5d5ab00c601008e2",
+   "va": "0x1800A48AA"
+  },
+  {
+   "longueur": 29,
+   "offset": 753412,
+   "revendique": [],
+   "sha": "37089ad33fe021be",
+   "va": "0x1800B8B04"
+  },
+  {
+   "longueur": 3,
+   "offset": 768649,
+   "revendique": [],
+   "sha": "d17c777108d8cd3c",
+   "va": "0x1800BC689"
+  },
+  {
+   "longueur": 25,
+   "offset": 892388,
+   "revendique": [
+    "transition : Echap quitte le mode"
+   ],
+   "sha": "00f41a348f021c51",
+   "va": "0x1800DA9E4"
+  },
+  {
+   "longueur": 7,
+   "offset": 894874,
+   "revendique": [],
+   "sha": "aa5f961af64efcef",
+   "va": "0x1800DB39A"
+  },
+  {
+   "longueur": 3,
+   "offset": 901013,
+   "revendique": [],
+   "sha": "785d40392f10fc38",
+   "va": "0x1800DCB95"
+  },
+  {
+   "longueur": 2,
+   "offset": 904450,
+   "revendique": [],
+   "sha": "182003d5c37dc525",
+   "va": "0x1800DD902"
+  },
+  {
+   "longueur": 12,
+   "offset": 944294,
+   "revendique": [],
+   "sha": "8f8950a0293b2c32",
+   "va": "0x1800E74A6"
+  },
+  {
+   "longueur": 5,
+   "offset": 1495145,
+   "revendique": [],
+   "sha": "cfb7a07ef3b86f91",
+   "va": "0x18016DC69"
+  },
+  {
+   "longueur": 5,
+   "offset": 1496329,
+   "revendique": [],
+   "sha": "cfb7a07ef3b86f91",
+   "va": "0x18016E109"
+  },
+  {
+   "longueur": 5,
+   "offset": 1496587,
+   "revendique": [],
+   "sha": "cfb7a07ef3b86f91",
+   "va": "0x18016E20B"
+  },
+  {
+   "longueur": 1,
+   "offset": 1498927,
+   "revendique": [],
+   "sha": "83891d7fe85c33e5",
+   "va": "0x18016EB2F"
+  },
+  {
+   "longueur": 1,
+   "offset": 1499193,
+   "revendique": [],
+   "sha": "83891d7fe85c33e5",
+   "va": "0x18016EC39"
+  },
+  {
+   "longueur": 1,
+   "offset": 1499837,
+   "revendique": [],
+   "sha": "83891d7fe85c33e5",
+   "va": "0x18016EEBD"
+  },
+  {
+   "longueur": 1,
+   "offset": 1513363,
+   "revendique": [],
+   "sha": "83891d7fe85c33e5",
+   "va": "0x180172393"
+  },
+  {
+   "longueur": 1,
+   "offset": 1521814,
+   "revendique": [],
+   "sha": "2f0fd1e89b8de1d5",
+   "va": "0x180174496"
+  },
+  {
+   "longueur": 6,
+   "offset": 1522448,
+   "revendique": [],
+   "sha": "16bbe78a0b6b8f11",
+   "va": "0x180174710"
+  },
+  {
+   "longueur": 8,
+   "offset": 1522624,
+   "revendique": [],
+   "sha": "9ce5ac19b886e416",
+   "va": "0x1801747C0"
+  },
+  {
+   "longueur": 1,
+   "offset": 1525563,
+   "revendique": [],
+   "sha": "f8d20e598df20877",
+   "va": "0x18017533B"
+  },
+  {
+   "longueur": 3,
+   "offset": 1525672,
+   "revendique": [],
+   "sha": "e65ca7c06ae3e9ba",
+   "va": "0x1801753A8"
+  },
+  {
+   "longueur": 5,
+   "offset": 1684146,
+   "revendique": [],
+   "sha": "18e800921eac4b6e",
+   "va": "0x18019BEB2"
+  },
+  {
+   "longueur": 4,
+   "offset": 1717843,
+   "revendique": [],
+   "sha": "3fafd95a5c53ad62",
+   "va": "0x1801A4253"
+  },
+  {
+   "longueur": 70,
+   "offset": 1729595,
+   "revendique": [],
+   "sha": "b5cdb0691e2be0e4",
+   "va": "0x1801A703B"
+  },
+  {
+   "longueur": 1,
+   "offset": 1729746,
+   "revendique": [],
+   "sha": "4bf5122f344554c5",
+   "va": "0x1801A70D2"
+  },
+  {
+   "longueur": 1,
+   "offset": 1729816,
+   "revendique": [],
+   "sha": "dbc1b4c900ffe48d",
+   "va": "0x1801A7118"
+  },
+  {
+   "longueur": 1,
+   "offset": 1729886,
+   "revendique": [],
+   "sha": "084fed08b978af4d",
+   "va": "0x1801A715E"
+  },
+  {
+   "longueur": 19,
+   "offset": 1730008,
+   "revendique": [],
+   "sha": "6c8bcd744be760b0",
+   "va": "0x1801A71D8"
+  },
+  {
+   "longueur": 78,
+   "offset": 1732732,
+   "revendique": [],
+   "sha": "43a383194815d557",
+   "va": "0x1801A7C7C"
+  },
+  {
+   "longueur": 25,
+   "offset": 1741318,
+   "revendique": [],
+   "sha": "e4ada2666debf79f",
+   "va": "0x1801A9E06"
+  },
+  {
+   "longueur": 2,
+   "offset": 1742245,
+   "revendique": [],
+   "sha": "005e3bb317b490ef",
+   "va": "0x1801AA1A5"
+  },
+  {
+   "longueur": 3,
+   "offset": 1742982,
+   "revendique": [],
+   "sha": "a42c73f163c284f2",
+   "va": "0x1801AA486"
+  },
+  {
+   "longueur": 1,
+   "offset": 1745983,
+   "revendique": [],
+   "sha": "084fed08b978af4d",
+   "va": "0x1801AB03F"
+  },
+  {
+   "longueur": 1,
+   "offset": 1851815,
+   "revendique": [],
+   "sha": "e7cf46a078fed4fa",
+   "va": "0x1801C4DA7"
+  },
+  {
+   "longueur": 1,
+   "offset": 1851852,
+   "revendique": [],
+   "sha": "e7cf46a078fed4fa",
+   "va": "0x1801C4DCC"
+  },
+  {
+   "longueur": 4,
+   "offset": 1855284,
+   "revendique": [],
+   "sha": "8bc23a307298a498",
+   "va": "0x1801C5B34"
+  },
+  {
+   "longueur": 4,
+   "offset": 1863187,
+   "revendique": [
+    "terminal : recentrer la camera (code 16)"
+   ],
+   "sha": "26722e2718bd004e",
+   "va": "0x1801C7A13"
+  },
+  {
+   "longueur": 4,
+   "offset": 1863216,
+   "revendique": [
+    "terminal : changer de vue (code 17)"
+   ],
+   "sha": "5a8e73e796ae6ca1",
+   "va": "0x1801C7A30"
+  },
+  {
+   "longueur": 26,
+   "offset": 1878330,
+   "revendique": [],
+   "sha": "bad6a6b8051362cf",
+   "va": "0x1801CB53A"
+  },
+  {
+   "longueur": 26,
+   "offset": 1878516,
+   "revendique": [],
+   "sha": "9a28d1c4b25c8566",
+   "va": "0x1801CB5F4"
+  },
+  {
+   "longueur": 26,
+   "offset": 1878713,
+   "revendique": [],
+   "sha": "9a28d1c4b25c8566",
+   "va": "0x1801CB6B9"
+  },
+  {
+   "longueur": 12,
+   "offset": 1898082,
+   "revendique": [],
+   "sha": "ab16a4264a14a2fd",
+   "va": "0x1801D0262"
+  },
+  {
+   "longueur": 12,
+   "offset": 1898140,
+   "revendique": [],
+   "sha": "d69f1c308c9e0919",
+   "va": "0x1801D029C"
+  },
+  {
+   "longueur": 13,
+   "offset": 1898850,
+   "revendique": [],
+   "sha": "aff312c80e826834",
+   "va": "0x1801D0562"
+  },
+  {
+   "longueur": 3,
+   "offset": 1948234,
+   "revendique": [
+    "sous-menu / legende : la garde"
+   ],
+   "sha": "d1de1a1288124dff",
+   "va": "0x1801DC64A"
+  },
+  {
+   "longueur": 6,
+   "offset": 1948374,
+   "revendique": [],
+   "sha": "ff35ffe14925642d",
+   "va": "0x1801DC6D6"
+  },
+  {
+   "longueur": 7,
+   "offset": 1950252,
+   "revendique": [
+    "sous-menu : la page RANKING"
+   ],
+   "sha": "ca4b9a2ec05863e7",
+   "va": "0x1801DCE2C"
+  },
+  {
+   "longueur": 12,
+   "offset": 1950478,
+   "revendique": [],
+   "sha": "cc5bef2b9f8e1b78",
+   "va": "0x1801DCF0E"
+  },
+  {
+   "longueur": 4,
+   "offset": 1953378,
+   "revendique": [
+    "dojo : le relais"
+   ],
+   "sha": "a082cf04cc180d34",
+   "va": "0x1801DDA62"
+  },
+  {
+   "longueur": 3,
+   "offset": 1954378,
+   "revendique": [],
+   "sha": "927f34448476ea8f",
+   "va": "0x1801DDE4A"
+  },
+  {
+   "longueur": 3,
+   "offset": 1954442,
+   "revendique": [],
+   "sha": "9e18b02c930a8fe8",
+   "va": "0x1801DDE8A"
+  },
+  {
+   "longueur": 2,
+   "offset": 1954892,
+   "revendique": [],
+   "sha": "606a75ce4df23f14",
+   "va": "0x1801DE04C"
+  },
+  {
+   "longueur": 4,
+   "offset": 1954971,
+   "revendique": [
+    "quest : SCOREBOARDS"
+   ],
+   "sha": "87f013960c2b838f",
+   "va": "0x1801DE09B"
+  },
+  {
+   "longueur": 12,
+   "offset": 1955202,
+   "revendique": [],
+   "sha": "517bd81ba3a59017",
+   "va": "0x1801DE182"
+  },
+  {
+   "longueur": 3,
+   "offset": 1955415,
+   "revendique": [],
+   "sha": "785d40392f10fc38",
+   "va": "0x1801DE257"
+  },
+  {
+   "longueur": 1,
+   "offset": 1955512,
+   "revendique": [],
+   "sha": "084fed08b978af4d",
+   "va": "0x1801DE2B8"
+  },
+  {
+   "longueur": 6,
+   "offset": 1955937,
+   "revendique": [],
+   "sha": "2f161c098e6d3dbe",
+   "va": "0x1801DE461"
+  },
+  {
+   "longueur": 4,
+   "offset": 1957651,
+   "revendique": [],
+   "sha": "af45d77d54186358",
+   "va": "0x1801DEB13"
+  },
+  {
+   "longueur": 10,
+   "offset": 1970850,
+   "revendique": [],
+   "sha": "eff12c6051483688",
+   "va": "0x1801E1EA2"
+  },
+  {
+   "longueur": 2,
+   "offset": 1970930,
+   "revendique": [],
+   "sha": "74fb1148793af5f5",
+   "va": "0x1801E1EF2"
+  },
+  {
+   "longueur": 1,
+   "offset": 1977881,
+   "revendique": [],
+   "sha": "6e340b9cffb37a98",
+   "va": "0x1801E3A19"
+  },
+  {
+   "longueur": 2,
+   "offset": 1978837,
+   "revendique": [],
+   "sha": "7409f6c3dfc8eb40",
+   "va": "0x1801E3DD5"
+  },
+  {
+   "longueur": 1,
+   "offset": 1980497,
+   "revendique": [],
+   "sha": "084fed08b978af4d",
+   "va": "0x1801E4451"
+  },
+  {
+   "longueur": 4,
+   "offset": 1983087,
+   "revendique": [
+    "transition : Echap quitte le mode"
+   ],
+   "sha": "88ac92adac720fd9",
+   "va": "0x1801E4E6F"
+  },
+  {
+   "longueur": 2,
+   "offset": 2027880,
+   "revendique": [],
+   "sha": "9e3a9ef191e04955",
+   "va": "0x1801EFD68"
+  },
+  {
+   "longueur": 4,
+   "offset": 2110323,
+   "revendique": [],
+   "sha": "3f9b92f5fb675554",
+   "va": "0x180203F73"
+  },
+  {
+   "longueur": 6,
+   "offset": 2372452,
+   "revendique": [
+    "joueur 2 : shl ebp, 4"
+   ],
+   "sha": "2c663657a184281e",
+   "va": "0x180243F64"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372517,
+   "revendique": [
+    "joueur 2 : code 3 relatif"
+   ],
+   "sha": "d6c76da3e95c80f4",
+   "va": "0x180243FA5"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372546,
+   "revendique": [
+    "joueur 2 : code 4 relatif"
+   ],
+   "sha": "f51a305d6c909e4f",
+   "va": "0x180243FC2"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372575,
+   "revendique": [
+    "joueur 2 : code 11 relatif"
+   ],
+   "sha": "0d25ce961ae8895d",
+   "va": "0x180243FDF"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372603,
+   "revendique": [
+    "joueur 2 : code 7 relatif"
+   ],
+   "sha": "87ef9b17d8e810fd",
+   "va": "0x180243FFB"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372631,
+   "revendique": [
+    "joueur 2 : code 12 relatif"
+   ],
+   "sha": "974e14f75f323a78",
+   "va": "0x180244017"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372659,
+   "revendique": [
+    "joueur 2 : code 8 relatif"
+   ],
+   "sha": "f1c5a9888cedd40c",
+   "va": "0x180244033"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372687,
+   "revendique": [
+    "joueur 2 : code 9 relatif"
+   ],
+   "sha": "7250533424b9cf9d",
+   "va": "0x18024404F"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372715,
+   "revendique": [
+    "joueur 2 : code 10 relatif"
+   ],
+   "sha": "add679e3f09c9ee2",
+   "va": "0x18024406B"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372744,
+   "revendique": [
+    "joueur 2 : code 13 relatif"
+   ],
+   "sha": "6423f262d6f1e513",
+   "va": "0x180244088"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372772,
+   "revendique": [
+    "joueur 2 : code 14 relatif"
+   ],
+   "sha": "82c5634550597ee0",
+   "va": "0x1802440A4"
+  },
+  {
+   "longueur": 5,
+   "offset": 2372800,
+   "revendique": [
+    "joueur 2 : code 6 relatif"
+   ],
+   "sha": "dff8c587a504a4b9",
+   "va": "0x1802440C0"
+  },
+  {
+   "longueur": 22,
+   "offset": 2374576,
+   "revendique": [],
+   "sha": "4a42027ad599e748",
+   "va": "0x1802447B0"
+  },
+  {
+   "longueur": 19,
+   "offset": 2575579,
+   "revendique": [],
+   "sha": "f882e61d35310b7f",
+   "va": "0x1802758DB"
+  },
+  {
+   "longueur": 21,
+   "offset": 2581899,
+   "revendique": [],
+   "sha": "dbbbe68ebe514930",
+   "va": "0x18027718B"
+  },
+  {
+   "longueur": 19,
+   "offset": 2587371,
+   "revendique": [],
+   "sha": "8137f8df0d93373a",
+   "va": "0x1802786EB"
+  },
+  {
+   "longueur": 162,
+   "offset": 3427164,
+   "revendique": [],
+   "sha": "f53f7c6dfa00b120",
+   "va": "0x18034575C"
+  },
+  {
+   "longueur": 3,
+   "offset": 3437512,
+   "revendique": [
+    "quest : creneau 4 d AetMgr"
+   ],
+   "sha": "0097a23cc3ef3d1d",
+   "va": "0x1803487C8"
+  },
+  {
+   "longueur": 3,
+   "offset": 3796800,
+   "revendique": [
+    "quest : mode DATA_TEST"
+   ],
+   "sha": "286126989d4e8fb2",
+   "va": "0x1803A0340"
+  },
+  {
+   "longueur": 1,
+   "offset": 3796880,
+   "revendique": [
+    "quest : mode de retour"
+   ],
+   "sha": "e52d9c508c502347",
+   "va": "0x1803A0390"
+  },
+  {
+   "longueur": 11,
+   "offset": 3798544,
+   "revendique": [
+    "quest : sous-etat 35, milieu",
+    "quest : sous-etat 35, sortie"
+   ],
+   "sha": "aeae49ec4202365f",
+   "va": "0x1803A0A10"
+  },
+  {
+   "longueur": 3,
+   "offset": 4207896,
+   "revendique": [],
+   "sha": "e4df6b74a0efda23",
+   "va": "0x180404918"
+  },
+  {
+   "longueur": 1,
+   "offset": 4269130,
+   "revendique": [],
+   "sha": "d2e2adf7177b7a8a",
+   "va": "0x18041384A"
+  },
+  {
+   "longueur": 1,
+   "offset": 4269153,
+   "revendique": [],
+   "sha": "d2e2adf7177b7a8a",
+   "va": "0x180413861"
+  },
+  {
+   "longueur": 3,
+   "offset": 5435360,
+   "revendique": [],
+   "sha": "8c9af94319e048d3",
+   "va": "0x1805303E0"
+  },
+  {
+   "longueur": 3,
+   "offset": 5438512,
+   "revendique": [],
+   "sha": "46703dad9d315324",
+   "va": "0x180531030"
+  },
+  {
+   "longueur": 23,
+   "offset": 6555488,
+   "revendique": [],
+   "sha": "4a0f578ae3a5ea4e",
+   "va": "0x180641B60"
+  },
+  {
+   "longueur": 1,
+   "offset": 6584560,
+   "revendique": [],
+   "sha": "4bf5122f344554c5",
+   "va": "0x1806490F0"
+  },
+  {
+   "longueur": 12864,
+   "offset": 6965248,
+   "revendique": [
+    ".greffe"
+   ],
+   "sha": "821d7e094fb77f15",
+   "va": ".greffe (section ajoutee)"
+  }
+ ],
+ "sha_dll": "47895b558ce50b9638b912ec1e17f8f8f2c03aa49e49793a5c8d4d583d52bf6e",
+ "sha_origine": "045c06966ad25f10b10cd854bcdfef588c640a1d785f38b03e97f6ea0c837eef",
+ "valide_a_l_ecran": false
+}

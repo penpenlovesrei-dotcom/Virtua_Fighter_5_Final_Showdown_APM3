@@ -1,0 +1,26 @@
+
+========================================================================
+COMPTES :
+   entree CS_DEMO       2
+   reponse requete 14   0
+   maj CS_DEMO          18
+   scene vivante ?      18
+   sortie CS_DEMO       2
+   TaskMovie ?          2462
+
+RELEVE :
+     BP arme sur reponse requete 14 = 0x7FFF9D5EDC87 (octet d'origine 0x83)
+     BP arme sur scene vivante ? = 0x7FFF9D5ED54D (octet d'origine 0x84)
+         0.0 ms  PREMIERE FOIS : TaskMovie ?
+     12499.8 ms  PREMIERE FOIS : entree CS_DEMO
+     12519.7 ms  PREMIERE FOIS : maj CS_DEMO
+     12520.3 ms  scene vivante ? al = 1
+     12539.9 ms  scene vivante ? al = 1
+     12555.9 ms  scene vivante ? al = 1
+     12566.9 ms  scene vivante ? al = 1
+     12584.7 ms  scene vivante ? al = 1
+     12599.9 ms  scene vivante ? al = 1
+     12627.1 ms  PREMIERE FOIS : scene vivante ?
+     12646.5 ms  PREMIERE FOIS : sortie CS_DEMO
+     BP reponse requete 14 : 0 passage(s)
+     BP scene vivante ? : 18 passage(s)

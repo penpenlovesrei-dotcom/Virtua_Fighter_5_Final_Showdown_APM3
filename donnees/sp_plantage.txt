@@ -1,0 +1,139 @@
+==========================================================================
+SONDE DE PLANTAGE -- 70 s, le clavier est a vous
+==========================================================================
+sections de vf5fs-pxd-w64-Retail_APM3.dll (RVA) :
+   .text      0x00001000 .. 0x00345800   (VA preferee 0x180001000)
+   .rdata     0x00346000 .. 0x00641C00   (VA preferee 0x180346000)
+   .data      0x00642000 .. 0x00E6437C   (VA preferee 0x180642000)
+   .pdata     0x00E65000 .. 0x00E8D200   (VA preferee 0x180E65000)
+   .rsrc      0x00E8E000 .. 0x00E91600   (VA preferee 0x180E8E000)
+   .reloc     0x00E92000 .. 0x00EA1000   (VA preferee 0x180E92000)
+   .greffe    0x00EA1000 .. 0x00EA4F40   (VA preferee 0x180EA1000)
+carte de .decors :
+   +0x000000  descripteurs (61 x 0xF0)
+   +0x003930  codes
+   +0x003B20  grille
+   +0x003DC0  objsets + taches d effet
+   +0x0054A0  effets a3d
+   +0x005750  effets mur
+   +0x006490  uid des decors neufs
+   +0x007110  charges de mur, puis les chaines
+
+processus 11608 lance sous debogage
+  image     0x00007FF7A8430000  vfes.exe
+  dll       0x00007FF9FFF30000  apm.dll
+  dll       0x00007FFA31600000  d3d11.dll
+  dll       0x00007FFA325E0000  dxgi.dll
+  dll       0x00007FFA30680000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFA383E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFA359F41CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+      ou      : KernelBase.dll+0xC41CA
+        rax=00000203C6D40000 rcx=0000000000000001 rdx=00007FFA382E670B rbx=0000000000000000
+        rsp=00000043CBBFDDD0 rbp=0000000000000004 rsi=00000043CBBFDDF0 rdi=00000043CBBFD7A0
+        r8 =00007FFA382E670B r9 =0000610000006100 r10=000000006F040269 r11=00000203C9100000
+      --- code autour de RIP ---
+      >>> 0x7FFA359F41CA  nop dword ptr [rax + rax]
+          0x7FFA359F41CF  mov rcx, qword ptr [rsp + 0xc0]
+          0x7FFA359F41D7  xor rcx, rsp
+          0x7FFA359F41DA  call 0x7ffa35ac6ec0
+          0x7FFA359F41DF  add rsp, 0xd8
+          0x7FFA359F41E6  pop rdi
+      AUCUN decor demande avant ce plantage.
+  dll       0x00007FF995770000  vf5fs-pxd-w64-Retail_APM3.dll
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 13 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  [dbg] [quest] moteur trouve, base 140709931188224
+  [dbg] [quest] notre fil d execution 11628
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=47 ms, masque=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 3
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 4
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 2
+  [dbg] [quest] machine : mode 0, sous-etat 5
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] personnalisation remise
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] entrees: pas 1 a t=18000 ms, masque=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 4, sous-etat 55
+  [dbg] [apm] entrees: pas 2 a t=18407 ms, masque=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] entrees: pas 3 a t=24000 ms, masque=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  EXCEPTION ACCESS_VIOLATION (1re chance)  a 0x00007FF995913F58 = vf5fs-pxd-w64-Retail_APM3.dll+0x1A3F58
+      acces en LECTURE a 0xFFFFFFFFFFFFFFFF
+      rcx=0x203F12B6670  rdx=0x1  r8=0x7FFFFFFFFFFFFFFC  rdi=0x203F122DEE0  rsi=0x0
+      [rsp+0x018] -> vf5fs-pxd-w64-Retail_APM3.dll+0x321E68
+      [rsp+0x028] -> vf5fs-pxd-w64-Retail_APM3.dll+0x24455F
+      [rsp+0x048] -> vf5fs-pxd-w64-Retail_APM3.dll+0x312A9A
+      [rsp+0x068] -> vf5fs-pxd-w64-Retail_APM3.dll+0x244773
+      [rsp+0x078] -> vf5fs-pxd-w64-Retail_APM3.dll+0x214660
+      [rsp+0x098] -> vfes.exe+0x5E7C
+      [rsp+0x0A8] -> vf5fs-pxd-w64-Retail_APM3.dll+0x215504
+      [rsp+0x0C0] -> vf5fs-pxd-w64-Retail_APM3.dll+0x0
+      [rsp+0x0D0] -> vf5fs-pxd-w64-Retail_APM3.dll+0x0
+      [rsp+0x0D8] -> vfes.exe+0x5E89
+      [rsp+0x0F8] -> vfes.exe+0x1AF928
+      [rsp+0x118] -> vfes.exe+0x3155
+      ou      : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1A2F58 (VA preferee 0x1801A3F58)
+      acces   : LECTURE de 0xFFFFFFFFFFFFFFFF
+      cible   : ntdll.dll+0xFFFF8005C7D3FFFF
+        rax=00007FF995B80CC0 rcx=00000203F12B6670 rdx=0000000000000001 rbx=00000203F1246A00
+        rsp=00000043CBBDF2C0 rbp=00000043CBBDF410 rsi=0000000000000000 rdi=00000203F122DEE0
+        r8 =7FFFFFFFFFFFFFFC r9 =FEEEFEEEFEEEFEEE r10=00000203C6D40000 r11=00000043CBBDF100
+      --- code autour de RIP ---
+      >>> 0x1801A3F58  call qword ptr [rax]
+          0x1801A3F5A  mov qword ptr [rip + 0x5ad44b], 0
+          0x1801A3F65  add rsp, 0x28
+          0x1801A3F69  ret 
+          0x1801A3F6A  int3 
+          0x1801A3F6B  int3 
+          0x1801A3F6C  int3 
+          0x1801A3F6D  int3 
+          0x1801A3F6E  int3 
+          0x1801A3F6F  int3 
+          0x1801A3F70  push rbx
+          0x1801A3F72  sub rsp, 0x20
+      AUCUN decor demande avant ce plantage.
+  EXCEPTION ACCESS_VIOLATION (2e chance)  a 0x00007FF995913F58 = vf5fs-pxd-w64-Retail_APM3.dll+0x1A3F58
+      ou      : vf5fs-pxd-w64-Retail_APM3.dll!.text+0x1A2F58 (VA preferee 0x1801A3F58)
+      acces   : LECTURE de 0xFFFFFFFFFFFFFFFF
+      cible   : ntdll.dll+0xFFFF8005C7D3FFFF
+        rax=00007FF995B80CC0 rcx=00000203F12B6670 rdx=0000000000000001 rbx=00000203F1246A00
+        rsp=00000043CBBDF2C0 rbp=00000043CBBDF410 rsi=0000000000000000 rdi=00000203F122DEE0
+        r8 =7FFFFFFFFFFFFFFC r9 =FEEEFEEEFEEEFEEE r10=00000203C6D40000 r11=00000043CBBDF100
+      --- code autour de RIP ---
+      >>> 0x1801A3F58  call qword ptr [rax]
+          0x1801A3F5A  mov qword ptr [rip + 0x5ad44b], 0
+          0x1801A3F65  add rsp, 0x28
+          0x1801A3F69  ret 
+          0x1801A3F6A  int3 
+          0x1801A3F6B  int3 
+          0x1801A3F6C  int3 
+          0x1801A3F6D  int3 
+          0x1801A3F6E  int3 
+          0x1801A3F6F  int3 
+          0x1801A3F70  push rbx
+          0x1801A3F72  sub rsp, 0x20
+      AUCUN decor demande avant ce plantage.
+  sortie du processus, code 0xC0000005
+
+79 module(s) charge(s)
+  scenario d entrees remis en jeu manuel
+
+--------------------------------------------------------------------------
+3 exception(s) retenue(s).
+AUCUN decor demande : le plantage est avant tout chargement de decor.

@@ -1,0 +1,51 @@
+processus 13588 lance sous debogage
+  image     0x00007FF64ECC0000  vfes.exe
+  dll       0x00007FFF93BD0000  apm.dll
+  dll       0x00007FFF96BF0000  d3d11.dll
+  dll       0x00007FFF97BE0000  dxgi.dll
+  dll       0x00007FFF95EB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFF9D97D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFF9B08187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFEF2990000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur televersement = 0x7FFEF2BFA180 (octet d'origine 0x48)
+  point pose sur le televersement, a t=1 s
+  sourdine : session audio du processus 13588 coupee apres 2 s
+    335.0 ms  televersement #10
+              rcx=0x1DF57C34480  rdx=0x0  r8d=2048  r9d=256
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472414720  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+    389.7 ms  televersement #11
+              rcx=0x1DF57C34580  rdx=0x0  r8d=2048  r9d=128
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472414976  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+    830.8 ms  televersement #33
+              rcx=0x1DF57C35B80  rdx=0x0  r8d=2048  r9d=2048
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472420608  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+   8634.7 ms  televersement #182
+              rcx=0x1DF57C5D600  rdx=0x0  r8d=2048  r9d=64
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472583040  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+  12582.4 ms  televersement #185
+              rcx=0x1DF57C33D80  rdx=0x0  r8d=1920  r9d=1080
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472412928  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+  12583.7 ms  televersement #188
+              rcx=0x1DF57C33A80  rdx=0x0  r8d=1920  r9d=1080
+              [rsp+0x80]=4072625395  [rsp+0x88]=1472412160  [rsp+0x90]=0x820  [rsp+0x98]=0xF37DF8C0
+  EXCEPTION ACCESS_VIOLATION (1re chance)  a 0x00007FF64EDD1E3E = vfes.exe+0x111E3E
+      acces en ECRITURE a 0x000001DF78CD8000
+      rcx=0x750  rdx=0x5B77B0  r8=0x780  rdi=0x1DF78CD8000  rsi=0x1DF7928F7B0
+      [rsp+0x010] -> vfes.exe+0xEBE8E
+      [rsp+0x070] -> vfes.exe+0xEB3B2
+      [rsp+0x0A0] -> vfes.exe+0xE537E
+      [rsp+0x0B0] -> vf5fs-pxd-w64-Retail_APM3.dll+0x26A1D7
+      [rsp+0x130] -> ntdll.dll+0x3E732
+      [rsp+0x200] -> vfes.exe+0xFA67
+      [rsp+0x230] -> vf5fs-pxd-w64-Retail_APM3.dll+0x265E74
+      [rsp+0x240] -> vfes.exe+0x1E4B00
+      [rsp+0x250] -> vfes.exe+0x1E2F80
+      [rsp+0x270] -> vfes.exe+0xE0BE8
+      [rsp+0x2A0] -> vfes.exe+0xD0D4D
+      [rsp+0x2C8] -> vfes.exe+0x4242B0
+  EXCEPTION ACCESS_VIOLATION (2e chance)  a 0x00007FF64EDD1E3E = vfes.exe+0x111E3E
+  sortie du processus, code 0xC0000005
+
+77 module(s) charge(s)
+  BP televersement : 190 passage(s)

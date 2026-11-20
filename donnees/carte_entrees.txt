@@ -1,0 +1,42 @@
+processus 17508 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85E750000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFBF6B0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 17508 coupee apres 3 s
+  BP arme sur SetState = 0x7FFFBF78A800 (octet d'origine 0x48)
+  sous-etat devie : APM3_GAME_VS -> APM3_TRAINING
+  BP arme sur MothApplyRecord = 0x7FFFBF808B40 (octet d'origine 0x4D)
+  ROB 1 = 0x1847066A750
+  ROB 2 = 0x184706704B8
+  passe 0 code 6   ROB1 : 00000000 00000001 -> 00000000 00000000  xor 00000000 00000001
+  passe 0 code 8   ROB1 : 00000000 00000000 -> 00080003 00000000  xor 00080003 00000000
+  passe 0 code 9   ROB1 : 00080003 00000000 -> 00000000 00080003  xor 00080003 00080003
+  passe 0 code 10  ROB1 : 00000000 00080003 -> 00000000 00000000  xor 00000000 00080003
+  passe 0 code 12  ROB1 : 00000000 00000000 -> 00080001 00000000  xor 00080001 00000000
+  passe 0 code 13  ROB1 : 00080001 00000000 -> 00080001 00080001  xor 00000000 00080001
+  passe 0 code 14  ROB1 : 00080001 00080001 -> 00080003 00080001  xor 00000002 00000000
+  --- passe 1 terminee ---
+  passe 1 code 6   ROB1 : 00080003 00080001 -> 00000000 00000000  xor 00080003 00080001
+  passe 1 code 8   ROB1 : 00000000 00000000 -> 00080003 00000000  xor 00080003 00000000
+  passe 1 code 9   ROB1 : 00080003 00000000 -> 00000000 00080003  xor 00080003 00080003
+  passe 1 code 10  ROB1 : 00000000 00080003 -> 00080001 00000000  xor 00080001 00080003
+  passe 1 code 12  ROB1 : 00080001 00000000 -> 00000000 00080001  xor 00080001 00080001
+  passe 1 code 13  ROB1 : 00000000 00080001 -> 00000000 00000000  xor 00000000 00080001
+  passe 1 code 14  ROB1 : 00000000 00000000 -> 00080003 00000000  xor 00080003 00000000
+  --- passe 2 terminee ---
+  passe 2 code 6   ROB1 : 00080003 00000000 -> 00000000 00000000  xor 00080003 00000000
+  passe 2 code 10  ROB1 : 00000000 00000000 -> 00080001 00000000  xor 00080001 00000000
+  passe 2 code 12  ROB1 : 00080001 00000000 -> 00080001 00080001  xor 00000000 00080001
+  passe 2 code 14  ROB1 : 00080001 00080001 -> 00080003 00080001  xor 00000002 00000000
+  --- passe 3 terminee ---
+  sortie du processus, code 0x0000000F
+
+77 module(s) charge(s)
+  BP SetState : 6 passage(s)
+  BP MothApplyRecord : 8 passage(s)

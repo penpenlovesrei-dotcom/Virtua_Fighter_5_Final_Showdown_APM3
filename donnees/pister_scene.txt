@@ -1,0 +1,31 @@
+processus 20048 lance sous debogage
+  image     0x00007FF773800000  vfes.exe
+  dll       0x00007FFB8A140000  apm.dll
+  dll       0x00007FFBA65D0000  d3d11.dll
+  dll       0x00007FFBA7590000  dxgi.dll
+  dll       0x00007FFBA5650000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFBAD35D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFBAA65187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFB00720000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 20048 coupee apres 2 s
+  BP arme sur Garde = 0x7FFB008C7023 (octet d'origine 0x0F)
+  BP arme sur Demande = 0x7FFB009656F4 (octet d'origine 0x74)
+  BP arme sur Resultat = 0x7FFB009657F4 (octet d'origine 0x48)
+  BP arme sur L0 How to Play = 0x7FFB008C705C (octet d'origine 0x84)
+  BP arme sur L1 Controls = 0x7FFB008C70AE (octet d'origine 0x84)
+  BP arme sur L2 Settings = 0x7FFB008C70F4 (octet d'origine 0x84)
+  BP arme sur L3 Save Data = 0x7FFB008C713A (octet d'origine 0x84)
+  BP arme sur L5 Info = 0x7FFB008C7183 (octet d'origine 0x84)
+  points d'arret poses a t=8 s
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP Garde : 3 passage(s)
+  BP Demande : 36 passage(s)
+  BP Resultat : 36 passage(s)
+  BP L0 How to Play : 0 passage(s)
+  BP L1 Controls : 0 passage(s)
+  BP L2 Settings : 0 passage(s)
+  BP L3 Save Data : 0 passage(s)
+  BP L5 Info : 2 passage(s)

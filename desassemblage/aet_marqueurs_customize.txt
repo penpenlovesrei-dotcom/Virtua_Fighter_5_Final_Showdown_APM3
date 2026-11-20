@@ -1,0 +1,58 @@
+# APM3 (borne) 0x1801CBFE0 -- 256 octets
+#
+# Ce qu'on avait pris pour le chargeur du modele au changement de categorie
+# : c'est l'animation 2D de la fenetre. Il construit les marqueurs AET
+# head_s/head_e/face_s/face_e/arm_s/arm_e/bust_s. REPRISE (100).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801CBFE0  488bc4               mov rax, rsp
+  0x1801CBFE3  55                   push rbp
+  0x1801CBFE4  488da848ffffff       lea rbp, [rax - 0xb8]
+  0x1801CBFEB  4881ecb0010000       sub rsp, 0x1b0
+  0x1801CBFF2  48c74580feffffff     mov qword ptr [rbp - 0x80], 0xfffffffffffffffe
+  0x1801CBFFA  48895808             mov qword ptr [rax + 8], rbx
+  0x1801CBFFE  48897810             mov qword ptr [rax + 0x10], rdi
+  0x1801CC002  488bda               mov rbx, rdx
+  0x1801CC005  488bf9               mov rdi, rcx
+  0x1801CC008  488d054d4b3600       lea rax, [rip + 0x364b4d]  ; -> 0x180530B5C  "head_s"
+  0x1801CC00F  4889442430           mov qword ptr [rsp + 0x30], rax
+  0x1801CC014  488d05494b3600       lea rax, [rip + 0x364b49]  ; -> 0x180530B64  "head_e"
+  0x1801CC01B  4889442438           mov qword ptr [rsp + 0x38], rax
+  0x1801CC020  488d05454b3600       lea rax, [rip + 0x364b45]  ; -> 0x180530B6C  "face_s"
+  0x1801CC027  4889442440           mov qword ptr [rsp + 0x40], rax
+  0x1801CC02C  488d05414b3600       lea rax, [rip + 0x364b41]  ; -> 0x180530B74  "face_e"
+  0x1801CC033  4889442448           mov qword ptr [rsp + 0x48], rax
+  0x1801CC038  488d053d4b3600       lea rax, [rip + 0x364b3d]  ; -> 0x180530B7C  "arm_s"
+  0x1801CC03F  4889442450           mov qword ptr [rsp + 0x50], rax
+  0x1801CC044  488d05394b3600       lea rax, [rip + 0x364b39]  ; -> 0x180530B84  "arm_e"
+  0x1801CC04B  4889442458           mov qword ptr [rsp + 0x58], rax
+  0x1801CC050  488d05354b3600       lea rax, [rip + 0x364b35]  ; -> 0x180530B8C  "bust_s"
+  0x1801CC057  4889442460           mov qword ptr [rsp + 0x60], rax
+  0x1801CC05C  488d05314b3600       lea rax, [rip + 0x364b31]  ; -> 0x180530B94  "bust_e"
+  0x1801CC063  4889442468           mov qword ptr [rsp + 0x68], rax
+  0x1801CC068  488d05314b3600       lea rax, [rip + 0x364b31]  ; -> 0x180530BA0  "lower_s"
+  0x1801CC06F  4889442470           mov qword ptr [rsp + 0x70], rax
+  0x1801CC074  488d052d4b3600       lea rax, [rip + 0x364b2d]  ; -> 0x180530BA8  "lower_e"
+  0x1801CC07B  4889442478           mov qword ptr [rsp + 0x78], rax
+  0x1801CC080  488d4d90             lea rcx, [rbp - 0x70]
+  0x1801CC084  e877cfe5ff           call 0x180029000
+  0x1801CC089  90                   nop 
+  0x1801CC08A  8b4f08               mov ecx, dword ptr [rdi + 8]
+  0x1801CC08D  85c9                 test ecx, ecx
+  0x1801CC08F  7405                 je 0x1801cc096
+  0x1801CC091  e84adbe5ff           call 0x180029be0
+> 0x1801CC096  c74590a7020000       mov dword ptr [rbp - 0x70], 0x2a7
+  0x1801CC09D  488d059c4a3600       lea rax, [rip + 0x364a9c]  ; -> 0x180530B40  "part_win"
+  0x1801CC0A4  48894598             mov qword ptr [rbp - 0x68], rax
+  0x1801CC0A8  c745c40a000000       mov dword ptr [rbp - 0x3c], 0xa
+  0x1801CC0AF  c745b800000100       mov dword ptr [rbp - 0x48], 0x10000
+  0x1801CC0B6  4803db               add rbx, rbx
+  0x1801CC0B9  488b44dc30           mov rax, qword ptr [rsp + rbx*8 + 0x30]
+  0x1801CC0BE  488945a0             mov qword ptr [rbp - 0x60], rax
+  0x1801CC0C2  488b44dc38           mov rax, qword ptr [rsp + rbx*8 + 0x38]
+  0x1801CC0C7  488945a8             mov qword ptr [rbp - 0x58], rax
+  0x1801CC0CB  c5fa100569ac1700     vmovss xmm0, dword ptr [rip + 0x17ac69]  ; -> 0x180346D3C
+  0x1801CC0D3  c5fa114500           vmovss dword ptr [rbp], xmm0
+  0x1801CC0D8  c745bc02000000       mov dword ptr [rbp - 0x44], 2

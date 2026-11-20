@@ -1,0 +1,19 @@
+
+========================================================================
+COMPTES, du plus haut maillon au plus bas :
+   requestTurnInfo    32847
+   route turninfo     6
+   emetteur           0
+   emetteur OCCUPE    0
+   Request::send      0
+   Request::sendData  6
+   make request       6
+   post               26
+   URL                26
+   curl update        10597
+
+LECTURE : le dernier maillon a compte non nul est le dernier franchi.
+   � emetteur OCCUPE � > 0 -> la garde d occupation ne retombe jamais :
+                             une requete precedente n a jamais ete
+                             soldee, et toutes les suivantes sont
+                             refusees.

@@ -1,0 +1,118 @@
+# APM3 -- LE MEME RAPPEL, MOINS LES QUATRE LIAISONS
+#
+# TaskEffectWaterRing, vtable 0x18034F330 (RTTI), creneau 4 = 0x180085620.
+#
+# Le creneau 4 fait EXACTEMENT ce que fait son jumeau Xbox 360 : il enregistre
+# un rappel de dessin sur l objet de l anneau d eau.
+#
+#     X360   si [this+0x50] : FUN_822216D0(0x00170005, 0x821C9238, 0)
+#     APM3   si [this+0x5C] : FUN_1800EC520(0x0027006E, 0x180085680, 0)
+#
+# C est le rappel lui-meme qui a ete ampute. Mis cote a cote :
+#
+#     X360 0x821C9238                        APM3 0x180085680
+#     r31 = FUN_82226538()                   rbx = FUN_1800F06C0()
+#     r30 = FUN_8224AF58(0)   cible reflet   ABSENT
+#     r29 = FUN_8224AF58(1)   cible refrac.  ABSENT
+#     FUN_8224CAC8(r30, 3)    unite 3        ABSENT
+#     FUN_8224CAC8(r29, 4)    unite 4        ABSENT
+#     FUN_82225568(r31)                      FUN_1800F2470(rbx)
+#     FUN_82226448(+2C,+34,+54,+56,+30,+58)  FUN_1800F0CB0(+2C,+34,+54,+56,
+#                                                          +30,+58)
+#     FUN_82225BB8(r31)                      FUN_1800F2060(rbx)
+#     FUN_8224CB28(r30) ; (r29)              ABSENT
+#
+# LES MEMES SIX CHAMPS SONT PASSES AU TRACE, DANS LE MEME ORDRE. Il ne manque
+# que les quatre liaisons de texture -- et c est tout ce qui separe un disque
+# d eau d un disque opaque.
+#
+# Et `init` (creneau 1, 0x180085640) ETEINT la refraction : `xor ecx,ecx ;
+# call 0x18010C9F0` en 0x18008564C, la ou la Xbox 360 se contente de
+# [this+0x50] = 1 puis [this+0x54] = 0.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== 0x180085620  TaskEffectWaterRing, creneau 4 (disp) ===
+0x00180085620  80795c00                   cmp      byte ptr [rcx + 0x5c], 0
+0x00180085624  7414                       je       0x18008563a
+0x00180085626  4533c0                     xor      r8d, r8d
+0x00180085629  488d1550000000             lea      rdx, [rip + 0x50]
+0x00180085630  b96e002700                 mov      ecx, 0x27006e
+0x00180085635  e9e66e0600                 jmp      0x1800ec520
+
+=== 0x180085680  le rappel de dessin de l anneau -- AMPUTE ===
+0x00180085680  4053                       push     rbx
+0x00180085682  4883ec30                   sub      rsp, 0x30
+0x00180085686  e835b00600                 call     0x1800f06c0
+0x0018008568B  488bd8                     mov      rbx, rax
+0x0018008568E  4885c0                     test     rax, rax
+0x00180085691  743c                       je       0x1800856cf
+0x00180085693  488bc8                     mov      rcx, rax
+0x00180085696  e8d5cd0600                 call     0x1800f2470
+0x0018008569B  488b0b                     mov      rcx, qword ptr [rbx]
+0x0018008569E  8b5158                     mov      edx, dword ptr [rcx + 0x58]
+0x001800856A1  440fb74956                 movzx    r9d, word ptr [rcx + 0x56]
+0x001800856A6  440fb74154                 movzx    r8d, word ptr [rcx + 0x54]
+0x001800856AB  4889542428                 mov      qword ptr [rsp + 0x28], rdx
+0x001800856B0  8b5130                     mov      edx, dword ptr [rcx + 0x30]
+0x001800856B3  89542420                   mov      dword ptr [rsp + 0x20], edx
+0x001800856B7  8b5134                     mov      edx, dword ptr [rcx + 0x34]
+0x001800856BA  8b492c                     mov      ecx, dword ptr [rcx + 0x2c]
+0x001800856BD  e8eeb50600                 call     0x1800f0cb0
+0x001800856C2  488bcb                     mov      rcx, rbx
+0x001800856C5  4883c430                   add      rsp, 0x30
+0x001800856C9  5b                         pop      rbx
+0x001800856CA  e991c90600                 jmp      0x1800f2060
+0x001800856CF  4883c430                   add      rsp, 0x30
+0x001800856D3  5b                         pop      rbx
+0x001800856D4  c3                         ret      
+
+=== 0x180085640  TaskEffectWaterRing::init (creneau 1) ===
+0x00180085640  4883ec28                   sub      rsp, 0x28
+0x00180085644  488b01                     mov      rax, qword ptr [rcx]
+0x00180085647  33d2                       xor      edx, edx
+0x00180085649  ff5058                     call     qword ptr [rax + 0x58]
+0x0018008564C  33c9                       xor      ecx, ecx
+0x0018008564E  e89d730800                 call     0x18010c9f0
+0x00180085653  488d0d760f2d00             lea      rcx, [rip + 0x2d0f76]
+0x0018008565A  e811acfbff                 call     0x180040270
+0x0018008565F  e8ec9cfeff                 call     0x18006f350
+0x00180085664  4885c0                     test     rax, rax
+0x00180085667  740a                       je       0x180085673
+0x00180085669  c7803003000001000000       mov      dword ptr [rax + 0x330], 1
+0x00180085673  b001                       mov      al, 1
+0x00180085675  4883c428                   add      rsp, 0x28
+0x00180085679  c3                         ret      
+
+=== 0x1800855F0  TaskEffectWaterRing::dest (creneau 3) ===
+0x001800855F0  4883ec28                   sub      rsp, 0x28
+0x001800855F4  488d0df50f2d00             lea      rcx, [rip + 0x2d0ff5]
+0x001800855FB  e870acfbff                 call     0x180040270
+0x00180085600  e84b9dfeff                 call     0x18006f350
+0x00180085605  4885c0                     test     rax, rax
+0x00180085608  740a                       je       0x180085614
+0x0018008560A  c7803003000000000000       mov      dword ptr [rax + 0x330], 0
+0x00180085614  b001                       mov      al, 1
+0x00180085616  4883c428                   add      rsp, 0x28
+0x0018008561A  c3                         ret      
+
+=== 0x18034F330  la vtable, 14 creneaux (0x180007430 = le vide partage) ===
+  [ 0] +0x00  0x0018006E9F0
+  [ 1] +0x08  0x00180085640
+  [ 2] +0x10  0x00180007450
+  [ 3] +0x18  0x001800855F0
+  [ 4] +0x20  0x00180085620
+  [ 5] +0x28  0x00180007430
+  [ 6] +0x30  0x00180007430
+  [ 7] +0x38  0x00180076B00
+  [ 8] +0x40  0x00180007430
+  [ 9] +0x48  0x00180007430
+  [10] +0x50  0x0018006FA50
+  [11] +0x58  0x00180070FA0
+  [12] +0x60  0x00180007430
+  [13] +0x68  0x00180007430

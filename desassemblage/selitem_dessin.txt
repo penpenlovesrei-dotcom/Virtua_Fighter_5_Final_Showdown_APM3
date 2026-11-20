@@ -1,0 +1,91 @@
+# APM3 (borne) 0x1801C8110 -- 352 octets
+#
+# Le dessin de la grille. 0x1801C8139 lit table[+0x9D0 + +0x9C8], le jumeau
+# exact de 0x82231BA0 cote console. REPRISE (96).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801C8110  4156                 push r14
+  0x1801C8112  4883ec40             sub rsp, 0x40
+  0x1801C8116  48c7442420feffffff   mov qword ptr [rsp + 0x20], 0xfffffffffffffffe
+  0x1801C811F  48895c2450           mov qword ptr [rsp + 0x50], rbx
+  0x1801C8124  48896c2458           mov qword ptr [rsp + 0x58], rbp
+  0x1801C8129  4889742460           mov qword ptr [rsp + 0x60], rsi
+  0x1801C812E  48897c2468           mov qword ptr [rsp + 0x68], rdi
+  0x1801C8133  448bf2               mov r14d, edx
+  0x1801C8136  488bf1               mov rsi, rcx
+  0x1801C8139  4c8b81d0090000       mov r8, qword ptr [rcx + 0x9d0]
+  0x1801C8140  4c0381c8090000       add r8, qword ptr [rcx + 0x9c8]
+  0x1801C8147  488b81b0090000       mov rax, qword ptr [rcx + 0x9b0]
+  0x1801C814E  420fb72c40           movzx ebp, word ptr [rax + r8*2]
+  0x1801C8153  33ff                 xor edi, edi
+  0x1801C8155  48897c2428           mov qword ptr [rsp + 0x28], rdi
+  0x1801C815A  c5f9efc0             vpxor xmm0, xmm0, xmm0
+  0x1801C815E  c5fa7f442430         vmovdqu xmmword ptr [rsp + 0x30], xmm0
+  0x1801C8164  e8c7b6ffff           call 0x1801c3830
+  0x1801C8169  488bc8               mov rcx, rax
+  0x1801C816C  4c8d442428           lea r8, [rsp + 0x28]
+  0x1801C8171  8bd5                 mov edx, ebp
+  0x1801C8173  e8f8b4ffff           call 0x1801c3670
+  0x1801C8178  488b4c2428           mov rcx, qword ptr [rsp + 0x28]
+  0x1801C817D  4c8b442430           mov r8, qword ptr [rsp + 0x30]
+  0x1801C8182  493bc8               cmp rcx, r8
+  0x1801C8185  7514                 jne 0x1801c819b
+  0x1801C8187  0fb7d5               movzx edx, bp
+  0x1801C818A  488bce               mov rcx, rsi
+  0x1801C818D  e87e2a0000           call 0x1801cac10
+  0x1801C8192  488d9e10040000       lea rbx, [rsi + 0x410]
+  0x1801C8199  eb64                 jmp 0x1801c81ff
+> 0x1801C819B  488d9e10040000       lea rbx, [rsi + 0x410]
+  0x1801C81A2  4c2bc1               sub r8, rcx
+  0x1801C81A5  49c1f802             sar r8, 2
+  0x1801C81A9  b806000000           mov eax, 6
+  0x1801C81AE  4c3bc0               cmp r8, rax
+  0x1801C81B1  490f42c0             cmovb rax, r8
+  0x1801C81B5  48898340020000       mov qword ptr [rbx + 0x240], rax
+  0x1801C81BC  4885c0               test rax, rax
+  0x1801C81BF  7428                 je 0x1801c81e9
+  0x1801C81C1  488bd3               mov rdx, rbx
+  0x1801C81C4  482bd1               sub rdx, rcx
+  0x1801C81C7  660f1f840000000000   nop word ptr [rax + rax]
+> 0x1801C81D0  8b01                 mov eax, dword ptr [rcx]
+  0x1801C81D2  89840a48020000       mov dword ptr [rdx + rcx + 0x248], eax
+  0x1801C81D9  48ffc7               inc rdi
+  0x1801C81DC  488d4904             lea rcx, [rcx + 4]
+  0x1801C81E0  483bbb40020000       cmp rdi, qword ptr [rbx + 0x240]
+  0x1801C81E7  72e7                 jb 0x1801c81d0
+> 0x1801C81E9  488d15e0873600       lea rdx, [rip + 0x3687e0]  ; -> 0x1805309D0  "EXCLUSIVE WARNING"
+  0x1801C81F0  488bcb               mov rcx, rbx
+  0x1801C81F3  e838d60700           call 0x180245830
+  0x1801C81F8  48899e70090000       mov qword ptr [rsi + 0x970], rbx
+> 0x1801C81FF  488b4c2428           mov rcx, qword ptr [rsp + 0x28]
+  0x1801C8204  4885c9               test rcx, rcx
+  0x1801C8207  7432                 je 0x1801c823b
+  0x1801C8209  488b542438           mov rdx, qword ptr [rsp + 0x38]
+  0x1801C820E  482bd1               sub rdx, rcx
+  0x1801C8211  4883e2fc             and rdx, 0xfffffffffffffffc
+  0x1801C8215  488bc1               mov rax, rcx
+  0x1801C8218  4881fa00100000       cmp rdx, 0x1000
+  0x1801C821F  7215                 jb 0x1801c8236
+  0x1801C8221  4883c227             add rdx, 0x27
+  0x1801C8225  488b49f8             mov rcx, qword ptr [rcx - 8]
+  0x1801C8229  482bc1               sub rax, rcx
+  0x1801C822C  4883c0f8             add rax, -8
+  0x1801C8230  4883f81f             cmp rax, 0x1f
+  0x1801C8234  7737                 ja 0x1801c826d
+> 0x1801C8236  e8455b1300           call 0x1802fdd80
+> 0x1801C823B  488bcb               mov rcx, rbx
+  0x1801C823E  e84dcd0700           call 0x180244f90
+  0x1801C8243  84c0                 test al, al
+  0x1801C8245  750b                 jne 0x1801c8252
+  0x1801C8247  418bd6               mov edx, r14d
+  0x1801C824A  488bce               mov rcx, rsi
+  0x1801C824D  e8be3dffff           call 0x1801bc010
+> 0x1801C8252  488b5c2450           mov rbx, qword ptr [rsp + 0x50]
+  0x1801C8257  488b6c2458           mov rbp, qword ptr [rsp + 0x58]
+  0x1801C825C  488b742460           mov rsi, qword ptr [rsp + 0x60]
+  0x1801C8261  488b7c2468           mov rdi, qword ptr [rsp + 0x68]
+  0x1801C8266  4883c440             add rsp, 0x40
+  0x1801C826A  415e                 pop r14
+  0x1801C826C  c3                   ret 

@@ -1,0 +1,165 @@
+# APM3 (borne) 0x180038600 -- 640 octets
+#
+# Le demandeur d'archive d'objets, mesure a la sonde : c'est lui qui demande
+# `objset/akiitm` et `objset/akiitm_patch` (site d'appel 0x180038803). Il
+# construit le nom dans un std::string SUR LA PILE (bascule SSO a 0x10) --
+# d'ou l'absence de tout format `objset/%s` dans le binaire. REPRISE (103).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x180038600  488bc4               mov rax, rsp
+  0x180038603  55                   push rbp
+  0x180038604  488d68a1             lea rbp, [rax - 0x5f]
+  0x180038608  4881eca0000000       sub rsp, 0xa0
+  0x18003860F  48c745e7feffffff     mov qword ptr [rbp - 0x19], 0xfffffffffffffffe
+  0x180038617  48895808             mov qword ptr [rax + 8], rbx
+  0x18003861B  48897810             mov qword ptr [rax + 0x10], rdi
+  0x18003861F  488bf9               mov rdi, rcx
+  0x180038622  83b9e800000000       cmp dword ptr [rcx + 0xe8], 0
+  0x180038629  0f8513020000         jne 0x180038842
+  0x18003862F  c781e800000001000000 mov dword ptr [rcx + 0xe8], 1
+  0x180038639  4c8bc9               mov r9, rcx
+  0x18003863C  4c8d059d050000       lea r8, [rip + 0x59d]  ; -> 0x180038BE0  "@SH"
+  0x180038643  33d2                 xor edx, edx
+  0x180038645  e8c6fa1d00           call 0x180218110
+  0x18003864A  c5fa6f054ef23000     vmovdqu xmm0, xmmword ptr [rip + 0x30f24e]  ; -> 0x1803478A0
+  0x180038652  c5fa7f451f           vmovdqu xmmword ptr [rbp + 0x1f], xmm0
+  0x180038657  c6450f00             mov byte ptr [rbp + 0xf], 0
+  0x18003865B  41b80c000000         mov r8d, 0xc
+  0x180038661  488d1590163100       lea rdx, [rip + 0x311690]  ; -> 0x180349CF8  "rom/auth_3d/"
+  0x180038668  488d4d0f             lea rcx, [rbp + 0xf]
+  0x18003866C  e89f83fdff           call 0x180010a10
+  0x180038671  90                   nop 
+  0x180038672  488b97e0000000       mov rdx, qword ptr [rdi + 0xe0]
+  0x180038679  49c7c0ffffffff       mov r8, 0xffffffffffffffff
+> 0x180038680  49ffc0               inc r8
+  0x180038683  42803c0200           cmp byte ptr [rdx + r8], 0
+  0x180038688  75f6                 jne 0x180038680
+  0x18003868A  488d4d0f             lea rcx, [rbp + 0xf]
+  0x18003868E  e84d7efdff           call 0x1800104e0
+  0x180038693  c5f9efc0             vpxor xmm0, xmm0, xmm0
+  0x180038697  c5fa7f45ff           vmovdqu xmmword ptr [rbp - 1], xmm0
+  0x18003869C  c5fc1008             vmovups ymm1, ymmword ptr [rax]
+  0x1800386A0  c5fc114def           vmovups ymmword ptr [rbp - 0x11], ymm1
+  0x1800386A5  48c7401000000000     mov qword ptr [rax + 0x10], 0
+  0x1800386AD  48c740180f000000     mov qword ptr [rax + 0x18], 0xf
+  0x1800386B5  c60000               mov byte ptr [rax], 0
+  0x1800386B8  488b4dff             mov rcx, qword ptr [rbp - 1]
+  0x1800386BC  488b5507             mov rdx, qword ptr [rbp + 7]
+  0x1800386C0  488bc2               mov rax, rdx
+  0x1800386C3  482bc1               sub rax, rcx
+  0x1800386C6  4883f805             cmp rax, 5
+  0x1800386CA  723a                 jb 0x180038706
+  0x1800386CC  488d4105             lea rax, [rcx + 5]
+  0x1800386D0  488945ff             mov qword ptr [rbp - 1], rax
+  0x1800386D4  488d5def             lea rbx, [rbp - 0x11]
+  0x1800386D8  4883fa10             cmp rdx, 0x10
+  0x1800386DC  480f435def           cmovae rbx, qword ptr [rbp - 0x11]
+  0x1800386E1  4803d9               add rbx, rcx
+  0x1800386E4  41b805000000         mov r8d, 5
+  0x1800386EA  488d15fb153100       lea rdx, [rip + 0x3115fb]  ; -> 0x180349CEC  ".farc"
+  0x1800386F1  488bcb               mov rcx, rbx
+  0x1800386F4  c5f877               vzeroupper 
+  0x1800386F7  e814792c00           call 0x180300010
+  0x1800386FC  c6430500             mov byte ptr [rbx + 5], 0
+  0x180038700  488d45ef             lea rax, [rbp - 0x11]
+  0x180038704  eb23                 jmp 0x180038729
+> 0x180038706  48c744242005000000   mov qword ptr [rsp + 0x20], 5
+  0x18003870F  4c8d0dd6153100       lea r9, [rip + 0x3115d6]  ; -> 0x180349CEC  ".farc"
+  0x180038716  4533c0               xor r8d, r8d
+  0x180038719  418d5005             lea edx, [r8 + 5]
+  0x18003871D  488d4def             lea rcx, [rbp - 0x11]
+  0x180038721  c5f877               vzeroupper 
+  0x180038724  e8c738fdff           call 0x18000bff0
+> 0x180038729  c5f9efc0             vpxor xmm0, xmm0, xmm0
+  0x18003872D  c5fa7f453f           vmovdqu xmmword ptr [rbp + 0x3f], xmm0
+  0x180038732  c5fc1008             vmovups ymm1, ymmword ptr [rax]
+  0x180038736  c5fc114d2f           vmovups ymmword ptr [rbp + 0x2f], ymm1
+  0x18003873B  48c7401000000000     mov qword ptr [rax + 0x10], 0
+  0x180038743  48c740180f000000     mov qword ptr [rax + 0x18], 0xf
+  0x18003874B  c60000               mov byte ptr [rax], 0
+  0x18003874E  488b5507             mov rdx, qword ptr [rbp + 7]
+  0x180038752  4883fa10             cmp rdx, 0x10
+  0x180038756  7234                 jb 0x18003878c
+  0x180038758  48ffc2               inc rdx
+  0x18003875B  488b4def             mov rcx, qword ptr [rbp - 0x11]
+  0x18003875F  488bc1               mov rax, rcx
+  0x180038762  4881fa00100000       cmp rdx, 0x1000
+  0x180038769  7219                 jb 0x180038784
+  0x18003876B  4883c227             add rdx, 0x27
+  0x18003876F  488b49f8             mov rcx, qword ptr [rcx - 8]
+  0x180038773  482bc1               sub rax, rcx
+  0x180038776  4883c0f8             add rax, -8
+  0x18003877A  4883f81f             cmp rax, 0x1f
+  0x18003877E  0f87e3000000         ja 0x180038867
+> 0x180038784  c5f877               vzeroupper 
+  0x180038787  e8f4552c00           call 0x1802fdd80
+> 0x18003878C  c5fa6f050cf13000     vmovdqu xmm0, xmmword ptr [rip + 0x30f10c]  ; -> 0x1803478A0
+  0x180038794  c5fa7f45ff           vmovdqu xmmword ptr [rbp - 1], xmm0
+  0x180038799  c645ef00             mov byte ptr [rbp - 0x11], 0
+  0x18003879D  488b5527             mov rdx, qword ptr [rbp + 0x27]
+  0x1800387A1  4883fa10             cmp rdx, 0x10
+  0x1800387A5  7234                 jb 0x1800387db
+  0x1800387A7  48ffc2               inc rdx
+  0x1800387AA  488b4d0f             mov rcx, qword ptr [rbp + 0xf]
+  0x1800387AE  488bc1               mov rax, rcx
+  0x1800387B1  4881fa00100000       cmp rdx, 0x1000
+  0x1800387B8  7219                 jb 0x1800387d3
+  0x1800387BA  4883c227             add rdx, 0x27
+  0x1800387BE  488b49f8             mov rcx, qword ptr [rcx - 8]
+  0x1800387C2  482bc1               sub rax, rcx
+  0x1800387C5  4883c0f8             add rax, -8
+  0x1800387C9  4883f81f             cmp rax, 0x1f
+  0x1800387CD  0f879d000000         ja 0x180038870
+> 0x1800387D3  c5f877               vzeroupper 
+  0x1800387D6  e8a5552c00           call 0x1802fdd80
+> 0x1800387DB  c5fa6f05bdf03000     vmovdqu xmm0, xmmword ptr [rip + 0x30f0bd]  ; -> 0x1803478A0
+  0x1800387E3  c5fa7f451f           vmovdqu xmmword ptr [rbp + 0x1f], xmm0
+  0x1800387E8  c6450f00             mov byte ptr [rbp + 0xf], 0
+  0x1800387EC  488d552f             lea rdx, [rbp + 0x2f]
+  0x1800387F0  48837d4710           cmp qword ptr [rbp + 0x47], 0x10
+  0x1800387F5  480f43552f           cmovae rdx, qword ptr [rbp + 0x2f]
+  0x1800387FA  4533c0               xor r8d, r8d
+  0x1800387FD  488bcf               mov rcx, rdi
+  0x180038800  c5f877               vzeroupper 
+  0x180038803  e868f61d00           call 0x180217e70
+  0x180038808  90                   nop 
+  0x180038809  488b5547             mov rdx, qword ptr [rbp + 0x47]
+  0x18003880D  4883fa10             cmp rdx, 0x10
+  0x180038811  7239                 jb 0x18003884c
+  0x180038813  48ffc2               inc rdx
+  0x180038816  488b4d2f             mov rcx, qword ptr [rbp + 0x2f]
+  0x18003881A  488bc1               mov rax, rcx
+  0x18003881D  4881fa00100000       cmp rdx, 0x1000
+  0x180038824  7215                 jb 0x18003883b
+  0x180038826  4883c227             add rdx, 0x27
+  0x18003882A  488b49f8             mov rcx, qword ptr [rcx - 8]
+  0x18003882E  482bc1               sub rax, rcx
+  0x180038831  4883c0f8             add rax, -8
+  0x180038835  4883f81f             cmp rax, 0x1f
+  0x180038839  7726                 ja 0x180038861
+> 0x18003883B  e840552c00           call 0x1802fdd80
+  0x180038840  eb0a                 jmp 0x18003884c
+> 0x180038842  c781e800000002000000 mov dword ptr [rcx + 0xe8], 2
+> 0x18003884C  4c8d9c24a0000000     lea r11, [rsp + 0xa0]
+  0x180038854  498b5b10             mov rbx, qword ptr [r11 + 0x10]
+  0x180038858  498b7b18             mov rdi, qword ptr [r11 + 0x18]
+  0x18003885C  498be3               mov rsp, r11
+  0x18003885F  5d                   pop rbp
+  0x180038860  c3                   ret 
+> 0x180038861  e88ab22c00           call 0x180303af0
+  0x180038866  90                   nop 
+> 0x180038867  c5f877               vzeroupper 
+  0x18003886A  e881b22c00           call 0x180303af0
+  0x18003886F  90                   nop 
+> 0x180038870  c5f877               vzeroupper 
+  0x180038873  e878b22c00           call 0x180303af0
+  0x180038878  cc                   int3 
+  0x180038879  cc                   int3 
+  0x18003887A  cc                   int3 
+  0x18003887B  cc                   int3 
+  0x18003887C  cc                   int3 
+  0x18003887D  cc                   int3 
+  0x18003887E  cc                   int3 
+  0x18003887F  cc                   int3 

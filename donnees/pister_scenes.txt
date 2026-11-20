@@ -1,0 +1,18 @@
+processus 18144 lance sous debogage
+  image     0x00007FF698D00000  vfes.exe
+  dll       0x00007FFD7C2E0000  apm.dll
+  dll       0x00007FFD80260000  d3d11.dll
+  dll       0x00007FFD81480000  dxgi.dll
+  dll       0x00007FFD7F550000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD8719D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD848E187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFCCC3C0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur SceneAET = 0x7FFCCC57CD70 (octet d'origine 0x40)
+  BP arme sur SceneNommee = 0x7FFCCC605830 (octet d'origine 0x4C)
+  points d'arret sur les scenes nommees, a t=10 s
+  sortie du processus, code 0xFFFFFFFF
+
+77 module(s) charge(s)
+  BP SceneAET : 0 passage(s)
+  BP SceneNommee : 51 passage(s)

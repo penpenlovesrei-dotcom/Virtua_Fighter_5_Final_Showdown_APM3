@@ -1,0 +1,22 @@
+# GROUPE 1 des light_param/fog_*.txt = LE BROUILLARD DE HAUTEUR
+# (groupe 0 = brouillard de distance, groupe 2 = le troisieme registre)
+# Lu dans la fonction VF5 R 0x0811715E : groupe 1 -> env[14] sommet + env[11] fragment.
+
+## APM3 / Final Showdown : 41 fichiers, 4 avec un groupe 1 ACTIF
+     fog_du2.txt        densite=1.00000   linear=-1.00000 1.50000       color=1.10000 0.960000 0.700000 1.00000
+     fog_du3.txt        densite=1.00000   linear=0.00000 1.00000        color=1.00000 1.00000 1.00000 1.00000
+     fog_du5.txt        densite=1.00000   linear=-5.90000 24.4000       color=0.150000 0.200000 0.300000 1.00000
+     fog_slk.txt        densite=1.00000   linear=-0.140000 -0.0300000   color=0.100000 0.150000 0.200000 1.00000
+
+## VF5 R (Lindbergh) : 40 fichiers, 4 avec un groupe 1 ACTIF
+     fog_du2.txt        densite=1.00000   linear=-1.00000 1.50000       color=1.10000 0.960000 0.700000 1.00000
+     fog_du3.txt        densite=1.00000   linear=0.00000 1.00000        color=1.00000 1.00000 1.00000 1.00000
+     fog_jin.txt        densite=1.00000   linear=-2.50000 1.00000       color=0.700000 0.900000 1.00000 1.00000
+     fog_slk.txt        densite=1.00000   linear=-0.140000 -0.0300000   color=0.100000 0.150000 0.200000 1.00000
+
+## Final Showdown Lindbergh : 41 fichiers, 4 avec un groupe 1 ACTIF
+     fog_du2.txt        densite=1.00000   linear=-1.00000 1.50000       color=1.10000 0.960000 0.700000 1.00000
+     fog_du3.txt        densite=1.00000   linear=0.00000 1.00000        color=1.00000 1.00000 1.00000 1.00000
+     fog_du5.txt        densite=1.00000   linear=-5.90000 24.4000       color=0.150000 0.200000 0.300000 1.00000
+     fog_slk.txt        densite=1.00000   linear=-0.140000 -0.0300000   color=0.100000 0.150000 0.200000 1.00000
+

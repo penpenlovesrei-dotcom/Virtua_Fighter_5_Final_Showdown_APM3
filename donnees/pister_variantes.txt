@@ -1,0 +1,53 @@
+processus 20572 lance sous debogage
+  image     0x00007FF758630000  vfes.exe
+  dll       0x00007FFE31960000  apm.dll
+  dll       0x00007FFE57C80000  d3d11.dll
+  dll       0x00007FFE58E10000  dxgi.dll
+  dll       0x00007FFE56F40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFE5EAFD78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFE5BCB187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFDB0070000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur entree = 0x7FFDB0F11000 (octet d'origine 0x48)
+  BP arme sur entree_lue = 0x7FFDB0F11015 (octet d'origine 0x84)
+  BP arme sur ecriture = 0x7FFDB0F11036 (octet d'origine 0x89)
+  points poses dans la greffe (t=1.3 s)
+  sourdine : session audio du processus 20572 coupee apres 2 s
+  t=   2.7 s  etat 0  decor -1
+  t=  39.4 s  etat 0  decor cas
+  t=  39.5 s  etat 0  decor yuk
+  t=  39.6 s  etat 0  decor are
+  t=  39.7 s  etat 0  decor riv
+  t=  39.8 s  etat 0  decor aur
+  t=  40.0 s  etat 0  decor bar
+  t=  40.1 s  etat 0  decor ter
+  t=  40.2 s  etat 0  decor slk
+  t=  40.3 s  etat 0  decor jin
+  t=  40.4 s  etat 0  decor 40
+  t=  40.5 s  etat 0  decor umi
+  t=  40.6 s  etat 0  decor tan
+  t=  40.7 s  etat 0  decor sin
+  t=  41.0 s  etat 1  decor sin
+  t=  41.0 s  etat 2  decor sin
+  t=  41.0 s  etat 2  decor -1
+  t=  41.0 s  etat 2  decor ALEA
+  t=  41.8 s  etat 2  decor jin
+  t=  42.0 s  etat 2  decor ter
+  t=  42.3 s  etat 2  decor ban
+  t=  42.6 s  etat 2  decor du1
+  ENTREE ACTIVE : al = 1
+  ECRITURE de l index : 22 (du2)
+  t=  49.0 s  etat 2  decor du2
+  t=  49.0 s  etat 2  decor du1
+  ENTREE ACTIVE : al = 1
+  ECRITURE de l index : 22 (du2)
+  t=  51.1 s  etat 2  decor du2
+  t=  51.1 s  etat 2  decor du1
+  t=  64.3 s  etat 0  decor du1
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP entree : 300 passage(s)
+  BP entree_lue : 1392 passage(s)
+  BP ecriture : 2 passage(s)
+  scenario d entrees remis en jeu manuel

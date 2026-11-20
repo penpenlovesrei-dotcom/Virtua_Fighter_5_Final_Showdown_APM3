@@ -1,0 +1,74 @@
+# APM3 -- CE QUI ARME LES DEUX PASSES, PAR DECOR
+#
+# FUN_18018FA20, le jumeau de FUN_822C3E38 cas 1 de la Xbox 360 :
+#
+#     [desc+0xC0] bloc reflet      -> FUN_18010CA20(2, 1)   passe 2
+#                                     FUN_18010CA40(bloc[0])
+#                                     FUN_18010CA30(bloc[1], bloc[2])
+#                                     FUN_18010C9E0(1)      drapeau reflet
+#     [desc+0xC8] bloc REFRACTION  -> sous le budget 0x18034B438 :
+#                                     FUN_18010CA20(3, 1)   passe 3
+#                                     FUN_18010CA60(bloc[0])
+#                                     FUN_18010C9F0(1)      drapeau refraction
+#
+# Cinq accesseurs, meme ordre, memes arguments que la console. Mais
+# [desc+0xC8] vaut ZERO pour les quarante et un decors : le bloc de droite ne
+# s execute jamais. Et meme s il s executait, TaskEffectWaterRing::init
+# rappelle FUN_18010C9F0(0) juste apres et eteint le drapeau.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== 0x18018FA20  (extrait : les deux blocs) ===
+0x0018018FA20  0000                       add      byte ptr [rax], al
+0x0018018FA22  00880d4b0358               add      byte ptr [rax + 0x58034b0d], cl
+0x0018018FA28  00488b                     add      byte ptr [rax - 0x75], cl
+0x0018018FA2B  46688b88b800               push     0xb8888b
+0x0018018FA31  0000                       add      byte ptr [rax], al
+0x0018018FA33  e818d0f7ff                 call     0x18010ca50
+0x0018018FA38  488b4668                   mov      rax, qword ptr [rsi + 0x68]
+0x0018018FA3C  4c8bac24a8000000           mov      r13, qword ptr [rsp + 0xa8]
+0x0018018FA44  4c8ba424b0000000           mov      r12, qword ptr [rsp + 0xb0]
+0x0018018FA4C  0fb688bd000000             movzx    ecx, byte ptr [rax + 0xbd]
+0x0018018FA53  880d1c035800               mov      byte ptr [rip + 0x58031c], cl
+0x0018018FA59  488b4668                   mov      rax, qword ptr [rsi + 0x68]
+0x0018018FA5D  488b98c0000000             mov      rbx, qword ptr [rax + 0xc0]
+0x0018018FA64  4885db                     test     rbx, rbx
+0x0018018FA67  7429                       je       0x18018fa92
+0x0018018FA69  b201                       mov      dl, 1
+0x0018018FA6B  b902000000                 mov      ecx, 2
+0x0018018FA70  e8abcff7ff                 call     0x18010ca20
+0x0018018FA75  8b0b                       mov      ecx, dword ptr [rbx]
+0x0018018FA77  e8c4cff7ff                 call     0x18010ca40
+0x0018018FA7C  8b5308                     mov      edx, dword ptr [rbx + 8]
+0x0018018FA7F  8b4b04                     mov      ecx, dword ptr [rbx + 4]
+0x0018018FA82  e8a9cff7ff                 call     0x18010ca30
+0x0018018FA87  b101                       mov      cl, 1
+0x0018018FA89  e852cff7ff                 call     0x18010c9e0
+0x0018018FA8E  488b4668                   mov      rax, qword ptr [rsi + 0x68]
+0x0018018FA92  488b98c8000000             mov      rbx, qword ptr [rax + 0xc8]
+0x0018018FA99  4885db                     test     rbx, rbx
+0x0018018FA9C  7428                       je       0x18018fac6
+0x0018018FA9E  c5fa100592b91b00           vmovss   xmm0, dword ptr [rip + 0x1bb992]
+0x0018018FAA6  c5f82fc6                   vcomiss  xmm0, xmm6
+0x0018018FAAA  761a                       jbe      0x18018fac6
+0x0018018FAAC  b201                       mov      dl, 1
+0x0018018FAAE  b903000000                 mov      ecx, 3
+0x0018018FAB3  e868cff7ff                 call     0x18010ca20
+0x0018018FAB8  8b0b                       mov      ecx, dword ptr [rbx]
+0x0018018FABA  e8a1cff7ff                 call     0x18010ca60
+0x0018018FABF  b101                       mov      cl, 1
+0x0018018FAC1  e82acff7ff                 call     0x18010c9f0
+0x0018018FAC6  8b465c                     mov      eax, dword ptr [rsi + 0x5c]
+0x0018018FAC9  83f828                     cmp      eax, 0x28
+0x0018018FACC  7405                       je       0x18018fad3
+0x0018018FACE  83f810                     cmp      eax, 0x10
+0x0018018FAD1  7514                       jne      0x18018fae7
+0x0018018FAD3  488b842408010000           mov      rax, qword ptr [rsp + 0x108]
+0x0018018FADB  4885c0                     test     rax, rax
+0x0018018FADE  7407                       je       0x18018fae7
+0x0018018FAE0  c6803403000000             mov      byte ptr [rax + 0x334], 0

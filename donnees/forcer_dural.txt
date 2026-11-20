@@ -1,0 +1,21 @@
+processus 9024 lance sous debogage
+  image     0x00007FF6B0C30000  vfes.exe
+  dll       0x00007FFB01A70000  apm.dll
+  dll       0x00007FFB273B0000  d3d11.dll
+  dll       0x00007FFB28380000  dxgi.dll
+  dll       0x00007FFB26430000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB2E11D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2B86187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFA73BF0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 9024 coupee apres 2 s
+  BP arme sur chargement = 0x7FFA73D41F5E (octet d'origine 0x48)
+  BP arme sur MothApplyRecord = 0x7FFA73D48B40 (octet d'origine 0x4D)
+  points d'arret poses a t=20 s
+  en combat : ROB 1 = 0x230B1814870   personnage 0 (AKI)
+  en combat : ROB 2 = 0x230B181A5D8   personnage 8 (LIO)
+--- 70 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP chargement : 0 passage(s)
+  BP MothApplyRecord : 38 passage(s)

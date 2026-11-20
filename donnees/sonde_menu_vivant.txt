@@ -1,0 +1,22 @@
+processus 11128 lance sous debogage
+  image     0x00007FF796710000  vfes.exe
+  dll       0x00007FFEB9720000  apm.dll
+  dll       0x00007FFEF5930000  d3d11.dll
+  dll       0x00007FFEF69E0000  dxgi.dll
+  dll       0x00007FFEF49B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFEFC7E2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFEFA0941CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFE43DE0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur MAJ = 0x7FFE43FBC620 (octet d'origine 0x48)
+  BP arme sur DESS = 0x7FFE43FC0C80 (octet d'origine 0xE9)
+  BP arme sur SEQ = 0x7FFE43FA3D60 (octet d'origine 0x48)
+  sourdine : session audio du processus 11128 coupee apres 2 s
+  sourdine : plus de session a lever -- si le jeu reste muet : py -3 tools/muet.py --rendre, jeu lance
+--- 62 s ecoulees, on arrete ---
+
+79 module(s) charge(s)
+  BP MAJ : 1543 passage(s)
+  BP DESS : 1543 passage(s)
+  BP SEQ : 0 passage(s)
+  scenario d entrees remis en jeu manuel

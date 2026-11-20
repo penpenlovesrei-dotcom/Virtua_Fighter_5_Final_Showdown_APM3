@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# CONSOLE, AVEC JOURNAL : quels codes d'entree le menu principal interroge-t-il ?
+#
+# Le menu console s'affiche (relais du creneau 2 pose, voir patch_moteur.py
+# --menu-console) mais ne se navigue pas. Avant de chercher pourquoi, il faut
+# savoir ce que le menu DEMANDE : le stub journalise chaque appel
+# d'Input_isOn / Input_isOnNow avec son code, via OutputDebugString.
+#
+# Rappel : les codes 2 a 5 (les directions) sont une HYPOTHESE de disposition,
+# jamais identifiee. C'est justement ce que cette passe doit trancher.
+#
+# Le journal coute cher : environ 900 messages par seconde, et le jeu tombe de
+# 60 a 25 images par seconde sous debogueur. C'est acceptable pour un releve.
+# ---------------------------------------------------------------------------
+
+nom start  = 7
+nom haut   = 2
+nom bas    = 3
+nom gauche = 4
+nom droite = 5
+
+front   = 150
+journal = 1
+clavier = 1
+manette = 1
+
+0       rien
+20000   start
+20300   rien
+24000   start
+24300   rien
+28000   start
+28300   rien
+# --- ici le menu doit etre a l'ecran ; on essaie de le naviguer ---
+36000   bas
+36400   rien
+39000   bas
+39400   rien
+42000   haut
+42400   rien
+45000   droite
+45400   rien
+48000   gauche
+48400   rien

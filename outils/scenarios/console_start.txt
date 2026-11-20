@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------------------
+# CONSOLE : appuis sur START repetes, pour franchir CS_TITLE.
+#
+# En mode console (game_mode = 0), le parcours mesure est
+#     DATA_INITIALIZE -> SYSTEM_STARTUP -> CS_DEMO -> CS_TITLE
+# et CS_TITLE alterne avec CS_DEMO au bout d'une trentaine de secondes,
+# comme un ecran d'attente qui retombe dans sa demo. Ce scenario appuie
+# sur START a intervalles reguliers pour voir ce qui suit le titre.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+front   = 150
+journal = 0
+clavier = 1
+manette = 1
+
+0       rien
+20000   start
+20300   rien
+24000   start
+24300   rien
+28000   start
+28300   rien
+32000   start
+32300   rien
+38000   start
+38300   rien
+44000   start
+44300   rien

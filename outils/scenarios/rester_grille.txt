@@ -1,0 +1,39 @@
+# ---------------------------------------------------------------------------
+# RESTER SUR LA GRILLE DE SELECTION, sans rien choisir.
+#
+# Pourquoi ce scenario existe : `select_a.txt` TRAVERSE le selecteur et
+# enchaine sur un combat, ce qui rend aveugle toute mesure sur la grille --
+# deux passes ont tourne a vide le 2026-09-04 avant qu'on s'en apercoive.
+#
+# Et la borne ne laisse que QUINZE SECONDES sur cet ecran : passe ce delai, le
+# decompte choisit a notre place. La fenetre de mesure est donc courte et il
+# faut y arriver tot.
+#
+# Deux appuis sur START suffisent : le premier quitte l'ecran-titre, le second
+# traverse APM3_ENTRY (l'ecran noir). Ensuite, plus rien : on laisse le jeu
+# poser sa grille et on la regarde vivre jusqu'a ce que le decompte tombe.
+#
+# Le clavier reste actif par-dessus, pour pouvoir bouger le curseur a la main
+# si besoin.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+
+front   = 150
+journal = 0
+clavier = 1
+manette = 1
+
+# Sous debogueur, le demarrage est lent : l'ecran-titre n'apparait qu'aux
+# alentours de 23 secondes. Des appuis a 14 et 18 s tombent dans le vide --
+# erreur commise, puis corrigee, le 2026-09-04. On appuie donc plus tard, et
+# plusieurs fois, et on laisse `--passer-entry` traverser l'ecran noir.
+0       rien
+28000   start
+28300   rien
+33000   start
+33300   rien
+# Pas de troisieme appui : a 38 s il validait un personnage et faisait sortir
+# vers APM3_GAME_VS. Deux suffisent, et la grille reste ensuite a l'ecran
+# jusqu'a ce que le decompte de la borne -- quinze secondes -- tombe.
+# a partir d'ici : rien. La grille reste a l'ecran une quinzaine de secondes.

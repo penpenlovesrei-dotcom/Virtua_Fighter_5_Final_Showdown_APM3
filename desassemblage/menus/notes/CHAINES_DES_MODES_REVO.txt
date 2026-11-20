@@ -1,0 +1,59 @@
+LA CHAINE DE CHAQUE MODE  (table 0x1803C8240, 14 entrees de 0x68)
+lue dans vf5fs-pxd-w64-d3d12_SteamRetail.dll
+
+position 0   numero 0   STARTUP          phases 0x1800E6510 0x1800E56E0 0x1800E5B80
+    chaine  : 0=DATA_INITIALIZE  ->  1=SYSTEM_STARTUP  ->  8=CS_DEMO  ->  5=CS_TITLE  ->  6=CS_SIGNIN  ->  2=WARNING  ->  3=CROSSPLAY_WARNING  ->  4=OFFLINE_WARNING  ->  7=CS_AUTOLOAD  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 1   numero 1   ADVERTISE        [phases BOUCHONNEES : 0x180026620 x3]
+    chaine  : 9=LOGO  ->  10=RATING  ->  11=DEMO  ->  12=TITLE  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 2   numero 5   MENU             phases 0x1800E4140 0x1800E4080 0x1800E40C0
+    chaine  : 40=MENU_MAIN  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 3   numero 2   GAME             phases 0x1800E3CA0 0x1800E1B30 0x1800E2AB0
+    chaine  : 19=SELECTOR  ->  20=MODE_SELECTOR  ->  21=VS  ->  22=GAMEOVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 4   numero 3   WORLD_STAGE      phases 0x18000B530 0x18000B310 0x18000B3F0
+    chaine  : 23=WORLD_STAGE_MAIN  ->  41=CS_TERM_CUSTOMIZE  ->  21=VS  ->  24=WORLD_STAGE_TOURNAMENT  ->  22=GAMEOVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 5   numero 4   DATA_TEST        [phases BOUCHONNEES : 0x180026620 x3]
+    chaine  : 25=DATA_TEST_MAIN  ->  26=DATA_TEST_MISC  ->  27=DATA_TEST_OBJ  ->  28=DATA_TEST_STG  ->  29=DATA_TEST_MOT  ->  30=DATA_TEST_COLLISION  ->  31=DATA_TEST_SPR  ->  32=DATA_TEST_AET  ->  33=DATA_TEST_AUTH_3D  ->  34=DATA_TEST_CHR  ->  35=DATA_TEST_ITEM  ->  36=DATA_TEST_PERF  ->  37=DATA_TEST_TNMT  ->  38=DATA_TEST_BATTLE  ->  39=DATA_TEST_KOTSP_SS  ->  73=FIN
+    +0x60   : 1=ADVERTISE  FIN
+
+position 6   numero 6   CS_TERM          phases 0x180211EF0 0x180211960 0x180211D50
+    chaine  : 41=CS_TERM_CUSTOMIZE  ->  42=CS_TERM_REPLAY_PLAY  ->  43=CS_TERM_LAST_PLAY  ->  44=CS_TERM_CLIP_PLAY  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 7   numero 7   CS_TRAINING      phases 0x1802120F0 0x180211960 0x180212090
+    chaine  : 45=CS_TRAINING  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 8   numero 8   ONLINE           [phases BOUCHONNEES : 0x18000BA20 x3]
+    chaine  : 46=ONLINE_STARTUP  ->  47=ONLINE_SELECTOR  ->  48=ONLINE_MENU  ->  49=ONLINE_MATCHING  ->  50=ONLINE_GAME  ->  51=ONLINE_OVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 9   numero 9   APM3             [phases BOUCHONNEES : 0x180026620 x3]
+    chaine  : 52=APM3_ENTRY  ->  53=APM3_SELECTOR  ->  54=APM3_GAME_VS  ->  55=APM3_GAMEOVER  ->  56=APM3_TRAINING  ->  57=APM3_ONLINE_VS  ->  73=FIN
+    +0x60   : 0=STARTUP  5=MENU  10=APM3_TESTMODE
+
+position 10  numero 10  APM3_TESTMODE    [phases BOUCHONNEES : 0x180026620 x3]
+    chaine  : 58=APM3_TESTMODE_MAIN  ->  73=FIN
+    +0x60   : 10=APM3_TESTMODE  58=?58  11=RANK_MATCH
+
+position 11  numero 11  RANK_MATCH       phases 0x1802180A0 0x1802130A0 0x1802154D0
+    chaine  : 59=RANK_MATCH_STARTUP  ->  60=RANK_MATCH_MATCHING  ->  61=RANK_MATCH_GAME  ->  62=RANK_MATCH_OVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 12  numero 12  ROOM_MATCH       phases 0x180218730 0x1802130A0 0x1802157B0
+    chaine  : 63=ROOM_MATCH_STARTUP  ->  64=ROOM_MATCH_MENU  ->  65=ROOM_MATCH_MATCHING  ->  66=ROOM_MATCH_GAME  ->  67=ROOM_MATCH_OVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+
+position 13  numero 13  TOURNAMENT       phases 0x180218D00 0x1802130A0 0x180215DC0
+    chaine  : 68=TOURNAMENT_STARTUP  ->  69=TOURNAMENT_MENU  ->  70=TOURNAMENT_MATCHING  ->  71=TOURNAMENT_GAME  ->  72=TOURNAMENT_OVER  ->  73=FIN
+    +0x60   : 5=MENU  FIN
+

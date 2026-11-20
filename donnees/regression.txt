@@ -1,0 +1,24 @@
+REGRESSION -- le filet du patcheur
+==========================================================================
+
+1. LES LANCEURS
+   | ==========================================================================
+   | CONTROLE DES 107 LANCEURS
+   | ==========================================================================
+   | 
+   | 0. CARACTERES DE CONTROLE
+   |    aucun caractere de controle parasite, aucun CR isole.
+   | 
+   | 1. FINS DE LIGNE
+   |    CASSE  importer_x360_fs.cmd  -- fins de ligne UNIX
+   | 
+   | 2. FICHIERS CITES
+   |    tous les tools\*.py et tools\*.cmd cites existent.
+   | 
+   | 3. LIGNE DE PATCH
+   |    (saute)
+   | 
+   | ==========================================================================
+   | 1 LANCEUR(S) A REPARER : importer_x360_fs.cmd
+   | ==========================================================================
+   DEFAUT : au moins un lanceur est a reparer.

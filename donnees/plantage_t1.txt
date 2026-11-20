@@ -1,0 +1,24 @@
+processus 3036 lance sous debogage
+  image     0x00007FF726200000  vfes.exe
+  dll       0x00007FFA1FF20000  apm.dll
+  dll       0x00007FFA31600000  d3d11.dll
+  dll       0x00007FFA325E0000  dxgi.dll
+  dll       0x00007FFA30680000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFA383E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFA359F41CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FF989080000  vf5fs-pxd-w64-Retail_APM3.dll
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 1 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  [dbg] [quest] moteur trouve, base 140709722587136
+  [dbg] [quest] notre fil d execution 4056
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=47 ms, masque=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+--- 75 s ecoulees, on arrete ---
+
+79 module(s) charge(s)

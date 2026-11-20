@@ -1,0 +1,57 @@
+===========================================================================
+  LA BORNE APM3 EN C++  --  paquet de reprise du 11/09/2026
+===========================================================================
+
+LA DERNIERE VERSION DE L EXECUTABLE
+    VF5RE\borne\bin\borne.exe      9 septembre, 23 h 57, 1 119 809 octets
+    Original sur ce PC : C:\Users\frede\Desktop\VF5RE\borne\bin\borne.exe
+    Il se lance tout de suite, d ici meme : VF5RE\borne\borne.cmd
+    (autonome, lie en statique, aucune DLL a fournir)
+
+LA CONVERSATION LA PLUS AVANCEE
+    Session 3f8eb787-b241-465e-a563-2b3ce8d7c55e, le 9 septembre au soir.
+    Elle s est coupee a 23 h 59 sur la limite hebdomadaire, juste apres
+    votre demande : "effet de transition au lancement de la video, freeplay".
+    Rien n a ete touche a la borne depuis.
+    Lisible  : conversation\borne_conversation.md
+    Complete : conversation\3f8eb787-....jsonl  (avec toutes les commandes)
+
+---------------------------------------------------------------------------
+  CE QU IL Y A DANS LE PAQUET
+---------------------------------------------------------------------------
+
+  REMETTRE EN PLACE.cmd    copie tout aux endroits attendus sur l autre PC,
+                           sans jamais rien ecraser, et dit quoi installer
+  PROMPT_REPRISE.md        a coller dans Claude pour reprendre
+
+  VF5RE\borne\             le projet entier : src, bin, habillage, vos jeux
+                           d essai (jaquettes + videos, 339 Mo), captures
+                           construire.cmd  -- recompile bin\borne.exe (NOUVEAU :
+                           borne.cmd y renvoyait mais il n existait pas)
+  VF5RE\analysis\          interface_apm3_code.md (le doc qui fait foi),
+                           interface_apm3.md, apm_surimpression.md,
+                           apm3_source\ = le code C# de SEGA decompile
+  VF5RE\tools\             outils apm_*.py, jeux.py + jeux_*.cmd,
+                           borne_touche.py, capture_fenetre.py, dotnet.py
+  VF5RE\extracted\         icones, sons et bruitages deja extraits
+  VF5 FS DECOMP\APM_V1.04_internal_0\
+                           le systeme d origine (241 Mo), d ou tout est lu.
+                           NE JAMAIS LANCER game.bat : il efface Y:\ et
+                           flashe les micrologiciels des cartes.
+  memoire\                 toutes mes fiches de memoire, a donner a lire a
+                           Claude sur l autre PC
+
+---------------------------------------------------------------------------
+  CE QU IL FAUT SUR L AUTRE PC POUR CONTINUER
+---------------------------------------------------------------------------
+
+  Pour LANCER la borne : rien.
+  Pour la RECOMPILER   : MSYS2 + mingw-w64-x86_64-gcc
+  Pour jeux_verifier / jeux_convertir : MSYS2 + mingw-w64-x86_64-ffmpeg
+  Pour les outils Python : py -3 -m pip install pefile fsb5 Pillow
+  Pour decompiler d autres classes : SDK .NET + ilspycmd
+
+  Les outils Python apm_*.py ont le chemin des donnees SEGA ecrit en dur :
+  C:\Users\frede\Desktop\VF5 FS DECOMP\APM_V1.04_internal_0
+  Si le compte de l autre PC ne s appelle pas "frede", il faudra corriger
+  cette ligne en tete de chaque outil. La borne, elle, n en depend pas.

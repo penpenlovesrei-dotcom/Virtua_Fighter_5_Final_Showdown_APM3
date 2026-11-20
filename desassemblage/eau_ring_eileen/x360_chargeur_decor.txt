@@ -1,0 +1,202 @@
+# Xbox 360 (VF5 2007) -- CE QUI ARME LES DEUX PASSES, PAR DECOR
+#
+# FUN_822C3E38 est la mise en place du decor : une machine a quatre etats
+# sur [this+0x4C], table de sauts en 0x822C3E78. Le cas 1 (0x822C3E88) lit le
+# DESCRIPTEUR DU DECOR [this+0x58] et y trouve deux blocs :
+#
+#     [desc+0x58]  bloc << reflet >>      -> FUN_8224AFF8(2, 1)  passe 2
+#                                            FUN_8224B038(bloc[0])  [mgr+0xF8]
+#                                            FUN_8224AFE0(bloc[1], bloc[2])
+#                                            FUN_8224B078(1)       [mgr+0x5C]
+#     [desc+0x5C]  bloc << REFRACTION >>  -> FUN_8224AFF8(3, 1)  passe 3
+#                                            FUN_8224B048(bloc[0])  [mgr+0xFC]
+#                                            FUN_8224B088(1)       [mgr+0x5D]
+#
+# Le gestionnaire global est 0x8284C79C. Ses octets +0x00..+0x0F sont les
+# autorisations de passe (ecrites par le `stbx` de FUN_8224AFF8), +0x5C et
+# +0x5D les deux drapeaux, +0x11C un tableau d enregistrements de 36 octets.
+#
+# FUN_8224B590 est le LIEUR DE SCENE : il lie la cible de reflet sur
+# GL_TEXTURE15 (li r4,0xF en 0x8224B624) et la cible de refraction sur
+# GL_TEXTURE14 (li r4,0xE en 0x8224B690), chacune sous SA double garde :
+# l autorisation de passe ([mgr+2], [mgr+3]) ET le drapeau ([mgr+0x5C],
+# [mgr+0x5D]).
+#
+# L EQUIVALENT APM3 EST `FUN_18018FA20`, champ pour champ : [desc+0xC0] au
+# lieu de [desc+0x58], [desc+0xC8] au lieu de [desc+0x5C]. Voir
+# `apm3_chargeur_decor.txt`.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== 0x822C3E38  mise en place du decor, cas 1 ===
+0x822C3E38  7d8802a6  mflr       r12
+0x822C3E3C  9181fff8  stw        r12, -8(r1)
+0x822C3E40  fbc1ffe8  std        r30, -0x18(r1)
+0x822C3E44  fbe1fff0  std        r31, -0x10(r1)
+0x822C3E48  9421ff80  stwu       r1, -0x80(r1)
+0x822C3E4C  7c7f1b78  mr         r31, r3
+0x822C3E50  817f004c  lwz        r11, 0x4c(r31)
+0x822C3E54  396bffff  addi       r11, r11, -1
+0x822C3E58  2b0b0003  cmplwi     cr6, r11, 3
+0x822C3E5C  419902f4  bgt        cr6, 0x822c4150
+0x822C3E60  3d80822c  lis        r12, -0x7dd4
+0x822C3E64  398c3e78  addi       r12, r12, 0x3e78
+0x822C3E68  5560103a  slwi       r0, r11, 2
+0x822C3E6C  7c0c002e  lwzx       r0, r12, r0
+0x822C3E70  7c0903a6  mtctr      r0
+0x822C3E74  4e800420  bctr       
+0x822C3E78  822c3e88  lwz        r17, 0x3e88(r12)
+0x822C3E7C  822c3f5c  lwz        r17, 0x3f5c(r12)
+0x822C3E80  822c3fb4  lwz        r17, 0x3fb4(r12)
+0x822C3E84  822c4118  lwz        r17, 0x4118(r12)
+0x822C3E88  817f0058  lwz        r11, 0x58(r31)
+0x822C3E8C  3d408288  lis        r10, -0x7d78
+0x822C3E90  816b0050  lwz        r11, 0x50(r11)
+0x822C3E94  7d6b0034  cntlzw     r11, r11
+0x822C3E98  556bdffe  rlwinm     r11, r11, 0x1b, 0x1f, 0x1f
+0x822C3E9C  696b0001  xori       r11, r11, 1
+0x822C3EA0  996a5780  stb        r11, 0x5780(r10)
+0x822C3EA4  817f0058  lwz        r11, 0x58(r31)
+0x822C3EA8  806b0050  lwz        r3, 0x50(r11)
+0x822C3EAC  4bf8715d  bl         0x8224b008
+0x822C3EB0  817f0058  lwz        r11, 0x58(r31)
+0x822C3EB4  3d408288  lis        r10, -0x7d78
+0x822C3EB8  896b0054  lbz        r11, 0x54(r11)
+0x822C3EBC  996a5781  stb        r11, 0x5781(r10)
+0x822C3EC0  817f0058  lwz        r11, 0x58(r31)
+0x822C3EC4  83cb0058  lwz        r30, 0x58(r11)
+0x822C3EC8  2b1e0000  cmplwi     cr6, r30, 0
+0x822C3ECC  419a002c  beq        cr6, 0x822c3ef8
+0x822C3ED0  38800001  li         r4, 1
+0x822C3ED4  38600002  li         r3, 2
+0x822C3ED8  4bf87121  bl         0x8224aff8
+0x822C3EDC  807e0000  lwz        r3, 0(r30)
+0x822C3EE0  4bf87159  bl         0x8224b038
+0x822C3EE4  809e0008  lwz        r4, 8(r30)
+0x822C3EE8  807e0004  lwz        r3, 4(r30)
+0x822C3EEC  4bf870f5  bl         0x8224afe0
+0x822C3EF0  38600001  li         r3, 1
+0x822C3EF4  4bf87185  bl         0x8224b078
+0x822C3EF8  817f0058  lwz        r11, 0x58(r31)
+0x822C3EFC  83cb005c  lwz        r30, 0x5c(r11)
+0x822C3F00  2b1e0000  cmplwi     cr6, r30, 0
+0x822C3F04  419a0020  beq        cr6, 0x822c3f24
+0x822C3F08  38800001  li         r4, 1
+0x822C3F0C  38600003  li         r3, 3
+0x822C3F10  4bf870e9  bl         0x8224aff8
+0x822C3F14  807e0000  lwz        r3, 0(r30)
+0x822C3F18  4bf87131  bl         0x8224b048
+0x822C3F1C  38600001  li         r3, 1
+0x822C3F20  4bf87169  bl         0x8224b088
+0x822C3F24  817f0058  lwz        r11, 0x58(r31)
+0x822C3F28  38a00000  li         r5, 0
+0x822C3F2C  38800001  li         r4, 1
+0x822C3F30  806b0008  lwz        r3, 8(r11)
+0x822C3F34  4bf691bd  bl         0x8222d0f0
+0x822C3F38  817f0058  lwz        r11, 0x58(r31)
+0x822C3F3C  806b000c  lwz        r3, 0xc(r11)
+0x822C3F40  2f03ffff  cmpwi      cr6, r3, -1
+0x822C3F44  419a0010  beq        cr6, 0x822c3f54
+0x822C3F48  38a00000  li         r5, 0
+0x822C3F4C  38800001  li         r4, 1
+
+=== 0x8224B590  le lieur de scene (unites 15 et 14) ===
+0x8224B590  7d8802a6  mflr       r12
+0x8224B594  483b44b1  bl         0x825ffa44
+0x8224B598  9421ff80  stwu       r1, -0x80(r1)
+0x8224B59C  547f063e  clrlwi     r31, r3, 0x18
+0x8224B5A0  38600000  li         r3, 0
+0x8224B5A4  7feb0034  cntlzw     r11, r31
+0x8224B5A8  3b800000  li         r28, 0
+0x8224B5AC  5564dffe  rlwinm     r4, r11, 0x1b, 0x1f, 0x1f
+0x8224B5B0  3b600000  li         r27, 0
+0x8224B5B4  4bfb0a45  bl         0x821fbff8
+0x8224B5B8  38600000  li         r3, 0
+0x8224B5BC  4bf842d5  bl         0x821cf890
+0x8224B5C0  38600001  li         r3, 1
+0x8224B5C4  4bf842cd  bl         0x821cf890
+0x8224B5C8  38600002  li         r3, 2
+0x8224B5CC  4bf842c5  bl         0x821cf890
+0x8224B5D0  3d608285  lis        r11, -0x7d7b
+0x8224B5D4  2b1f0000  cmplwi     cr6, r31, 0
+0x8224B5D8  3bebc79c  addi       r31, r11, -0x3864
+0x8224B5DC  409a00e4  bne        cr6, 0x8224b6c0
+0x8224B5E0  897f00e4  lbz        r11, 0xe4(r31)
+0x8224B5E4  807f0010  lwz        r3, 0x10(r31)
+0x8224B5E8  2b0b0000  cmplwi     cr6, r11, 0
+0x8224B5EC  419a000c  beq        cr6, 0x8224b5f8
+0x8224B5F0  48057f21  bl         0x822a3510
+0x8224B5F4  48000008  b          0x8224b5fc
+0x8224B5F8  48057101  bl         0x822a26f8
+0x8224B5FC  897f0002  lbz        r11, 2(r31)
+0x8224B600  2b0b0000  cmplwi     cr6, r11, 0
+0x8224B604  3d608265  lis        r11, -0x7d9b
+0x8224B608  3bab1448  addi       r29, r11, 0x1448
+0x8224B60C  419a004c  beq        cr6, 0x8224b658
+0x8224B610  897f005c  lbz        r11, 0x5c(r31)
+0x8224B614  2b0b0000  cmplwi     cr6, r11, 0
+0x8224B618  419a0040  beq        cr6, 0x8224b658
+0x8224B61C  817f00f8  lwz        r11, 0xf8(r31)
+0x8224B620  395f011c  addi       r10, r31, 0x11c
+0x8224B624  3880000f  li         r4, 0xf
+0x8224B628  556b103a  slwi       r11, r11, 2
+0x8224B62C  7d6be82e  lwzx       r11, r11, r29
+0x8224B630  55691838  slwi       r9, r11, 3
+0x8224B634  7d6b4a14  add        r11, r11, r9
+0x8224B638  556b103a  slwi       r11, r11, 2
+0x8224B63C  7f8b5214  add        r28, r11, r10
+0x8224B640  7f83e378  mr         r3, r28
+0x8224B644  48001485  bl         0x8224cac8
+0x8224B648  3d60828a  lis        r11, -0x7d76
+0x8224B64C  3bcbf9a0  addi       r30, r11, -0x660
+0x8224B650  39600001  li         r11, 1
+0x8224B654  48000010  b          0x8224b664
+0x8224B658  3d60828a  lis        r11, -0x7d76
+0x8224B65C  3bcbf9a0  addi       r30, r11, -0x660
+0x8224B660  39600000  li         r11, 0
+0x8224B664  917e0098  stw        r11, 0x98(r30)
+0x8224B668  897f0003  lbz        r11, 3(r31)
+0x8224B66C  2b0b0000  cmplwi     cr6, r11, 0
+0x8224B670  419a0048  beq        cr6, 0x8224b6b8
+0x8224B674  897f005d  lbz        r11, 0x5d(r31)
+0x8224B678  2b0b0000  cmplwi     cr6, r11, 0
+0x8224B67C  419a003c  beq        cr6, 0x8224b6b8
+
+=== les accesseurs du gestionnaire 0x8284C79C ===
+
+-- 0x8224AFE0  [mgr+0x60] = a ; [mgr+0x64] = b
+0x8224AFE0  3d608285  lis        r11, -0x7d7b
+0x8224AFE4  396bc79c  addi       r11, r11, -0x3864
+0x8224AFE8  906b0060  stw        r3, 0x60(r11)
+0x8224AFEC  908b0064  stw        r4, 0x64(r11)
+0x8224AFF0  4e800020  blr        
+-- 0x8224AFF8  [mgr + passe] = valeur  (autorisation de passe)
+0x8224AFF8  3d608285  lis        r11, -0x7d7b
+0x8224AFFC  396bc79c  addi       r11, r11, -0x3864
+0x8224B000  7c8359ae  stbx       r4, r3, r11
+0x8224B004  4e800020  blr        
+-- 0x8224B038  [mgr+0xF8] = variante de reflet
+0x8224B038  3d608285  lis        r11, -0x7d7b
+0x8224B03C  396bc79c  addi       r11, r11, -0x3864
+0x8224B040  906b00f8  stw        r3, 0xf8(r11)
+0x8224B044  4e800020  blr        
+-- 0x8224B048  [mgr+0xFC] = variante de refraction
+0x8224B048  3d608285  lis        r11, -0x7d7b
+0x8224B04C  396bc79c  addi       r11, r11, -0x3864
+0x8224B050  906b00fc  stw        r3, 0xfc(r11)
+0x8224B054  4e800020  blr        
+-- 0x8224B078  [mgr+0x5C] = drapeau reflet
+0x8224B078  3d608285  lis        r11, -0x7d7b
+0x8224B07C  396bc79c  addi       r11, r11, -0x3864
+0x8224B080  986b005c  stb        r3, 0x5c(r11)
+0x8224B084  4e800020  blr        
+-- 0x8224B088  [mgr+0x5D] = drapeau refraction
+0x8224B088  3d608285  lis        r11, -0x7d7b
+0x8224B08C  396bc79c  addi       r11, r11, -0x3864
+0x8224B090  986b005d  stb        r3, 0x5d(r11)
+0x8224B094  4e800020  blr        

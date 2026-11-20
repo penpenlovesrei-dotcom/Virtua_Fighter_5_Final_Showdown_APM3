@@ -1,0 +1,19 @@
+SERVEUR ALL.Net minimal
+  cle Link : SHA256(gameId) XOR constante  (gameId lu dans l en-tete)
+  cle GS   : 4cdfcd68b08975c626e36846230791d89798aa818259cc0a27fdadaac211273f
+  journal  : C:\Users\frede\Desktop\VF5RE\analysis\serveur_allnet.txt
+
+a l ecoute sur 127.0.0.1:80 -- Link ET GS (chemins disjoints).
+Lancez le jeu, puis fermez cette fenetre pour arreter.
+
+13:48:50  [link] POST /api/turninfo   128 octets
+        en-tete : 01010100303030300a72c12999d42b3a
+        version 1.00   gameId b'0000'
+        JSON recu : {"client": {"serial": "A69E01A8888", "game_id": "0000", "game_ver": "1.00", "location_id": 0, "create_time": "20260906134850"}}
+        JSON rendu : {"host":"127.0.0.1","port":3478,"id":"vf5","pw":"vf5"}
+13:48:51  [gs] POST /api/data/load   160 octets
+        en-tete : 0101010030303030cc3e7d57f5677c5e
+        version 1.00   gameId b'0000'
+        JSON recu : {"free_buckets": {"keys": ["misc_*", "rule_*", "matching_*"]}, "client": {"serial": "A69E01A8888", "game_id": "0000", "game_ver": "1.00", "location_id": 0, "create_time": "20260906134851"}}
+        route inconnue -> on repond {} (code 0)
+        JSON rendu : {}

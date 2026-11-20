@@ -1,0 +1,24 @@
+processus 10636 lance sous debogage
+  image     0x00007FF751320000  vfes.exe
+  dll       0x00007FFB2A640000  apm.dll
+  dll       0x00007FFB2B640000  d3d11.dll
+  dll       0x00007FFB2CBA0000  dxgi.dll
+  dll       0x00007FFB2AC40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB329A2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2FD841CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFA876D0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 10636 coupee apres 2 s
+  vecteur d objsets : 0x114F673D060..0x114F6A30A60, 6045 entrees de 0x200 octets
+  cles TRIEES : True   (min 0, max 6150)
+  notre objset 6150 est PRESENT au rang 6044
+  voisins : [6147, 6148, 6149, 6150]
+  enregistrement de la cle 28 (rang 28) : (aucune chaine)
+  enregistrement de la cle 0 (rang 0) : (aucune chaine)
+  gestionnaire 0x114F3660840 : +0x90 (deja charge) = 01, +0x98 = 0x7FF44EF5AA30
+  la DICHOTOMIE du moteur tombe au rang 6044 (cle 6150) -> TROUVE
+  (present dans la table et trouvable par dichotomie sont deux choses differentes : c est le second qui compte)
+--- 40 s ecoulees, on arrete ---
+
+79 module(s) charge(s)
+  scenario d entrees remis en jeu manuel

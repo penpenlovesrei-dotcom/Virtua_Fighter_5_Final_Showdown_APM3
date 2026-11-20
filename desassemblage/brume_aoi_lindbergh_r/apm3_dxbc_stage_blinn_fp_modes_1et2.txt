@@ -1,0 +1,138 @@
+===== w64_shader/stage_blinn.00000010.fp =====
+   0  dcl_globalflags    67108953
+   1  dcl_constantbuffer cb[0][22].xyzw
+   2  dcl_constantbuffer cb[2][20].xyzw
+   3  dcl_constantbuffer cb[3][5].xyzw
+   4  dcl_constantbuffer cb[4][4].xyzw
+   5  dcl_constantbuffer cb[7][1].xyzw
+   6  dcl_sampler        s3
+   7  dcl_resource       t3, imm64[]
+   8  dcl_input_ps       v0.xyz
+   9  dcl_input_ps       v1.xyz
+  10  dcl_input_ps       v1.w
+  11  dcl_input_ps       v2.xy
+  12  dcl_input_ps       v3.xyz
+  13  dcl_input_ps       v6.xyz
+  14  dcl_output         o0.xyzw
+  15  dcl_temps          3
+  16  ine                r0.x, (0), cb[7][0].x
+  17  max                r0.y, cb[0][21].w, cb[3][1].w
+  18  add                r0.z, r0.y, cb[7][0].y
+  19  mov                o0.w, r0.y
+  20  lt                 r0.y, r0.z, (0)
+  21  and                r0.x, r0.x, r0.y
+  22  discard            r0.x
+  23  dp3                r0.x, v3.xyzx, v3.xyzx
+  24  rsq                r0.x, r0.x
+  25  mul                r0.xyz, r0.xxxx, v3.xyzx
+  26  mov                r0.w, (1)
+  27  dp4                r1.x, cb[2][8].xyzw, r0.xyzw
+  28  dp4                r1.y, cb[2][9].xyzw, r0.xyzw
+  29  dp4                r1.z, cb[2][10].xyzw, r0.xyzw
+  30  dp4                r1.w, cb[2][11].xyzw, r0.xyzw
+  31  dp4                r1.x, r0.xyzw, r1.xyzw
+  32  dp4                r2.x, cb[2][12].xyzw, r0.xyzw
+  33  dp4                r2.y, cb[2][13].xyzw, r0.xyzw
+  34  dp4                r2.z, cb[2][14].xyzw, r0.xyzw
+  35  dp4                r2.w, cb[2][15].xyzw, r0.xyzw
+  36  dp4                r1.y, r0.xyzw, r2.xyzw
+  37  dp4                r2.x, cb[2][16].xyzw, r0.xyzw
+  38  dp4                r2.y, cb[2][17].xyzw, r0.xyzw
+  39  dp4                r2.z, cb[2][18].xyzw, r0.xyzw
+  40  dp4                r2.w, cb[2][19].xyzw, r0.xyzw
+  41  dp4                r1.z, r0.xyzw, r2.xyzw
+  42  dp3                r0.w, r0.xyzx, cb[0][14].xyzx
+  43  max                r1.w, r0.w, (0)
+  44  mad                r1.xyz, r1.wwww, cb[0][16].xyzx, r1.xyzx
+  45  mad                r1.xyz, r1.xyzx, v0.xyzx, cb[3][3].xyzx
+  46  mul                r1.xyz, r1.xyzx, cb[3][1].xyzx
+  47  add                r2.xyz, v6.xyzx, cb[0][14].xyzx
+  48  dp3                r1.w, r2.xyzx, r2.xyzx
+  49  rsq                r1.w, r1.w
+  50  mul                r2.xyz, r1.wwww, r2.xyzx
+  51  dp3                r0.x, r0.xyzx, r2.xyzx
+  52  ge                 r0.yw, r0.xxxw, (0, 0, 0, 0)
+  53  log                r0.x, r0.x
+  54  and                r0.y, r0.w, r0.y
+  55  mad                r0.z, cb[3][4].x, (112), (16)
+  56  mul                r0.x, r0.x, r0.z
+  57  exp                r0.x, r0.x
+  58  and                r0.x, r0.x, r0.y
+  59  mul                r0.xyz, r0.xxxx, cb[0][17].xyzx
+  60  mad                r0.xyz, r0.xyzx, cb[4][3].xyzx, r1.xyzx
+  61  sample             r[].zw, r2.xyz, v2.xyxx, t3.xyzw, s3
+  62  mul                r2.xyz, r2.xyzx, v1.xyzx
+  63  mad                r0.xyz, r2.xyzx, r0.xyzx, r1.xyzx
+  64  add                r1.xyz, r0.xyzx, cb[0][4].xyzx
+  65  mad                o0.xyz, v1.wwww, r1.xyzx, r0.xyzx
+  66  ret                
+
+===== w64_shader/stage_blinn.00000020.fp =====
+   0  dcl_globalflags    67108953
+   1  dcl_constantbuffer cb[0][22].xyzw
+   2  dcl_constantbuffer cb[2][20].xyzw
+   3  dcl_constantbuffer cb[3][5].xyzw
+   4  dcl_constantbuffer cb[4][4].xyzw
+   5  dcl_constantbuffer cb[7][1].xyzw
+   6  dcl_sampler        s3
+   7  dcl_resource       t3, imm64[]
+   8  dcl_input_ps       v0.xyz
+   9  dcl_input_ps       v1.xyz
+  10  dcl_input_ps       v1.w
+  11  dcl_input_ps       v2.xy
+  12  dcl_input_ps       v3.xyz
+  13  dcl_input_ps       v6.xyz
+  14  dcl_output         o0.xyzw
+  15  dcl_temps          3
+  16  ine                r0.x, (0), cb[7][0].x
+  17  max                r0.y, cb[0][21].w, cb[3][1].w
+  18  add                r0.z, r0.y, cb[7][0].y
+  19  mov                o0.w, r0.y
+  20  lt                 r0.y, r0.z, (0)
+  21  and                r0.x, r0.x, r0.y
+  22  discard            r0.x
+  23  dp3                r0.x, v3.xyzx, v3.xyzx
+  24  rsq                r0.x, r0.x
+  25  mul                r0.xyz, r0.xxxx, v3.xyzx
+  26  mov                r0.w, (1)
+  27  dp4                r1.x, cb[2][8].xyzw, r0.xyzw
+  28  dp4                r1.y, cb[2][9].xyzw, r0.xyzw
+  29  dp4                r1.z, cb[2][10].xyzw, r0.xyzw
+  30  dp4                r1.w, cb[2][11].xyzw, r0.xyzw
+  31  dp4                r1.x, r0.xyzw, r1.xyzw
+  32  dp4                r2.x, cb[2][12].xyzw, r0.xyzw
+  33  dp4                r2.y, cb[2][13].xyzw, r0.xyzw
+  34  dp4                r2.z, cb[2][14].xyzw, r0.xyzw
+  35  dp4                r2.w, cb[2][15].xyzw, r0.xyzw
+  36  dp4                r1.y, r0.xyzw, r2.xyzw
+  37  dp4                r2.x, cb[2][16].xyzw, r0.xyzw
+  38  dp4                r2.y, cb[2][17].xyzw, r0.xyzw
+  39  dp4                r2.z, cb[2][18].xyzw, r0.xyzw
+  40  dp4                r2.w, cb[2][19].xyzw, r0.xyzw
+  41  dp4                r1.z, r0.xyzw, r2.xyzw
+  42  dp3                r0.w, r0.xyzx, cb[0][14].xyzx
+  43  max                r1.w, r0.w, (0)
+  44  mad                r1.xyz, r1.wwww, cb[0][16].xyzx, r1.xyzx
+  45  mad                r1.xyz, r1.xyzx, v0.xyzx, cb[3][3].xyzx
+  46  mul                r1.xyz, r1.xyzx, cb[3][1].xyzx
+  47  add                r2.xyz, v6.xyzx, cb[0][14].xyzx
+  48  dp3                r1.w, r2.xyzx, r2.xyzx
+  49  rsq                r1.w, r1.w
+  50  mul                r2.xyz, r1.wwww, r2.xyzx
+  51  dp3                r0.x, r0.xyzx, r2.xyzx
+  52  ge                 r0.yw, r0.xxxw, (0, 0, 0, 0)
+  53  log                r0.x, r0.x
+  54  and                r0.y, r0.w, r0.y
+  55  mad                r0.z, cb[3][4].x, (112), (16)
+  56  mul                r0.x, r0.x, r0.z
+  57  exp                r0.x, r0.x
+  58  and                r0.x, r0.x, r0.y
+  59  mul                r0.xyz, r0.xxxx, cb[0][17].xyzx
+  60  mad                r0.xyz, r0.xyzx, cb[4][3].xyzx, r1.xyzx
+  61  sample             r[].zw, r2.xyz, v2.xyxx, t3.xyzw, s3
+  62  mul                r2.xyz, r2.xyzx, v1.xyzx
+  63  mad                r0.xyz, r2.xyzx, r0.xyzx, r1.xyzx
+  64  add                r1.xyz, r0.xyzx, cb[0][11].xyzx
+  65  mad                o0.xyz, v1.wwww, r1.xyzx, r0.xyzx
+  66  ret                
+

@@ -1,0 +1,162 @@
+CONTROLE DU MODE QUEST -- tout ce qui se verifie sans lancer le jeu
+atelier : C:\Users\frede\Desktop\VF5RE
+
+==========================================================================
+0. CONSTRUIRE
+==========================================================================
+  $ tools\gen_apm_stub.py
+    | tools/apm_stub.c ecrit : 57 fonctions
+    | tools/apm_stub.c: In function 'lire_manette':
+    | tools/apm_stub.c:305:27: warning: cast between incompatible function types from 'FARPROC' {aka 'long long int (*)(void)'} to 'DWORD (*)(DWORD,  XI_ETAT *)' {aka 'long unsigned int (*)(long unsigned int,  XI_ETAT *)'} [-Wcast-function-type]
+    |   305 |         if (h) g_xinput = (XI_GET)GetProcAddress(h, "XInputGetState");
+    |       |                           ^
+    | In file included from tools/apm_stub.c:594:
+    | tools/quest_runtime.c: At top level:
+    | tools/quest_runtime.c:1143:12: warning: 'quest_profil_compte_rencontres' defined but not used [-Wunused-function]
+    |  1143 | static int quest_profil_compte_rencontres(void)
+    |       |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    | runtime/media/vf5fs\apm.dll compile (70144 octets)
+    | runtime/media/vf5fs\apm_entrees.txt copie (3498 octets)
+  deja en place : bases_2d.py
+  deja en place : textes_quest.py
+  deja en place : rivaux.py
+  deja en place : musique_quest.py
+  $ tools\objets_quest.py --ecrire
+    |   runtime\media\vf5fs\quest_objets.bin ecrit : 70849 octets
+    |     aki   198 objets
+    |     aoi   186 objets
+    |     bra   193 objets
+    |     goh   204 objets
+    |     jak   197 objets
+    |     jef   189 objets
+    |     kag   279 objets
+    |     lau   182 objets
+    |     lei   191 objets
+    |     lio   184 objets
+    |     pai   184 objets
+    |     sar   191 objets
+    |     shu   198 objets
+    |     van   202 objets
+    |     wol   186 objets
+    |     msk   202 objets
+    |     mon   216 objets
+    |     krt     0 objets
+    |     tak     0 objets
+  $ tools\patch_moteur.py --resolution 1280 720 --langue --logo-japonais --dural --wxga --dural-grille --mode 0 --menu-init --sousmenu --transition-game --sp-menu --sp-lancer --sp-sparring --joueur2 --menu-fermer --options-raccourci --dojo-howto --dojo-cadre --options-sans-howto --menu-exit --legende-sousmenu --attract-retour-titre --sans-now-loading --options-tips --decor-perso djo --decors-dural cas --variantes --du2-collision --bases-2d-libres --quest-ecran --textes-quest --terminal-boutons --customize-curseur --replays-sans-gel --vignettes-costume
+    | applique : resolution 1280 x 720, langue : export (anglais), les DEUX getters, logo : japonais conserve, affichage WXGA au lieu de VGA -- la grille a alors sa case Dural, grille : compositions _dur prises ET case de Dural non desactivee, le menu est demonte sans condition quand on quitte le mode MENU, dojo : le sous-menu emprunte le cadre des OPTIONS, taille pour cinq lignes, options : « How to Play » retiree, les quatre autres lignes decalees (elle vit desormais au Dojo), options : le raccourci « tenir START » ne detourne plus les validations vers la page d informations, options > Settings : la quatrieme ligne devient « Tips » Off/On (elle etait « Autosave », inerte sur borne) et commande le conseil des ecrans de chargement, menu console : EXIT GAME (entree 9) est affichee, et sa confirmation ferme le jeu, menu console : l attente d initialisation est levee, mode = 0 (game_mode : 0 console, 1 borne, 2 ?), drapeaux = 0x10 (dural), grille de la borne : 4 bornes portees de 18 a 20 (Dural comprise), decor de l ecran de personnalisation : 11 (djo) au lieu de 1 (ts2) -- les DEUX index, geometrie ET eclairage, decors de Dural : cas riv jin sin djo -> du1 du2 du3 du4 du5 (decor maison de l adversaire ; le bouchon 0x1800B2330 qui forcait du2 n est plus appele), variantes : la barre espace (code 6, canal libre) fait defiler du1..du5 sur la case du curseur. DEUX accroches - 0x180174710 lit le bouton et fait tourner le numero, 0x1801747C0 l applique APRES la recomputation du curseur (0x180174781), qui defaisait la premiere version. Section greffee en 0x180EA1000. Les trois substitutions du1 -> du2 de l ecran sont levees., terminal : 0x1801C7A12 (recentrer la camera) passe du masque arcade -- un bit que RIEN ne remplit -- au code 16 du stub, lu directement par Input_isOnNow. Aucun autre ecran n est touche., terminal : 0x1801C7A2F (changer de vue) passe du masque arcade -- un bit que RIEN ne remplit -- au code 17 du stub, lu directement par Input_isOnNow. Aucun autre ecran n est touche., customize : TaskDataSelector : le choix du personnage garde ses DIX-NEUF crans horizontaux, bouclés -- les 13 octets qui remettaient le compteur a zero (0x1801D0562) sont neutralises. Le compte que le moteur venait de poser survit, et le curseur bouge., customize : TaskCustomizeMenu : le menu de personnalisation garde ses SEPT lignes -- les 26 octets qui remettaient le compteur a zero (0x1801CB5F4) sont neutralises. Le compte que le moteur venait de poser survit, et le curseur bouge., customize : TaskExclWarning : l avertissement garde ses DEUX lignes -- les 26 octets qui remettaient le compteur a zero (0x1801CB6B9) sont neutralises. Le compte que le moteur venait de poser survit, et le curseur bouge., customize : CharSelector : la sous-page garde les DIX-NEUF crans que 0x1801D0B80 lui pose -- les 12 octets qui remettaient le compteur a zero (0x1801D0262) sont neutralises. Le compte que le moteur venait de poser survit, et le curseur bouge., customize : TaskCostumeMenu : le « Costume settings » prend pour compte horizontal le nombre de costumes que le moteur vient lui-meme de compter ([rbx+0x420] - 1), et boucle. Les 26 octets de 0x1801CB53A remettaient le compteur a zero sans qu aucune valeur lui ait jamais ete posee -- il n y avait donc rien a neutraliser, il fallait ECRIRE le calcul., customize : TaskDataSelector creneau 8 (horizontal) : le Character Select accepte enfin ses dix-neuf crans. Le creneau portait le bouchon 0x180007450 (`xor al,al ; ret`), qui faisait REFUSER le deplacement -- et 0x1801BBBE0 restaure alors le curseur. Il porte desormais 0x1801BD080, l accepteur que toutes les autres pages ont deja., customize : DataSelector -- les CINQ lignes de donnees du premier ecran -- recoit enfin son compte vertical (4 crans, bouclant), pose par le relais 0x180EA3240. Sa boucle de dessin se referme sur un `cmp esi, 5` litteral, son cadre de selection est place a `[rbx+0x58] * 36` -- le curseur meme du repartiteur -- et sa mise a jour appelle ce repartiteur. Les douze octets de 0x1801D029C remettaient le compte a zero., vignettes : le creneau 4 de TaskCostumeMenu (0x1805303E0) passe par 0x180EA3140, qui CHARGE la planche spr_t_itm<perso> avant de dessiner. Les six cases etaient noires parce que « Costume settings » s ouvre AVANT l etat 40 de CUST_MAIN, le seul qui chargeait la planche -- mesure a l ecran, sonde du 2026-10-01. Le relais ecrit aussi CUST_MAIN+0x60, pour que l etat 40 decharge au lieu de charger une seconde fois., replays : « Online data » ne fige plus non plus (0x1801DE2B6, UN octet : `cmp edi,2` -> `cmp edi,3`). Il ouvrait la page des classements 0x1801B0120, qui sur une borne sans reseau n a rien a jouer et ne se termine jamais -- le meme defaut que SOUSMENU_RANKING decrit pour le menu principal., replays : « Your data » referme la page au lieu de figer l ecran (0x1801DE257). Le chargement des reprises est bouchonne (0x180007450 en 0x1801BAD18), la garde 0x1801BACF0 ne peut donc jamais devenir vraie, et le validateur avait deja ferme les deux scenes. C est un REPLI, pas une reparation du lecteur., quest : SCOREBOARDS (le `call 0x1801B0120` de 0x1801DE09A) pose l etat DATA_TEST/35 au lieu d ouvrir la page des classements. ONLINE n est pas touche. Cet etat etait entierement bouchonne (`mov al,1 ; ret`) : trois creneaux passent par la greffe -- la boucle du mode (0x180EA2F60) et celle du sous-etat rendent l octet `sortie` de la boite 0x180EA2F40 (0 = l ecran tient), sa sortie (0x180EA2F80) la remet a zero. Le mode d apres (DATA_TEST+0x60) passe de 1 (ADVERTISE) a 4 (MENU) : quitter le Quest rend la main au menu. apm.dll trouve la boite en cherchant « QUESTBOX » dans l image du moteur., quest : le creneau 4 d AetMgr (0x1803487C8) passe par le detour 0x180EA2FD0 -- l original d abord, puis le rappel que apm.dll depose en +0x18 de la boite. C est la phase de RENDU, la seule ou un dessin produise quelque chose, et elle passe APRES les calques 2D : le texte est donc au-dessus. Rappel nul = detour inerte., textes : la borne du resolveur 0x1801EFD10 passe de 23052 a 23544 (`cmp ebx, imm32` en 0x1801EFD66). Les 492 chaines du mode Quest, relevees dans le code de 2007 et ajoutees A LA SUITE par tools/textes_quest.py, deviennent resolvables. Aucun identifiant de Final Showdown ne bouge., du2 : sa VRAIE collision (rom/STGDU2_COLI.000.bin, 3984 o dans le .par) au lieu de celle de du1 (5744 o) ; la chaine manquante est ecrite dans le mou de fin de .rdata, joueur 2 : shl ebp, 4 : le joueur 2 decale ses codes de seize, joueur 2 : 11 codes rendus relatifs au joueur (clavier = 1P, manette = 2P), transition : caverne : cree la session, puis demande GAME/SELECTOR (0x18034579C, 46 octets), transition : la fin du selecteur demande VS au lieu du menu (0x1800DB399, 10 octets), transition : apres le combat, retour au MENU et non a l ecran-titre (0x1800DA9EC, 17 octets), transition : caverne versus : enregistre les reglages puis lance (0x1803457CC, 19 octets), transition : OFFLINE VERSUS mene au combat (0x1801DEB12, 5 octets), transition : caverne dojo : type, mode 6, session, sous-etat 41 (0x18034575C, 41 octets), transition : DOJO mene a l entrainement (0x1801DDA61, 5 octets), transition : caverne de sortie : Echap (ou BACK) quitte le mode (0x1803457E0, 30 octets), transition : Echap quitte le mode (site 0x1800DA9E3) (0x1800DA9E3, 5 octets), transition : Echap quitte le mode (site 0x1801E4E6E) (0x1801E4E6E, 5 octets), single player : caverne Arcade : lancement (mode non pose) (0x1801A703D, 19 octets), single player : le validateur de Arcade passe par sa caverne (0x1801DDE89, 5 octets), single player : caverne Score Attack : lancement (mode non pose) (0x1801A7058, 19 octets), single player : le validateur de Score Attack passe par sa caverne (0x1800A48A9, 5 octets), single player : caverne License Challenge : lancement (mode non pose) (0x1801A71D8, 19 octets), single player : le validateur de License Challenge passe par sa caverne (0x1801DDE49, 5 octets), Special Sparring : caverne Special Sparring : pose le mode 3 par le setter natif, puis saute dans la transition (0x1801A706B, 18 octets), Special Sparring : la mise a jour de Special Sparring passe par sa caverne (0x1801A4252, 5 octets), dojo : le menu passe de trois a quatre lignes (0x1801E4451, 1 octets), dojo : caverne : le quatrieme libelle, « How to Play » (0x180345785, 19 octets), dojo : le dessin appelle la caverne du libelle (0x1801E1EA2, 10 octets), dojo : caverne : l entree 3 ouvre How to Play (0x1801A7C89, 65 octets), dojo : l aiguillage passe par le relais (0x1801DE461, 6 octets), sous-menu : la garde teste l EXISTENCE de la scene, non plus son animation (0x1801DC649, 5 octets), sous-menu : la page RANKING n est plus rangee comme un sous-menu (0x1801DCE2C, 7 octets), chargement : le texte « NOW LOADING » n est plus dessine (0x18019BEB2, 5 octets), attract : couper l attract ramene au TITRE et non en mode APM3 (0x1800DD902, 2 octets), legende : caverne : efface la legende de la page, puis le predicat (0x1802758DB, 19 octets), legende : la garde du menu principal passe par sa caverne (0x1801DC649, 5 octets), bases 2D : les noms « spr_db.bin » et « aet_db.bin » sont masques dans l ARCHIVE FArC EMBARQUEE (0x1804137F0) : le moteur lit ./rom/2d/, ou nos planches (mode Quest) sont declarees.
+    | 
+    | vf5fs_game_config_t desormais : DC 00 02 2D 02 00 00 10
+    |     energie 220    rounds 2   temps 45   difficulte 2
+    |     game_mode 0 = console            langue 0
+    |     is_triangle_start 0   is_dural_unlocked 1
+
+==========================================================================
+8. LE MODULE apm.dll
+==========================================================================
+  OK      apm.dll                                    70144 octets, exports Input_isOn / Input_isOnNow, magie QUESTBOX presente
+
+==========================================================================
+1. LE MOTEUR PATCHE
+==========================================================================
+  OK      .greffe                                    VA 0x180EA1000, 0x3240 octets, executable
+  OK      disposition de la greffe                   31 zones, aucun recouvrement, tout tient dans 0x3240
+            A          0x0000 .. 0x00C0
+            B          0x00C0 .. 0x0180
+            TROUVE     0x0180 .. 0x01C0
+            APPL       0x01C0 .. 0x0300
+            DESS       0x0300 .. 0x0500
+            SLOT       0x0500 .. 0x0600
+            RANG       0x0610 .. 0x0614
+            APPLIQUE   0x0614 .. 0x0618
+            PLAFOND    0x0618 .. 0x061C
+            ORDRE      0x061C .. 0x0620
+            X          0x0620 .. 0x0624
+            Y          0x0624 .. 0x0628
+            PASSE      0x0628 .. 0x062C
+            TAILLE     0x062C .. 0x0630
+            DESC       0x0640 .. 0x0690
+            STYLE      0x06A0 .. 0x06E0
+            PASSES     0x0700 .. 0x076C
+            COMPTES    0x0780 .. 0x07D0
+            IDX        0x07D0 .. 0x0A50
+            TEXTES     0x0A50 .. 0x1E50
+            NUM        0x1E50 .. 0x1EA0
+            EAU        0x1EA0 .. 0x1EE0
+            EAU_TABLE  0x1EE0 .. 0x1F20
+            QUEST      0x1F40 .. 0x2040
+            TERM       0x2040 .. 0x2140
+            COS        0x2140 .. 0x2240
+            DSEL       0x2240 .. 0x2280
+            SIT        0x2280 .. 0x2380
+            SPT        0x2380 .. 0x2400
+            JPR        0x2400 .. 0x2500
+            GEN        0x2500 .. 0x3240
+  OK      SCOREBOARDS (0x1801DE09A)                  call -> 0x180EA2FA0 (.greffe+0x1FA0)
+  OK      mode DATA_TEST                             0x180029FB0 -> 0x180EA2F60 (.greffe+0x1F60)
+  OK      sous-etat 35, milieu                       0x180029FB0 -> 0x180EA2F60 (.greffe+0x1F60)
+  OK      sous-etat 35, sortie                       0x180029FB0 -> 0x180EA2F80 (.greffe+0x1F80)
+  OK      mode de retour                             4 = MENU
+  OK      creneau 4 d AetMgr                         0x1800235C0 -> 0x180EA2FD0
+  OK      la boite aux lettres                       'QUESTBOX' en 0x180EA2F40
+  OK      TERMINAL 0x1801C7A12 (recentrer la camera) relais 0x180EA3040, code 16
+  OK      TERMINAL 0x1801C7A2F (changer de vue)      relais 0x180EA3070, code 17
+  OK      curseur TaskDataSelector                   13 octets neutralises en 0x1801D0562
+  OK      curseur TaskCustomizeMenu                  26 octets neutralises en 0x1801CB5F4
+  OK      curseur TaskExclWarning                    26 octets neutralises en 0x1801CB6B9
+  OK      curseur CharSelector                       12 octets neutralises en 0x1801D0262
+  OK      compte TaskCostumeMenu                     26 octets reecrits en 0x1801CB53A : le compte vient de [rbx+0x420]
+  OK      compte DataSelector                        relais 0x180EA3240 : 4 crans bouclants, retour 0x1801D02A8
+  OK      accepteur TaskDataSelector creneau 8 (horizontal) 0x180007450 -> 0x1801BD080
+  OK      vignettes (creneau 4 TaskCostumeMenu)      relais 0x180EA3140 : la planche est chargee avant le dessin
+  OK      replays 0x1801DE257                        « Your data » referme la page au lieu de figer
+  OK      replays 0x1801DE2B6                        « Online data » referme la page (cmp edi,2 -> cmp edi,3)
+
+==========================================================================
+2. LES 492 LIBELLES DU QUEST
+==========================================================================
+  OK      libelles 23052..23543                      492 chaines, presentes dans string_array
+
+==========================================================================
+3. npc_tbl.bin -- LES MILLE RIVAUX
+==========================================================================
+  OK      npc_tbl.bin                                178864 octets, 1000 rivaux de 0x90
+  OK      npc_tbl gros-boutisme                      nom 0 en 0x23280 (0x80320200 en petit-boutiste, hors reservoir : bon signe)
+  OK      rival temoin 0                             nom 'steven jul', perso 0, grade 0, lieu 3
+            replique 1 : 'I will be the'
+            replique 2 : 'still coret t'
+
+==========================================================================
+4. quest_objets.bin -- LA BOUTIQUE
+==========================================================================
+  OK      quest_objets.bin                           version 1, 19 personnages, 3382 objets, 0 sans prix
+            temoin : perso 0, objet FS 0x1, prix 500 G
+
+==========================================================================
+5. LA MUSIQUE
+==========================================================================
+  OK      vf5ps3_b03map.adx                          5836800 octets, en-tete ADX
+
+==========================================================================
+6. LES PLANCHES 2D DU QUEST
+==========================================================================
+  OK      bases 2D                                   les planches que qwin tnt tnto qdan sont declarees
+
+==========================================================================
+9. LES SONDES, A VIDE
+==========================================================================
+    | essai a vide : le rappel et le rapport tiennent. Rien n a ete lance.
+  OK      sonde_vignettes.py                         le rappel et le rapport tiennent
+
+==========================================================================
+7. LE PROFIL PERSISTANT
+==========================================================================
+  OK      quest_profil.bin                           version 2, 336 octets
+
+==========================================================================
+BILAN
+==========================================================================
+  Aucun defaut. Tout ce qui se mesure sans ecran est en place.
+  Ce que ce controle NE dit PAS : que cela s affiche. Les lignes « A VOIR »
+  et tout le §4.1 du cahier des charges demandent un lancement.
+
+rapport : analysis\controle_quest.txt

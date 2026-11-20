@@ -1,0 +1,80 @@
+==========================================================================
+SONDE DE PLANTAGE -- 60 s, le clavier est a vous
+==========================================================================
+sections de vf5fs-pxd-w64-Retail_APM3.dll (RVA) :
+   .text      0x00001000 .. 0x00345800   (VA preferee 0x180001000)
+   .rdata     0x00346000 .. 0x00641C00   (VA preferee 0x180346000)
+   .data      0x00642000 .. 0x00E6437C   (VA preferee 0x180642000)
+   .pdata     0x00E65000 .. 0x00E8D200   (VA preferee 0x180E65000)
+   .rsrc      0x00E8E000 .. 0x00E91600   (VA preferee 0x180E8E000)
+   .reloc     0x00E92000 .. 0x00EA1000   (VA preferee 0x180E92000)
+   .greffe    0x00EA1000 .. 0x00EA4000   (VA preferee 0x180EA1000)
+   .decors    0x00EA4000 .. 0x00EAD000   (VA preferee 0x180EA4000)
+   .reloc2    0x00EAD000 .. 0x00EBC800   (VA preferee 0x180EAD000)
+carte de .decors :
+   +0x000000  descripteurs (61 x 0xF0)
+   +0x003930  codes
+   +0x003B20  grille
+   +0x003DC0  objsets + taches d effet
+   +0x0054A0  effets a3d
+   +0x005750  effets mur
+   +0x006490  uid des decors neufs
+   +0x006850  charges de mur, puis les chaines
+
+processus 12284 lance sous debogage
+  image     0x00007FF71B370000  vfes.exe
+  dll       0x00007FFAA3060000  apm.dll
+  dll       0x00007FFABA810000  d3d11.dll
+  dll       0x00007FFABE5B0000  dxgi.dll
+  dll       0x00007FFABA0F0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFAC4922239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFAC1C041CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+      ou      : KernelBase.dll+0xC41CA
+        rax=000001C939B80000 rcx=0000000000000001 rdx=00007FFAC482670B rbx=0000000000000000
+        rsp=0000001FFD9FDC00 rbp=0000000000000004 rsi=0000001FFD9FDC20 rdi=0000001FFD9FD5D0
+        r8 =00007FFAC482670B r9 =0000610000006100 r10=000000009F040299 r11=000001C93C360000
+      --- code autour de RIP ---
+      >>> 0x7FFAC1C041CA  nop dword ptr [rax + rax]
+          0x7FFAC1C041CF  mov rcx, qword ptr [rsp + 0xc0]
+          0x7FFAC1C041D7  xor rcx, rsp
+          0x7FFAC1C041DA  call 0x7ffac1cd6ec0
+          0x7FFAC1C041DF  add rsp, 0xd8
+          0x7FFAC1C041E6  pop rdi
+      AUCUN decor demande avant ce plantage.
+  dll       0x00007FF9F62B0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur TaskStage : pose du descripteur @0x18018EF87 = 0x7FF9F643EF87 (octet d'origine 0x4C)
+  BP arme sur etat 3 : creation des taches d effet @0x18006F380 = 0x7FF9F631F380 (octet d'origine 0x48)
+  BP arme sur TaskEffectWall::setStage @0x1800843A0 = 0x7FF9F63343A0 (octet d'origine 0x48)
+  BP arme sur entree de l etat 3 = 0x7FF9F643F74A (octet d'origine 0x48)
+  BP arme sur porte 1 : l OBJSET est pret (geometrie + textures) = 0x7FF9F643F760 (octet d'origine 0xE8)
+  BP arme sur porte 2 : l ECLAIRAGE est pret (ibl + light_param) = 0x7FF9F643F76D (octet d'origine 0xE8)
+  BP arme sur porte 3 : la COLLISION est prete = 0x7FF9F643F77A (octet d'origine 0x48)
+  BP arme sur porte 4 : l auth_3d du DECOR est pret = 0x7FF9F643F78E (octet d'origine 0xE8)
+  BP arme sur porte 5 : le drapeau de scene est retombe = 0x7FF9F643F7A2 (octet d'origine 0x48)
+  BP arme sur porte 6 : l auth_3d des EFFETS est pret = 0x7FF9F643F7B7 (octet d'origine 0xE8)
+  BP arme sur porte 7 : les SONS d ambiance sont prets = 0x7FF9F643F7C4 (octet d'origine 0x48)
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 1 pas, 0 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  [dbg] [apm] entrees: pas 0 a t=46 ms, masque=0x00000000
+--- 60 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP TaskStage : pose du descripteur @0x18018EF87 : 0 passage(s)
+  BP etat 3 : creation des taches d effet @0x18006F380 : 0 passage(s)
+  BP TaskEffectWall::setStage @0x1800843A0 : 0 passage(s)
+  BP entree de l etat 3 : 0 passage(s)
+  BP porte 1 : l OBJSET est pret (geometrie + textures) : 0 passage(s)
+  BP porte 2 : l ECLAIRAGE est pret (ibl + light_param) : 0 passage(s)
+  BP porte 3 : la COLLISION est prete : 0 passage(s)
+  BP porte 4 : l auth_3d du DECOR est pret : 0 passage(s)
+  BP porte 5 : le drapeau de scene est retombe : 0 passage(s)
+  BP porte 6 : l auth_3d des EFFETS est pret : 0 passage(s)
+  BP porte 7 : les SONS d ambiance sont prets : 0 passage(s)
+  scenario d entrees remis en jeu manuel
+
+--------------------------------------------------------------------------
+1 exception(s) retenue(s).
+AUCUN decor demande : le plantage est avant tout chargement de decor.

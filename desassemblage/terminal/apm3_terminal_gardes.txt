@@ -1,0 +1,94 @@
+; Borne APM3, module vf5fs-pxd-w64-Retail_APM3.dll.origine
+; md5 3214e19696deed80e9da8e54f5e6afe8, 6 965 248 o, base 0x180000000
+; bornes  .pdata x64, suites chainees par le drapeau UNW_FLAG_CHAININFO (0x4)
+;         -- pas par adjacence (piege paye le 2026-11-19, MENUS_INDEX.md S3)
+; Aucun jeu lance, aucun binaire patche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x1801B7060  Terminal_PoserActif(b) : [[0x180752148]+0x68C1] = b -- jumelle de X360 0x82214520
+============================================================================
+; 0x1801B7060, 14 octets bruts
+0x1801B7060  488b05e1b05900           mov       rax, qword ptr [rip + 0x59b0e1]
+0x1801B7067  8888c1680000             mov       byte ptr [rax + 0x68c1], cl
+0x1801B706D  c3                       ret       
+
+============================================================================
+0x1801B6E30  Terminal_EstActif() : rend [[0x180752148]+0x68C1] -- jumelle de X360 0x82214538
+============================================================================
+; 0x1801B6E30, 15 octets bruts
+0x1801B6E30  488b0511b35900           mov       rax, qword ptr [rip + 0x59b311]
+0x1801B6E37  0fb680c1680000           movzx     eax, byte ptr [rax + 0x68c1]
+0x1801B6E3E  c3                       ret       
+
+============================================================================
+0x1801B6FE0  Terminal_RetourAuTitreDemande() : consomme +0x68C2 -- jumelle de X360 0x82214550, INTACTE
+============================================================================
+; 0x1801B6FE0, 12 octets bruts
+0x1801B6FE0  488b0561b15900           mov       rax, qword ptr [rip + 0x59b161]
+0x1801B6FE7  80                       .byte
+0x1801B6FE8  b8                       .byte
+0x1801B6FE9  c1                       .byte
+0x1801B6FEA  68                       .byte
+0x1801B6FEB  00                       .byte
+
+============================================================================
+0x1801B6E40  Terminal_RetourAuMenuDemande() -- jumelle de X360 0x822145A0. ELLE NE PEUT JAMAIS RENDRE 1 : tous les chemins vers "mov al,1" passent par call 0x180007450, qui rend TOUJOURS ZERO. Elle porte en plus DEUX appels du bouchon-vrai 0x180029FB0. (101 o)
+============================================================================
+; fonction 0x1801B6E40 .. 0x1801B6EA4  (101 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801B6E40  4883ec28                 sub       rsp, 0x28
+0x1801B6E44  488b05fdb25900           mov       rax, qword ptr [rip + 0x59b2fd]
+0x1801B6E4B  80b8c168000000           cmp       byte ptr [rax + 0x68c1], 0
+0x1801B6E52  744a                     je        0x1801b6e9e
+0x1801B6E54  33d2                     xor       edx, edx
+0x1801B6E56  33c9                     xor       ecx, ecx
+0x1801B6E58  e85331e7ff               call      0x180029fb0
+0x1801B6E5D  84c0                     test      al, al
+0x1801B6E5F  743d                     je        0x1801b6e9e
+0x1801B6E61  488d0d98b15900           lea       rcx, [rip + 0x59b198]
+0x1801B6E68  e833e00800               call      0x180244ea0
+0x1801B6E6D  84c0                     test      al, al
+0x1801B6E6F  752d                     jne       0x1801b6e9e
+0x1801B6E71  488b05d0b25900           mov       rax, qword ptr [rip + 0x59b2d0]
+0x1801B6E78  80b8c468000000           cmp       byte ptr [rax + 0x68c4], 0
+0x1801B6E7F  740d                     je        0x1801b6e8e
+0x1801B6E81  33d2                     xor       edx, edx
+0x1801B6E83  33c9                     xor       ecx, ecx
+0x1801B6E85  e82631e7ff               call      0x180029fb0
+0x1801B6E8A  84c0                     test      al, al
+0x1801B6E8C  7410                     je        0x1801b6e9e
+0x1801B6E8E  e8bd05e5ff               call      0x180007450
+0x1801B6E93  84c0                     test      al, al
+0x1801B6E95  7407                     je        0x1801b6e9e
+0x1801B6E97  b001                     mov       al, 1
+0x1801B6E99  4883c428                 add       rsp, 0x28
+0x1801B6E9D  c3                       ret       
+0x1801B6E9E  32c0                     xor       al, al
+0x1801B6EA0  4883c428                 add       rsp, 0x28
+0x1801B6EA4  c3                       ret       
+
+============================================================================
+0x1801B7010  la garde citee par customize_0x299.md : 0x180244EA0(0x18075xxxx) puis sete -- jumelle de X360 0x82214C58
+============================================================================
+; fonction 0x1801B7010 .. 0x1801B7029  (26 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801B7010  4883ec28                 sub       rsp, 0x28
+0x1801B7014  488d0de5af5900           lea       rcx, [rip + 0x59afe5]
+0x1801B701B  e880de0800               call      0x180244ea0
+0x1801B7020  84c0                     test      al, al
+0x1801B7022  0f94c0                   sete      al
+0x1801B7025  4883c428                 add       rsp, 0x28
+0x1801B7029  c3                       ret       
+
+============================================================================
+0x180029FB0  LE BOUCHON QUI REND VRAI
+============================================================================
+; 0x180029FB0, 3 octets bruts
+0x180029FB0  b001                     mov       al, 1
+0x180029FB2  c3                       ret       
+
+============================================================================
+0x180007450  LE BOUCHON QUI REND FAUX
+============================================================================
+; 0x180007450, 3 octets bruts
+0x180007450  32c0                     xor       al, al
+0x180007452  c3                       ret       

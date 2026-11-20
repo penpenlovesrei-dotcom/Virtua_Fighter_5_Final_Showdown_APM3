@@ -1,0 +1,283 @@
+; Xbox 360, Virtua Fighter 5 Final Showdown (VERSION A, 2012-04-06)
+; image   VF5RE/extracted/X360_FS/sel/default.img
+; PE PowerPC gros-boutiste, machine 0x1F2, base 0x82000000, 17 629 184 o
+; bornes  .pdata  (BeginAddress + mot empaquete : prologue sur 8 bits de
+;         poids faible, longueur en INSTRUCTIONS sur les bits 8-29)
+; Aucun jeu lance, aucun binaire patche, Ghidra pas touche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x822BEB78  sous-etat 36 CS_TERM_CUSTOMIZE fn_entree (56 o)
+============================================================================
+; fonction 0x822BEB78 .. 0x822BEBAC  (56 o, 14 instructions) -- bornes .pdata
+0x822BEB78  7d8802a6  mflr       r12
+0x822BEB7C  9181fff8  stw        r12, -8(r1)
+0x822BEB80  9421ffa0  stwu       r1, -0x60(r1)
+0x822BEB84  4bf6d875  bl         0x8222c3f8
+0x822BEB88  4bf6f871  bl         0x8222e3f8
+0x822BEB8C  3d608206  lis        r11, -0x7dfa
+0x822BEB90  38800008  li         r4, 8
+0x822BEB94  806b1e84  lwz        r3, 0x1e84(r11)
+0x822BEB98  4bfe65d1  bl         0x822a5168
+0x822BEB9C  38600001  li         r3, 1
+0x822BEBA0  38210060  addi       r1, r1, 0x60
+0x822BEBA4  8181fff8  lwz        r12, -8(r1)
+0x822BEBA8  7d8803a6  mtlr       r12
+0x822BEBAC  4e800020  blr        
+
+============================================================================
+0x822BEC78  sous-etat 36 CS_TERM_CUSTOMIZE fn_milieu -- LE COEUR. 0x8222CC78 vrai -> mode 4 MENU. Sinon, si le terminal est actif (0x82214538) et que l ECRAN DEMANDE n est pas autorise (0x821F7D00 sur [page+0x116]) -> mode 4 MENU + fondu. (172 o)
+============================================================================
+; fonction 0x822BEC78 .. 0x822BED20  (172 o, 43 instructions) -- bornes .pdata
+0x822BEC78  7d8802a6  mflr       r12
+0x822BEC7C  9181fff8  stw        r12, -8(r1)
+0x822BEC80  9421ffa0  stwu       r1, -0x60(r1)
+0x822BEC84  4bf6d775  bl         0x8222c3f8
+0x822BEC88  4bf6dff1  bl         0x8222cc78
+0x822BEC8C  546b063e  clrlwi     r11, r3, 0x18
+0x822BEC90  2b0b0000  cmplwi     cr6, r11, 0
+0x822BEC94  419a0030  beq        cr6, 0x822becc4
+0x822BEC98  38600004  li         r3, 4
+0x822BEC9C  4bfff7d5  bl         0x822be470
+0x822BECA0  3d608206  lis        r11, -0x7dfa
+0x822BECA4  38800000  li         r4, 0
+0x822BECA8  806b1e84  lwz        r3, 0x1e84(r11)
+0x822BECAC  4bfe64bd  bl         0x822a5168
+0x822BECB0  38600000  li         r3, 0
+0x822BECB4  38210060  addi       r1, r1, 0x60
+0x822BECB8  8181fff8  lwz        r12, -8(r1)
+0x822BECBC  7d8803a6  mtlr       r12
+0x822BECC0  4e800020  blr        
+0x822BECC4  4bf55875  bl         0x82214538
+0x822BECC8  546b063e  clrlwi     r11, r3, 0x18
+0x822BECCC  2b0b0000  cmplwi     cr6, r11, 0
+0x822BECD0  419a0040  beq        cr6, 0x822bed10
+0x822BECD4  4bf6d89d  bl         0x8222c570
+0x822BECD8  88630116  lbz        r3, 0x116(r3)
+0x822BECDC  4bf39025  bl         0x821f7d00
+0x822BECE0  546b063e  clrlwi     r11, r3, 0x18
+0x822BECE4  2b0b0000  cmplwi     cr6, r11, 0
+0x822BECE8  409a0028  bne        cr6, 0x822bed10
+0x822BECEC  38600004  li         r3, 4
+0x822BECF0  4bfff781  bl         0x822be470
+0x822BECF4  480d2ad5  bl         0x823917c8
+0x822BECF8  38600000  li         r3, 0
+0x822BECFC  480d0ca5  bl         0x8238f9a0
+0x822BED00  38600001  li         r3, 1
+0x822BED04  480d0c9d  bl         0x8238f9a0
+0x822BED08  38600002  li         r3, 2
+0x822BED0C  480d0c95  bl         0x8238f9a0
+0x822BED10  38600000  li         r3, 0
+0x822BED14  38210060  addi       r1, r1, 0x60
+0x822BED18  8181fff8  lwz        r12, -8(r1)
+0x822BED1C  7d8803a6  mtlr       r12
+0x822BED20  4e800020  blr        
+
+============================================================================
+0x822BEBB0  sous-etat 36 CS_TERM_CUSTOMIZE fn_sortie (40 o)
+============================================================================
+; fonction 0x822BEBB0 .. 0x822BEBD4  (40 o, 10 instructions) -- bornes .pdata
+0x822BEBB0  7d8802a6  mflr       r12
+0x822BEBB4  9181fff8  stw        r12, -8(r1)
+0x822BEBB8  9421ffa0  stwu       r1, -0x60(r1)
+0x822BEBBC  4bf6d83d  bl         0x8222c3f8
+0x822BEBC0  4bf6dc91  bl         0x8222c850
+0x822BEBC4  38600001  li         r3, 1
+0x822BEBC8  38210060  addi       r1, r1, 0x60
+0x822BEBCC  8181fff8  lwz        r12, -8(r1)
+0x822BEBD0  7d8803a6  mtlr       r12
+0x822BEBD4  4e800020  blr        
+
+============================================================================
+0x822BEBD8 / 0x822BEBE8 / 0x822BEBE0  les TROIS THUNKS d une instruction partages par les sous-etats 37, 38 et 39 (REPLAY_PLAY, LAST_PLAY, CLIP_PLAY)
+============================================================================
+; 0x822BEBD8, 6 mots bruts
+0x822BEBD8  4bf576b8  b          0x82216290
+0x822BEBDC  00000000  .long      0x00000000
+0x822BEBE0  4bf57908  b          0x822164e8
+0x822BEBE4  00000000  .long      0x00000000
+0x822BEBE8  4bf577c8  b          0x822163b0
+0x822BEBEC  00000000  .long      0x00000000
+
+============================================================================
+0x82216290  cible du thunk d entree des sous-etats 37/38/39 (284 o)
+============================================================================
+; fonction 0x82216290 .. 0x822163A8  (284 o, 71 instructions) -- bornes .pdata
+0x82216290  7d8802a6  mflr       r12
+0x82216294  484c2939  bl         0x826d8bcc
+0x82216298  9421ff90  stwu       r1, -0x70(r1)
+0x8221629C  38600000  li         r3, 0
+0x822162A0  3be00000  li         r31, 0
+0x822162A4  4bffe27d  bl         0x82214520
+0x822162A8  3d60820f  lis        r11, -0x7df1
+0x822162AC  806ba508  lwz        r3, -0x5af8(r11)
+0x822162B0  481b8ca9  bl         0x823cef58
+0x822162B4  546a063e  clrlwi     r10, r3, 0x18
+0x822162B8  2b0a0000  cmplwi     cr6, r10, 0
+0x822162BC  409a00e4  bne        cr6, 0x822163a0
+0x822162C0  3d608221  lis        r11, -0x7ddf
+0x822162C4  38c00000  li         r6, 0
+0x822162C8  38a00000  li         r5, 0
+0x822162CC  388b6130  addi       r4, r11, 0x6130
+0x822162D0  38600009  li         r3, 9
+0x822162D4  4804751d  bl         0x8225d7f0
+0x822162D8  480005c1  bl         0x82216898
+0x822162DC  546a063e  clrlwi     r10, r3, 0x18
+0x822162E0  2b0a0000  cmplwi     cr6, r10, 0
+0x822162E4  409a001c  bne        cr6, 0x82216300
+0x822162E8  48000361  bl         0x82216648
+0x822162EC  38600004  li         r3, 4
+0x822162F0  480a8181  bl         0x822be470
+0x822162F4  38600001  li         r3, 1
+0x822162F8  38210070  addi       r1, r1, 0x70
+0x822162FC  484c2920  b          0x826d8c1c
+0x82216300  3d608206  lis        r11, -0x7dfa
+0x82216304  38800003  li         r4, 3
+0x82216308  806b1e84  lwz        r3, 0x1e84(r11)
+0x8221630C  4808ee5d  bl         0x822a5168
+0x82216310  3d408272  lis        r10, -0x7d8e
+0x82216314  806a63d8  lwz        r3, 0x63d8(r10)
+0x82216318  4813df71  bl         0x82354288
+0x8221631C  3d00829b  lis        r8, -0x7d65
+0x82216320  3fe0829b  lis        r31, -0x7d65
+0x82216324  3fc0829b  lis        r30, -0x7d65
+0x82216328  39600000  li         r11, 0
+0x8221632C  39400001  li         r10, 1
+0x82216330  39200000  li         r9, 0
+0x82216334  91684bb0  stw        r11, 0x4bb0(r8)
+0x82216338  995f4bad  stb        r10, 0x4bad(r31)
+0x8221633C  993e4bac  stb        r9, 0x4bac(r30)
+0x82216340  4806fb91  bl         0x82285ed0
+0x82216344  4806fc6d  bl         0x82285fb0
+0x82216348  3ce08201  lis        r7, -0x7dff
+0x8221634C  7c641b78  mr         r4, r3
+0x82216350  3867d6f4  addi       r3, r7, -0x290c
+0x82216354  48077125  bl         0x8228d478
+0x82216358  480d1f59  bl         0x822e82b0
+0x8221635C  3cc0829b  lis        r6, -0x7d65
+0x82216360  3ba64bb8  addi       r29, r6, 0x4bb8
+0x82216364  7fa3eb78  mr         r3, r29
+0x82216368  480017a9  bl         0x82217b10
+0x8221636C  39600001  li         r11, 1
+0x82216370  3860029e  li         r3, 0x29e
+0x82216374  997d008d  stb        r11, 0x8d(r29)
+0x82216378  48187869  bl         0x8239dbe0
+0x8221637C  39600001  li         r11, 1
+0x82216380  39400001  li         r10, 1
+0x82216384  907d004c  stw        r3, 0x4c(r29)
+0x82216388  39200000  li         r9, 0
+0x8221638C  995f4bad  stb        r10, 0x4bad(r31)
+0x82216390  7d635b78  mr         r3, r11
+0x82216394  993e4bac  stb        r9, 0x4bac(r30)
+0x82216398  38210070  addi       r1, r1, 0x70
+0x8221639C  484c2880  b          0x826d8c1c
+0x822163A0  7fe3fb78  mr         r3, r31
+0x822163A4  38210070  addi       r1, r1, 0x70
+0x822163A8  484c2874  b          0x826d8c1c
+
+============================================================================
+0x822163B0  cible du thunk de MILIEU des sous-etats 37/38/39 : lit les codes 8 et 1 par 0x821FE420 et fait tourner un compteur modulo 4 en [0x829B4BB0] (312 o)
+============================================================================
+; fonction 0x822163B0 .. 0x822164E4  (312 o, 78 instructions) -- bornes .pdata
+0x822163B0  7d8802a6  mflr       r12
+0x822163B4  484c2819  bl         0x826d8bcc
+0x822163B8  9421ff90  stwu       r1, -0x70(r1)
+0x822163BC  3d608206  lis        r11, -0x7dfa
+0x822163C0  38800003  li         r4, 3
+0x822163C4  806b1e84  lwz        r3, 0x1e84(r11)
+0x822163C8  4808eda1  bl         0x822a5168
+0x822163CC  4807abb5  bl         0x82290f80
+0x822163D0  4bffe151  bl         0x82214520
+0x822163D4  480d1f05  bl         0x822e82d8
+0x822163D8  3d60829b  lis        r11, -0x7d65
+0x822163DC  3d40829b  lis        r10, -0x7d65
+0x822163E0  3fc0829b  lis        r30, -0x7d65
+0x822163E4  3bea4bb8  addi       r31, r10, 0x4bb8
+0x822163E8  7c7d1b78  mr         r29, r3
+0x822163EC  894b4bac  lbz        r10, 0x4bac(r11)
+0x822163F0  2b0a0000  cmplwi     cr6, r10, 0
+0x822163F4  409a0038  bne        cr6, 0x8221642c
+0x822163F8  5469063e  clrlwi     r9, r3, 0x18
+0x822163FC  2b090000  cmplwi     cr6, r9, 0
+0x82216400  419a0024  beq        cr6, 0x82216424
+0x82216404  39400001  li         r10, 1
+0x82216408  7fe3fb78  mr         r3, r31
+0x8221640C  994b4bac  stb        r10, 0x4bac(r11)
+0x82216410  480016f9  bl         0x82217b08
+0x82216414  7c6b1b78  mr         r11, r3
+0x82216418  987e4bad  stb        r3, 0x4bad(r30)
+0x8221641C  38800000  li         r4, 0
+0x82216420  48000030  b          0x82216450
+0x82216424  2b0a0000  cmplwi     cr6, r10, 0
+0x82216428  419a0030  beq        cr6, 0x82216458
+0x8221642C  57aa063e  clrlwi     r10, r29, 0x18
+0x82216430  2b0a0000  cmplwi     cr6, r10, 0
+0x82216434  409a0024  bne        cr6, 0x82216458
+0x82216438  895e4bad  lbz        r10, 0x4bad(r30)
+0x8221643C  39200000  li         r9, 0
+0x82216440  992b4bac  stb        r9, 0x4bac(r11)
+0x82216444  2b0a0000  cmplwi     cr6, r10, 0
+0x82216448  419a0010  beq        cr6, 0x82216458
+0x8221644C  38800001  li         r4, 1
+0x82216450  7fe3fb78  mr         r3, r31
+0x82216454  480016a5  bl         0x82217af8
+0x82216458  57ab063e  clrlwi     r11, r29, 0x18
+0x8221645C  2b0b0000  cmplwi     cr6, r11, 0
+0x82216460  409a007c  bne        cr6, 0x822164dc
+0x82216464  38800000  li         r4, 0
+0x82216468  38600008  li         r3, 8
+0x8221646C  4bfe7fb5  bl         0x821fe420
+0x82216470  2f030000  cmpwi      cr6, r3, 0
+0x82216474  41980034  blt        cr6, 0x822164a8
+0x82216478  3d60829b  lis        r11, -0x7d65
+0x8221647C  814b4bb0  lwz        r10, 0x4bb0(r11)
+0x82216480  394a0001  addi       r10, r10, 1
+0x82216484  914b4bb0  stw        r10, 0x4bb0(r11)
+0x82216488  2b0a0004  cmplwi     cr6, r10, 4
+0x8221648C  4198000c  blt        cr6, 0x82216498
+0x82216490  39400000  li         r10, 0
+0x82216494  914b4bb0  stw        r10, 0x4bb0(r11)
+0x82216498  4bfffc11  bl         0x822160a8
+0x8221649C  38600000  li         r3, 0
+0x822164A0  38210070  addi       r1, r1, 0x70
+0x822164A4  484c2778  b          0x826d8c1c
+0x822164A8  38800000  li         r4, 0
+0x822164AC  38600001  li         r3, 1
+0x822164B0  4bfe7f71  bl         0x821fe420
+0x822164B4  2f030000  cmpwi      cr6, r3, 0
+0x822164B8  41980024  blt        cr6, 0x822164dc
+0x822164BC  7fe3fb78  mr         r3, r31
+0x822164C0  48001649  bl         0x82217b08
+0x822164C4  546b063e  clrlwi     r11, r3, 0x18
+0x822164C8  7fe3fb78  mr         r3, r31
+0x822164CC  7d6a0034  cntlzw     r10, r11
+0x822164D0  5544dffe  rlwinm     r4, r10, 0x1b, 0x1f, 0x1f
+0x822164D4  989e4bad  stb        r4, 0x4bad(r30)
+0x822164D8  48001621  bl         0x82217af8
+0x822164DC  38600000  li         r3, 0
+0x822164E0  38210070  addi       r1, r1, 0x70
+0x822164E4  484c2738  b          0x826d8c1c
+
+============================================================================
+0x822164E8  cible du thunk de sortie des sous-etats 37/38/39 (76 o)
+============================================================================
+; fonction 0x822164E8 .. 0x82216530  (76 o, 19 instructions) -- bornes .pdata
+0x822164E8  7d8802a6  mflr       r12
+0x822164EC  9181fff8  stw        r12, -8(r1)
+0x822164F0  9421ffa0  stwu       r1, -0x60(r1)
+0x822164F4  3d608221  lis        r11, -0x7ddf
+0x822164F8  38a00000  li         r5, 0
+0x822164FC  388b6130  addi       r4, r11, 0x6130
+0x82216500  38600009  li         r3, 9
+0x82216504  4804744d  bl         0x8225d950
+0x82216508  48076fc9  bl         0x8228d4d0
+0x8221650C  480d1dbd  bl         0x822e82c8
+0x82216510  3d408206  lis        r10, -0x7dfa
+0x82216514  38800000  li         r4, 0
+0x82216518  806a1e84  lwz        r3, 0x1e84(r10)
+0x8221651C  4808ec4d  bl         0x822a5168
+0x82216520  38600001  li         r3, 1
+0x82216524  38210060  addi       r1, r1, 0x60
+0x82216528  8181fff8  lwz        r12, -8(r1)
+0x8221652C  7d8803a6  mtlr       r12
+0x82216530  4e800020  blr        

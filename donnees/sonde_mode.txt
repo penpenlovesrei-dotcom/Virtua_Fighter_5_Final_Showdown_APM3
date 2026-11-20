@@ -1,0 +1,93 @@
+processus 19104 lance sous debogage
+  image     0x00007FF76BD00000  vfes.exe
+  dll       0x00007FFEECE20000  apm.dll
+  dll       0x00007FFEF5930000  d3d11.dll
+  dll       0x00007FFEF69E0000  dxgi.dll
+  dll       0x00007FFEF49B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFEFC7E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFEFA0941CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFE471B0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur vf5fs-pxd-w64-Retail_APM3.dll+0xDA9A0 = 0x7FFE4728A9A0 (octet d'origine 0x89)
+  BP arme sur vf5fs-pxd-w64-Retail_APM3.dll+0xDA9C0 = 0x7FFE4728A9C0 (octet d'origine 0x89)
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 1 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInputGetStateEx charge (bouton XBOX lisible)
+  [dbg] [quest] moteur trouve, base 140730091372544
+  [dbg] [quest] notre fil d execution 10264
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=46 ms, masque=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9C0 coup 1, thread 10264
+        rax=00000000FFFFFFFF rcx=0000000000000003 rdx=0000000000000000 rbx=00007FFE47550660
+        rsp=0000008D19FDF6E8 rbp=0000008D19FDF990 rsi=0000000000000002 rdi=00007FFE47827300
+        r8 =0000000000000000 r9 =00007FFE4728D700 r10=0000000000000001 r11=0000011CB32FE4FD
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 3
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 4
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 2
+  [dbg] [quest] machine : mode 0, sous-etat 5
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9A0 coup 1, thread 10264
+        rax=000001EBBC6B7100 rcx=0000000000000004 rdx=000001EBBC6B71D0 rbx=00007FFE47550640
+        rsp=0000008D19FDF6E8 rbp=0000008D19FDF990 rsi=0000000000000002 rdi=00007FFE47827300
+        r8 =00007FFE475505A0 r9 =00007FFE4728D700 r10=0000000000000001 r11=0000011CB32FE4FD
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9C0 coup 2, thread 10264
+        rax=000001EBBC6B7100 rcx=0000000000000037 rdx=000001EBBC6B71D0 rbx=00007FFE47550640
+        rsp=0000008D19FDF6E8 rbp=0000008D19FDF990 rsi=0000000000000002 rdi=00007FFE47827300
+        r8 =00007FFE475505A0 r9 =00007FFE4728D700 r10=0000000000000001 r11=0000011CB32FE4FD
+  [dbg] [apm] personnalisation remise
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9A0 coup 2, thread 10264
+        rax=000000000000FFFF rcx=0000000000000005 rdx=0000000000000000 rbx=000001EBBC7300F0
+        rsp=0000008D19FDF5C8 rbp=00000000FFFFFFFF rsi=0000000000000000 rdi=0000000000000000
+        r8 =0000000000000000 r9 =0000000000000034 r10=00007FFE4754A6F8 r11=0000008D19FDF5C0
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9C0 coup 3, thread 10264
+        rax=000000000000FFFF rcx=0000000000000025 rdx=0000000000000000 rbx=000001EBBC7300F0
+        rsp=0000008D19FDF5C8 rbp=00000000FFFFFFFF rsi=0000000000000000 rdi=0000000000000000
+        r8 =0000000000000000 r9 =0000000000000034 r10=00007FFE4754A6F8 r11=0000008D19FDF5C0
+  [dbg] [quest] machine : mode 5, sous-etat 37
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000040 montants=0x00000040 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000040
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9A0 : 2 passage(s)
+  BP vf5fs-pxd-w64-Retail_APM3.dll+0xDA9C0 : 3 passage(s)

@@ -1,0 +1,27 @@
+processus 2568 lance sous debogage
+  image     0x00007FF69A860000  vfes.exe
+  dll       0x00007FFB23930000  apm.dll
+  dll       0x00007FFB2B640000  d3d11.dll
+  dll       0x00007FFB2CBA0000  dxgi.dll
+  dll       0x00007FFB2AC40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB329A2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2FD841CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFA876D0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur entree = 0x7FFA877C97E0 (octet d'origine 0x40)
+  BP arme sur chemin = 0x7FFA877C982B (octet d'origine 0x45)
+  BP arme sur octets = 0x7FFA877C984B (octet d'origine 0x48)
+  trois points d'arret poses a t=1.3 s
+  sourdine : session audio du processus 2568 coupee apres 2 s
+  CHARGEUR obj_db appele : gestionnaire 0x14B685DB0A0, +0x90 (deja charge) = 0
+  chemin compose : './rom/objset/obj_db.bin'
+  octets rendus a 0x7FF46DA8A9F0 : 9c170000051800006027040050450000803f0f00
+  --> nombre de jeux = 6044  (6044 = L ORIGINE)
+      (module de cette adresse : ?+0x7FF46DA8A9F0)
+--- 50 s ecoulees, on arrete ---
+
+79 module(s) charge(s)
+  BP entree : 1 passage(s)
+  BP chemin : 1 passage(s)
+  BP octets : 1 passage(s)
+  scenario d entrees remis en jeu manuel

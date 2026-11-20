@@ -1,0 +1,96 @@
+L'oracle tourne sur le build APM3 (2021). Les offsets documentes viennent du
+build R.E.V.O. (2025) : deux tableaux ont grossi entre les deux, d'ou les decalages.
+
+code  gestionnaire verdict        champs ecrits (APM3)
+0     0x1801554D0  rien ecrit     
+1     0x180155720  a voir         01C 06C 070 074
+2     0x180155790  identique      2D4 2D8 2DC 2E0 2E4 2E8 2EC
+3     0x1801558E0  a voir         078 07C 080 084 088 08C 094 098 09C 0A0 0A4 0A8
+4     0x180155B10  identique      14C 150
+5     0x180155B30  identique      154 158 15C 160 164 168 16C 170 174 178 17C 180 184 188 18C 19C 1A0 1A4
+6     0x180155E20  identique      154 158 15C
+7     0x180155EA0  identique      160 164 168
+8     0x180155F20  identique      16C 170 174
+9     0x180155FA0  identique      178 17C 180
+10    0x180156020  identique      184 188 18C
+11    0x1801560A0  identique      16C 170 174 178 17C 180 184 188 18C
+12    0x180156210  identique      190 194 198
+13    0x180156290  identique      19C 1A0 1A4
+14    0x180156310  identique      1A8 1AC 1B0
+15    0x180156390  identique      1B4 1B8 1BC
+16    0x180156410  identique      1C0 1C4 1C8
+17    0x180156490  identique      1CC 1D0 1D4
+18    0x180156510  identique      1D8 1DC 1E0
+19    0x180156590  identique      1E4 1E8 1EC
+20    0x180156610  identique      1CC 1D0 1D4 1D8 1DC 1E0 1E4 1E8 1EC
+21    0x180156780  identique      1F0 1F4 1F8
+22    0x180156800  identique      1FC 200 204
+23    0x180156880  identique      208 20C 210
+24    0x180156900  identique      214 218 21C
+25    0x180156980  identique      220 224 228
+26    0x180156A00  identique      208 20C 210 214 218 21C 220 224 228
+27    0x180156B70  identique      22C 230 234
+28    0x180156BF0  identique      238 23C 240
+29    0x180156C70  identique      244 248 24C
+30    0x180156CF0  identique      250 254 258
+31    0x180156D70  identique      25C 260 264
+32    0x180156DF0  identique      244 248 24C 250 254 258 25C 260 264
+33    0x180156F60  identique      268 26C 270
+34    0x180156FE0  identique      274 278 27C
+35    0x180157060  identique      280 284 288
+36    0x1801570E0  identique      28C 290 294
+37    0x180157160  identique      298 29C 2A0
+38    0x1801571E0  identique      2A4 2A8 2AC
+39    0x180157260  identique      2B0 2B4 2B8
+40    0x1801572E0  identique      298 29C 2A0 2A4 2A8 2AC 2B0 2B4 2B8
+41    0x180157450  identique      2BC 2C0 2C4
+42    0x1801574D0  identique      2C8 2CC 2D0
+43    -            aucun         
+44    -            aucun         
+45    0x180157550  identique      2F0 2F4 2F8 2FC 300 304 308 30C
+46                 PLANTAGE      
+47                 PLANTAGE      
+48    0x180157720  decale 0x18    320 324 328
+49    0x1801577B0  decale 0x18    32C 330 334
+50    0x1801577E0  a voir         08C 090
+51    0x180157960  decale 0x18    338 33C 340 344
+52    0x1801579E0  decale 0x18    348 34C 358
+53    0x180157A10  decale 0x18    350 354
+54    0x180157A30  rien ecrit     
+55    0x180157A60  decale 0x18    360 364 368 36C 370
+56    0x180157AB0  decale 0x18    374 378 37C
+57    0x180157AF0  decale 0x18    380 384 388 38C 390 394
+58    0x180157B70  decale 0x18    398 39C
+59    0x180157B80  decale 0x18    3A0
+60    0x180157BB0  identique      024
+61    0x180007430  rien ecrit     
+62    0x180157BC0  rien ecrit     
+63    0x180157CA0  decale 0x18    3A8 3AC 3B0
+64    0x180157CD0  decale 0x18    3B4
+65    0x180157CF0  decale 0x18    3B8 3BC 3C0 3C4 3C8 3CC
+66    0x180157D30  decale 0x78    3D0 3D4
+67                 PLANTAGE      
+68    0x180157D70  decale 0x78    3DC 3E0 3E4 3E8 3EC 3F0 3F4 3F8
+69    0x180157E00  decale 0x78    3D8
+70    0x180157E10  decale 0x78    3FC 400
+71    -            aucun         
+72    0x180157E30  decale 0x78    404 408 40C
+73                 PLANTAGE      
+74    0x180157F40  decale 0x78    410
+75    0x180157F80  decale 0x78    414
+76    0x180157FA0  decale 0x78    418 41C 420 424 428 42C 430 434 438 43C 440 444 448 44C 450 454 458 45C 460 464
+77    0x180158100  decale 0x78    42C 430 434 438 43C
+78    0x180158160  decale 0x78    440 444 448 44C 450
+79    0x1801581C0  decale 0x78    454 458 45C 460 464
+80    0x180158220  decale 0x78    468 46C
+81    0x180158250  decale 0x78    470 474 478 47C 480 484
+82    0x1801582A0  decale 0x78    488
+83    0x1801582C0  decale 0x78    48C 490
+
+  identique    42
+  decale 0x18  13
+  decale 0x78  15
+  a voir       3
+  rien ecrit   4
+  plantage     4
+  aucun        3

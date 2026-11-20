@@ -1,0 +1,144 @@
+# APM3 (borne) 0x180217E70 -- 544 octets
+#
+# Le resolveur de nom d'objset, par dichotomie dans une table TRIEE de 0x35E
+# = 862 entrees basee en 0x18054BB30. 0x180218004 n'en est qu'un FRAGMENT.
+# Les deux espions de `pister_item3d.py` sont a 0x180217E70 (l'adresse de
+# retour) et 0x18021805E (le nom, dans rbx). REPRISE (102).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x180217E70  4883ec38             sub rsp, 0x38
+  0x180217E74  458bc8               mov r9d, r8d
+  0x180217E77  c644242800           mov byte ptr [rsp + 0x28], 0
+  0x180217E7C  4c8bc2               mov r8, rdx
+  0x180217E7F  c644242000           mov byte ptr [rsp + 0x20], 0
+  0x180217E84  33d2                 xor edx, edx
+  0x180217E86  e8d5fdffff           call 0x180217c60
+  0x180217E8B  4883c438             add rsp, 0x38
+  0x180217E8F  c3                   ret 
+  0x180217E90  48895c2410           mov qword ptr [rsp + 0x10], rbx
+  0x180217E95  57                   push rdi
+  0x180217E96  4881eca0010000       sub rsp, 0x1a0
+  0x180217E9D  c5fa6f0ddb9e1800     vmovdqu xmm1, xmmword ptr [rip + 0x189edb]  ; -> 0x1803A1D80
+  0x180217EA5  c5fa6f01             vmovdqu xmm0, xmmword ptr [rcx]
+  0x180217EA9  488bd1               mov rdx, rcx
+  0x180217EAC  488dbc24a0000000     lea rdi, [rsp + 0xa0]
+  0x180217EB4  b8ff000000           mov eax, 0xff
+  0x180217EB9  0f1f8000000000       nop dword ptr [rax]
+> 0x180217EC0  c4e37963c814         vpcmpistri xmm1, xmm0, 0x14
+  0x180217EC6  741e                 je 0x180217ee6
+  0x180217EC8  4883c210             add rdx, 0x10
+  0x180217ECC  83e810               sub eax, 0x10
+  0x180217ECF  c5fa7f07             vmovdqu xmmword ptr [rdi], xmm0
+  0x180217ED3  4883c710             add rdi, 0x10
+  0x180217ED7  c5fa6f02             vmovdqu xmm0, xmmword ptr [rdx]
+  0x180217EDB  83f810               cmp eax, 0x10
+  0x180217EDE  7de0                 jge 0x180217ec0
+  0x180217EE0  c4e37963c814         vpcmpistri xmm1, xmm0, 0x14
+> 0x180217EE6  3bc8                 cmp ecx, eax
+  0x180217EE8  0f4cc1               cmovl eax, ecx
+  0x180217EEB  4863d8               movsxd rbx, eax
+  0x180217EEE  85c0                 test eax, eax
+  0x180217EF0  7e0b                 jle 0x180217efd
+  0x180217EF2  4c8bc3               mov r8, rbx
+  0x180217EF5  488bcf               mov rcx, rdi
+  0x180217EF8  e813810e00           call 0x180300010
+> 0x180217EFD  488d8c24a0000000     lea rcx, [rsp + 0xa0]
+  0x180217F05  c6043b00             mov byte ptr [rbx + rdi], 0
+  0x180217F09  e882720600           call 0x18027f190
+  0x180217F0E  c5fa6f2536291f00     vmovdqu xmm4, xmmword ptr [rip + 0x1f2936]  ; -> 0x18040A84C  "rom/"
+  0x180217F16  488d8424a0000000     lea rax, [rsp + 0xa0]
+  0x180217F1E  4883e810             sub rax, 0x10
+  0x180217F22  488bd0               mov rdx, rax
+  0x180217F25  c5d1efed             vpxor xmm5, xmm5, xmm5
+  0x180217F29  0f1f8000000000       nop dword ptr [rax]
+> 0x180217F30  c5fa6f4210           vmovdqu xmm0, xmmword ptr [rdx + 0x10]
+  0x180217F35  4883c210             add rdx, 0x10
+  0x180217F39  c4e37963e00c         vpcmpistri xmm4, xmm0, 0xc
+  0x180217F3F  77ef                 ja 0x180217f30
+  0x180217F41  0f83ad010000         jae 0x1802180f4
+  0x180217F47  4863c9               movsxd rcx, ecx
+  0x180217F4A  488d3dfb281f00       lea rdi, [rip + 0x1f28fb]  ; -> 0x18040A84C  "rom/"
+  0x180217F51  4803d1               add rdx, rcx
+  0x180217F54  4c8bca               mov r9, rdx
+  0x180217F57  4883ea10             sub rdx, 0x10
+  0x180217F5B  4883ef10             sub rdi, 0x10
+  0x180217F5F  90                   nop 
+> 0x180217F60  c5fa6f5f10           vmovdqu xmm3, xmmword ptr [rdi + 0x10]
+  0x180217F65  c4e37962eb58         vpcmpistrm xmm5, xmm3, 0x58
+  0x180217F6B  c5f9db4210           vpand xmm0, xmm0, xmmword ptr [rdx + 0x10]
+  0x180217F70  c4e37963d818         vpcmpistri xmm3, xmm0, 0x18
+  0x180217F76  488d7f10             lea rdi, [rdi + 0x10]
+  0x180217F7A  488d5210             lea rdx, [rdx + 0x10]
+  0x180217F7E  77e0                 ja 0x180217f60
+  0x180217F80  7306                 jae 0x180217f88
+  0x180217F82  498d51f1             lea rdx, [r9 - 0xf]
+  0x180217F86  eba8                 jmp 0x180217f30
+> 0x180217F88  4d85c9               test r9, r9
+  0x180217F8B  0f8463010000         je 0x1802180f4
+  0x180217F91  c5fa6f25531d1300     vmovdqu xmm4, xmmword ptr [rip + 0x131d53]  ; -> 0x180349CEC  ".farc"
+  0x180217F99  0f1f8000000000       nop dword ptr [rax]
+> 0x180217FA0  c5fa6f4010           vmovdqu xmm0, xmmword ptr [rax + 0x10]
+  0x180217FA5  4883c010             add rax, 0x10
+  0x180217FA9  c4e37963e00c         vpcmpistri xmm4, xmm0, 0xc
+  0x180217FAF  77ef                 ja 0x180217fa0
+  0x180217FB1  0f833d010000         jae 0x1802180f4
+  0x180217FB7  4863c9               movsxd rcx, ecx
+  0x180217FBA  488d152b1d1300       lea rdx, [rip + 0x131d2b]  ; -> 0x180349CEC  ".farc"
+  0x180217FC1  4803c1               add rax, rcx
+  0x180217FC4  4c8bc0               mov r8, rax
+  0x180217FC7  4883e810             sub rax, 0x10
+  0x180217FCB  4883ea10             sub rdx, 0x10
+  0x180217FCF  90                   nop 
+> 0x180217FD0  c5fa6f5a10           vmovdqu xmm3, xmmword ptr [rdx + 0x10]
+  0x180217FD5  c4e37962eb58         vpcmpistrm xmm5, xmm3, 0x58
+  0x180217FDB  c5f9db4010           vpand xmm0, xmm0, xmmword ptr [rax + 0x10]
+  0x180217FE0  c4e37963d818         vpcmpistri xmm3, xmm0, 0x18
+  0x180217FE6  488d5210             lea rdx, [rdx + 0x10]
+  0x180217FEA  488d4010             lea rax, [rax + 0x10]
+  0x180217FEE  77e0                 ja 0x180217fd0
+  0x180217FF0  7306                 jae 0x180217ff8
+  0x180217FF2  498d40f1             lea rax, [r8 - 0xf]
+  0x180217FF6  eba8                 jmp 0x180217fa0
+> 0x180217FF8  4d85c0               test r8, r8
+  0x180217FFB  0f84f3000000         je 0x1802180f4
+  0x180218001  452bc1               sub r8d, r9d
+  0x180218004  4889b424b0010000     mov qword ptr [rsp + 0x1b0], rsi
+  0x18021800C  4183e804             sub r8d, 4
+  0x180218010  488d7c2420           lea rdi, [rsp + 0x20]
+  0x180218015  418bc8               mov ecx, r8d
+  0x180218018  7439                 je 0x180218053
+  0x18021801A  488d442420           lea rax, [rsp + 0x20]
+  0x18021801F  4c2bc8               sub r9, rax
+  0x180218022  0f1f4000             nop dword ptr [rax]
+  0x180218026  66660f1f840000000000 nop word ptr [rax + rax]
+> 0x180218030  410fb6443904         movzx eax, byte ptr [r9 + rdi + 4]
+  0x180218036  8807                 mov byte ptr [rdi], al
+  0x180218038  48ffc7               inc rdi
+  0x18021803B  84c0                 test al, al
+  0x18021803D  7407                 je 0x180218046
+  0x18021803F  83c1ff               add ecx, -1
+  0x180218042  75ec                 jne 0x180218030
+  0x180218044  eb0d                 jmp 0x180218053
+> 0x180218046  85c9                 test ecx, ecx
+  0x180218048  7409                 je 0x180218053
+  0x18021804A  83c1ff               add ecx, -1
+  0x18021804D  7404                 je 0x180218053
+  0x18021804F  33c0                 xor eax, eax
+  0x180218051  f3aa                 rep stosb byte ptr [rdi], al
+> 0x180218053  42c644042000         mov byte ptr [rsp + r8 + 0x20], 0
+  0x180218059  488d5c2420           lea rbx, [rsp + 0x20]
+  0x18021805E  41ba5e030000         mov r10d, 0x35e
+  0x180218064  488d35c53a3300       lea rsi, [rip + 0x333ac5]  ; -> 0x18054BB30
+  0x18021806B  4533db               xor r11d, r11d
+  0x18021806E  6690                 nop 
+  0x180218070  478d0413             lea r8d, [r11 + r10]
+  0x180218074  41d1f8               sar r8d, 1
+  0x180218077  488d7bf0             lea rdi, [rbx - 0x10]
+  0x18021807B  4d63c8               movsxd r9, r8d
+  0x18021807E  49c1e104             shl r9, 4
+  0x180218082  4c03ce               add r9, rsi
+  0x180218085  498b11               mov rdx, qword ptr [r9]
+  0x180218088  4883ea10             sub rdx, 0x10
+  0x18021808C  0f1f4000             nop dword ptr [rax]

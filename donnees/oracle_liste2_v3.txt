@@ -1,0 +1,98 @@
+processus 16300 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85C710000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFBB190000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur gestionnaire liste2 code 7 = 0x7FFFBB2E3FD0 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 17 = 0x7FFFBB2E4D70 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 19 = 0x7FFFBB2E3030 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 29 = 0x7FFFBB2E41F0 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 31 = 0x7FFFBB2E3FC0 (octet d'origine 0xE9)
+  BP arme sur gestionnaire liste2 code 53 = 0x7FFFBB2E5440 (octet d'origine 0x4C)
+  t=55 s : 6 gestionnaire(s) sous surveillance
+  BP arme sur retour 53 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 53 : 4 mot(s) change(s) ==
+     charge = 320000000000003f000000000000003f   entree = 350000000000000030000000
+     etat+0x888     000080bf -> 00000000
+     etat+0x88C     000080bf -> 00004842
+     etat+0x890     00000000 -> 0000003f
+     etat+0x898     00000000 -> 0000003f
+  BP arme sur retour 29 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 29 : 5 mot(s) change(s) ==
+     charge = 1400010000000c000000000000000000   entree = 1d0000000a00000020010000
+     etat+0x7EC     ffff0000 -> 00000000
+     etat+0x7F0     000080bf -> 00002041
+     etat+0x7F4     000080bf -> 0000a041
+     etat+0x7F8     00000000 -> 0c000200
+     etat+0x818     00000000 -> 0ad7a33c
+  BP arme sur retour 29 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 29 : 5 mot(s) change(s) ==
+     charge = 1400000000000c000000000000000000   entree = 1d0000000a000000d4000000
+     etat+0x7B8     ffff0000 -> 00000000
+     etat+0x7BC     000080bf -> 00002041
+     etat+0x7C0     000080bf -> 0000a041
+     etat+0x7C4     00000000 -> 0c000200
+     etat+0x7E4     00000000 -> 0ad7a33c
+  BP arme sur retour 29 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 29 : 3 mot(s) change(s) ==
+     charge = 35000100010010000000000000000000   entree = 1d0000002b00000088000000
+     etat+0x7EC     00000000 -> 01000000
+     etat+0x7F0     00002041 -> 00002c42
+     etat+0x7F4     0000a041 -> 00005442
+  BP arme sur retour 29 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 29 : 3 mot(s) change(s) ==
+     charge = 35000000010010000000000000000000   entree = 1d0000002b0000003c000000
+     etat+0x7B8     00000000 -> 01000000
+     etat+0x7BC     00002041 -> 00002c42
+     etat+0x7C0     0000a041 -> 00005442
+  BP arme sur retour 7 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 7 : 7 mot(s) change(s) ==
+     charge = 008000008fc2f53c0000a0c000000000   entree = 070000004300000034000000
+     ROB+0x440      11081900 -> 13081900
+     etat+0x914     df58663f -> c358743f
+     etat+0x918     00000000 -> f447b83f
+     etat+0x91C     2a7266bf -> bc6473bf
+     etat+0x92C     00000000 -> ed6cb43c
+     etat+0x930     00000000 -> 0e4e75bc
+     etat+0x934     00000000 -> f8dda6bc
+  BP arme sur retour 7 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 7 : 0 mot(s) change(s) ==
+     charge = 008000008fc2f53c0000a0c000000000   entree = 070000004300000034000000
+  BP arme sur retour 17 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 17 : 5 mot(s) change(s) ==
+     charge = 0e00040000000000000080bf00000000   entree = 1100000000000000c8010000
+     etat+0x4B0     00000000 -> 01000000
+     etat+0x4B4     00000000 -> 00006041
+     etat+0x4B8     00000000 -> ff6eadc0
+     etat+0x4BC     00000000 -> 5f9c453f
+     etat+0x4C0     00000000 -> c03cb040
+  BP arme sur retour 31 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 31 : 0 mot(s) change(s) ==
+     charge = (aucune)   entree = 1f0000002f00000000000000
+  BP arme sur retour 31 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 31 : 0 mot(s) change(s) ==
+     charge = (aucune)   entree = 1f0000008900000000000000
+--- 240 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP gestionnaire liste2 code 7 : 2 passage(s)
+  BP gestionnaire liste2 code 17 : 1 passage(s)
+  BP gestionnaire liste2 code 19 : 0 passage(s)
+  BP gestionnaire liste2 code 29 : 4 passage(s)
+  BP gestionnaire liste2 code 31 : 2 passage(s)
+  BP gestionnaire liste2 code 53 : 1 passage(s)
+  BP retour 53 : 1 passage(s)
+  BP retour 29 : 1 passage(s)
+  BP retour 29 : 1 passage(s)
+  BP retour 29 : 1 passage(s)
+  BP retour 29 : 1 passage(s)
+  BP retour 7 : 1 passage(s)
+  BP retour 7 : 1 passage(s)
+  BP retour 17 : 1 passage(s)
+  BP retour 31 : 1 passage(s)
+  BP retour 31 : 1 passage(s)

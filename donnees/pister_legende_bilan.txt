@@ -1,0 +1,19 @@
+
+========================================================================
+COMPTES :
+   caverne legende    947
+   garde sousmenu     947
+   maj menu           1040
+   resolution         1042
+
+PORTEURS DE LEGENDE (objets vus dans la resolution) :
+   objet 0x20CD3CD5858        717 passages   ligne1=0x5A0C   ligne2=0x5A0C
+   objet 0x20CD3CD5558        232 passages   ligne1=0x5A0C   ligne2=0x5A0C
+   objet 0x20CD3CD4F00         93 passages   ligne1=0x62     ligne2=0x5A0C
+
+LECTURE :
+   caverne a 0  -> la mise a jour du menu principal n est plus
+                   appelee quand un sous-menu est ouvert : le geste
+                   est au mauvais endroit.
+   caverne > 0 et superposition persistante -> l offset +0x21C n est
+                   pas celui que porte le menu principal.

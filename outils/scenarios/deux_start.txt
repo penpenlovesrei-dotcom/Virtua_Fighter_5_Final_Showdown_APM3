@@ -1,0 +1,13 @@
+# Deux START bien espaces, pour voir dans quel etat se trouve l'ecran noir
+# entre les deux.
+nom start = 7
+front   = 150
+journal = 0
+clavier = 0
+manette = 0
+
+0       rien
+25000   start
+25300   rien
+50000   start
+50300   rien

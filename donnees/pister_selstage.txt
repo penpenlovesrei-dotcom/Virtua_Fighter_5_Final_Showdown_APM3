@@ -1,0 +1,30 @@
+processus 8168 lance sous debogage
+  image     0x00007FF7D9C00000  vfes.exe
+  dll       0x00007FFE57C80000  d3d11.dll
+  dll       0x00007FFE58E10000  dxgi.dll
+  dll       0x00007FFE56F40000  D3DCompiler_47.dll
+  dll       0x00007FFE53CD0000  apm.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFE5EAFD78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFE5BCB187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFDB2E50000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 8168 coupee apres 2 s
+  tableau d entrees a 0x1D23E377130 (t=3.0 s)
+  --- l ecran est la : pressez UN bouton a la fois ---
+  t=   3.7 s  CODE   9  actif : +0x00=13  +0x20=3131961357  +0x28=23
+  t=   3.7 s  CODE  11  actif : +0x00=1  +0x20=0  +0x28=0
+  t=   3.7 s  CODE  12  actif : +0x00=64  +0x20=3131899904  +0x28=3131961344
+  t=   3.8 s  CODE  10  actif : +0x00=160  +0x20=6  +0x28=0
+  t=   5.0 s  CODE  12  actif : +0x00=64  +0x20=3131899904  +0x28=1104375616
+  t=   5.0 s  CODE  13  actif : +0x00=31  +0x20=1  +0x28=1
+  t=  48.1 s  CODE  -2  actif : +0x00=88  +0x20=0  +0x28=1
+  t=  48.1 s  CODE  -1  actif : +0x00=0  +0x20=0  +0x28=6
+  t=  48.1 s  CODE   0  actif : +0x00=1  +0x20=1  +0x28=8
+  t=  51.7 s  CODE  -2  actif : +0x00=88  +0x20=2  +0x28=0
+  t=  65.0 s  CODE   9  actif : +0x00=13  +0x20=3131961357  +0x28=0
+  t=  65.0 s  CODE  10  actif : +0x00=0  +0x20=6  +0x28=0
+  t=  65.0 s  CODE  13  actif : +0x00=31  +0x20=0  +0x28=1
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  scenario d entrees remis en jeu manuel

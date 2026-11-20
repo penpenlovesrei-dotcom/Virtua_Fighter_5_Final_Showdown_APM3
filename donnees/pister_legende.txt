@@ -1,0 +1,32 @@
+processus 19276 lance sous debogage
+  image     0x00007FF69A820000  vfes.exe
+  dll       0x00007FF8555F0000  apm.dll
+  dll       0x00007FF856F30000  d3d11.dll
+  dll       0x00007FF858080000  dxgi.dll
+  dll       0x00007FF8561F0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF85DE1D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF85B3A187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FF8368B0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur caverne legende = 0x7FF836A57CCA (octet d'origine 0xC7)
+  BP arme sur garde sousmenu = 0x7FF836A8C649 (octet d'origine 0xE8)
+  BP arme sur maj menu = 0x7FF836A8C620 (octet d'origine 0x48)
+  BP arme sur resolution = 0x7FF836A6BD01 (octet d'origine 0x8B)
+  points d'arret poses a t=1 s
+  sourdine : session audio du processus 19276 coupee apres 2 s
+      0.0 ms  PREMIERE FOIS : maj menu
+     48.8 ms  PREMIERE FOIS : maj menu
+   2194.5 ms  PREMIERE FOIS : garde sousmenu
+   2194.9 ms  CAVERNE atteinte : page=0x20CD3CD4F00  [+0x21C]=0x62 (avant notre ecriture)
+   2215.4 ms  PREMIERE FOIS : garde sousmenu
+   2215.6 ms  CAVERNE atteinte : page=0x20CD3CD4F00  [+0x21C]=0x5780 (avant notre ecriture)
+   2236.8 ms  CAVERNE atteinte : page=0x20CD3CD4F00  [+0x21C]=0x5780 (avant notre ecriture)
+   2263.6 ms  CAVERNE atteinte : page=0x20CD3CD4F00  [+0x21C]=0x5780 (avant notre ecriture)
+   2301.3 ms  CAVERNE atteinte : page=0x20CD3CD4F00  [+0x21C]=0x5780 (avant notre ecriture)
+  sortie du processus, code 0x00000000
+
+77 module(s) charge(s)
+  BP caverne legende : 947 passage(s)
+  BP garde sousmenu : 947 passage(s)
+  BP maj menu : 1040 passage(s)
+  BP resolution : 1042 passage(s)

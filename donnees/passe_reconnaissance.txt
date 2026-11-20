@@ -1,0 +1,54 @@
+processus 5272 lance sous debogage
+  image     0x00007FF7E0560000  vfes.exe
+  dll       0x00007FFBBC090000  apm.dll
+  dll       0x00007FFBD5840000  d3d11.dll
+  dll       0x00007FFBD6760000  dxgi.dll
+  dll       0x00007FFBD4A40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFBDC49D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFBD9A0187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFB1EB30000  vf5fs-pxd-w64-Retail_APM3.dll
+  capture : C:\Users\frede\Desktop\VF5RE\analysis\vfes_titre_v2.png (1920x1080) a t=14.0 s
+--- 20 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+17546 message(s) de debogage, 39 distincts :
+    1510 x  [apm] Sequence_isTest
+     998 x  [apm] AllnetAuth_isGood
+     997 x  [apm] AllnetAuth_getLocationId
+     997 x  [apm] System_getKeychipId
+     592 x  [apm] Credit_isFreePlay
+     500 x  [apm] Core_execute
+     499 x  [apm] AllnetAuth_getAbaasLinkServerName
+     498 x  [apm] System_getGameId
+     498 x  [apm] AllnetAuth_getCountryCode
+     498 x  [apm] System_getBoardId
+     498 x  [apm] Error_isOccurred
+     498 x  [apm] Input_isOnNow(0)
+     498 x  [apm] Input_isOnNow(7)
+     498 x  [apm] Input_isOnNow(8)
+     497 x  [apm] Input_isOn(2)
+     497 x  [apm] Input_isOn(5)
+     497 x  [apm] Input_isOn(3)
+     497 x  [apm] Input_isOn(4)
+     497 x  [apm] Input_isOn(11)
+     497 x  [apm] Input_isOn(7)
+     497 x  [apm] Input_isOn(12)
+     497 x  [apm] Input_isOn(8)
+     497 x  [apm] Input_isOn(9)
+     497 x  [apm] Input_isOn(10)
+     497 x  [apm] Input_isOn(13)
+     497 x  [apm] Input_isOn(14)
+     497 x  [apm] Input_isOn(6)
+     494 x  [apm] Core_isExitNeeded
+     494 x  [apm] Input_isOnNow(15)
+     494 x  [apm] ApmSystemSetting_getFixedTitle
+      13 x  [apm] ApmSystemSetting_getAdvertizeSound
+       4 x  [apm] Backup_getRecordStatus
+       1 x  [apm] stub charge
+       1 x  [apm] entrees: 1 pas, 0 nom(s), front=34 ms
+       1 x  [apm] entrees: pas 0 a t=0 ms, masque=0x00000000
+       1 x  [apm] Input_setGamepadConfig
+       1 x  [apm] Backup_setupRecords
+       1 x  [apm] Credit_setCoinInHook
+       1 x  [apm] Backup_isSetupSucceeded

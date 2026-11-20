@@ -1,0 +1,729 @@
+LES VTABLES DE MENU DES DEUX MODULES, MISES EN REGARD
+
+Depose le 2026-11-19. Les noms de classe viennent du RTTI MSVC
+des deux PE (VF5RE/tools/rtti.py) ; les creneaux sont lus dans
+.rdata ; les tailles viennent de .pdata. Aucun nom, aucune
+adresse n'est recopie a la main. Aucun des deux PE n'est
+charge ni execute.
+
+APM3 : vf5fs-pxd-w64-Retail_APM3.dll            (6965248 o)
+REVO : vf5fs-pxd-w64-d3d12_SteamRetail.dll      (7229952 o)
+
+ATTENTION. Les deux ont la base 0x180000000 et des adresses
+DIFFERENTES. Une adresse de la colonne APM3 ne designe RIEN
+dans REVO, et reciproquement.
+
+LE NUMERO DE CRENEAU NE SE TRANSPOSE PAS NON PLUS. Mesure :
+la vtable de TaskMenuMain a ONZE creneaux chez APM3 et DOUZE
+chez REVO -- REVO en a insere un en position 7. C'est la
+TAILLE des fonctions qui apparie la fin de la table, pas son
+rang : 37 o / 16 o / 77 o des deux cotes.
+
+Le sens des premiers creneaux, etabli dans
+VF5RE/analysis/mode_de_jeu.md section 5 :
+  [0] destructeur   [1] init   [2] mise a jour   [4] dessin
+  le dernier creneau non bouchonne : valider
+
+46 classes de menu nommees des DEUX cotes.
+8 seulement chez APM3, 8 seulement chez REVO.
+
+==============================================================================
+
+## (anonyme)::CharSelector
+   (nom brut APM3 ?A0x23f84344::CharSelector / REVO ?A0x370dc8ff::CharSelector -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180530F30 (11 creneaux)   |   REVO vtable 0x180559278 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801CE9D0  161 o     | 0x1801F9F30  82 o     
+   [ 1] 0x1801D0260  feuille   | 0x1801FBBD0  feuille  
+   [ 2] 0x1801CEDD0  26 o      | 0x1801FA290  26 o        <= meme taille
+   [ 3] 0x1801CF4A0  23 o      | 0x1801FAC30  23 o        <= meme taille
+   [ 4] 0x1801CF580  563 o     | 0x1801FAD10  583 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x180007450  feuille   | 0x18000AF70  feuille  
+   [ 8] 0x1801D0180  77 o      | 0x18000BA20  feuille  
+   [ 9] 0x1801BB9D0  76 o      | 0x1801FBAF0  77 o     
+   [10] 0x1801BC010  80 o      | 0x1801DE2D0  70 o     
+   [11] -                      | 0x1801FA970  feuille  
+
+## (anonyme)::DataSelector
+   (nom brut APM3 ?A0x23f84344::DataSelector / REVO ?A0x370dc8ff::DataSelector -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180530F90 (11 creneaux)   |   REVO vtable 0x1805592E0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801CEA80  161 o     | 0x1801F9F90  82 o     
+   [ 1] 0x1801D0280  48 o      | 0x1801FBBF0  48 o        <= meme taille
+   [ 2] 0x1801CEE60  26 o      | 0x1801FA340  335 o    
+   [ 3] 0x1801CF4C0  50 o      | 0x1801FAC50  50 o        <= meme taille
+   [ 4] 0x1801CF7C0  926 o     | 0x1801FAF60  986 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801D01D0  136 o     | 0x1801FC7B0  180 o    
+   [ 9] 0x1801BB9D0  76 o      | 0x1801FBB40  137 o    
+   [10] 0x1801CF2C0  feuille   | 0x1801DE2D0  70 o     
+   [11] -                      | 0x1801FA980  feuille  
+
+## (anonyme)::TaskCostumeMenu
+   (nom brut APM3 ?A0x976cdec3::TaskCostumeMenu / REVO ?A0x942d93d5::TaskCostumeMenu -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x1805303C0 (11 creneaux)   |   REVO vtable 0x180558948 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801C65A0  94 o      | 0x1801F0D00  145 o    
+   [ 1] 0x1801CB430  324 o     | 0x1801F6400  15 o     
+   [ 2] 0x1801C6F50  97 o      | 0x1801F18B0  97 o        <= meme taille
+   [ 3] 0x1801C84D0  83 o      | 0x1801F2FE0  87 o     
+   [ 4] 0x1801C8F60  1067 o    | 0x1801F3EC0  1010 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801C6C90  51 o      | 0x1801DFB00  16 o     
+   [10] 0x1801C7F90  24 o      | 0x1801F14C0  51 o     
+   [11] -                      | 0x1801F29D0  24 o     
+
+## (anonyme)::TaskCustomizeMenu
+   (nom brut APM3 ?A0x976cdec3::TaskCustomizeMenu / REVO ?A0x942d93d5::TaskCustomizeMenu -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180530420 (11 creneaux)   |   REVO vtable 0x1805589B0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801C6600  226 o     | 0x1801F0DA0  206 o    
+   [ 1] 0x1801CB580  186 o     | 0x1801F6610  190 o    
+   [ 2] 0x1801C7110  452 o     | 0x1801F1AB0  91 o     
+   [ 3] 0x1801C8530  76 o      | 0x1801F3040  81 o     
+   [ 4] 0x1801C9390  802 o     | 0x1801F42C0  1373 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801C6CD0  69 o      | 0x1801DFB00  16 o     
+   [10] 0x1801C8030  150 o     | 0x1801F1500  69 o     
+   [11] -                      | 0x1801F2A70  97 o     
+
+## (anonyme)::TaskDataSelector
+   (nom brut APM3 ?A0x23f84344::TaskDataSelector / REVO ?A0x370dc8ff::TaskDataSelector -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180530FF0 (11 creneaux)   |   REVO vtable 0x180559348 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801CE8F0  220 o     | 0x1801F9E80  172 o    
+   [ 1] 0x1801D02B0  1087 o    | 0x1801FBC20  1381 o   
+   [ 2] 0x1801CEEF0  16 o      | 0x1801FA490  727 o    
+   [ 3] 0x1801CF500  114 o     | 0x1801FAC90  114 o       <= meme taille
+   [ 4] 0x1801CFB60  497 o     | 0x1801FB340  367 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x180007450  feuille   | 0x1801DFB00  16 o     
+   [ 9] 0x1801CED00  172 o     | 0x18000BA20  feuille  
+   [10] 0x1801CF2D0  346 o     | 0x1801FA1B0  190 o    
+   [11] -                      | 0x1801FA9A0  535 o    
+
+## (anonyme)::TaskMenuCustomize
+   (nom brut APM3 ?A0xbfe862f2::TaskMenuCustomize / REVO ?A0xab1de949::TaskMenuCustomize -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x18052FCF8 (11 creneaux)   |   REVO vtable 0x1805586F8 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801C4470  174 o     | 0x1801EEE00  133 o    
+   [ 1] 0x1801C5B40  135 o     | 0x1801F0330  135 o       <= meme taille
+   [ 2] 0x1801C4F10  155 o     | 0x1801EF850  156 o    
+   [ 3] 0x1801C5180  34 o      | 0x1801EFAC0  34 o        <= meme taille
+   [ 4] 0x1801C51B0  910 o     | 0x1801EFAF0  370 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801C5F40  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801F0760  16 o        <= meme taille
+   [ 9] 0x1801C4690  83 o      | 0x1801DFB00  16 o     
+   [10] 0x1801C5060  221 o     | 0x1801EEFE0  83 o     
+   [11] -                      | 0x1801EF9A0  221 o    
+
+## (anonyme)::TaskMenuSetting
+   (nom brut APM3 ?A0xf1fded0d::TaskMenuSetting / REVO ?A0x6b24eaf8::TaskMenuSetting -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180410BF0 (11 creneaux)   |   REVO vtable 0x180439BA8 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A3AB0  187 o     | 0x1801B3CD0  174 o    
+   [ 1] 0x1801A57C0  429 o     | 0x1801B58F0  429 o       <= meme taille
+   [ 2] 0x1801A4040  276 o     | 0x1801B41E0  272 o    
+   [ 3] 0x1801A4410  163 o     | 0x1801B4590  208 o    
+   [ 4] 0x1801A4840  385 o     | 0x1801B49E0  378 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801A5FB0  44 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801A56A0  27 o      | 0x1801B6100  44 o     
+   [ 9] 0x1801A3F70  82 o      | 0x1801B57D0  27 o     
+   [10] 0x1801A42D0  190 o     | 0x1801B4110  82 o     
+   [11] -                      | 0x1801B4450  188 o    
+
+## (anonyme)::TaskMenuTeam
+   (nom brut APM3 ?A0xf1fded0d::TaskMenuTeam / REVO ?A0x6b24eaf8::TaskMenuTeam -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180410C50 (11 creneaux)   |   REVO vtable 0x180439C10 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A3B70  226 o     | 0x1801B3D80  186 o    
+   [ 1] 0x1801A5970  12 o      | 0x1801B5AA0  12 o        <= meme taille
+   [ 2] 0x1801A4160  354 o     | 0x1801B42F0  352 o    
+   [ 3] 0x1801A44C0  58 o      | 0x1801B4660  58 o        <= meme taille
+   [ 4] 0x1801A49D0  385 o     | 0x1801B4B60  378 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801A6060  186 o     | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801B61B0  186 o    
+   [ 9] 0x1801A3FD0  86 o      | 0x1801DFB00  16 o     
+   [10] 0x1801A4390  109 o     | 0x1801B4170  86 o     
+   [11] -                      | 0x1801B4510  109 o    
+
+## (anonyme)::TaskSelItemMenu
+   (nom brut APM3 ?A0x976cdec3::TaskSelItemMenu / REVO ?A0x942d93d5::TaskSelItemMenu -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x1805304E0 (11 creneaux)   |   REVO vtable 0x180558A80 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801C6850  94 o      | 0x1801F0F90  82 o     
+   [ 1] 0x1801CB7F0  447 o     | 0x1801F6890  801 o    
+   [ 2] 0x1801C7440  545 o     | 0x1801F1E40  650 o    
+   [ 3] 0x1801C85B0  74 o      | 0x1801F30D0  80 o     
+   [ 4] 0x1801C9FF0  25 o      | 0x1801F50F0  25 o        <= meme taille
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801C6D90  64 o      | 0x1801DFB00  16 o     
+   [10] 0x1801C8110  355 o     | 0x1801F15C0  70 o     
+   [11] -                      | 0x1801F2B70  301 o    
+
+## (anonyme)::TaskSelPartMenu
+   (nom brut APM3 ?A0x976cdec3::TaskSelPartMenu / REVO ?A0x942d93d5::TaskSelPartMenu -- le hachage d'espace de noms anonyme differe)
+   APM3 vtable 0x180530540 (11 creneaux)   |   REVO vtable 0x180558AE8 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801C68B0  258 o     | 0x1801F0FF0  191 o    
+   [ 1] 0x1801CB9B0  281 o     | 0x1801F6BC0  313 o    
+   [ 2] 0x1801C7670  532 o     | 0x1801F20D0  624 o    
+   [ 3] 0x1801C8600  207 o     | 0x1801F3120  10 o     
+   [ 4] 0x1801CA040  973 o     | 0x1801F5140  940 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801C6DD0  42 o      | 0x1801DFB00  16 o     
+   [10] 0x1801C8280  155 o     | 0x1801F1610  42 o     
+   [11] -                      | 0x1801F2CA0  251 o    
+
+## IMenuStrategy
+   APM3 vtable 0x180547780 (4 creneaux)   |   REVO vtable 0x180576AF0 (4 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18020A610  43 o      | 0x18025B0D0  43 o        <= meme taille
+   [ 1] 0x1802FF5B0  46 o      | 0x180333E0C  26 o     
+   [ 2] 0x1802FF5B0  46 o      | 0x180333E0C  26 o     
+   [ 3] 0x1802FF5B0  46 o      | 0x180333E0C  26 o     
+
+## TaskCsMenu
+   APM3 vtable 0x18052F6C0 (11 creneaux)   |   REVO vtable 0x180558270 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801BB8B0  161 o     | 0x1801DE180  188 o    
+   [ 1] 0x1801BD120  176 o     | 0x1801DFBC0  190 o    
+   [ 2] 0x1801BBBE0  37 o      | 0x1801DE510  37 o        <= meme taille
+   [ 3] 0x1801BC0B0  198 o     | 0x1801DEAD0  242 o    
+   [ 4] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801BB9D0  76 o      | 0x1801DFB00  16 o     
+   [10] 0x1801BC010  80 o      | 0x1801DE2D0  70 o     
+   [11] -                      | 0x1801DEA10  91 o     
+
+## TaskEndMenu
+   APM3 vtable 0x18039A160 (11 creneaux)   |   REVO vtable 0x1803C2D00 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1800A39A0  174 o     | 0x1800A0BB0  133 o    
+   [ 1] 0x1800A7A00  128 o     | 0x1800A51B0  128 o       <= meme taille
+   [ 2] 0x1800A4510  154 o     | 0x1800A1870  155 o    
+   [ 3] 0x1800A4970  34 o      | 0x1800A1D00  34 o        <= meme taille
+   [ 4] 0x1800A4FA0  556 o     | 0x1800A2240  544 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1800A9420  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1800A6EF0  16 o        <= meme taille
+   [ 9] 0x180007430  feuille   | 0x1801DFB00  16 o     
+   [10] 0x1800A48A0  47 o      | 0x18000AF60  feuille  
+   [11] -                      | 0x1800A1C30  47 o     
+
+## TaskMenuArcade
+   APM3 vtable 0x180532848 (11 creneaux)   |   REVO vtable 0x18055A238 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DADE0  94 o      | 0x180205F50  82 o     
+   [ 1] 0x1801E2F00  369 o     | 0x18020EA50  350 o    
+   [ 2] 0x1801DBE20  551 o     | 0x180206EF0  175 o    
+   [ 3] 0x1801A82D0  46 o      | 0x1801B8150  46 o        <= meme taille
+   [ 4] 0x1801DF100  838 o     | 0x18020AFC0  796 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB960  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB880  37 o     
+   [ 9] 0x1801DB530  66 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DDD00  32 o      | 0x1802066E0  66 o     
+   [11] -                      | 0x180209AA0  32 o     
+
+## TaskMenuArcadeLicenceChallenge
+   APM3 vtable 0x1805327E8 (11 creneaux)   |   REVO vtable 0x18055A1D0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DAE40  94 o      | 0x180205FB0  82 o     
+   [ 1] 0x1801E3080  488 o     | 0x18020EBB0  477 o    
+   [ 2] 0x1801DC050  534 o     | 0x180207110  516 o    
+   [ 3] 0x1801DE610  75 o      | 0x18020A3F0  75 o        <= meme taille
+   [ 4] 0x1801DF450  3723 o    | 0x18020B2E0  3184 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4A70  226 o     | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x180211570  225 o    
+   [ 9] 0x1801DB580  59 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DDE40  59 o      | 0x180206730  59 o        <= meme taille
+   [11] -                      | 0x180209BC0  59 o     
+
+## TaskMenuArcadeNormal
+   APM3 vtable 0x180532668 (11 creneaux)   |   REVO vtable 0x18055A030 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DAEA0  94 o      | 0x180206010  82 o     
+   [ 1] 0x1801E3270  664 o     | 0x18020ED90  666 o    
+   [ 2] 0x1801DC270  666 o     | 0x180207320  360 o    
+   [ 3] 0x1801DE660  258 o     | 0x18020A440  293 o    
+   [ 4] 0x1801E02E0  1251 o    | 0x18020BF50  1190 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4B60  64 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801E2AE0  27 o      | 0x180211660  64 o     
+   [ 9] 0x1801DB5C0  83 o      | 0x18020E610  27 o     
+   [10] 0x1801DDE80  83 o      | 0x180206770  83 o        <= meme taille
+   [11] -                      | 0x180209C00  83 o     
+
+## TaskMenuCommandTraining
+   APM3 vtable 0x180532908 (11 creneaux)   |   REVO vtable 0x18055A308 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DAF00  94 o      | 0x180206070  82 o     
+   [ 1] 0x1801E3510  390 o     | 0x18020F030  383 o    
+   [ 2] 0x1801DC510  237 o     | 0x1802078D0  237 o       <= meme taille
+   [ 3] 0x1801DE770  58 o      | 0x18020A570  58 o        <= meme taille
+   [ 4] 0x1801E07D0  1191 o    | 0x18020C400  1141 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4C20  44 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801E2B90  27 o      | 0x180211720  44 o     
+   [ 9] 0x1801DB620  71 o      | 0x18020E6C0  27 o     
+   [10] 0x1801DDEE0  71 o      | 0x1802067D0  71 o        <= meme taille
+   [11] -                      | 0x180209C60  71 o     
+
+## TaskMenuDlContent
+   APM3 vtable 0x180532A88 (7 creneaux)   |   REVO vtable 0x18055A4A8 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x180029F50  94 o      | 0x180026530  82 o     
+   [ 1] 0x1801E36A0  37 o      | 0x18020F1B0  37 o        <= meme taille
+   [ 2] 0x1801DC600  19 o      | 0x1802079C0  19 o        <= meme taille
+   [ 3] 0x180029FB0  feuille   | 0x180026620  feuille  
+   [ 4] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskMenuMain
+   APM3 vtable 0x180532AE8 (11 creneaux)   |   REVO vtable 0x18055A510 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DAF60  343 o     | 0x1802060D0  294 o    
+   [ 1] 0x1801E36D0  1934 o    | 0x18020F1E0  2345 o   
+   [ 2] 0x1801DC620  2173 o    | 0x1802079E0  5368 o   
+   [ 3] 0x1801DE7B0  393 o     | 0x18020A5B0  617 o    
+   [ 4] 0x1801E0C80  1114 o    | 0x18020C880  1035 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4CD0  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1802117D0  37 o     
+   [ 9] 0x180007430  feuille   | 0x1801DFB00  16 o     
+   [10] 0x1801DDF30  77 o      | 0x18000AF60  feuille  
+   [11] -                      | 0x180209CB0  77 o     
+
+## TaskMenuMulti
+   APM3 vtable 0x180532B48 (11 creneaux)   |   REVO vtable 0x18055A578 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DB0C0  327 o     | 0x180206200  222 o    
+   [ 1] 0x1801E3E60  396 o     | 0x18020FB10  429 o    
+   [ 2] 0x1801DD190  620 o     | 0x180208EE0  643 o    
+   [ 3] 0x1801DE940  104 o     | 0x18020A820  98 o     
+   [ 4] 0x1801E10E0  843 o     | 0x18020CC90  785 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB960  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB880  37 o     
+   [ 9] 0x1801DB670  89 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DE1F0  71 o      | 0x180206820  89 o     
+   [11] -                      | 0x180209F60  71 o     
+
+## TaskMenuReplay
+   APM3 vtable 0x1805329C8 (11 creneaux)   |   REVO vtable 0x18055A3D8 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A69E0  94 o      | 0x1801B6A80  82 o     
+   [ 1] 0x1801E3FF0  380 o     | 0x18020FCC0  381 o    
+   [ 2] 0x1801DD400  181 o     | 0x180209170  181 o       <= meme taille
+   [ 3] 0x1801DE9B0  68 o      | 0x18020A890  68 o        <= meme taille
+   [ 4] 0x1801E1430  869 o     | 0x18020CFB0  827 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4D00  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x180211800  37 o     
+   [ 9] 0x1801DB6D0  77 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DE240  242 o     | 0x180206880  77 o     
+   [11] -                      | 0x180209FB0  229 o    
+
+## TaskMenuScoreAttack
+   APM3 vtable 0x1805326C8 (11 creneaux)   |   REVO vtable 0x18055A098 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DB210  94 o      | 0x1802062E0  82 o     
+   [ 1] 0x1801E4170  392 o     | 0x18020FE40  384 o    
+   [ 2] 0x1801DD6A0  249 o     | 0x180209410  280 o    
+   [ 3] 0x1801DEA00  94 o      | 0x18020A8E0  95 o     
+   [ 4] 0x1801E17A0  880 o     | 0x18020D2F0  837 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4D30  90 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x180211830  87 o     
+   [ 9] 0x1801DB720  58 o      | 0x1801DFB00  16 o     
+   [10] 0x1800A48A0  47 o      | 0x1802068D0  58 o     
+   [11] -                      | 0x1800A1C30  47 o     
+
+## TaskMenuTerminal
+   APM3 vtable 0x180532A28 (11 creneaux)   |   REVO vtable 0x18055A440 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DB270  94 o      | 0x180206340  82 o     
+   [ 1] 0x1801E4300  279 o     | 0x180210110  278 o    
+   [ 2] 0x1801DD7A0  543 o     | 0x180209530  543 o       <= meme taille
+   [ 3] 0x1801A82D0  46 o      | 0x1801B8150  46 o        <= meme taille
+   [ 4] 0x1801E1B10  812 o     | 0x18020D640  791 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB960  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB880  37 o     
+   [ 9] 0x1801DB760  94 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DE340  29 o      | 0x180206910  94 o     
+   [11] -                      | 0x18020A0A0  237 o    
+
+## TaskMenuTraining
+   APM3 vtable 0x180532968 (11 creneaux)   |   REVO vtable 0x18055A370 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DB2D0  94 o      | 0x1802063A0  82 o     
+   [ 1] 0x1801E4420  313 o     | 0x180210230  310 o    
+   [ 2] 0x1801DD9C0  383 o     | 0x180209750  387 o    
+   [ 3] 0x1801A82D0  46 o      | 0x1801B8150  46 o        <= meme taille
+   [ 4] 0x1801E1E40  843 o     | 0x18020D960  785 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB960  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB880  37 o     
+   [ 9] 0x1801DB7C0  96 o      | 0x1801DFB00  16 o     
+   [10] 0x1801DE440  23 o      | 0x180206970  96 o     
+   [11] -                      | 0x18020A190  23 o     
+
+## TaskMenuVersus
+   APM3 vtable 0x1805328A8 (11 creneaux)   |   REVO vtable 0x18055A2A0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801DB330  94 o      | 0x180206400  82 o     
+   [ 1] 0x1801E4560  359 o     | 0x180210370  359 o       <= meme taille
+   [ 2] 0x1801DDB40  443 o     | 0x1802098E0  437 o    
+   [ 3] 0x1801DEA60  242 o     | 0x18020A940  283 o    
+   [ 4] 0x1801E2190  1267 o    | 0x18020DC80  1214 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E4D90  73 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801E2C40  40 o      | 0x180211890  73 o     
+   [ 9] 0x1801DB820  71 o      | 0x18020E770  40 o     
+   [10] 0x1801DE510  80 o      | 0x1802069D0  71 o     
+   [11] -                      | 0x18020A260  80 o     
+
+## TaskOption
+   APM3 vtable 0x180411348 (7 creneaux)   |   REVO vtable 0x18043A048 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A67B0  258 o     | 0x1801B6870  236 o    
+   [ 1] 0x1801AA7C0  219 o     | 0x1801BA870  219 o       <= meme taille
+   [ 2] 0x1801A6F70  681 o     | 0x1801B6E50  655 o    
+   [ 3] 0x1801A8140  23 o      | 0x1801B8060  23 o        <= meme taille
+   [ 4] 0x1801A8420  313 o     | 0x1801B82D0  342 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskOptionControl
+   APM3 vtable 0x180411188 (11 creneaux)   |   REVO vtable 0x180439E68 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A68C0  94 o      | 0x1801B6960  82 o     
+   [ 1] 0x1801AA8A0  1134 o    | 0x1801BA950  942 o    
+   [ 2] 0x1801A7220  433 o     | 0x1801B70E0  428 o    
+   [ 3] 0x1801A8160  41 o      | 0x1801B8080  99 o     
+   [ 4] 0x1801A8560  2454 o    | 0x1801B8430  2359 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB820  258 o     | 0x18000AF70  feuille  
+   [ 8] 0x1801AA620  180 o     | 0x1801BB740  261 o    
+   [ 9] 0x180007430  feuille   | 0x1801BA6A0  184 o    
+   [10] 0x1801A7ED0  117 o     | 0x18000AF60  feuille  
+   [11] -                      | 0x1801B7DF0  117 o    
+
+## TaskOptionFile
+   APM3 vtable 0x180411268 (11 creneaux)   |   REVO vtable 0x180439F58 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A6920  94 o      | 0x1801B69C0  82 o     
+   [ 1] 0x1801AAD10  317 o     | 0x1801BAD00  317 o       <= meme taille
+   [ 2] 0x1801A77B0  95 o      | 0x1801B76E0  94 o     
+   [ 3] 0x1801A82D0  46 o      | 0x1801B8150  46 o        <= meme taille
+   [ 4] 0x1801A8F00  790 o     | 0x1801B8D70  766 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB930  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB850  37 o     
+   [ 9] 0x1801A6BA0  59 o      | 0x1801DFB00  16 o     
+   [10] 0x1801A7F50  feuille   | 0x1801B6C40  59 o     
+   [11] -                      | 0x1801B7E70  feuille  
+
+## TaskOptionHowto
+   APM3 vtable 0x180411118 (11 creneaux)   |   REVO vtable 0x180439DF0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1800A3A50  174 o     | 0x1800A0C40  133 o    
+   [ 1] 0x1801AAE50  151 o     | 0x1801BAE40  151 o       <= meme taille
+   [ 2] 0x1801A7980  238 o     | 0x1801B78B0  238 o       <= meme taille
+   [ 3] 0x1800A49A0  34 o      | 0x1800A1D30  34 o        <= meme taille
+   [ 4] 0x1801A9220  1622 o    | 0x1801B9070  2395 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801A6BE0  89 o      | 0x1801DFB00  16 o     
+   [10] 0x1801A7F60  141 o     | 0x1801B6C80  89 o     
+   [11] -                      | 0x1801B7E80  141 o    
+
+## TaskOptionInfo
+   APM3 vtable 0x1804112D8 (11 creneaux)   |   REVO vtable 0x180439FD0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A6980  94 o      | 0x1801B6A20  82 o     
+   [ 1] 0x1801AAEF0  47 o      | 0x1801BAEE0  47 o        <= meme taille
+   [ 2] 0x1801A7A70  240 o     | 0x1801B79A0  240 o       <= meme taille
+   [ 3] 0x1801A8300  88 o      | 0x1801B8180  88 o        <= meme taille
+   [ 4] 0x1801A9880  1330 o    | 0x1801B99D0  1207 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801BD080  16 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801DFB00  16 o        <= meme taille
+   [ 9] 0x1801A6C40  101 o     | 0x1801DFB00  16 o     
+   [10] 0x1801A7FF0  153 o     | 0x1801B6CE0  101 o    
+   [11] -                      | 0x1801B7F10  153 o    
+
+## TaskOptionMenu
+   APM3 vtable 0x1804110A8 (11 creneaux)   |   REVO vtable 0x180439D78 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A69E0  94 o      | 0x1801B6A80  82 o     
+   [ 1] 0x1801AAFF0  413 o     | 0x1801BAFF0  374 o    
+   [ 2] 0x1801A7B60  184 o     | 0x1801B7A90  184 o       <= meme taille
+   [ 3] 0x1801A82D0  46 o      | 0x1801B8150  46 o        <= meme taille
+   [ 4] 0x1801A9DC0  886 o     | 0x1801B9E90  845 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB960  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x1801BB880  37 o     
+   [ 9] 0x1801A6CB0  78 o      | 0x1801DFB00  16 o     
+   [10] 0x1801A8090  68 o      | 0x1801B6D50  78 o     
+   [11] -                      | 0x1801B7FB0  68 o     
+
+## TaskOptionSetting
+   APM3 vtable 0x1804111F8 (11 creneaux)   |   REVO vtable 0x180439EE0 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801A6A40  94 o      | 0x1801B6AE0  82 o     
+   [ 1] 0x1801AB190  517 o     | 0x1801BB170  548 o    
+   [ 2] 0x1801A7D70  337 o     | 0x1801B7CA0  333 o    
+   [ 3] 0x1801A8360  182 o     | 0x1801B81E0  229 o    
+   [ 4] 0x1801AA140  1236 o    | 0x1801BA1E0  1203 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801AB990  64 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801AA6E0  31 o      | 0x1801BB8B0  64 o     
+   [ 9] 0x180007430  feuille   | 0x1801BA760  31 o     
+   [10] 0x1801A80E0  96 o      | 0x18000AF60  feuille  
+   [11] -                      | 0x1801B8000  96 o     
+
+## TaskPause
+   APM3 vtable 0x1805337F0 (7 creneaux)   |   REVO vtable 0x18055B0C0 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801E7790  271 o     | 0x180223100  275 o    
+   [ 1] 0x1801E9140  175 o     | 0x1802260E0  232 o    
+   [ 2] 0x1801E7C30  46 o      | 0x180223670  46 o        <= meme taille
+   [ 3] 0x1801E8B10  202 o     | 0x180225A30  279 o    
+   [ 4] 0x1801E8BE0  527 o     | 0x180225B50  525 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskPauseMenu
+   APM3 vtable 0x180533790 (11 creneaux)   |   REVO vtable 0x18055B058 (12 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801E78A0  174 o     | 0x180223220  133 o    
+   [ 1] 0x1801E91F0  452 o     | 0x1802261D0  382 o    
+   [ 2] 0x1801E7C60  13 o      | 0x1802236A0  13 o        <= meme taille
+   [ 3] 0x1800A4970  34 o      | 0x1800A1D00  34 o        <= meme taille
+   [ 4] 0x1801E8DF0  841 o     | 0x180225D60  884 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801E93E0  37 o      | 0x18000AF70  feuille  
+   [ 8] 0x1801BD080  16 o      | 0x180227060  67 o     
+   [ 9] 0x1801E7B70  123 o     | 0x1801DFB00  16 o     
+   [10] 0x1801E8AA0  108 o     | 0x180223590  151 o    
+   [11] -                      | 0x1802259B0  122 o    
+
+## TaskSelCursor
+   APM3 vtable 0x1803FEF58 (7 creneaux)   |   REVO vtable 0x1804281D0 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18016C340  94 o      | 0x18017AC50  82 o     
+   [ 1] 0x180173AD0  feuille   | 0x180182CD0  feuille  
+   [ 2] 0x1801724B0  45 o      | 0x180181550  45 o        <= meme taille
+   [ 3] 0x180173680  119 o     | 0x180182900  127 o    
+   [ 4] 0x180173700  184 o     | 0x180182980  186 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskSelector
+   APM3 vtable 0x1803FEFD8 (7 creneaux)   |   REVO vtable 0x180428260 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18016C3A0  232 o     | 0x18017ACB0  169 o    
+   [ 1] 0x18016CF80  501 o     | 0x18017B850  428 o    
+   [ 2] 0x18016C570  88 o      | 0x18017AE30  88 o        <= meme taille
+   [ 3] 0x18016CDE0  251 o     | 0x18017B6A0  252 o    
+   [ 4] 0x18016CEE0  feuille   | 0x18017B7A0  feuille  
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskTrnCmdPause
+   APM3 vtable 0x180545750 (7 creneaux)   |   REVO vtable 0x1805752C8 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801F6FB0  356 o     | 0x180246DB0  382 o    
+   [ 1] 0x1801F8EF0  251 o     | 0x180248230  20 o     
+   [ 2] 0x1801F7840  76 o      | 0x180247020  76 o        <= meme taille
+   [ 3] 0x1801F83D0  168 o     | 0x180247B40  217 o    
+   [ 4] 0x1801F8520  1277 o    | 0x180247C60  1361 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskTrnFreePause
+   APM3 vtable 0x180547138 (7 creneaux)   |   REVO vtable 0x1805765B8 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x180206260  431 o     | 0x180256C70  82 o     
+   [ 1] 0x180208B50  517 o     | 0x1802591C0  20 o     
+   [ 2] 0x180206B50  feuille   | 0x1802573F0  feuille  
+   [ 3] 0x180207DF0  229 o     | 0x180258950  321 o    
+   [ 4] 0x180207F70  847 o     | 0x180258C70  970 o    
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskTrnOpePause
+   APM3 vtable 0x180548A88 (7 creneaux)   |   REVO vtable 0x180577C48 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18020D7F0  202 o     | 0x18025E740  152 o    
+   [ 1] 0x18020F370  38 o      | 0x1802605E0  20 o     
+   [ 2] 0x18020E180  66 o      | 0x18025F1A0  66 o        <= meme taille
+   [ 3] 0x18020E7A0  123 o     | 0x18025F9D0  172 o    
+   [ 4] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TaskTrnOpePauseBase
+   APM3 vtable 0x1805489B0 (16 creneaux)   |   REVO vtable 0x180577B60 (16 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801F7120  94 o      | 0x18023D390  82 o     
+   [ 1] 0x1801F8FF0  356 o     | 0x18023DF90  7 o      
+   [ 2] 0x1801FC720  47 o      | 0x18024B1A0  47 o        <= meme taille
+   [ 3] 0x1801F8480  151 o     | 0x18023DD00  154 o    
+   [ 4] 0x1801FE380  2109 o    | 0x18024D120  1940 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801F9840  338 o     | 0x18000AF70  feuille  
+   [ 8] 0x1801F8E30  79 o      | 0x18023EA50  73 o     
+   [ 9] 0x1801F74E0  184 o     | 0x18023DDC0  35 o     
+   [10] 0x18020E6A0  49 o      | 0x18023D450  185 o    
+   [11] 0x1801FD130  66 o      | 0x18023FD50  49 o     
+   [12] 0x180200BE0  feuille   | 0x18024BEE0  122 o    
+   [13] 0x180208B20  feuille   | 0x18024FEC0  feuille  
+   [14] 0x18020F160  feuille   | 0x180240080  feuille  
+   [15] 0x180007430  feuille   | 0x1802603C0  feuille  
+
+## TrnCmdPauseStrategy
+   APM3 vtable 0x1805477D0 (4 creneaux)   |   REVO vtable 0x180576B40 (4 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18020A610  43 o      | 0x18025B0D0  43 o        <= meme taille
+   [ 1] 0x18020AEF0  64 o      | 0x18025BB60  64 o        <= meme taille
+   [ 2] 0x18020A890  feuille   | 0x18025B3C0  feuille  
+   [ 3] 0x18020A850  feuille   | 0x18025B360  feuille  
+
+## TrnFreePauseStrategy
+   APM3 vtable 0x1805477A8 (4 creneaux)   |   REVO vtable 0x180576B18 (4 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18020A610  43 o      | 0x18025B0D0  43 o        <= meme taille
+   [ 1] 0x18020AF30  64 o      | 0x18025BBA0  64 o        <= meme taille
+   [ 2] 0x18020A8A0  feuille   | 0x18025B3D0  feuille  
+   [ 3] 0x18020A860  feuille   | 0x18025B370  feuille  
+
+## TrnImplMenu
+   APM3 vtable 0x180547860 (7 creneaux)   |   REVO vtable 0x180576C28 (8 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18006E9F0  94 o      | 0x180068380  82 o     
+   [ 1] 0x18020AA70  91 o      | 0x18025B5B0  91 o        <= meme taille
+   [ 2] 0x18020A8C0  46 o      | 0x18025B400  46 o        <= meme taille
+   [ 3] 0x18020A940  59 o      | 0x18025B480  59 o        <= meme taille
+   [ 4] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] -                      | 0x18000AF70  feuille  
+
+## TrnMenuBase
+   APM3 vtable 0x180545560 (16 creneaux)   |   REVO vtable 0x18055F7E0 (16 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801F7120  94 o      | 0x18023D390  82 o     
+   [ 1] 0x1801F8FF0  356 o     | 0x18023DF90  7 o      
+   [ 2] 0x1801FC720  47 o      | 0x18024B1A0  47 o        <= meme taille
+   [ 3] 0x1801F8480  151 o     | 0x18023DD00  154 o    
+   [ 4] 0x1801FE380  2109 o    | 0x18024D120  1940 o   
+   [ 5] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 6] 0x180007430  feuille   | 0x18000AF60  feuille  
+   [ 7] 0x1801F9840  338 o     | 0x18000AF70  feuille  
+   [ 8] 0x1801F8E30  79 o      | 0x18023EA50  73 o     
+   [ 9] 0x1801F74E0  184 o     | 0x18023DDC0  35 o     
+   [10] 0x1801BC010  80 o      | 0x18023D450  185 o    
+   [11] 0x1801FD130  66 o      | 0x1801DEA10  91 o     
+   [12] 0x180200BE0  feuille   | 0x18024BEE0  122 o    
+   [13] 0x180029FB0  feuille   | 0x18024FEC0  feuille  
+   [14] 0x180200970  feuille   | 0x180026620  feuille  
+   [15] 0x180007430  feuille   | 0x18024FDA0  feuille  
+
+## TrnMenuCursor
+   APM3 vtable 0x180545550 (1 creneaux)   |   REVO vtable 0x18055F7D0 (1 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x1801F7180  85 o      | 0x18023D3F0  85 o        <= meme taille
+
+## TrnOpePauseStrategy
+   APM3 vtable 0x1805477F8 (4 creneaux)   |   REVO vtable 0x180576B68 (4 creneaux)
+   cr   APM3         taille    | REVO         taille   
+   [ 0] 0x18020A610  43 o      | 0x18025B0D0  43 o        <= meme taille
+   [ 1] 0x18020AF70  64 o      | 0x18025BBE0  64 o        <= meme taille
+   [ 2] 0x18020A8B0  feuille   | 0x18025B3E0  feuille  
+   [ 3] 0x18020A870  feuille   | 0x18025B380  feuille  
+
+==============================================================================
+
+CLASSES DE MENU QUI N'EXISTENT QUE CHEZ APM3 (8) --
+rien a transposer depuis REVO :
+  0x180553FA0  apm3TestMode::MenuBackupClear                   4 creneaux : 0x1802401D0 0x18023F330 0x180007430 0x1802403B0
+  0x180553B38  apm3TestMode::MenuBookkeep                      4 creneaux : 0x18023F660 0x18023F330 0x18023F710 0x18023F6A0
+  0x180553BE0  apm3TestMode::MenuGameAssign                    4 creneaux : 0x18023FF90 0x18023F330 0x18023F790 0x18023F9E0
+  0x180553E18  apm3TestMode::MenuGameAssignRule                6 creneaux : 0x1802401D0 0x18023F330 0x18023FFD0 0x180240050
+  0x180553E68  apm3TestMode::MenuGameAssignRuleLocal           6 creneaux : 0x1802401D0 0x18023F330 0x18023FFD0 0x180240050
+  0x1805534E8  apm3TestMode::MenuPageBase                      4 creneaux : 0x18023F660 0x18023F330 0x180007430 0x18023F340
+  0x180553EB0  apm3TestMode::MenuSoundSetting                  4 creneaux : 0x180240370 0x18023F330 0x180240230 0x180240280
+  0x180553A58  apm3TestMode::MenuTop                           4 creneaux : 0x18023F660 0x18023F330 0x180007430 0x18023F6A0
+
+CLASSES DE MENU QUI N'EXISTENT QUE CHEZ REVO (8) --
+ne pas les chercher dans le module d'APM3 :
+  0x1805825A8  CTnmtPauseMsg                                   4 creneaux : 0x18027A8D0 0x18027AA20 0x18027B570 0x18027AA20
+  0x18055ACD0  TaskMultiRoomMatchMenu                          8 creneaux : 0x18021DDA0 0x180221530 0x18021F840 0x1802203A0
+  0x18055F9F0  TaskTrnCharaPause                               8 creneaux : 0x18023F080 0x1802400B0 0x18023F3E0 0x18023FD90
+  0x180578F60  TaskTrnTipPause                                 8 creneaux : 0x180261CC0 0x1802627A0 0x180261F20 0x1802626F0
+  0x180576BB8  TrnCharaPauseStrategy                           4 creneaux : 0x18025B0D0 0x18025BB20 0x18025B3B0 0x18025B350
+  0x180576B90  TrnTipPauseStrategy                             4 creneaux : 0x18025B0D0 0x18025BC20 0x18025B3F0 0x18025B390
+  0x18043A668  replay::ReplayMenu                              8 creneaux : 0x1801C02E0 0x1801C2380 0x1801C04C0 0x1801C22A0
+  0x180558430  world_stage::WorldStageMenu                     8 creneaux : 0x1801E22C0 0x1801E4A20 0x1801E2590 0x1801E4970

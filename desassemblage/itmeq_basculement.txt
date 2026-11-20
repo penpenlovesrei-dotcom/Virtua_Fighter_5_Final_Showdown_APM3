@@ -1,0 +1,47 @@
+# APM3 (borne) 0x1801CE400 -- 96 octets
+#
+# 0x1801CE400 -- CE QUI REND L'OBJET VISIBLE, et il n'equipe rien : il
+# BASCULE le modele affiche. Il ecrit les deux creneaux ([rcx] et [rcx+1],
+# complementaires) puis appelle deux fois 0x1801512B0 -- l'un VISIBLE,
+# l'autre MASQUE. L'objet est pose sur le modele cache pendant les etats 1
+# et 2 ; ceci est ce qui le montre. Jumeau de 0x82236528 cote console.
+# REPRISE (114).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801CE400  48895c2408           mov qword ptr [rsp + 8], rbx
+  0x1801CE405  57                   push rdi
+  0x1801CE406  4883ec20             sub rsp, 0x20
+  0x1801CE40A  84d2                 test dl, dl
+  0x1801CE40C  8811                 mov byte ptr [rcx], dl
+  0x1801CE40E  488bf9               mov rdi, rcx
+  0x1801CE411  0f94c0               sete al
+  0x1801CE414  884101               mov byte ptr [rcx + 1], al
+  0x1801CE417  e89425f8ff           call 0x1801509b0
+  0x1801CE41C  480fbe17             movsx rdx, byte ptr [rdi]
+  0x1801CE420  41b001               mov r8b, 1
+  0x1801CE423  4803d2               add rdx, rdx
+  0x1801CE426  488bc8               mov rcx, rax
+  0x1801CE429  488bd8               mov rbx, rax
+  0x1801CE42C  8b54d70c             mov edx, dword ptr [rdi + rdx*8 + 0xc]
+  0x1801CE430  e87b2ef8ff           call 0x1801512b0
+  0x1801CE435  480fbe4f01           movsx rcx, byte ptr [rdi + 1]
+  0x1801CE43A  4533c0               xor r8d, r8d
+  0x1801CE43D  4803c9               add rcx, rcx
+  0x1801CE440  8b54cf0c             mov edx, dword ptr [rdi + rcx*8 + 0xc]
+  0x1801CE444  488bcb               mov rcx, rbx
+  0x1801CE447  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801CE44C  4883c420             add rsp, 0x20
+  0x1801CE450  5f                   pop rdi
+  0x1801CE451  e95a2ef8ff           jmp 0x1801512b0
+  0x1801CE456  cc                   int3 
+  0x1801CE457  cc                   int3 
+  0x1801CE458  cc                   int3 
+  0x1801CE459  cc                   int3 
+  0x1801CE45A  cc                   int3 
+  0x1801CE45B  cc                   int3 
+  0x1801CE45C  cc                   int3 
+  0x1801CE45D  cc                   int3 
+  0x1801CE45E  cc                   int3 
+  0x1801CE45F  cc                   int3 

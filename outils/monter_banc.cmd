@@ -1,0 +1,135 @@
+@echo off
+rem ===========================================================================
+rem  monter_banc.cmd : fabrique FS APM3\banc, le montage executable du build
+rem  arcade. Idempotent : on peut le relancer, il ne refait que ce qui manque.
+rem
+rem  POURQUOI UN BANC SEPARE, ET PAS UN ESSAI DANS SOURCES.
+rem
+rem  SOURCES est la matiere premiere, en lecture seule. Deux raisons de ne
+rem  jamais y ecrire :
+rem    - elle doit rester re-mesurable a l'identique ;
+rem    - notre apm.dll s'appelle apm.dll. Deposee dans SOURCES\lib, elle
+rem      masquerait la vraie, et on perdrait le temoin.
+rem
+rem  POURQUOI DES LIENS DURS ET PAS DES COPIES. vf5fs_data.par fait 3,99 Go.
+rem  Un lien dur ne coute rien, se jette sans rien perdre, et le banc se
+rem  remonte en une commande.
+rem
+rem  CE QUE LE BANC REPRODUIT. La borne lancait `vfes.exe` avec le dossier
+rem  courant place dans vf5fs (gametest.bat : `pushd W:\runtime\media\vf5fs`)
+rem  et les DLL apm sur le PATH via X:\lib -- qui est exactement
+rem  SOURCES\lib dans cet arbre. On ne touche pas au PATH : notre apm.dll
+rem  est DANS le banc, et le dossier du programme passe avant le PATH dans
+rem  l'ordre de recherche du chargeur. C'est cela qui protege le relais.
+rem
+rem  APMGAMEPAD.DLL N'EST PLUS POSEE (2026-11-04). Elle ne servait a rien :
+rem  Frederic l'a renommee dans l'installation TeknoParrot et le pad a
+rem  continue de fonctionner. Cote statique, aucun des quatre binaires du
+rem  jeu ne porte la chaine "apmgamepad.dll" -- ni eve.exe, ni apm.dll, ni
+rem  vfes.exe, ni le module -- et aucun ne l'importe ; les dix fonctions
+rem  apmGamepad* sont du code PROPRE a l'interieur d'apm.dll, compile depuis
+rem  src\lib\apmgamepad (son chemin de PDB le dit). La DLL livree a part
+rem  est la meme bibliotheque, en double. Elle reste dans SOURCES\lib.
+rem ===========================================================================
+setlocal EnableDelayedExpansion
+
+set "ICI=%~dp0"
+set "RACINE=%ICI%.."
+set "SRC=%ICI%..\..\SOURCES"
+set "VF5=%SRC%\APM3_US\runtime\media\vf5fs"
+set "LIB=%SRC%\lib"
+set "BANC=%RACINE%\banc"
+set "SORTIE=%RACINE%\hote_apm\sortie"
+
+echo === controle de la matiere premiere ===
+for %%F in ("%VF5%\vfes.exe" "%VF5%\vf5fs-pxd-w64-Retail_APM3.dll" "%VF5%\vf5fs_data.par" "%LIB%\apm.dll") do (
+    if not exist "%%~F" ( echo   ECHEC : introuvable : %%~F & exit /b 1 )
+    echo   ok  %%~nxF  %%~zF octets
+)
+if not exist "%VF5%\vf5fs_media" ( echo   ECHEC : vf5fs_media introuvable & exit /b 1 )
+if not exist "%SORTIE%\apm.dll" (
+    echo   ECHEC : notre apm.dll n'est pas compilee.
+    echo           Lancer d'abord hote_apm\build.cmd, par PowerShell.
+    exit /b 1
+)
+echo   ok  notre apm.dll
+
+if not exist "%BANC%" mkdir "%BANC%"
+
+echo.
+echo === liens durs ^(aucune copie des gros fichiers^) ===
+call :LIEN "%VF5%\vfes.exe"                         "%BANC%\vfes.exe"
+call :LIEN "%VF5%\vf5fs-pxd-w64-Retail_APM3.dll"    "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll"
+call :LIEN "%VF5%\vf5fs_data.par"                   "%BANC%\vf5fs_data.par"
+rem La vraie apm.dll, sous un AUTRE nom : le relais la charge par chemin, et
+rem sous son vrai nom elle entrerait en concurrence avec la notre.
+call :LIEN "%LIB%\apm.dll"                          "%BANC%\apm_vraie_pour_relais.dll"
+
+echo.
+echo === jonction pour vf5fs_media ===
+if exist "%BANC%\vf5fs_media" (
+    echo   deja la  vf5fs_media
+) else (
+    mklink /J "%BANC%\vf5fs_media" "%VF5%\vf5fs_media" >nul
+    if errorlevel 1 ( echo   ECHEC : mklink /J vf5fs_media & exit /b 1 )
+    echo   creee    vf5fs_media
+)
+
+echo.
+echo === notre apm.dll ^(copie : elle sera recompilee souvent^) ===
+copy /y "%SORTIE%\apm.dll" "%BANC%\apm.dll" >nul
+if errorlevel 1 ( echo   ECHEC : copie de notre apm.dll & exit /b 1 )
+echo   posee    apm.dll
+
+rem ---------------------------------------------------------------------------
+rem  Le lanceur. Genere ici, donc jamais desynchronise du montage.
+rem ---------------------------------------------------------------------------
+> "%BANC%\LANCER.cmd" (
+  echo @echo off
+  echo rem GENERE PAR outils\monter_banc.cmd -- NE PAS MODIFIER A LA MAIN.
+  echo rem
+  echo rem   LANCER.cmd        relais : la vraie apm.dll, journalisee. LE TEMOIN.
+  echo rem   LANCER.cmd inerte nos reponses a la place de la borne.
+  echo rem
+  echo rem Toujours commencer par le relais. Lui seul repond a la question du
+  echo rem premier essai : apm.dll bloque-t-elle au CHARGEMENT, ou seulement a
+  echo rem l'AUTHENTIFICATION ? En partant directement en inerte, un echec ne
+  echo rem designerait personne.
+  echo setlocal
+  echo set "ICI=%%~dp0"
+  echo if /i "%%~1"=="inerte" ( set "APM_INERTE=1" ^& set "MODE=inerte" ^) else ( set "APM_INERTE=0" ^& set "MODE=relais" ^)
+  echo set "APM_VRAIE=%%ICI%%apm_vraie_pour_relais.dll"
+  echo set "APM_JOURNAL=%%ICI%%apm_journal_%%MODE%%.txt"
+  echo set "APM_DETAIL=8"
+  echo echo mode=%%MODE%%   journal=%%APM_JOURNAL%%
+  echo pushd "%%ICI%%"
+  echo vfes.exe
+  echo set "CODE=%%ERRORLEVEL%%"
+  echo popd
+  echo echo.
+  echo echo vfes.exe a rendu %%CODE%%
+  echo if exist "%%APM_JOURNAL%%" ^( echo --- bilan du journal --- ^& findstr /c:">>>" /c:"appels" /c:"ECHEC" /c:"mode :" "%%APM_JOURNAL%%" ^) else ^( echo AUCUN JOURNAL : notre apm.dll n'a jamais ete chargee. ^)
+  echo endlocal
+)
+echo   ecrit    LANCER.cmd
+
+echo.
+echo === validation de l'instrument ===
+python -I "%ICI%comparer_tables.py" "%LIB%\apm.dll" "%BANC%\apm.dll"
+if errorlevel 1 ( echo   ECHEC : notre table d'exports ne reproduit pas la vraie & exit /b 1 )
+
+echo.
+echo === le banc ===
+dir /b "%BANC%"
+echo.
+echo Pret. Lancer "%BANC%\LANCER.cmd" (relais d'abord), puis relire
+echo "%BANC%\apm_journal_relais.txt".
+endlocal
+exit /b 0
+
+:LIEN
+if exist "%~2" ( echo   deja la  %~nx2 & exit /b 0 )
+mklink /H "%~2" "%~1" >nul
+if errorlevel 1 ( echo   ECHEC : mklink /H %~nx2 & exit /b 1 )
+echo   cree     %~nx2
+exit /b 0

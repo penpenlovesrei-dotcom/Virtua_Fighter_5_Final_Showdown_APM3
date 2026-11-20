@@ -1,0 +1,304 @@
+LES TABLES DE LA MACHINE A ETATS, LES DEUX BUILDS EN REGARD
+
+Depose le 2026-11-19. Lu dans le FICHIER des deux images, en
+lecture seule. Aucun jeu lance.
+
+La STRUCTURE des deux tables a ete lue dans le code qui les
+PARCOURT, pas devinee :
+  X360  parcours du mode      0x822BE8C0  pas 0x58, borne 0x2C0
+        parcours du sous-etat 0x822BE4CC  pas 0x14, borne 0x3AC
+  APM3  parcours du mode      0x1800DA631  pas 0x68, borne 0x410
+        parcours du sous-etat 0x1800DA714  pas 0x20, borne 0x37
+
+  descripteur de MODE      X360 0x58 o          APM3 0x68 o
+    +0x00 identifiant (CLEF, pas la position)   +0x00
+    +0x04 fn_entree                             +0x08
+    +0x08 fn_milieu                             +0x10
+    +0x0C fn_sortie                             +0x18
+    +0x10 CHAINE des sous-etats, 16 mots,        +0x20
+          terminee par MAX (0x2F / 0x37)
+    +0x50 MODE DE RETOUR quand celui-ci finit    +0x60
+
+  descripteur de SOUS-ETAT X360 0x14 o          APM3 0x20 o
+    +0x00 numero (= l index)                     +0x00
+    +0x04 drapeau (0 ou 1)                       +0x04
+    +0x08 fn_entree                              +0x08
+    +0x0C fn_milieu                              +0x10
+    +0x10 fn_sortie                              +0x18
+
+============================================================================
+XBOX 360 -- TABLE DES MODES, VA 0x82063968, 8 entrees de 0x58
+bouchon = 0x82646398 (li r3,1 ; blr : rend VRAI)
+============================================================================
+entree 0  @0x82063968  mode 0 = STARTUP     
+   entree 0x82646398  milieu 0x822C3970  sortie 0x822C33E8
+   chaine : 0=DATA_INITIALIZE  ->  1=SYSTEM_STARTUP  ->  3=CS_TITLE  ->  4=CS_SIGNIN  ->  2=WARNING  ->  5=CS_AUTOLOAD  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 1  @0x820639C0  mode 1 = ADVERTISE    BOUCHONNE
+   entree 0x82646398  milieu 0x82646398  sortie 0x82646398
+   chaine : 6=LOGO  ->  7=RATING  ->  8=DEMO  ->  9=TITLE  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 2  @0x82063A18  mode 4 = MENU        
+   entree 0x822C1358  milieu 0x822C1438  sortie 0x822C14A0
+   chaine : 35=MENU_MAIN  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 3  @0x82063A70  mode 2 = GAME        
+   entree 0x822C0D60  milieu 0x822C05D8  sortie 0x822C0DF0
+   chaine : 16=SELECTOR  ->  17=MODE_SELECTOR  ->  18=VS  ->  19=GAMEOVER  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 4  @0x82063AC8  mode 3 = DATA_TEST    BOUCHONNE
+   entree 0x82646398  milieu 0x82646398  sortie 0x82646398
+   chaine : 20=DATA_TEST_MAIN  ->  21=DATA_TEST_MISC  ->  22=DATA_TEST_OBJ  ->  23=DATA_TEST_STG  ->  24=DATA_TEST_MOT  ->  25=DATA_TEST_COLLISION  ->  26=DATA_TEST_SPR  ->  27=DATA_TEST_AET  ->  28=DATA_TEST_AUTH_3D  ->  29=DATA_TEST_CHR  ->  30=DATA_TEST_ITEM  ->  31=DATA_TEST_PERF  ->  32=DATA_TEST_TNMT  ->  33=DATA_TEST_BATTLE  ->  34=DATA_TEST_KOTSP_SS  ->  MAX
+   mode de retour (+0x50) : 1 = ADVERTISE
+entree 5  @0x82063B20  mode 5 = CS_TERM     
+   entree 0x822BEA48  milieu 0x822BEBF0  sortie 0x822BEAE8
+   chaine : 36=CS_TERM_CUSTOMIZE  ->  37=CS_TERM_REPLAY_PLAY  ->  38=CS_TERM_LAST_PLAY  ->  39=CS_TERM_CLIP_PLAY  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 6  @0x82063B78  mode 6 = CS_TRAINING 
+   entree 0x822BED28  milieu 0x822BEBF0  sortie 0x822BED58
+   chaine : 40=CS_TRAINING  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+entree 7  @0x82063BD0  mode 7 = ONLINE      
+   entree 0x822C2270  milieu 0x822C1568  sortie 0x822C2368
+   chaine : 41=ONLINE_STARTUP  ->  42=ONLINE_SELECTOR  ->  43=ONLINE_MENU  ->  44=ONLINE_MATCHING  ->  45=ONLINE_GAME  ->  46=ONLINE_OVER  ->  MAX
+   mode de retour (+0x50) : 4 = MENU
+
+============================================================================
+XBOX 360 -- TABLE DES SOUS-ETATS, VA 0x82063C28, 47 entrees de 0x14
+============================================================================
+n   sous-etat                  drap fn_entree   fn_milieu   fn_sortie   etat
+0   DATA_INITIALIZE            1  0x822C3428 0x822C3450 0x822C3490  reel
+1   SYSTEM_STARTUP             1  0x822C34E0 0x822C3608 0x822C3648  reel
+2   WARNING                    1  0x822C36A0 0x822C36E8 0x822C3720  reel
+3   CS_TITLE                   0  0x822C3C28 0x822C3750 0x822C37E8  reel
+4   CS_SIGNIN                  0  0x822C3830 0x822C3868 0x82646398  reel
+5   CS_AUTOLOAD                0  0x822C3918 0x822C3968 0x82646398  reel
+6   LOGO                       1  0x82646398 0x82646398 0x82646398  BOUCHON
+7   RATING                     1  0x82646398 0x82646398 0x82646398  BOUCHON
+8   DEMO                       1  0x82646398 0x82646398 0x82646398  BOUCHON
+9   TITLE                      1  0x82646398 0x82646398 0x82646398  BOUCHON
+10  TITLE_TV                   1  0x82646398 0x82646398 0x82646398  BOUCHON
+11  LOGO_TV                    1  0x82646398 0x82646398 0x82646398  BOUCHON
+12  LOGO_TERMINAL              1  0x82646398 0x82646398 0x82646398  BOUCHON
+13  MANUAL_TERMINAL            1  0x82646398 0x82646398 0x82646398  BOUCHON
+14  TITLE_TERMINAL             1  0x82646398 0x82646398 0x82646398  BOUCHON
+15  LOOP_TERMINAL              1  0x82646398 0x82646398 0x82646398  BOUCHON
+16  SELECTOR                   1  0x822BEE48 0x822BEF10 0x822BF160  reel
+17  MODE_SELECTOR              1  0x822BF190 0x822C0ED0 0x822BF1C8  reel
+18  VS                         1  0x822C0690 0x822C0988 0x822C0860  reel
+19  GAMEOVER                   1  0x822BF1F0 0x822BF230 0x822C11C8  reel
+20  DATA_TEST_MAIN             1  0x82646398 0x82646398 0x82646398  BOUCHON
+21  DATA_TEST_MISC             1  0x82646398 0x82646398 0x82646398  BOUCHON
+22  DATA_TEST_OBJ              0  0x82646398 0x82646398 0x82646398  BOUCHON
+23  DATA_TEST_STG              0  0x82646398 0x82646398 0x82646398  BOUCHON
+24  DATA_TEST_MOT              0  0x82646398 0x82646398 0x82646398  BOUCHON
+25  DATA_TEST_COLLISION        1  0x82646398 0x82646398 0x82646398  BOUCHON
+26  DATA_TEST_SPR              1  0x82646398 0x82646398 0x82646398  BOUCHON
+27  DATA_TEST_AET              1  0x82646398 0x82646398 0x82646398  BOUCHON
+28  DATA_TEST_AUTH_3D          1  0x82646398 0x82646398 0x82646398  BOUCHON
+29  DATA_TEST_CHR              0  0x82646398 0x82646398 0x82646398  BOUCHON
+30  DATA_TEST_ITEM             1  0x82646398 0x82646398 0x82646398  BOUCHON
+31  DATA_TEST_PERF             1  0x82646398 0x82646398 0x82646398  BOUCHON
+32  DATA_TEST_TNMT             1  0x82646398 0x82646398 0x82646398  BOUCHON
+33  DATA_TEST_BATTLE           1  0x82646398 0x82646398 0x82646398  BOUCHON
+34  DATA_TEST_KOTSP_SS         0  0x82646398 0x82646398 0x82646398  BOUCHON
+35  MENU_MAIN                  1  0x822C1518 0x824CB790 0x822C1540  reel
+36  CS_TERM_CUSTOMIZE          1  0x822BEB78 0x822BEC78 0x822BEBB0  reel
+37  CS_TERM_REPLAY_PLAY        1  0x822BEBD8 0x822BEBE8 0x822BEBE0  reel
+38  CS_TERM_LAST_PLAY          1  0x822BEBD8 0x822BEBE8 0x822BEBE0  reel
+39  CS_TERM_CLIP_PLAY          1  0x822BEBD8 0x822BEBE8 0x822BEBE0  reel
+40  CS_TRAINING                1  0x822BED80 0x822BEDF0 0x822BEE20  reel
+41  ONLINE_STARTUP             1  0x822C1698 0x822C1820 0x822C18E0  reel
+42  ONLINE_SELECTOR            1  0x822C1910 0x822C26F0 0x822C1980  reel
+43  ONLINE_MENU                1  0x822C2430 0x822C1A38 0x822C24C0  reel
+44  ONLINE_MATCHING            1  0x822C1AF8 0x822C1B98 0x82646398  reel
+45  ONLINE_GAME                1  0x822C3158 0x822C1C98 0x822C3300  reel
+46  ONLINE_OVER                1  0x822C1D80 0x822C1DF8 0x822C1F38  reel
+
+============================================================================
+APM3 -- TABLE DES MODES, VA 0x1803A0190, 10 entrees de 0x68
+bouchon = 0x180029FB0 (mov al,1 ; ret : rend VRAI)
+CETTE TABLE N AVAIT JAMAIS ETE LUE : TABLE_DES_SCENES_APM3_VS_REVO.md
+section 7 point 1 la portait en "reste a mesurer".
+============================================================================
+entree 0  @0x1803A0190  mode 0 = STARTUP       
+   entree 0x1800DE3D0  milieu 0x1800DD700  sortie 0x1800DDA40
+   chaine : 0=DATA_INITIALIZE  ->  1=SYSTEM_STARTUP  ->  6=CS_DEMO  ->  3=CS_TITLE  ->  4=CS_SIGNIN  ->  2=WARNING  ->  5=CS_AUTOLOAD  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 1  @0x1803A01F8  mode 1 = ADVERTISE      BOUCHONNE
+   entree 0x180029FB0  milieu 0x180029FB0  sortie 0x180029FB0
+   chaine : 7=LOGO  ->  8=RATING  ->  9=DEMO  ->  10=TITLE  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 2  @0x1803A0260  mode 4 = MENU          
+   entree 0x1800DCBF0  milieu 0x180007450  sortie 0x1800DCB80
+   chaine : 36=MENU_MAIN  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 3  @0x1803A02C8  mode 2 = GAME          
+   entree 0x1800DC7D0  milieu 0x1800DA9D0  sortie 0x1800DB890
+   chaine : 17=SELECTOR  ->  18=MODE_SELECTOR  ->  19=VS  ->  20=GAMEOVER  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 4  @0x1803A0330  mode 3 = DATA_TEST      BOUCHONNE
+   entree 0x180029FB0  milieu 0x180029FB0  sortie 0x180029FB0
+   chaine : 21=DATA_TEST_MAIN  ->  22=DATA_TEST_MISC  ->  23=DATA_TEST_OBJ  ->  24=DATA_TEST_STG  ->  25=DATA_TEST_MOT  ->  26=DATA_TEST_COLLISION  ->  27=DATA_TEST_SPR  ->  28=DATA_TEST_AET  ->  29=DATA_TEST_AUTH_3D  ->  30=DATA_TEST_CHR  ->  31=DATA_TEST_ITEM  ->  32=DATA_TEST_PERF  ->  33=DATA_TEST_TNMT  ->  34=DATA_TEST_BATTLE  ->  35=DATA_TEST_KOTSP_SS  ->  MAX
+   mode de retour (+0x60) : 1 = ADVERTISE
+entree 5  @0x1803A0398  mode 5 = CS_TERM       
+   entree 0x1801E5010  milieu 0x1801E4E60  sortie 0x1801E4F60
+   chaine : 37=CS_TERM_CUSTOMIZE  ->  38=CS_TERM_REPLAY_PLAY  ->  39=CS_TERM_LAST_PLAY  ->  40=CS_TERM_CLIP_PLAY  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 6  @0x1803A0400  mode 6 = CS_TRAINING   
+   entree 0x1801E5170  milieu 0x1801E4E60  sortie 0x1801E5110
+   chaine : 41=CS_TRAINING  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 7  @0x1803A0468  mode 7 = ONLINE         BOUCHONNE
+   entree 0x180029FB0  milieu 0x180029FB0  sortie 0x180029FB0
+   chaine : 42=ONLINE_STARTUP  ->  43=ONLINE_SELECTOR  ->  44=ONLINE_MENU  ->  45=ONLINE_MATCHING  ->  46=ONLINE_GAME  ->  47=ONLINE_OVER  ->  MAX
+   mode de retour (+0x60) : 4 = MENU
+entree 8  @0x1803A04D0  mode 8 = APM3          
+   entree 0x18023DC30  milieu 0x180007450  sortie 0x18023C2A0
+   chaine : 48=APM3_ENTRY  ->  49=APM3_SELECTOR  ->  50=APM3_GAME_VS  ->  51=APM3_GAMEOVER  ->  52=APM3_TRAINING  ->  53=APM3_ONLINE_VS  ->  MAX
+   mode de retour (+0x60) : 0 = STARTUP
+entree 9  @0x1803A0538  mode 9 = APM3_TESTMODE 
+   entree 0x180029FB0  milieu 0x180007450  sortie 0x180029FB0
+   chaine : 54=APM3_TESTMODE_MAIN  ->  MAX
+   mode de retour (+0x60) : 9 = APM3_TESTMODE
+
+============================================================================
+LES VTABLES DU TERMINAL, APM3 ET XBOX 360 EN REGARD
+noms : RTTI MSVC des deux images (VF5RE/tools/rtti.py cote APM3,
+x360_rtti.py cote console -- la structure du TypeDescriptor est
+a -0x10 en 64 bits et a -0x8 en 32 bits)
+ATTENTION : le NUMERO de creneau ne se transpose pas d un build
+a l autre. Les quatre premiers, si.
+============================================================================
+
+TaskMenuTerminal
+   APM3 vtable 0x180532A28        X360 vtable 0x820632A8
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801DB270  94 o      | 0x822BBA38  80 o
+   [ 1] 0x1801E4300  279 o     | 0x822B59D0  292 o
+   [ 2] 0x1801DD7A0  543 o     | 0x822B5AF8  604 o
+   [ 3] 0x1801A82D0  46 o      | 0x822B4AA8  64 o
+   [ 4] 0x1801E1B10  812 o     | 0x822B8AF0  760 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x822B3E68  84 o
+   [ 7] 0x1801AB960  37 o      | 0x82217D20  36 o
+
+TaskMenuCustomize
+   APM3 vtable 0x18052FCF8        X360 vtable 0x82010BD4
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801C4470  174 o     | 0x822BB490  116 o
+   [ 1] 0x1801C5B40  135 o     | 0x8222C580  120 o
+   [ 2] 0x1801C4F10  331 o     | 0x8222CBC0  180 o
+   [ 3] 0x1801C5180  34 o      | 0x822B4950  56 o
+   [ 4] 0x1801C51B0  910 o     | 0x8222E380  116 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x8227A690  36 o
+   [ 7] 0x1801C5F40  16 o      | 0x82217D20  36 o
+
+TaskCustomizeMenu
+   APM3 vtable 0x180530420        X360 vtable 0x82010FB4
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801C6600  226 o     | 0x82234968  80 o
+   [ 1] 0x1801CB580  186 o     | 0x822302A8  124 o
+   [ 2] 0x1801C7110  452 o     | 0x82235C70  380 o
+   [ 3] 0x1801C8530  76 o      | 0x822B4950  56 o
+   [ 4] 0x1801C9390  802 o     | 0x822325B8  800 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x82217D20  36 o
+
+TaskSelItemMenu
+   APM3 vtable 0x1805304E0        X360 vtable 0x82010F5C
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801C6850  94 o      | 0x82234708  80 o
+   [ 1] 0x1801CB7F0  447 o     | 0x82235068  312 o
+   [ 2] 0x1801C7440  545 o     | 0x82231A50  660 o
+   [ 3] 0x1801C85B0  74 o      | 0x8222FFB8  64 o
+   [ 4] 0x1801C9FF0  73 o      | 0x82233CC8  100 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x82217D20  36 o
+
+TaskSelPartMenu
+   APM3 vtable 0x180530540        X360 vtable 0x82010F88
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801C68B0  258 o     | 0x82234808  80 o
+   [ 1] 0x1801CB9B0  281 o     | 0x822359C8  224 o
+   [ 2] 0x1801C7670  532 o     | 0x82235AA8  456 o
+   [ 3] 0x1801C8600  207 o     | 0x82234400  204 o
+   [ 4] 0x1801CA040  973 o     | 0x82231700  848 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x82217D20  36 o
+
+DataSelector
+   APM3 vtable 0x180530F90        X360 vtable 0x82011628
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801CEA80  161 o     | 0x82238F80  80 o
+   [ 1] 0x1801D0280  48 o      | 0x822391E0  60 o
+   [ 2] 0x1801CEE60  132 o     | 0x82237870  80 o
+   [ 3] 0x1801CF4C0  50 o      | 0x82237950  68 o
+   [ 4] 0x1801CF7C0  926 o     | 0x82238918  764 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x82238518  200 o
+
+TaskDataSelector
+   APM3 vtable 0x180530FF0        X360 vtable 0x82011654
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801CE8F0  220 o     | 0x822390B8  140 o
+   [ 1] 0x1801D02B0  1087 o    | 0x82239288  260 o
+   [ 2] 0x1801CEEF0  971 o     | 0x82239690  220 o
+   [ 3] 0x1801CF500  114 o     | 0x822379F0  80 o
+   [ 4] 0x1801CFB60  497 o     | 0x82238C18  436 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x824CB790  feuille
+
+CharSelector
+   APM3 vtable 0x180530F30        X360 vtable 0x820115FC
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801CE9D0  161 o     | 0x82238F80  80 o
+   [ 1] 0x1801D0260  feuille   | 0x82646398  feuille
+   [ 2] 0x1801CEDD0  131 o     | 0x82237870  80 o
+   [ 3] 0x1801CF4A0  23 o      | 0x822378C0  40 o
+   [ 4] 0x1801CF580  563 o     | 0x82238360  440 o
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x824CB790  feuille
+   [ 7] 0x180007450  feuille   | 0x822378E8  100 o
+
+customize::ItemMain
+   APM3 vtable 0x18052FA80        X360 vtable 0x82010A30
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801C3090  94 o      | 0x8239D208  80 o
+   [ 1] 0x1801C2E10  164 o     | 0x8222B828  128 o
+   [ 2] 0x1801C2EC0  321 o     | 0x8222B8A8  336 o
+   [ 3] 0x1801C3010  122 o     | 0x8222B9F8  96 o
+   [ 4] 0x180007430  feuille   | 0x82217598  feuille
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x43555354  feuille
+   [ 7] 0x119930522  feuille   | 0x5F4D4149  feuille
+
+customize::ItmEqTask
+   APM3 vtable 0x180530D10        X360 vtable 0x820113C0
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801CD780  94 o      | 0x822369C8  80 o
+   [ 1] 0x180150A20  feuille   | 0x822289B8  feuille
+   [ 2] 0x1801C13B0  893 o     | 0x82229750  952 o
+   [ 3] 0x1801C1730  417 o     | 0x8222B1A0  388 o
+   [ 4] 0x180007430  feuille   | 0x82217598  feuille
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x358637BD  feuille
+   [ 7] 0x119930522  feuille   | 0x44415441  feuille
+
+TaskCsMenu
+   APM3 vtable 0x18052F6C0        X360 vtable 0x8200E128
+   cr   APM3         taille    | X360        taille
+   [ 0] 0x1801BB8B0  161 o     | 0x82238F80  80 o
+   [ 1] 0x1801BD120  176 o     | 0x82217F40  156 o
+   [ 2] 0x1801BBBE0  349 o     | 0x82217B30  492 o
+   [ 3] 0x1801BC0B0  198 o     | 0x82218BB8  116 o
+   [ 4] 0x180007430  feuille   | 0x82217598  feuille
+   [ 5] 0x180007430  feuille   | 0x82217598  feuille
+   [ 6] 0x180007430  feuille   | 0x82217D20  36 o
+   [ 7] 0x1801BD080  16 o      | 0x82217D20  36 o

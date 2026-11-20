@@ -1,0 +1,205 @@
+# Xbox 360 (VF5 2007) -- LA CHAINE DE L ANNEAU D EAU
+#
+# TaskEffectWaterRing, vtable 0x82005D0C (RTTI), et son rappel de dessin.
+#
+# CE QUE CE FICHIER MONTRE, et c est le coeur de l affaire :
+#
+#   creneau 4 (0x821C9370) -- le `disp` : si [this+0x50] != 0, il enregistre
+#   le rappel 0x821C9238 sur l objet 0x00170005 = objset 0x17 (STGSLK),
+#   rang 5 = STGSLK_WATER_RING. Le disque du ring.
+#
+#   le rappel 0x821C9238 -- il LIE DEUX CIBLES DE RENDU avant de tracer :
+#       r30 = FUN_8224AF58(0)      la cible << reflet >>
+#       r29 = FUN_8224AF58(1)      la cible << refraction >>
+#       FUN_8224CAC8(r30, 3)       -> glActiveTexture(GL_TEXTURE0+3) + bind
+#       FUN_8224CAC8(r29, 4)       -> glActiveTexture(GL_TEXTURE0+4) + bind
+#       ... le trace ...
+#       FUN_8224CB28(r30/r29)      deliaison
+#
+#   0x84C0 EST GL_TEXTURE0 : FUN_82359788 retranche 0x84C0 de son argument
+#   avant de le ranger (addis r10,r3,-1 ; addi r10,r10,0x7B40). C est donc
+#   glActiveTexture, et FUN_82359830(cible, id) est glBindTexture.
+#
+#   Les 16 `water_ring.*.fp` de la Xbox 360 declarent TOUS les unites
+#   0,1,2,3,4 (lu dans leur CTAB) : les unites 3 et 4 sont exactement ces
+#   deux cibles.
+#
+# CORRECTION a `analysis/eau_slk_console.md` section 2 : FUN_8224CAC8 n est
+# PAS << et il dessine >>. C est une LIAISON DE TEXTURE. Le << dessin >> que
+# la section 2 lui prete est en realite la liaison de la cible de refraction
+# sur GL_TEXTURE14 pour la scene entiere.
+#
+# Depose le 2026-11-19 pour `analysis/eau_ring_eileen.md`.
+# Les adresses X360 sont celles de `extracted/X360_VF5/vf5_x360.img`
+# (Virtua Fighter 5, Xbox 360, 2007, base 0x82000000) -- PAS celles de
+# `X360_FS`, qui est Final Showdown et repondrait autre chose sans
+# erreur. Les adresses APM3 sont celles de
+# `binaires/vf5fs-pxd-w64-Retail_APM3.dll.origine`, base 0x180000000.
+
+=== 0x821C9370  TaskEffectWaterRing, creneau 4 de la vtable (disp) ===
+0x821C9370  89630050  lbz        r11, 0x50(r3)
+0x821C9374  2b0b0000  cmplwi     cr6, r11, 0
+0x821C9378  4d9a0020  beqlr      cr6
+0x821C937C  3d60821d  lis        r11, -0x7de3
+0x821C9380  3c600017  lis        r3, 0x17
+0x821C9384  38a00000  li         r5, 0
+0x821C9388  388b9238  addi       r4, r11, -0x6dc8
+0x821C938C  60630005  ori        r3, r3, 5
+0x821C9390  48058340  b          0x822216d0
+0x821C9394  4e800020  blr        
+
+=== 0x821C9238  le rappel de dessin de STGSLK_WATER_RING ===
+0x821C9238  7d8802a6  mflr       r12
+0x821C923C  48436811  bl         0x825ffa4c
+0x821C9240  9421ff90  stwu       r1, -0x70(r1)
+0x821C9244  4805d2f5  bl         0x82226538
+0x821C9248  7c7f1b78  mr         r31, r3
+0x821C924C  2b1f0000  cmplwi     cr6, r31, 0
+0x821C9250  419a0074  beq        cr6, 0x821c92c4
+0x821C9254  38600000  li         r3, 0
+0x821C9258  48081d01  bl         0x8224af58
+0x821C925C  7c7e1b78  mr         r30, r3
+0x821C9260  38600001  li         r3, 1
+0x821C9264  48081cf5  bl         0x8224af58
+0x821C9268  7c7d1b78  mr         r29, r3
+0x821C926C  38800003  li         r4, 3
+0x821C9270  7fc3f378  mr         r3, r30
+0x821C9274  48083855  bl         0x8224cac8
+0x821C9278  38800004  li         r4, 4
+0x821C927C  7fa3eb78  mr         r3, r29
+0x821C9280  48083849  bl         0x8224cac8
+0x821C9284  7fe3fb78  mr         r3, r31
+0x821C9288  4805c2e1  bl         0x82225568
+0x821C928C  817f0000  lwz        r11, 0(r31)
+0x821C9290  810b0058  lwz        r8, 0x58(r11)
+0x821C9294  80eb0030  lwz        r7, 0x30(r11)
+0x821C9298  a0cb0056  lhz        r6, 0x56(r11)
+0x821C929C  a0ab0054  lhz        r5, 0x54(r11)
+0x821C92A0  808b0034  lwz        r4, 0x34(r11)
+0x821C92A4  806b002c  lwz        r3, 0x2c(r11)
+0x821C92A8  4805d1a1  bl         0x82226448
+0x821C92AC  7fe3fb78  mr         r3, r31
+0x821C92B0  4805c909  bl         0x82225bb8
+0x821C92B4  7fc3f378  mr         r3, r30
+0x821C92B8  48083871  bl         0x8224cb28
+0x821C92BC  7fa3eb78  mr         r3, r29
+0x821C92C0  48083869  bl         0x8224cb28
+0x821C92C4  38210070  addi       r1, r1, 0x70
+0x821C92C8  484367d4  b          0x825ffa9c
+
+=== 0x8224AF58  rendre la cible de rendu numero k ===
+0x8224AF58  3d608285  lis        r11, -0x7d7b
+0x8224AF5C  5469103a  slwi       r9, r3, 2
+0x8224AF60  396bc79c  addi       r11, r11, -0x3864
+0x8224AF64  3d408265  lis        r10, -0x7d9b
+0x8224AF68  390b00f8  addi       r8, r11, 0xf8
+0x8224AF6C  394a1448  addi       r10, r10, 0x1448
+0x8224AF70  7d09402e  lwzx       r8, r9, r8
+0x8224AF74  392b011c  addi       r9, r11, 0x11c
+0x8224AF78  546b083c  slwi       r11, r3, 1
+0x8224AF7C  7d635a14  add        r11, r3, r11
+0x8224AF80  7d685a14  add        r11, r8, r11
+0x8224AF84  556b103a  slwi       r11, r11, 2
+0x8224AF88  7d6b502e  lwzx       r11, r11, r10
+0x8224AF8C  556a1838  slwi       r10, r11, 3
+0x8224AF90  7d6b5214  add        r11, r11, r10
+0x8224AF94  556b103a  slwi       r11, r11, 2
+0x8224AF98  7c6b4a14  add        r3, r11, r9
+0x8224AF9C  4e800020  blr        
+
+=== 0x8224CAC8  LIER la texture d une cible sur l unite n ===
+0x8224CAC8  7d8802a6  mflr       r12
+0x8224CACC  9181fff8  stw        r12, -8(r1)
+0x8224CAD0  fbc1ffe8  std        r30, -0x18(r1)
+0x8224CAD4  fbe1fff0  std        r31, -0x10(r1)
+0x8224CAD8  9421ff90  stwu       r1, -0x70(r1)
+0x8224CADC  3d600000  lis        r11, 0
+0x8224CAE0  7c7f1b78  mr         r31, r3
+0x8224CAE4  617e84c0  ori        r30, r11, 0x84c0
+0x8224CAE8  7c64f214  add        r3, r4, r30
+0x8224CAEC  909f000c  stw        r4, 0xc(r31)
+0x8224CAF0  4810cc99  bl         0x82359788
+0x8224CAF4  817f0004  lwz        r11, 4(r31)
+0x8224CAF8  808b0010  lwz        r4, 0x10(r11)
+0x8224CAFC  806b0014  lwz        r3, 0x14(r11)
+0x8224CB00  4810cd31  bl         0x82359830
+0x8224CB04  7fc3f378  mr         r3, r30
+0x8224CB08  4810cc81  bl         0x82359788
+0x8224CB0C  38210070  addi       r1, r1, 0x70
+0x8224CB10  8181fff8  lwz        r12, -8(r1)
+0x8224CB14  7d8803a6  mtlr       r12
+
+=== 0x8224CB28  la DELIER ===
+0x8224CB28  7d8802a6  mflr       r12
+0x8224CB2C  9181fff8  stw        r12, -8(r1)
+0x8224CB30  fbc1ffe8  std        r30, -0x18(r1)
+0x8224CB34  fbe1fff0  std        r31, -0x10(r1)
+0x8224CB38  9421ff90  stwu       r1, -0x70(r1)
+0x8224CB3C  7c7f1b78  mr         r31, r3
+0x8224CB40  3d400000  lis        r10, 0
+0x8224CB44  615e84c0  ori        r30, r10, 0x84c0
+0x8224CB48  817f000c  lwz        r11, 0xc(r31)
+0x8224CB4C  7c6bf214  add        r3, r11, r30
+0x8224CB50  4810cc39  bl         0x82359788
+0x8224CB54  817f0004  lwz        r11, 4(r31)
+0x8224CB58  38800000  li         r4, 0
+0x8224CB5C  806b0014  lwz        r3, 0x14(r11)
+0x8224CB60  4810ccd1  bl         0x82359830
+0x8224CB64  7fc3f378  mr         r3, r30
+0x8224CB68  4810cc21  bl         0x82359788
+0x8224CB6C  38210070  addi       r1, r1, 0x70
+0x8224CB70  8181fff8  lwz        r12, -8(r1)
+0x8224CB74  7d8803a6  mtlr       r12
+
+=== 0x82359788  glActiveTexture(GL_TEXTURE0 + n) ===
+0x82359788  3d6082ad  lis        r11, -0x7d53
+0x8235978C  3d43ffff  addis      r10, r3, -1
+0x82359790  3d20001d  lis        r9, 0x1d
+0x82359794  396b5500  addi       r11, r11, 0x5500
+0x82359798  394a7b40  addi       r10, r10, 0x7b40
+0x8235979C  6129a438  ori        r9, r9, 0xa438
+0x823597A0  7d4b492e  stwx       r10, r11, r9
+0x823597A4  914b0264  stw        r10, 0x264(r11)
+0x823597A8  4e800020  blr        
+
+=== 0x821C92D0  TaskEffectWaterRing::init (creneau 1) ===
+0x821C92D0  7d8802a6  mflr       r12
+0x821C92D4  9181fff8  stw        r12, -8(r1)
+0x821C92D8  fbe1fff0  std        r31, -0x10(r1)
+0x821C92DC  9421ffa0  stwu       r1, -0x60(r1)
+0x821C92E0  7c7f1b78  mr         r31, r3
+0x821C92E4  38800001  li         r4, 1
+0x821C92E8  817f0000  lwz        r11, 0(r31)
+0x821C92EC  816b0024  lwz        r11, 0x24(r11)
+0x821C92F0  7d6903a6  mtctr      r11
+0x821C92F4  4e800421  bctrl      
+0x821C92F8  817f0000  lwz        r11, 0(r31)
+0x821C92FC  38800000  li         r4, 0
+0x821C9300  7fe3fb78  mr         r3, r31
+0x821C9304  816b0028  lwz        r11, 0x28(r11)
+0x821C9308  7d6903a6  mtctr      r11
+0x821C930C  4e800421  bctrl      
+0x821C9310  38600000  li         r3, 0
+0x821C9314  48081d75  bl         0x8224b088
+0x821C9318  3d608201  lis        r11, -0x7dff
+0x821C931C  386ba9c4  addi       r3, r11, -0x563c
+0x821C9320  4bf7a429  bl         0x82143748
+0x821C9324  38600001  li         r3, 1
+0x821C9328  38210060  addi       r1, r1, 0x60
+0x821C932C  8181fff8  lwz        r12, -8(r1)
+
+=== 0x82005D0C  la vtable, 14 creneaux ===
+  [ 0] +0x00  0x821D1000
+  [ 1] +0x04  0x821C92D0
+  [ 2] +0x08  0x82143748
+  [ 3] +0x0C  0x821C9340
+  [ 4] +0x10  0x821C9370
+  [ 5] +0x14  0x823A7598
+  [ 6] +0x18  0x821C9230
+  [ 7] +0x1C  0x823A7598
+  [ 8] +0x20  0x823A7598
+  [ 9] +0x24  0x821B7B38
+  [10] +0x28  0x821C0DA8
+  [11] +0x2C  0x823A7598
+  [12] +0x30  0x823A7598
+  [13] +0x34  0x823A7598

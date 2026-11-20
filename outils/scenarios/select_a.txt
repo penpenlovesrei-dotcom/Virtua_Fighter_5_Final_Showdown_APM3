@@ -1,0 +1,12 @@
+# Passe A : on valide le curseur la ou il se pose par defaut.
+# Sert de reference au balayage de tools/chercher_selection.py.
+
+nom start = 7
+front   = 150
+journal = 0
+
+0       rien
+25000   start
+25300   rien
+33000   start
+33300   rien

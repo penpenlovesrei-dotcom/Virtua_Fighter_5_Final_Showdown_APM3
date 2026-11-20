@@ -1,0 +1,105 @@
+processus 17996 lance sous debogage
+  image     0x00007FF7FD140000  vfes.exe
+  dll       0x00007FF85C710000  apm.dll
+  dll       0x00007FF85DD30000  d3d11.dll
+  dll       0x00007FF861230000  dxgi.dll
+  dll       0x00007FF85CDB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF86753D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF86490187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFFBB190000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur gestionnaire liste2 code 1 = 0x7FFFBB2E36F0 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 7 = 0x7FFFBB2E3FD0 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 10 = 0x7FFFBB2E4B80 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 13 = 0x7FFFBB2E4670 (octet d'origine 0x48)
+  BP arme sur gestionnaire liste2 code 18 = 0x7FFFBB2E30A0 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 20 = 0x7FFFBB2E4C10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 24 = 0x7FFFBB2E3A10 (octet d'origine 0x40)
+  BP arme sur gestionnaire liste2 code 25 = 0x7FFFBB2E3830 (octet d'origine 0x48)
+  t=55 s : 8 gestionnaire(s) sous surveillance
+  BP arme sur retour 1 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 1 : 4 mot(s) change(s) ==
+     charge = 000a0000000000000000000000000000   entree = 010000000e00000024000000
+     ROB+0x864      ffffffff -> de130000
+     ROB+0x86C      00000000 -> 0000a041
+     ROB+0x870      00000000 -> 0000a041
+     etat+0x26A4    00000000 -> 00100100
+  BP arme sur retour 1 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 1 : 4 mot(s) change(s) ==
+     charge = 00000000000000000000000000000000   entree = 010000000e00000024000000
+     ROB+0x864      ffffffff -> e0010000
+     ROB+0x86C      00000000 -> 0000f041
+     ROB+0x870      00000000 -> 0000f041
+     etat+0x26A4    00000000 -> 00100100
+  BP arme sur retour 25 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 010000007f0000000000000000000000   entree = 190000002c00000058000000
+  BP arme sur retour 25 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 25 : 0 mot(s) change(s) ==
+     charge = 010000007f0000000000000000000000   entree = 190000002c00000058000000
+  BP arme sur retour 13 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 13 : 0 mot(s) change(s) ==
+     charge = 1c080000040000007800000046000000   entree = 0d0000000b00000060000000
+  BP arme sur retour 13 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 13 : 0 mot(s) change(s) ==
+     charge = 330a0000040000007800000040000000   entree = 0d0000000b00000044010000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 0a000000000400000000000000000000   entree = 140000000000000020000000
+  BP arme sur retour 20 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 20 : 0 mot(s) change(s) ==
+     charge = 0a000000000400000000000000000000   entree = 140000000000000020000000
+  BP arme sur retour 18 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 18 : 5 mot(s) change(s) ==
+     charge = 41010000200000000d13000000000000   entree = 120000001200000088000000
+     ROB+0x4CC      00000000 -> 05000000
+     ROB+0x4D0      00000000 -> 200a0000
+     ROB+0x4E4      ffffffff -> 0d130000
+     etat+0x784     00000000 -> 41010000
+     etat+0x788     00000000 -> 20000000
+  BP arme sur retour 18 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 18 : 5 mot(s) change(s) ==
+     charge = 0100000020000000c512000000000000   entree = 120000000d000000c8010000
+     ROB+0x4CC      00000000 -> 05000000
+     ROB+0x4D0      00000000 -> 00080000
+     ROB+0x4E4      ffffffff -> c5120000
+     etat+0x784     00000000 -> 01000000
+     etat+0x788     00000000 -> 20000000
+  BP arme sur retour 24 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 24 : 0 mot(s) change(s) ==
+     charge = 04000c00000004000f00000000040800   entree = 18000000000000002c000000
+  BP arme sur retour 10 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 10 : 1 mot(s) change(s) ==
+     charge = 0000000032000000080000009a99d93f   entree = 0a000000000000001c000000
+     ROB+0x668      0000f841 -> 00000000
+  BP arme sur retour 24 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 24 : 0 mot(s) change(s) ==
+     charge = 04000c00000004000f00000000040800   entree = 18000000000000002c000000
+  BP arme sur retour 10 = 0x7FFFBB2E2DB3 (octet d'origine 0x48)
+  == code 10 : 0 mot(s) change(s) ==
+     charge = 0000000032000000080000009a99d93f   entree = 0a000000000000001c000000
+--- 200 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP gestionnaire liste2 code 1 : 2 passage(s)
+  BP gestionnaire liste2 code 7 : 0 passage(s)
+  BP gestionnaire liste2 code 10 : 2 passage(s)
+  BP gestionnaire liste2 code 13 : 2 passage(s)
+  BP gestionnaire liste2 code 18 : 2 passage(s)
+  BP gestionnaire liste2 code 20 : 2 passage(s)
+  BP gestionnaire liste2 code 24 : 2 passage(s)
+  BP gestionnaire liste2 code 25 : 2 passage(s)
+  BP retour 1 : 1 passage(s)
+  BP retour 1 : 1 passage(s)
+  BP retour 25 : 1 passage(s)
+  BP retour 25 : 1 passage(s)
+  BP retour 13 : 1 passage(s)
+  BP retour 13 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 20 : 1 passage(s)
+  BP retour 18 : 1 passage(s)
+  BP retour 18 : 1 passage(s)
+  BP retour 24 : 1 passage(s)
+  BP retour 10 : 1 passage(s)
+  BP retour 24 : 1 passage(s)
+  BP retour 10 : 1 passage(s)

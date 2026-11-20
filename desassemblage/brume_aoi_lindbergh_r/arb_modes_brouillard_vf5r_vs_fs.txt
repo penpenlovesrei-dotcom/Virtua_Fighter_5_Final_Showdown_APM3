@@ -1,0 +1,57 @@
+# Les quatre modes de brouillard, cote PROGRAMMES ARB
+
+## VF5 R (Lindbergh, /shader.farc sorti de vf5r_rom.bin) -- famille blinn_per_vert
+   VF5 R N'A PAS de famille stage_blinn.
+### blinn_per_vert.000000000000.vp
+50:OUTPUT o_fog = result.fogcoord;
+### blinn_per_vert.000000000000.fp
+34:PARAM p_fog_color = program.env[4];
+35:PARAM p_height_fog_color = program.env[11];
+
+### blinn_per_vert.000000100000.vp
+50:OUTPUT o_fog = result.fogcoord;
+74:  SUB _tmp0.w, pos_c.z, state.fog.params.y; MUL_SAT _tmp0.w, _tmp0.w, state.fog.params.w; MUL o_fog.x, _tmp0.w, state.fog.params.x;
+### blinn_per_vert.000000100000.fp
+34:PARAM p_fog_color = program.env[4];
+35:PARAM p_height_fog_color = program.env[11];
+41: MAD _tmp0, a_color0, tex_col, spec; LRP o_color.xyz, a_fogcoord.xxxy, p_fog_color, _tmp0; MUL o_color.w, a_color0.w, tex_col.w;
+
+### blinn_per_vert.000000200000.vp
+50:OUTPUT o_fog = result.fogcoord;
+75:  SUB _tmp0.w, pos_c.z, state.fog.params.y; MUL_SAT _tmp0.w, _tmp0.w, state.fog.params.w; MUL tmp.x, _tmp0.w, state.fog.params.x;
+76:  SUB _tmp0.w, -pos_w.y, program.env[14].y; MUL_SAT _tmp0.w, _tmp0.w, program.env[14].w; MUL tmp.y, _tmp0.w, program.env[14].x;
+77:  MAX o_fog.x, tmp.x, tmp.y;
+### blinn_per_vert.000000200000.fp
+34:PARAM p_fog_color = program.env[4];
+35:PARAM p_height_fog_color = program.env[11];
+41: MAD _tmp0, a_color0, tex_col, spec; LRP o_color, a_fogcoord.xxxy, p_height_fog_color, _tmp0;
+
+### blinn_per_vert.000000300000.vp
+50:OUTPUT o_fog = result.fogcoord;
+75:  MAD _tmp0, pos_w.xzww, {0.0625 ,-0.0625 ,0,0}, {0.5,0.5,0,0}; TEX _tmp1, _tmp0, texture[14], 2D; SUB _tmp0.w, -pos_w.y, -0.6; MUL_SAT _tmp0.w, _tmp0.w, 2.0; MUL o_fog.x, _tmp0.w, _tmp1.x;
+### blinn_per_vert.000000300000.fp
+34:PARAM p_fog_color = program.env[4];
+35:PARAM p_height_fog_color = program.env[11];
+41: MAD _tmp0, a_color0, tex_col, spec; LRP o_color, a_fogcoord.xxxy, p_height_fog_color, _tmp0;
+
+## Final Showdown Lindbergh (extracted/LIND_FS/tree/disk1/rom/shader.farc) -- famille stage_blinn
+### stage_blinn.00000000.vp
+56:OUTPUT o_fog = result.fogcoord;
+
+### stage_blinn.00000010.vp
+56:OUTPUT o_fog = result.fogcoord;
+104:  SUB _tmp0.w, pos_c.z, state.fog.params.y; MUL_SAT _tmp0.w, _tmp0.w, state.fog.params.w; MUL o_fog.x, _tmp0.w, state.fog.params.x;
+
+### stage_blinn.00000020.vp
+56:OUTPUT o_fog = result.fogcoord;
+104:  SUB _tmp0.w, -pos_w.y, program.env[14].y; MUL_SAT _tmp0.w, _tmp0.w, program.env[14].w; MUL tmp.y, _tmp0.w, program.env[14].x;
+
+### stage_blinn.00000030.vp
+56:OUTPUT o_fog = result.fogcoord;
+104:  MAD _tmp0, pos_w.xzww, {0.0625 ,-0.0625 ,0,0}, {0.5,0.5,0,0}; TEX _tmp1, _tmp0, texture[14], 2D; SUB _tmp0.w, -pos_w.y, -0.6; MUL_SAT _tmp0.w, _tmp0.w, 2.0; MUL o_fog.x, _tmp0.w, _tmp1.x;
+
+## Final Showdown Lindbergh -- blinn_per_vert mode 2 : INTACT, le MAX est la
+50:OUTPUT o_fog = result.fogcoord;
+75:  SUB _tmp0.w, pos_c.z, state.fog.params.y; MUL_SAT _tmp0.w, _tmp0.w, state.fog.params.w; MUL tmp.x, _tmp0.w, state.fog.params.x;
+76:  SUB _tmp0.w, -pos_w.y, program.env[14].y; MUL_SAT _tmp0.w, _tmp0.w, program.env[14].w; MUL tmp.y, _tmp0.w, program.env[14].x;
+77:  MAX o_fog.x, tmp.x, tmp.y;

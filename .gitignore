@@ -12,3 +12,36 @@
 *.jpg
 __pycache__/
 *.pyc
+
+# --- le banc APM3 (hote_apm / outils/monter_banc.cmd) ---
+# Le banc est un montage LOCAL : liens durs vers SOURCES et jonction vers
+# vf5fs_media. Il se regenere en une commande, donc rien n'en est versionne.
+# Les regles ci-dessus ne suffisaient pas : LANCER.cmd et les journaux .txt
+# ne sont ni .exe ni .dll.
+banc/
+hote_apm/sortie/
+
+# Produits de hote_apm/gen_table.py : relus de la VRAIE apm.dll a chaque
+# compilation. Une table recopiee se trompe, une table regeneree non -- et
+# rien de derive du binaire du jeu n'a a vivre dans le depot.
+hote_apm/apm_inerte.def
+hote_apm/apm_tremplins.asm
+hote_apm/apm_noms.inc
+
+# --- les bancs GOG et REVO : des montages LOCAUX, comme banc/ ---
+# Memes liens durs, memes jonctions vers vf5fs_media, et ils se regenerent.
+# Ils portent a eux deux 2,7 Go de films du jeu (.usm) dont quatre depassent
+# les 100 Mo que GitHub refuse : un push les rejetterait de toute facon.
+banc_gog/
+banc_revo/
+
+# --- AUCUN CODE SEGA : seulement les donnees de decompilation ---
+# binaires/ porte les executables du jeu eux-memes, sous des suffixes que les
+# regles *.exe et *.dll ne rattrapent pas : .origine, .PATCHEE,
+# .TROUVE_DANS_SOURCES_20261104. Les pousser, c'est distribuer le jeu.
+binaires/
+
+# Une base de projet Ghidra contient les octets du programme IMPORTE : vfes.exe
+# y est en entier, juste empaquete. Meme regle, et elle se regenere en
+# rouvrant le binaire.
+mesures/projet/

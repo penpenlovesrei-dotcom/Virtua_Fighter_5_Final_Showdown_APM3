@@ -1,0 +1,31 @@
+# Passe B : on DEPLACE le curseur avant de valider, pour que le personnage
+# choisi differe de la passe A. Appuis de 150 ms : a 20 ms le stub, qui relit
+# son scenario toutes les 30 ms, peut ne rien voir du tout.
+
+nom start = 7
+front   = 150
+journal = 0
+
+0       rien
+25000   start
+25300   rien
+
+27000   2
+27150   rien
+27600   3
+27750   rien
+28200   4
+28350   rien
+28800   5
+28950   rien
+29400   9
+29550   rien
+30000   10
+30150   rien
+30600   11
+30750   rien
+31200   12
+31350   rien
+
+33000   start
+33300   rien

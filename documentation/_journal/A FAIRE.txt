@@ -1,0 +1,334 @@
+0- je veux revoir la configuration des boutons
+Dans C:\Users\frede\Desktop\VF5 FS DECOMP\APM_V1.04_internal_0\lib, apmgamepad.dll ou apmgamepad_86.dll peuvent ils servir ?
+Je veux cette configuration:
+	       Clavier	   	 Manette XBOX
+directions	flèches		croix / stick gauche
+START		Entrée		bouton menu
+SELECT		Espace		bouton affichage
+croix		X		A
+rond		C		B
+carré		W		X
+triangle	V		Y
+L1		Q		LB	
+R1		D		RB
+L2		S		LT (sauf en mode arcade, inactif)
+R2		F		RT (sauf en mode arcade, inactif)
+
+pour le mode arcade:
+START		Entrée		bouton menu
+TEST menu	F1		bouton affichage
+SERVICE menu	F2		bouton XBOX
+
+___________________________________________________________
+Ne suppose pas, ne devine pas, mesure et lis le code.
+
+A TESTER
+
+A verifier ingame si le bug existe dans la version APM3
+https://helixmod.blogspot.com/2023/10/
+3D Vision and geo-11 fix for Yakuza 6: The Song of Life
+
+sur l'écran de sélection des personnages, vérifier le fonctionnement des boutons pour sélectionner le costume Type A ou B, select pour la config des touches et carré pour choisir un custom costume
+
+___________________________________________________________
+
+A DEMANDER
+
+
+lors du 3eme écran une icone apparait en haut à droite de l'écran, elle n'existait pas avec que tu supprimes pour la 2eme fois l'écran sur l'épilepsie. Tu avais appliqué des timings à chaque écran pour éviter cela. Vérifie et remets les.
+
+je ne trouve pas le logo de l'écran titre dans les images exportées
+
+On revient sur les décors importés:
+DECORS VF5
+décor de Eileen: remplace le sable par de l'eau, analyse les effets manquants
+
+DECORS VF5R
+Décor d'Aoi: brouillard du 1er plan manquant
+Décor de Taka Arashi: les effets de flash des appareils photo doit aussi se lancer pendant le replay, mais pas pendant l'état "continue?"
+
+____________________________________________________________
+
+DECORS
+
+je veux changer  la police du texte des variants des décors sur l'ecarn de selection des decors, quelles sont les polices disponibles ?
+DECORS VF5R
+Décor d'Aoi: brouillard du 1er plan manquant
+Décor de Lei Fei: effet de brume léger manquant
+Décor de Taka Arashi: les effets de flash des appareils photo doit aussi se lancer pendant le replay, mais pas pendant l'état "continue?"(trouver le trigger)
+Décors de Dural: supprimer les doublons avec FS
+
+décors avec de la neige ou du sable (Eileen 5R et Wolf5), particules bleues à vérifier et à corriger
+
+DECORS VF5
+décor de Eileen: remplacer le sable par de l'eau, analyser les effets manquants
+renommer les décors de Dural
+
+____________________________________________________________
+
+MODE QUEST
+		1. Données : rivaux, conversion des IA, objets	2
+		2. Combat contre un rival choisi dans un menu simple (premier Quest jouable)	2
+		3. Écrans du Quest : carte, salle, joueurs, statut, emblèmes	EN COURS
+		4. Tournois	3
+		5. Récompenses et sauvegarde : magasin, rangs, or	2
+
+
+
+____________________________________________________________
+
+SCOREBOARDS
+ce mode n'a pas ses sous menus d'origine, regarde dans la version Xbox 360 pour les réactiver si c'est nécessaire
+_________________________________________________
+
+MOVIE THEATER
+
+0 Opening movie VF5 version A      6 Opening movie VF5 Final Showdown
+1 Opening movie VF5 version B      7 Ending movie VF5 Final Showdown
+2 Opening movie VF5 version C      8 Opening movie VF5 R.E.V.O.
+3 Ending movie VF5                 9 Ending movie VF5 R.E.V.O.
+4 Opening movie VF5 R             10 Virtua Fighter 5 Girls
+5 Ending movie VF5 R
+
+à ajouter:
+cm_VER_R_00
+Opening movie Virtua Fighter eSports
+Ending movie Virtua Fighter eSports
+El Blaze and Wolf demo
+Eileen demo
+Promotional movie A
+Promotional movie B
+Promotional movie C
+
+
+_________________________________________________
+
+
+MUSIQUES
+
+grise les musiques non disponibles
+compare les musiques entre la version APM3 et REVO
+renomme les type A
+
+mettre les bonnes musiques dans terminal ?
+ajouter les musiques supplémentaires: compléter VF3 et ajouter VF5US
+
+dans les options, changer les noms de Stage BGM Type Default par Final Showdown, Type A par Virtua Fighter 5, B par Virtua Fighter, C par Virtua Fighter 2, D par Virtua Fighter 3, E par  Virtua Fighter 4/EVO/Final Tuned et F par Virtua Fighter 5 R. 
+Comment VF5 REVO  gère les musiques avec les décors ou personnages qui n'existaient pas ?
+
+_________________________________________________
+
+
+8-réactiver le jeu en ligne
+
+_________________________________________________
+
+9-choisir la version du gameplay du jeu: Final Showdown Revision 1 ou R.E.V.O. 1.10
+
+_________________________________________________
+
+ARCADE VERSION
+la personnalisation existe aussi en arcade. Le binaire Lindbergh porte terminal::ItmEqTask et la chaîne TERMINAL_ITEM_EQUIP — c'est le terminal à carte VF.NET. APM3 a simplement renommé terminal:: en customize::.
+réactiver les modes de jeu pour le mode arcade
+
+Lancer VF.TV et VF TERMINAL (prendre les données manquantes depuis la version Lindbergh=
+
+
+KNOCK OUT TRIAL SPECIAL
+Le Knockout Trial Special (souvent orthographié Knock Out Trial Special) est un mode de jeu solo exclusif à la version Arcade de Virtua Fighter 5 Final Showdown. [1] (https://giantbomb.com/wiki/Games/Virtua_Fighter_5_Final_Showdown)
+Il s'agit d'une évolution des modes de quête et de défis présents dans les versions précédentes de la franchise. 
+[1] (https://www.hardcoregaming101.net/virtua-fighter-5/)
+
+Principes et caractéristiques du mode :
+Un thème unique (Espionnage/Sci-Fi) : Contrairement aux versions précédentes (comme la version Arcade Version D qui proposait un mode Knockout Trial 2 sur le thème des pirates), 
+la version Special de Final Showdown adopte une ambiance rétro-futuriste, de science-fiction et d'espionnage. 
+[1] (https://www.hardcoregaming101.net/virtua-fighter-5/), [2] (https://giantbomb.com/wiki/Games/Virtua_Fighter_5_Final_Showdown)
+
+Progression et Défis : 
+Le joueur doit enchaîner les combats contre une multitude d'adversaires contrôlés par l'ordinateur. Ces opposants possèdent des styles de jeu calqués sur de vrais joueurs de l'époque (simulant le niveau de la communauté arcade).
+
+Personnalisation et Récompenses : 
+En progressant dans ce mode, vous accumulez des points et débloquez des éléments de personnalisation exclusifs (vêtements, accessoires thématiques, objets loufoques) pour modifier l'apparence de vos combattants.
+
+Pourquoi est-il spécifique à l'Arcade ?
+Lorsqu'Sega a porté Virtua Fighter 5 Final Showdown sur consoles de salon (PS3 et Xbox 360), ce mode a été retiré pour des raisons de restrictions de taille de stockage (le jeu étant vendu en format dématérialisé à petit prix à l'époque). 
+Sur console, le contenu de personnalisation a été transformé en DLC payants, et les modes solos ont été simplifiés au profit du mode entraînement et du jeu en ligne
+
+
+le mode "Knock Out Trial Special" existe bien dans la version ALL.Net P-ras MULTI version 3 (APM3)
+
+
+SCORE ATTACK
+La principale différence entre le mode Score Attack de la version arcade et celui de la version console de Virtua Fighter 5 Final Showdown réside dans l'utilisation 
+des cartes de sauvegarde (comme le réseau VF.NET en arcade) et les classements associés.
+
+
+Version Arcade
+	Sauvegarde et progression en ligne (VF.NET) : 
+	L'arcade utilise une carte de joueur pour enregistrer les données, les objets cosmétiques débloqués et l'historique des matchs. 
+	[1] (https://gamefaqs.gamespot.com/ps3/932831-virtua-fighter-5/faqs/50154), 
+	[2] (https://www.hardcoregaming101.net/virtua-fighter-5/)
+
+	Défis de fantômes : Le mode Score Attack en arcade peut intégrer des données de combat de la communauté ou générer des interactions basées sur les classements connectés de la 					borne. 
+				[1] (https://gamefaqs.gamespot.com/ps3/932831-virtua-fighter-5/faqs/50154)
+
+Version Console (PSN / XBLA)
+
+	Classements en ligne généraux : Sur console, les scores et les classements du mode Score Attack sont directement envoyés aux leaderboards en ligne du PlayStation Network ou du 					Xbox Live.
+					[1] (https://www.sega-mag.com/test/test-virtua-fighter-5-final-showdown-10564)
+
+
+
+État lu dans page+0x642+i (0 normal, 1 grisé, 2 non dessiné) ; destination lue dans le répartiteur 0x1801DDF30.
+
+#	libellé			état	destination	verdict
+0	SINGLE PLAYER	normal	ARCADE MENU	le sous-menu s'ouvre
+	
+1	OFFLINE VERSUS	normal	VERSUS MENU	s'ouvre
+2	ONLINE BATTLE	normal	MULTI MENU	mène au mode 7 ONLINE, bouchonné aux trois gestionnaires
+3	DOJO			normal	TRAINING MENU	s'ouvre
+			Tutorial
+4	TERMINAL		normal	TERMINAL MENU	le seul qui atteint un mode vivant (5 CS_TERM)
+5	SCOREBOARDS		normal	RANKING	s'ouvre
+6	ACHIEVEMENTS	non dessiné	jmp 0x180007430 = ret 0	rien, et deux fois plutôt qu'une
+7	HELP & OPTIONS	normal	OPTION	s'ouvre
+		=== fn 0x1801DED90 ===
+    0x1A6   'NORMAL'
+    0x1A7   'HARD'
+    0x1A3   '(reg) Difficulty'
+		=== fn 0x1801E02E0 ===
+    0x1A3   'Difficulty'
+    0x1AD   'Round count'	3/4/5
+    0x1A9   'Time limit'	45/
+    0x1B3   'Max health bar:Player' 220/
+    0x1B8   'Max health bar:CPU'	220/
+		=== fn 0x1801E2190 ===
+    0x1AD   'Round count'
+    0x1A9   'Time limit'
+    0x1CB   'Max health bar:1P'
+    0x1D0   'Max health bar:2P'
+    0x1D5   'Stage select'
+8	DOWNLOAD CONTENT	normal	DLC STORE	s'ouvre
+—	EXIT GAME		non dessiné, et hors du compte de 9	EXIT_CAUTION	inatteignable
+
+Le répartiteur d'états n'a qu'une porte publique pour demander un mode, 0x1800DA9A0 (les globaux ne sont écrits que par le répartiteur lui-même). On peut donc énumérer toutes les demandes du moteur — 27 sites, tous résolus :
+
+mode						sites
+0 STARTUP					8
+2 GAME						0
+4 MENU						10
+5 CS_TERM					3
+6 CS_TRAINING				0
+7 ONLINE (bouchonné)		2
+8 APM3						2
+9 APM3_TESTMODE (bouchonné)	1
+
+
+=== fn 0x1801DED90 ===
+    0x1A6   'NORMAL'
+    0x1A7   'HARD'
+    0x1A3   '(reg) Difficulty'
+=== fn 0x1801DF450 ===
+    0x1A7   '(reg) HARD'
+    0x1A0   '(reg) License Challenge'
+    0x1C1   '(reg) CLASS'
+    0x1C3   '(reg) CLEAR'
+    0x1C4   '(reg) NEW CLASS AT'
+=== fn 0x1801E02E0 ===
+    0x1A3   'Difficulty'
+    0x1AD   'Round count'	3/4/5
+    0x1A9   'Time limit'	45/
+    0x1B3   'Max health bar:Player' 220/
+    0x1B8   'Max health bar:CPU'	220/
+    0x19E   '(reg) Arcade'
+=== fn 0x1801E0C80 ===
+    0x177   'SINGLE PLAYER'
+    0x178   'OFFLINE VERSUS'
+    0x17A   'ONLINE BATTLE'
+    0x17B   'DOJO'
+    0x17C   'TERMINAL'
+    0x17E   'SCOREBOARDS'
+    0x17F   'ACHIEVEMENTS'
+    0x180   'HELP & OPTIONS'
+    0x181   '(reg) UNLOCK FULL GAME'
+    0x183   'EXIT GAME'
+    0x182   '(reg) DOWNLOAD CONTENT'a
+    0x176   '(reg) MAIN MENU'
+=== fn 0x1801E1B10 ===
+    0x299   'Customize'
+    0x29A   'Replays'
+    0x17C   '(reg) TERMINAL'
+=== fn 0x1801E2190 ===
+    0x1AD   'Round count'
+    0x1A9   'Time limit'
+    0x1CB   'Max health bar:1P'
+    0x1D0   'Max health bar:2P'
+    0x1D5   'Stage select'
+    0x178   '(reg) OFFLINE VERSUS'
+=== fn 0x1801E5F60 ===
+    0x20C   "(reg) View opponent's gamer card"
+    0x26C   '(reg) Random'
+    0x20C   "(reg) View opponent's gamer card"
+	
+	
+	A DESASSEMBLER 
+
+
+
+REPLAY, 
+RANKING
+
+OPTIONS
+
+APM3.DLL: desassembler le mode test
+
+ONLINE
+ajouter le mode de jeu en ligne de REVO ?
+ajouter le mode de jeu en ligne de YAMP (Yakuza 6)?
+cartographier AVLinkMain* et AVTaskSession
+detreminisme établit par les fonctions du jeu:
+AVTaskGameVsReplay   AVTaskRobShortReplay   AVTaskRobShortReplay_Rec
+AVTaskMenuReplay     AVTaskReplayUpload     TERM_REPLAY_BUF
+
+Le mur suivant
+Après ces deux échanges, le jeu se tait — cohérent avec le §10.5 : il mesure son type de NAT par STUN avant /api/match. Notre turninfo l'envoie sur 127.0.0.1:3478, où rien n'écoute.
+XXXXXXSur le netplay, le prochain geste est un coturn sur 3478 avec l'utilisateur vf5/vf5. C'est du STUN/TURN standard, magic cookie 0x2112A442 — rien à réinventer. Installe ça.
+
+ajoute les modes specifiques de la version arcade FS et/ou R au menu arcade
+ajoute les musiques de VF REVO et les musiques supplémentaires de VF3
+ajouter le mode world tour de vanilla ou de revo ?
+
+Reintègre dans le mode arcade, uniquement en mode arcade, le mode KNOCK OUT TRIAL SPECIAL et le mode SCORE ATTACK, 
+avec les assets graphiques de la version lindbergh s'ils n existent plus dans la version APM3de la version arcade.
+
+
+
+
+
+Ce qui reste partiellement analysé — la liste entière
+les 30 champs du descripteur	compris : +0x00, +0x08, +0x10, +0x14..+0x24, +0x48. Clonés sans être compris : +0x28..+0x40, +0x50/+0x58/+0x60 (trois blocs .data), +0xC8..+0xE8 (rendu, aire)
+la musique (+0x68, +0x70..+0xB0)	clonée : un décor de VF5 R joue la musique de Final Showdown, alors que les pistes vf5r_* sont dans le jeu
+tex_db	de 4 à 127 identifiants de texture de 2008 y sont inconnus selon le décor. d5r en a 50 et il marche, donc ce n'est pas fatal — mais ce n'est pas expliqué, et une collision de nom n'a pas été mesurée
+l'aperçu de la case	26 entrées ; efface les trois couches AET pour nos indices
+du1..du4	pas ajoutés
+
+17	WET_CLOTH	aucune table	un scalaire choisi par index == 19	bn5 rv5 jn5 sn5	zéro
+22	ELE_BOARD	—	bouchonnée : init = return 1;	ae5	rien à faire
+3	LEAF	0x180643248 ×2, 0x0C	2 objets (objset<<16)|rang	tr5, jn5	balayage + objset
+15	SNOW_RING	0x180643450 ×1, 0x2C	4 sprites + l'objet 50:233	yk5	balayage + objset
+12	RINGOUT_SPLASH	0x180350C10 ×4, 0x20	2 uid + un pointeur de chaîne	rv5 jn5 sn5	déménagement + relocation
+
+VERSION YAKUZA 6
+C:\Users\frede\Desktop\VF5 FS DECOMP\Yakuza_6_FS\Yakuza 6 - vf5fs\vf5fs-pxd-w64-Retail_GOG.dll, vois ce qu'elle peut nous apporter
+Cette version est elle facilement patchable avec tout ce qui a été fait pour la version APM3 ?
+
+CODE 6 : NOTRE BOUCHON AFFIRME UN APPUI QUE L'ORIGINAL N'AFFIRME JAMAIS (2026-11-04)
+Mesure : banc_revo/apm_journal.txt du 4 novembre montre << On(6) = OUI >> dix fois.
+Or docs/formats/apm_input.md etablit que dans la vraie apm.dll le code 6 n'a AUCUN
+bit du masque materiel et rend TOUJOURS faux.
+Piste la plus probable, a verifier dans gen_apm_stub.py sans relancer le jeu : un
+masque est un ACCORD -- (etat & masque) == masque -- donc un masque VIDE vaut
+toujours vrai. Si le code 6 n'a aucun bouton cable (apm_entrees.txt dit qu'en mode
+arcade << BACK est retire des codes 6 et 15 >>), il rend vrai par construction.
+Consequence si c'est cela : tout code non cable est affirme en permanence.
+

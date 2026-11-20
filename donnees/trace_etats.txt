@@ -1,0 +1,28 @@
+processus 2184 lance sous debogage
+  image     0x00007FF6C20D0000  vfes.exe
+  dll       0x00007FFF93BD0000  apm.dll
+  dll       0x00007FFF96BF0000  d3d11.dll
+  dll       0x00007FFF97BE0000  dxgi.dll
+  dll       0x00007FFF95EB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFF9D97D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFF9B08187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFEF0880000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 2184 coupee apres 2 s
+  BP arme sur SetState = 0x7FFEF095A800 (octet d'origine 0x48)
+  point d'arret sur le changement d'etat, a t=12 s
+    1  [t= 15.6 s]  etat [STARTUP] -> [MAX]   sous-etat [DATA_INITIALIZE] -> [SYSTEM_STARTUP]
+    2  [t= 15.7 s]  etat [STARTUP] -> [MAX]   sous-etat [SYSTEM_STARTUP] -> [CS_DEMO]
+    3  [t= 22.7 s]  etat [STARTUP] -> [MAX]   sous-etat [CS_DEMO] -> [CS_TITLE]
+    4  [t= 24.7 s]  etat [STARTUP] -> [MAX]   sous-etat [CS_TITLE] -> [CS_SIGNIN]
+    5  [t= 24.8 s]  etat [STARTUP] -> [MAX]   sous-etat [CS_SIGNIN] -> [WARNING]
+    6  [t= 26.0 s]  etat [STARTUP] -> [MAX]   sous-etat [WARNING] -> [CS_AUTOLOAD]
+    7  [t= 26.1 s]  etat [STARTUP] -> [MENU]   sous-etat [CS_AUTOLOAD] -> [MAX]
+    8  [t= 28.5 s]  etat [MENU] -> [GAME]   sous-etat [MENU_MAIN] -> [SELECTOR]
+    9  [t= 34.8 s]  etat [GAME] -> [MAX]   sous-etat [SELECTOR] -> [MODE_SELECTOR]
+   10  [t= 34.9 s]  etat [GAME] -> [MAX]   sous-etat [MODE_SELECTOR] -> [VS]
+--- 45 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP SetState : 10 passage(s)
+  scenario d entrees remis en jeu manuel

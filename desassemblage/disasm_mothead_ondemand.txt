@@ -1,0 +1,144 @@
+# mothead : les codes 43, 44 et 71, absents de la table 0x1804210D0
+# Il n existe pas de second repartiteur par table : ces codes sont cherches a la demande.
+
+=== 0x180164720  MothFindPayload(motion_id, liste, code, dataset) ===
+#   edx == 1 -> liste 2 (enregistrement+0x18, pas 12) ; sinon liste 1 (+0x14, pas 8)
+#   l epilogue commun resout l offset et rend LA CHARGE UTILE, ou 0
+0x0000000180164720  4053                     push rbx                                
+0x0000000180164722  4883ec20                 sub rsp, 0x20                           
+0x0000000180164726  83fa01                   cmp edx, 1                              
+0x0000000180164729  418bd8                   mov ebx, r8d                            
+0x000000018016472C  410fb6d1                 movzx edx, r9b                          
+0x0000000180164730  753b                     jne 0x18016476d                         
+0x0000000180164732  e8c9fcffff               call 0x180164400                        
+0x0000000180164737  488d4818                 lea rcx, [rax + 0x18]                   
+0x000000018016473B  48634018                 movsxd rax, dword ptr [rax + 0x18]      
+0x000000018016473F  85c0                     test eax, eax                           
+0x0000000180164741  741c                     je 0x18016475f                          
+0x0000000180164743  4803c1                   add rax, rcx                            
+0x0000000180164746  7417                     je 0x18016475f                          
+0x0000000180164748  8b08                     mov ecx, dword ptr [rax]                
+0x000000018016474A  85c9                     test ecx, ecx                           
+0x000000018016474C  7811                     js 0x18016475f                          
+0x000000018016474E  6690                     nop                                     
+0x0000000180164750  3bcb                     cmp ecx, ebx                            
+0x0000000180164752  7413                     je 0x180164767                          
+0x0000000180164754  8b480c                   mov ecx, dword ptr [rax + 0xc]          
+0x0000000180164757  4883c00c                 add rax, 0xc                            
+0x000000018016475B  85c9                     test ecx, ecx                           
+--- branche liste 1 :
+0x000000018016476D  e88efcffff               call 0x180164400                        
+0x0000000180164772  488d4814                 lea rcx, [rax + 0x14]                   
+0x0000000180164776  48634014                 movsxd rax, dword ptr [rax + 0x14]      
+0x000000018016477A  85c0                     test eax, eax                           
+0x000000018016477C  74e1                     je 0x18016475f                          
+0x000000018016477E  4803c1                   add rax, rcx                            
+0x0000000180164781  74dc                     je 0x18016475f                          
+0x0000000180164783  8b08                     mov ecx, dword ptr [rax]                
+0x0000000180164785  85c9                     test ecx, ecx                           
+0x0000000180164787  78d6                     js 0x18016475f                          
+0x0000000180164789  0f1f8000000000           nop dword ptr [rax]                     
+0x0000000180164790  3bcb                     cmp ecx, ebx                            
+0x0000000180164792  7413                     je 0x1801647a7                          
+0x0000000180164794  8b4808                   mov ecx, dword ptr [rax + 8]            
+0x0000000180164797  4883c008                 add rax, 8                              
+0x000000018016479B  85c9                     test ecx, ecx                           
+0x000000018016479D  79f1                     jns 0x180164790                         
+0x000000018016479F  33c0                     xor eax, eax                            
+--- epilogue commun :
+0x00000001801647A7  488d4804                 lea rcx, [rax + 4]                      
+0x00000001801647AB  486311                   movsxd rdx, dword ptr [rcx]             
+0x00000001801647AE  33c0                     xor eax, eax                            
+0x00000001801647B0  85d2                     test edx, edx                           
+0x00000001801647B2  74ad                     je 0x180164761                          
+0x00000001801647B4  488d0411                 lea rax, [rcx + rdx]                    
+0x00000001801647B8  4883c420                 add rsp, 0x20                           
+0x00000001801647BC  5b                       pop rbx                                 
+0x00000001801647BD  c3                       ret                                     
+
+=== code 43 : 0x180143490 demande la charge 0x2B ===
+0x000000018014367C  440fb60e                 movzx r9d, byte ptr [rsi]               
+0x0000000180143680  33d2                     xor edx, edx                            
+0x0000000180143682  41b82b000000             mov r8d, 0x2b                           
+0x0000000180143688  8bcf                     mov ecx, edi                            
+0x000000018014368A  488bd8                   mov rbx, rax                            
+0x000000018014368D  e88e100200               call 0x180164720                        
+0x0000000180143692  418b9540080000           mov edx, dword ptr [r13 + 0x840]        
+0x0000000180143699  488bf8                   mov rdi, rax                            
+0x000000018014369C  83fa01                   cmp edx, 1                              
+0x000000018014369F  750c                     jne 0x1801436ad                         
+0x00000001801436A1  498b85480b0000           mov rax, qword ptr [r13 + 0xb48]        
+0x00000001801436A8  4885c0                   test rax, rax                           
+0x00000001801436AB  7507                     jne 0x1801436b4                         
+0x00000001801436AD  33c9                     xor ecx, ecx                            
+0x00000001801436AF  e81c120000               call 0x1801448d0                        
+0x00000001801436B4  c5fa108e34040000         vmovss xmm1, dword ptr [rsi + 0x434]    
+0x00000001801436BC  4885ff                   test rdi, rdi                           
+0x00000001801436BF  740a                     je 0x1801436cb                          
+0x00000001801436C1  c5fa107704               vmovss xmm6, dword ptr [rdi + 4]        
+0x00000001801436C6  0fb73f                   movzx edi, word ptr [rdi]               
+0x00000001801436C9  eb74                     jmp 0x18014373f                         
+0x00000001801436CB  f6454980                 test byte ptr [rbp + 0x49], 0x80        
+
+=== code 44 : 0x1801401B0 parcourt la liste 1 en ligne ===
+0x00000001801401B0  48896c2420               mov qword ptr [rsp + 0x20], rbp         
+0x00000001801401B5  56                       push rsi                                
+0x00000001801401B6  4883ec40                 sub rsp, 0x40                           
+0x00000001801401BA  8bea                     mov ebp, edx                            
+0x00000001801401BC  488bf1                   mov rsi, rcx                            
+0x00000001801401BF  0fb611                   movzx edx, byte ptr [rcx]               
+0x00000001801401C2  8bcd                     mov ecx, ebp                            
+0x00000001801401C4  e837420200               call 0x180164400                        
+0x00000001801401C9  4c634014                 movsxd r8, dword ptr [rax + 0x14]       
+0x00000001801401CD  4883c014                 add rax, 0x14                           
+0x00000001801401D1  4585c0                   test r8d, r8d                           
+0x00000001801401D4  0f84d3010000             je 0x1801403ad                          
+0x00000001801401DA  48895c2450               mov qword ptr [rsp + 0x50], rbx         
+0x00000001801401DF  498bd8                   mov rbx, r8                             
+0x00000001801401E2  4803d8                   add rbx, rax                            
+0x00000001801401E5  0f84bd010000             je 0x1801403a8                          
+0x00000001801401EB  8b03                     mov eax, dword ptr [rbx]                
+0x00000001801401ED  85c0                     test eax, eax                           
+0x00000001801401EF  0f88b3010000             js 0x1801403a8                          
+0x00000001801401F5  83f82c                   cmp eax, 0x2c                           
+0x00000001801401F8  741d                     je 0x180140217                          
+0x00000001801401FA  8b4308                   mov eax, dword ptr [rbx + 8]            
+0x00000001801401FD  4883c308                 add rbx, 8                              
+0x0000000180140201  85c0                     test eax, eax                           
+
+=== code 71 : 0x180179430 ===
+0x000000018017958E  0fb60b                   movzx ecx, byte ptr [rbx]               
+0x0000000180179591  33d2                     xor edx, edx                            
+0x0000000180179593  8b8990320000             mov ecx, dword ptr [rcx + 0x3290]       
+0x0000000180179599  41b847000000             mov r8d, 0x47                           
+0x000000018017959F  e87cb1feff               call 0x180164720                        
+0x00000001801795A4  488bd0                   mov rdx, rax                            
+0x00000001801795A7  4885c0                   test rax, rax                           
+0x00000001801795AA  7414                     je 0x1801795c0                          
+0x00000001801795AC  663932                   cmp word ptr [rdx], si                  
+0x00000001801795AF  b801000000               mov eax, 1                              
+0x00000001801795B4  0fb64c2428               movzx ecx, byte ptr [rsp + 0x28]        
+0x00000001801795B9  0f44c8                   cmove ecx, eax                          
+0x00000001801795BC  884c2428                 mov byte ptr [rsp + 0x28], cl           
+0x00000001801795C0  488d542420               lea rdx, [rsp + 0x20]                   
+--- et 0x18009C01B :
+0x000000018009C1C9  440fb64f58               movzx r9d, byte ptr [rdi + 0x58]        
+0x000000018009C1CE  33d2                     xor edx, edx                            
+0x000000018009C1D0  8b4e20                   mov ecx, dword ptr [rsi + 0x20]         
+0x000000018009C1D3  41b847000000             mov r8d, 0x47                           
+0x000000018009C1D9  e842850c00               call 0x180164720                        
+0x000000018009C1DE  4c8b742438               mov r14, qword ptr [rsp + 0x38]         
+0x000000018009C1E3  4c8b6c2440               mov r13, qword ptr [rsp + 0x40]         
+0x000000018009C1E8  488b6c2468               mov rbp, qword ptr [rsp + 0x68]         
+0x000000018009C1ED  4885c0                   test rax, rax                           
+0x000000018009C1F0  7434                     je 0x18009c226                          
+0x000000018009C1F2  66443920                 cmp word ptr [rax], r12w                
+0x000000018009C1F6  752e                     jne 0x18009c226                         
+0x000000018009C1F8  0fb787a0010000           movzx eax, word ptr [rdi + 0x1a0]       
+0x000000018009C1FF  66413bc7                 cmp ax, r15w                            
+0x000000018009C203  730a                     jae 0x18009c20f                         
+0x000000018009C205  66ffc0                   inc ax                                  
+0x000000018009C208  668987a0010000           mov word ptr [rdi + 0x1a0], ax          
+0x000000018009C20F  0fb78790020000           movzx eax, word ptr [rdi + 0x290]       
+0x000000018009C216  66413bc7                 cmp ax, r15w                            
+0x000000018009C21A  730a                     jae 0x18009c226                         

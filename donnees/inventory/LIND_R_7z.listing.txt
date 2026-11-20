@@ -1,0 +1,23 @@
+
+7-Zip 24.09 (x64) : Copyright (c) 1999-2024 Igor Pavlov : 2024-11-29
+
+Scanning the drive for archives:
+1 file, 4663174354 bytes (4448 MiB)
+
+Listing archive: C:\Users\frede\Desktop\VF5 FS DECOMP\vf5r.7z
+
+--
+Path = C:\Users\frede\Desktop\VF5 FS DECOMP\vf5r.7z
+Type = 7z
+Physical Size = 4663174354
+Headers Size = 186
+Method = LZMA2:26
+Solid = -
+Blocks = 2
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2016-11-26 16:33:34 ....A   2516582400   2222607414  vf5r.bin
+2016-11-26 16:52:52 ....A   2936012800   2440566754  vf5r_rom.bin
+------------------- ----- ------------ ------------  ------------------------
+2016-11-26 16:52:52         5452595200   4663174168  2 files

@@ -1,0 +1,14 @@
+Associer un exécutable à une jaquette
+
+Chaque jeu a son dossier dans borne\jeux\. Deux façons de faire :
+
+La plus simple : mets dans le dossier du jeu un raccourci Windows (.lnk) vers l'exécutable, ou le .exe, .cmd ou .bat lui-même. La borne prend le premier par ordre alphabétique et ignore les fichiers dont le nom commence par _.
+Pour choisir précisément : crée dans ce dossier un fichier jeu.json :
+{ "titre": "Virtua Fighter 5 FS", "exe": "D:\\Jeux\\VF5\\vf5.exe", "args": ["-fullscreen"] }
+Le chemin peut aussi être relatif au dossier du jeu ; args est facultatif.
+
+A fAIRE
+mettre les versions HD des icones casques/manette
+Pour C:\Users\frede\Desktop\APM3:
+1-dans la partie écran tactile, si les noms des jeux sont trop longs par rapport à la largeur de l'icone, déclenche un défilement du texte
+2-adapte https://github.com/quangmach/GameLauncherShell pour notre executable, il sera dans le dossier C:\Users\frede\Desktop\APM3\VF5RE\borne\boot_video

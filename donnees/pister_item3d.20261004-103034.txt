@@ -1,0 +1,429 @@
+processus 6528 lance sous debogage
+  image     0x00007FF63A650000  vfes.exe
+  dll       0x00007FFCDDF10000  apm.dll
+  dll       0x00007FFD07280000  d3d11.dll
+  dll       0x00007FFD08570000  dxgi.dll
+  dll       0x00007FFD064B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD0E2E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD0BA541CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFC61DE0000  vf5fs-pxd-w64-Retail_APM3.dll
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 1 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  [dbg] [quest] moteur trouve, base 140721950425088
+  [dbg] [quest] notre fil d execution 1860
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=47 ms, masque=0x00000000
+  [dbg] [apm] fronts: courant=0x00800000 montants=0x00800000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00800000
+  [dbg] [apm] fronts: courant=0x00800000 montants=0x00800000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00800000
+  [dbg] [apm] fronts: courant=0x00800000 montants=0x00800000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00800000
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+  [dbg] [apm] fronts: courant=0x00800000 montants=0x00800000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00800000
+  [dbg] [apm] fronts: courant=0x02000000 montants=0x02000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x02000000
+  [dbg] [apm] fronts: courant=0x06000000 montants=0x06000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x0E000000 montants=0x08000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x09000000 montants=0x01000000 descendants=0x06000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x09000000
+  [dbg] [apm] fronts: courant=0x30000000 montants=0x30000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x20000000 montants=0x00000000 descendants=0x10000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x20000000
+  [dbg] [apm] fronts: courant=0x00800000 montants=0x00800000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00800000
+  [dbg] [apm] fronts: courant=0x20000000 montants=0x20000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x20000000
+  [dbg] [apm] fronts: courant=0x10000000 montants=0x10000000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x10000000
+  [dbg] [apm] fronts: courant=0x00408000 montants=0x00408000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00408000
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 3
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 4
+  [dbg] [quest] machine : mode 0, sous-etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  BP arme sur resolveur objset = 0x7FFC61FF805E (octet d'origine 0x41)
+  BP arme sur entree resolveur = 0x7FFC61FF7E70 (octet d'origine 0x48)
+  BP arme sur ItemMain = 0x7FFC61FA2ECA (octet d'origine 0x48)
+  BP arme sur ItmEqTask = 0x7FFC61FA13DA (octet d'origine 0x8B)
+  BP arme sur demarrage = 0x7FFC61FA2F1C (octet d'origine 0xE8)
+  BP arme sur pose drapeau = 0x7FFC61F23859 (octet d'origine 0x88)
+  six espions poses a t=30 s
+  LE CLAVIER EST A VOUS : TERMINAL > Customize, puis
+  choisissez un objet et regardez le personnage.
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 5
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00080000 montants=0x00080000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00080000
+  [dbg] [apm] fronts: courant=0x00040000 montants=0x00040000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00040000
+  [dbg] [apm] fronts: courant=0x00080000 montants=0x00080000 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00080000
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  DRAPEAUX   -> +0x796 j1=0 j2=0  |  temoin +0x795 j1=0   (base=0x2117FDF810)
+  ItmEqTask  -> etat 0
+  [dbg] [quest] machine : mode 5, sous-etat 37
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItemMain   -> etat 0
+  >>> LA TACHE D EQUIPEMENT EST DEMARREE (1-e fois)
+  ItemMain   -> etat 1
+  ItemMain   -> etat 2
+  ItemMain   -> etat 3
+  ItemMain   -> etat 10
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  OBJSET DEMANDE : 2d/spr_t_itmaki                          (1-e fois)   demande par 0x1800278EE
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  OBJSET DEMANDE : 2d/spr_t_itmaki                          (2-e fois)   demande par 0x1800278EE
+  OBJSET DEMANDE : objset/akiitm                            (1-e fois)   demande par 0x180038808
+  >>> POSE : joueur 0  base=0x2117FDF810  octet avant=0
+  >>> POSE : joueur 1  base=0x2117FDF810  octet avant=0
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  OBJSET DEMANDE : objset/akiitm_patch                      (1-e fois)   demande par 0x180038808
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  OBJSET DEMANDE : objset/akiitm_patch                      (2-e fois)   demande par 0x180038808
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  OBJSET DEMANDE : objset/akiitm_patch                      (3-e fois)   demande par 0x180038808
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000400 montants=0x00000400 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000400
+  [dbg] [apm] fronts: courant=0x00000100 montants=0x00000100 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000100
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000100 montants=0x00000100 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000100
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000100 montants=0x00000100 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000100
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 1
+  ItmEqTask  -> etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItmEqTask  -> etat 3
+  ItmEqTask  -> etat 4
+  [dbg] [apm] fronts: courant=0x00000100 montants=0x00000100 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000100
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000010 montants=0x00000010 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000010
+  [dbg] [apm] fronts: courant=0x00000400 montants=0x00000400 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000400
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000400 montants=0x00000400 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000400
+  [dbg] [apm] fronts: courant=0x00000040 montants=0x00000040 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000040
+  [dbg] [apm] fronts: courant=0x00000020 montants=0x00000020 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000020
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000040 montants=0x00000040 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000040
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  OBJSET DEMANDE : 2d/spr_t_itmaki                          (3-e fois)   demande par 0x180038808
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  DRAPEAUX   -> +0x796 j1=0 j2=0  |  temoin +0x795 j1=1   (base=0x2117FDF810)
+  DRAPEAUX   -> +0x796 j1=0 j2=0  |  temoin +0x795 j1=0   (base=0x2117FDF810)
+  OBJSET DEMANDE : objset/akiitm                            (2-e fois)   demande par 0x180038808
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000040 montants=0x00000040 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000040
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000004 montants=0x00000004 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000004
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000200 montants=0x00000200 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000200
+  [dbg] [apm] fronts: courant=0x00000100 montants=0x00000100 descendants=0x00000000
+  ItemMain   -> etat 40
+  DRAPEAUX   -> +0x796 j1=0 j2=0  |  temoin +0x795 j1=1   (base=0x2117FDF810)
+  DRAPEAUX   -> +0x796 j1=0 j2=0  |  temoin +0x795 j1=0   (base=0x2117FDF810)
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000100
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  ItmEqTask  -> etat 0
+  ItmEqTask  -> etat 4
+  [dbg] [quest] machine : mode 5, sous-etat 37
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  ItemMain   -> etat 0
+  >>> LA TACHE D EQUIPEMENT EST DEMARREE (2-e fois)
+  ItemMain   -> etat 1
+  ItemMain   -> etat 2
+  ItemMain   -> etat 3
+  ItemMain   -> etat 10
+  [dbg] [apm] fronts: courant=0x00000008 montants=0x00000008 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000008
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  OBJSET DEMANDE : objset/akiitm                            (3-e fois)   demande par 0x180038808
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  BP resolveur objset : 32 passage(s)
+  BP entree resolveur : 53 passage(s)
+  BP ItemMain : 11807 passage(s)
+  BP ItmEqTask : 11909 passage(s)
+  BP demarrage : 2 passage(s)
+  BP pose drapeau : 21640 passage(s)
+
+======================================================================
+LE JEU A DEMANDE CES ARCHIVES D OBJETS :
+  2d/spr_t_itmaki                              4 fois
+  objset/akiitm                                3 fois
+  objset/akiitm_patch                          11 fois
+
+Donc la demande PART. Si le modele ne s affiche pas, le defaut est en AVAL : resolution dans le .par, chargement, ou pose sur le modele.
+
+9 objset(s) distinct(s) demande(s) en tout.
+Les vingt plus demandes :
+  objset/akiitm_patch                          11
+  2d/spr_t_itmaki                              4
+  objset/akiitm                                3
+  rob/mot_aki                                  3
+  rob/mot_auth_aki                             3
+  2d/spr_n_clg                                 2
+  2d/spr_n_main                                2
+  objset/stgtrm                                2
+  2d/spr_n_term                                2

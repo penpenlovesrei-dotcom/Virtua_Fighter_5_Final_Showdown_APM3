@@ -1,0 +1,120 @@
+  0x08142229  8b3dbcdca908         mov edi, dword ptr [0x8a9dcbc]
+  0x0814222F  85ff                 test edi, edi
+  0x08142231  0f8488feffff         je 0x81420bf
+  0x08142237  8b1d3cdaa908         mov ebx, dword ptr [0x8a9da3c]
+  0x0814223D  891c24               mov dword ptr [esp], ebx
+  0x08142240  bb01000000           mov ebx, 1
+  0x08142245  e878d9ffff           call 0x813fbc2
+  0x0814224A  e80380fcff           call 0x810a252
+  0x0814224F  ba00000000           mov edx, 0
+  0x08142254  89542414             mov dword ptr [esp + 0x14], edx
+  0x08142258  89542410             mov dword ptr [esp + 0x10], edx
+  0x0814225C  8b0dc4dca908         mov ecx, dword ptr [0x8a9dcc4]
+  0x08142262  894c240c             mov dword ptr [esp + 0xc], ecx
+  0x08142266  a1c0dca908           mov eax, dword ptr [0x8a9dcc0]
+  0x0814226B  c744240414000000     mov dword ptr [esp + 4], 0x14
+  0x08142273  c7042420860000       mov dword ptr [esp], 0x8620
+  0x0814227A  89442408             mov dword ptr [esp + 8], eax
+  0x0814227E  e81518f1ff           call 0x8053a98
+  0x08142283  8d4bff               lea ecx, [ebx - 1]
+  0x08142286  a1bcdca908           mov eax, dword ptr [0x8a9dcbc]
+  0x0814228B  d3f8                 sar eax, cl
+  0x0814228D  a801                 test al, 1
+  0x0814228F  743c                 je 0x81422cd
+  0x08142291  c7042400000000       mov dword ptr [esp], 0
+  0x08142298  e82df9ffff           call 0x8141bca
+  0x0814229D  84c0                 test al, al
+  0x0814229F  0f85160d0000         jne 0x8142fbb
+  0x081422A5  c7042402000000       mov dword ptr [esp], 2
+  0x081422AC  e819f9ffff           call 0x8141bca
+  0x081422B1  84c0                 test al, al
+  0x081422B3  0f85d10c0000         jne 0x8142f8a
+  0x081422B9  c7042401000000       mov dword ptr [esp], 1
+  0x081422C0  e805f9ffff           call 0x8141bca
+  0x081422C5  84c0                 test al, al
+  0x081422C7  0f85640c0000         jne 0x8142f31
+  0x081422CD  83c301               add ebx, 1
+  0x081422D0  83fb03               cmp ebx, 3
+  0x081422D3  7eae                 jle 0x8142283
+  0x081422D5  e9b0010000           jmp 0x814248a
+  0x081422DA  8b0d3cdaa908         mov ecx, dword ptr [0x8a9da3c]
+  0x081422E0  31db                 xor ebx, ebx
+  0x081422E2  31ff                 xor edi, edi
+  0x081422E4  890c24               mov dword ptr [esp], ecx
+  0x081422E7  e8d6d8ffff           call 0x813fbc2
+  0x081422EC  e8617ffcff           call 0x810a252
+  0x081422F1  c7042400000000       mov dword ptr [esp], 0
+  0x081422F8  e8758afdff           call 0x811ad72
+  0x081422FD  c7042400000000       mov dword ptr [esp], 0
+  0x08142304  e8554efdff           call 0x811715e
+  0x08142309  c7042401000000       mov dword ptr [esp], 1
+  0x08142310  e8494efdff           call 0x811715e
+  0x08142315  c7042402000000       mov dword ptr [esp], 2
+  0x0814231C  e83d4efdff           call 0x811715e
+  0x08142321  803dd8daa90800       cmp byte ptr [0x8a9dad8], 0
+  0x08142328  0f8420060000         je 0x814294e
+  0x0814232E  8b152cdaa908         mov edx, dword ptr [0x8a9da2c]
+  0x08142334  891424               mov dword ptr [esp], edx
+  0x08142337  e824780000           call 0x8149b60
+  0x0814233C  c7042402000000       mov dword ptr [esp], 2
+  0x08142343  e8f0f7ffff           call 0x8141b38
+  0x08142348  84c0                 test al, al
+  0x0814234A  740d                 je 0x8142359
+  0x0814234C  803d30daa90800       cmp byte ptr [0x8a9da30], 0
+  0x08142353  0f85ab0b0000         jne 0x8142f04
+  0x08142359  c705c4dda90800000000 mov dword ptr [0x8a9ddc4], 0
+  0x08142363  c705c8dda90800000000 mov dword ptr [0x8a9ddc8], 0
+  0x0814236D  c705ccdda90800000000 mov dword ptr [0x8a9ddcc], 0
+  0x08142377  c7042403000000       mov dword ptr [esp], 3
+  0x0814237E  e8b5f7ffff           call 0x8141b38
+  0x08142383  84c0                 test al, al
+  0x08142385  7417                 je 0x814239e
+  0x08142387  803d31daa90800       cmp byte ptr [0x8a9da31], 0
+  0x0814238E  c705ccdda90801000000 mov dword ptr [0x8a9ddcc], 1
+  0x08142398  0f85f3080000         jne 0x8142c91
+  0x0814239E  8b0dd0dca908         mov ecx, dword ptr [0x8a9dcd0]
+  0x081423A4  85c9                 test ecx, ecx
+  0x081423A6  0f8598060000         jne 0x8142a44
+  0x081423AC  e80df8ffff           call 0x8141bbe
+  0x081423B1  84c0                 test al, al
+  0x081423B3  0f8572060000         jne 0x8142a2b
+  0x081423B9  e800f8ffff           call 0x8141bbe
+  0x081423BE  84c0                 test al, al
+  0x081423C0  0f852c080000         jne 0x8142bf2
+  0x081423C6  e8d9f7ffff           call 0x8141ba4
+  0x081423CB  84c0                 test al, al
+  0x081423CD  0f8506080000         jne 0x8142bd9
+  0x081423D3  e810f8ffff           call 0x8141be8
+  0x081423D8  84c0                 test al, al
+  0x081423DA  0f85c4070000         jne 0x8142ba4
+  0x081423E0  c7042400000000       mov dword ptr [esp], 0
+  0x081423E7  e8def7ffff           call 0x8141bca
+  0x081423EC  84c0                 test al, al
+  0x081423EE  0f857b070000         jne 0x8142b6f
+  0x081423F4  833de4daa90801       cmp dword ptr [0x8a9dae4], 1
+  0x081423FB  0f8446090000         je 0x8142d47
+  0x08142401  c7042402000000       mov dword ptr [esp], 2
+  0x08142408  e8bdf7ffff           call 0x8141bca
+  0x0814240D  84c0                 test al, al
+  0x0814240F  0f8525070000         jne 0x8142b3a
+  0x08142415  e8e8f7ffff           call 0x8141c02
+  0x0814241A  84c0                 test al, al
+  0x0814241C  0f85e3060000         jne 0x8142b05
+  0x08142422  8b153cdaa908         mov edx, dword ptr [0x8a9da3c]
+  0x08142428  891424               mov dword ptr [esp], edx
+  0x0814242B  e8eee8ffff           call 0x8140d1e
+  0x08142430  e895e03700           call 0x84c04ca
+  0x08142435  c7042401000000       mov dword ptr [esp], 1
+  0x0814243C  e889f7ffff           call 0x8141bca
+  0x08142441  84c0                 test al, al
+  0x08142443  0f852f060000         jne 0x8142a78
+  0x08142449  a1d0dca908           mov eax, dword ptr [0x8a9dcd0]
+  0x0814244E  85c0                 test eax, eax
+  0x08142450  0f858c050000         jne 0x81429e2
+  0x08142456  85ff                 test edi, edi
+  0x08142458  7408                 je 0x8142462
+  0x0814245A  893c24               mov dword ptr [esp], edi
+  0x0814245D  e8a8160000           call 0x8143b0a
+  0x08142462  85db                 test ebx, ebx
+  0x08142464  7408                 je 0x814246e
+  0x08142466  891c24               mov dword ptr [esp], ebx

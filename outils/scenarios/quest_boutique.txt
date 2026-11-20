@@ -1,0 +1,67 @@
+# ---------------------------------------------------------------
+# Scenario du mode Quest : boutique
+# Customize depuis la MAISON : les 3382 objets et leurs prix
+#
+# ECRIT PAR tools/sonde_quest.py -- il remplace le scenario manuel
+# le temps d une sonde, et la sonde le REMET a la fin.
+#
+# Duree prevue : 170 s.
+# ---------------------------------------------------------------
+
+nom haut     = 2
+nom bas      = 3
+nom gauche   = 4
+nom droite   = 5
+nom piece    = 6
+nom start    = 7
+nom carre    = 8
+nom croix    = 9
+nom rond     = 10
+nom triangle = 11
+nom l1       = 12
+nom r1       = 13
+nom r2       = 14
+nom sortie   = 15
+nom camera   = 16
+nom vue      = 17
+
+front   = 20
+journal = 0
+clavier = 0
+manette = 0
+
+0       rien
+20000   start
+20080   rien
+24000   start
+24080   rien
+28000   start
+28080   rien
+33000   bas
+33080   rien
+33800   bas
+33880   rien
+34600   bas
+34680   rien
+35400   bas
+35480   rien
+36200   bas
+36280   rien
+38000   start
+38080   rien
+50000   start
+50080   rien
+50800   bas
+50880   rien
+51600   start
+51680   rien
+52400   bas
+52480   rien
+53200   bas
+53280   rien
+54000   start
+54080   rien
+54800   bas
+54880   rien
+55600   bas
+55680   rien

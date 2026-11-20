@@ -1,0 +1,256 @@
+; Borne APM3, module vf5fs-pxd-w64-Retail_APM3.dll.origine
+; md5 3214e19696deed80e9da8e54f5e6afe8, 6 965 248 o, base 0x180000000
+; bornes  .pdata x64, suites chainees par le drapeau UNW_FLAG_CHAININFO (0x4)
+;         -- pas par adjacence (piege paye le 2026-11-19, MENUS_INDEX.md S3)
+; Aucun jeu lance, aucun binaire patche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x1801E50B0  sous-etat 37 CS_TERM_CUSTOMIZE fn_entree -- jumelle de X360 0x822BEB78, PLUS un appel 0x180087260(0x4F, 8) que la console n a pas (54 o)
+============================================================================
+; fonction 0x1801E50B0 .. 0x1801E50E5  (54 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801E50B0  4883ec28                 sub       rsp, 0x28
+0x1801E50B4  e8970bfeff               call      0x1801c5c50
+0x1801E50B9  488bc8                   mov       rcx, rax
+0x1801E50BC  e83f0afeff               call      0x1801c5b00
+0x1801E50C1  488b0d98a41b00           mov       rcx, qword ptr [rip + 0x1ba498]
+0x1801E50C8  ba08000000               mov       edx, 8
+0x1801E50CD  e80ef1eeff               call      0x1800d41e0
+0x1801E50D2  ba08000000               mov       edx, 8
+0x1801E50D7  8d4a47                   lea       ecx, [rdx + 0x47]
+0x1801E50DA  e88121eaff               call      0x180087260
+0x1801E50DF  b001                     mov       al, 1
+0x1801E50E1  4883c428                 add       rsp, 0x28
+0x1801E50E5  c3                       ret       
+
+============================================================================
+0x1801E4ED0  sous-etat 37 CS_TERM_CUSTOMIZE fn_milieu -- jumelle de X360 0x822BEC78. LA DEUXIEME BRANCHE EST MORTE : la ou la console appelle 0x821F7D00([page+0x116]), APM3 appelle 0x180029FB0, qui rend toujours 1, et le "jne" qui suit saute toujours (131 o)
+============================================================================
+; fonction 0x1801E4ED0 .. 0x1801E4F52  (131 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801E4ED0  4883ec28                 sub       rsp, 0x28
+0x1801E4ED4  e8770dfeff               call      0x1801c5c50
+0x1801E4ED9  488bc8                   mov       rcx, rax
+0x1801E4EDC  e87ffefdff               call      0x1801c4d60
+0x1801E4EE1  84c0                     test      al, al
+0x1801E4EE3  741f                     je        0x1801e4f04
+0x1801E4EE5  b904000000               mov       ecx, 4
+0x1801E4EEA  e8b15aefff               call      0x1800da9a0
+0x1801E4EEF  488b0d6aa61b00           mov       rcx, qword ptr [rip + 0x1ba66a]
+0x1801E4EF6  33d2                     xor       edx, edx
+0x1801E4EF8  e8e3f2eeff               call      0x1800d41e0
+0x1801E4EFD  32c0                     xor       al, al
+0x1801E4EFF  4883c428                 add       rsp, 0x28
+0x1801E4F03  c3                       ret       
+0x1801E4F04  e8271ffdff               call      0x1801b6e30
+0x1801E4F09  84c0                     test      al, al
+0x1801E4F0B  743f                     je        0x1801e4f4c
+0x1801E4F0D  e89e0bfeff               call      0x1801c5ab0
+0x1801E4F12  0fb68816010000           movzx     ecx, byte ptr [rax + 0x116]
+0x1801E4F19  e89250e4ff               call      0x180029fb0
+0x1801E4F1E  84c0                     test      al, al
+0x1801E4F20  752a                     jne       0x1801e4f4c
+0x1801E4F22  b904000000               mov       ecx, 4
+0x1801E4F27  e8745aefff               call      0x1800da9a0
+0x1801E4F2C  e8df1dfaff               call      0x180186d10
+0x1801E4F31  33c9                     xor       ecx, ecx
+0x1801E4F33  e8081efaff               call      0x180186d40
+0x1801E4F38  b901000000               mov       ecx, 1
+0x1801E4F3D  e8fe1dfaff               call      0x180186d40
+0x1801E4F42  b902000000               mov       ecx, 2
+0x1801E4F47  e8f41dfaff               call      0x180186d40
+0x1801E4F4C  32c0                     xor       al, al
+0x1801E4F4E  4883c428                 add       rsp, 0x28
+0x1801E4F52  c3                       ret       
+
+============================================================================
+0x1801E4FF0  sous-etat 37 CS_TERM_CUSTOMIZE fn_sortie (24 o)
+============================================================================
+; fonction 0x1801E4FF0 .. 0x1801E5007  (24 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801E4FF0  4883ec28                 sub       rsp, 0x28
+0x1801E4FF4  e8570cfeff               call      0x1801c5c50
+0x1801E4FF9  488bc8                   mov       rcx, rax
+0x1801E4FFC  e83f01feff               call      0x1801c5140
+0x1801E5001  b001                     mov       al, 1
+0x1801E5003  4883c428                 add       rsp, 0x28
+0x1801E5007  c3                       ret       
+
+============================================================================
+0x1801E50A0 / 0x1801E4EC0 / 0x1801E4FE0  les TROIS THUNKS partages par les sous-etats 38, 39 et 40 -- exactement comme X360 en partage trois pour 37/38/39
+============================================================================
+; 0x1801E50A0, 3 octets bruts
+0x1801E50A0  33c9                     xor       ecx, ecx
+0x1801E50A2  e9                       .byte
+
+============================================================================
+(suite) 0x1801E4EC0
+============================================================================
+; 0x1801E4EC0, 5 octets bruts
+0x1801E4EC0  e9ab58fdff               jmp       0x1801ba770
+
+============================================================================
+(suite) 0x1801E4FE0
+============================================================================
+; 0x1801E4FE0, 5 octets bruts
+0x1801E4FE0  e99b58fdff               jmp       0x1801ba880
+
+============================================================================
+0x1801BA8E0  cible du thunk d entree des sous-etats 38/39/40
+============================================================================
+; fonction 0x1801BA8E0 .. 0x1801BA9FE  (287 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801BA8E0  4053                     push      rbx
+0x1801BA8E2  4883ec20                 sub       rsp, 0x20
+0x1801BA8E6  0fb6d9                   movzx     ebx, cl
+0x1801BA8E9  880d8b785900             mov       byte ptr [rip + 0x59788b], cl
+0x1801BA8EF  33c9                     xor       ecx, ecx
+0x1801BA8F1  e86ac7ffff               call      0x1801b7060
+0x1801BA8F6  84db                     test      bl, bl
+0x1801BA8F8  7510                     jne       0x1801ba90a
+0x1801BA8FA  488b0deff62400           mov       rcx, qword ptr [rip + 0x24f6ef]
+0x1801BA901  e84acafdff               call      0x180197350
+0x1801BA906  84c0                     test      al, al
+0x1801BA908  753b                     jne       0x1801ba945
+0x1801BA90A  4533c9                   xor       r9d, r9d
+0x1801BA90D  488d159cfdffff           lea       rdx, [rip - 0x264]
+0x1801BA914  4533c0                   xor       r8d, r8d
+0x1801BA917  418d4909                 lea       ecx, [r9 + 9]
+0x1801BA91B  e830ccecff               call      0x180087550
+0x1801BA920  e85b0b0000               call      0x1801bb480
+0x1801BA925  84c0                     test      al, al
+0x1801BA927  7536                     jne       0x1801ba95f
+0x1801BA929  e8d20a0000               call      0x1801bb400
+0x1801BA92E  84db                     test      bl, bl
+0x1801BA930  741b                     je        0x1801ba94d
+0x1801BA932  4533c0                   xor       r8d, r8d
+0x1801BA935  488d1574fdffff           lea       rdx, [rip - 0x28c]
+0x1801BA93C  418d4809                 lea       ecx, [r8 + 9]
+0x1801BA940  e8dbcaecff               call      0x180087420
+0x1801BA945  32c0                     xor       al, al
+0x1801BA947  4883c420                 add       rsp, 0x20
+0x1801BA94B  5b                       pop       rbx
+0x1801BA94C  c3                       ret       
+0x1801BA94D  b904000000               mov       ecx, 4
+0x1801BA952  e84900f2ff               call      0x1800da9a0
+0x1801BA957  b001                     mov       al, 1
+0x1801BA959  4883c420                 add       rsp, 0x20
+0x1801BA95D  5b                       pop       rbx
+0x1801BA95E  c3                       ret       
+0x1801BA95F  488b0dfa4b1e00           mov       rcx, qword ptr [rip + 0x1e4bfa]
+0x1801BA966  ba03000000               mov       edx, 3
+0x1801BA96B  e87098f1ff               call      0x1800d41e0
+0x1801BA970  488b0d39de4800           mov       rcx, qword ptr [rip + 0x48de39]
+0x1801BA977  e89445f9ff               call      0x18014ef10
+0x1801BA97C  48c705e977590000000000   mov       qword ptr [rip + 0x5977e9], 0
+0x1801BA987  c605ea77590001           mov       byte ptr [rip + 0x5977ea], 1
+0x1801BA98E  c605e477590000           mov       byte ptr [rip + 0x5977e4], 0
+0x1801BA995  c605de77590000           mov       byte ptr [rip + 0x5977de], 0
+0x1801BA99C  e8ff79efff               call      0x1800b23a0
+0x1801BA9A1  488bc8                   mov       rcx, rax
+0x1801BA9A4  e8077befff               call      0x1800b24b0
+0x1801BA9A9  488bd0                   mov       rdx, rax
+0x1801BA9AC  488d0d0d3c3700           lea       rcx, [rip + 0x373c0d]
+0x1801BA9B3  e8b826f0ff               call      0x1800bd070
+0x1801BA9B8  84db                     test      bl, bl
+0x1801BA9BA  7505                     jne       0x1801ba9c1
+0x1801BA9BC  e8ffe90200               call      0x1801e93c0
+0x1801BA9C1  488b0db8775900           mov       rcx, qword ptr [rip + 0x5977b8]
+0x1801BA9C8  e8632f0000               call      0x1801bd930
+0x1801BA9CD  488b1dac775900           mov       rbx, qword ptr [rip + 0x5977ac]
+0x1801BA9D4  b99e020000               mov       ecx, 0x29e
+0x1801BA9D9  c683bd00000001           mov       byte ptr [rbx + 0xbd], 1
+0x1801BA9E0  e82b530300               call      0x1801efd10
+0x1801BA9E5  48894358                 mov       qword ptr [rbx + 0x58], rax
+0x1801BA9E9  b001                     mov       al, 1
+0x1801BA9EB  c6058677590001           mov       byte ptr [rip + 0x597786], 1
+0x1801BA9F2  c6058077590000           mov       byte ptr [rip + 0x597780], 0
+0x1801BA9F9  4883c420                 add       rsp, 0x20
+0x1801BA9FD  5b                       pop       rbx
+0x1801BA9FE  c3                       ret       
+
+============================================================================
+0x1801BA770  cible du thunk de MILIEU des sous-etats 38/39/40
+============================================================================
+; fonction 0x1801BA770 .. 0x1801BA872  (259 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801BA770  4883ec28                 sub       rsp, 0x28
+0x1801BA774  488b0de54d1e00           mov       rcx, qword ptr [rip + 0x1e4de5]
+0x1801BA77B  ba03000000               mov       edx, 3
+0x1801BA780  e85b9af1ff               call      0x1800d41e0
+0x1801BA785  e886f7efff               call      0x1800b9f10
+0x1801BA78A  0fb6c8                   movzx     ecx, al
+0x1801BA78D  e8cec8ffff               call      0x1801b7060
+0x1801BA792  e859d40200               call      0x1801e7bf0
+0x1801BA797  803ddb79590000           cmp       byte ptr [rip + 0x5979db], 0
+0x1801BA79E  7532                     jne       0x1801ba7d2
+0x1801BA7A0  84c0                     test      al, al
+0x1801BA7A2  7452                     je        0x1801ba7f6
+0x1801BA7A4  488b0dd5795900           mov       rcx, qword ptr [rip + 0x5979d5]
+0x1801BA7AB  c605c779590001           mov       byte ptr [rip + 0x5979c7], 1
+0x1801BA7B2  e8a9250000               call      0x1801bcd60
+0x1801BA7B7  488b0dc2795900           mov       rcx, qword ptr [rip + 0x5979c2]
+0x1801BA7BE  33d2                     xor       edx, edx
+0x1801BA7C0  8805b2795900             mov       byte ptr [rip + 0x5979b2], al
+0x1801BA7C6  e875400000               call      0x1801be840
+0x1801BA7CB  32c0                     xor       al, al
+0x1801BA7CD  4883c428                 add       rsp, 0x28
+0x1801BA7D1  c3                       ret       
+0x1801BA7D2  84c0                     test      al, al
+0x1801BA7D4  0f8592000000             jne       0x1801ba86c
+0x1801BA7DA  380598795900             cmp       byte ptr [rip + 0x597998], al
+0x1801BA7E0  880593795900             mov       byte ptr [rip + 0x597993], al
+0x1801BA7E6  740e                     je        0x1801ba7f6
+0x1801BA7E8  488b0d91795900           mov       rcx, qword ptr [rip + 0x597991]
+0x1801BA7EF  b201                     mov       dl, 1
+0x1801BA7F1  e84a400000               call      0x1801be840
+0x1801BA7F6  33d2                     xor       edx, edx
+0x1801BA7F8  8d4a08                   lea       ecx, [rdx + 8]
+0x1801BA7FB  e8a084feff               call      0x1801a2ca0
+0x1801BA800  85c0                     test      eax, eax
+0x1801BA802  7827                     js        0x1801ba82b
+0x1801BA804  488b0565795900           mov       rax, qword ptr [rip + 0x597965]
+0x1801BA80B  33c9                     xor       ecx, ecx
+0x1801BA80D  48ffc0                   inc       rax
+0x1801BA810  4883f804                 cmp       rax, 4
+0x1801BA814  480f43c1                 cmovae    rax, rcx
+0x1801BA818  48890551795900           mov       qword ptr [rip + 0x597951], rax
+0x1801BA81F  e83c020000               call      0x1801baa60
+0x1801BA824  32c0                     xor       al, al
+0x1801BA826  4883c428                 add       rsp, 0x28
+0x1801BA82A  c3                       ret       
+0x1801BA82B  33d2                     xor       edx, edx
+0x1801BA82D  8d4a01                   lea       ecx, [rdx + 1]
+0x1801BA830  e86b84feff               call      0x1801a2ca0
+0x1801BA835  85c0                     test      eax, eax
+0x1801BA837  7833                     js        0x1801ba86c
+0x1801BA839  488b0d40795900           mov       rcx, qword ptr [rip + 0x597940]
+0x1801BA840  e85ba60800               call      0x180244ea0
+0x1801BA845  84c0                     test      al, al
+0x1801BA847  7423                     je        0x1801ba86c
+0x1801BA849  488b0d30795900           mov       rcx, qword ptr [rip + 0x597930]
+0x1801BA850  e80b250000               call      0x1801bcd60
+0x1801BA855  488b0d24795900           mov       rcx, qword ptr [rip + 0x597924]
+0x1801BA85C  84c0                     test      al, al
+0x1801BA85E  0f94c2                   sete      dl
+0x1801BA861  881511795900             mov       byte ptr [rip + 0x597911], dl
+0x1801BA867  e8d43f0000               call      0x1801be840
+0x1801BA86C  32c0                     xor       al, al
+0x1801BA86E  4883c428                 add       rsp, 0x28
+0x1801BA872  c3                       ret       
+
+============================================================================
+0x1801BA880  cible du thunk de sortie des sous-etats 38/39/40
+============================================================================
+; fonction 0x1801BA880 .. 0x1801BA8BE  (63 octets) -- bornes .pdata, drapeau CHAININFO respecte
+0x1801BA880  4883ec28                 sub       rsp, 0x28
+0x1801BA884  4533c0                   xor       r8d, r8d
+0x1801BA887  488d1522feffff           lea       rdx, [rip - 0x1de]
+0x1801BA88E  418d4809                 lea       ecx, [r8 + 9]
+0x1801BA892  e889cbecff               call      0x180087420
+0x1801BA897  e894f8efff               call      0x1800ba130
+0x1801BA89C  803dd778590000           cmp       byte ptr [rip + 0x5978d7], 0
+0x1801BA8A3  7505                     jne       0x1801ba8aa
+0x1801BA8A5  e876d30200               call      0x1801e7c20
+0x1801BA8AA  488b0daf4c1e00           mov       rcx, qword ptr [rip + 0x1e4caf]
+0x1801BA8B1  33d2                     xor       edx, edx
+0x1801BA8B3  e82899f1ff               call      0x1800d41e0
+0x1801BA8B8  b001                     mov       al, 1
+0x1801BA8BA  4883c428                 add       rsp, 0x28
+0x1801BA8BE  c3                       ret       

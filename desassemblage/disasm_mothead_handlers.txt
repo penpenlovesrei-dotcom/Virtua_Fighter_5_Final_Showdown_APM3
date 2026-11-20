@@ -1,0 +1,2903 @@
+# Les 84 gestionnaires de la liste 1 de mothead (table 0x1804210D0)
+# DLL : vf5fs-pxd-w64-d3d12_SteamRetail.dll (R.E.V.O.), image base 0x180000000
+# Appel : handler(rcx = &ctx, rdx = charge utile, r8 = entree de 8 octets)
+#   ctx[0x00] = ROB          (objet combattant)
+#   ctx[0x08] = ROB + 0x338
+#   ctx[0x10] = ROB + 0x798  = l etat de mouvement rempli par 0x1801651D0
+# Repartiteur : 0x1801633C0
+
+########## code 0 (0x00)  handler 0x18015FC90  (720 octets max)
+  018015FC90  mov qword ptr [rsp + 0x10], rbx 
+  018015FC95  mov qword ptr [rsp + 0x18], rbp 
+  018015FC9A  push rsi                 
+  018015FC9B  push rdi                 
+  018015FC9C  push r12                 
+  018015FC9E  push r14                 
+  018015FCA0  push r15                 
+  018015FCA2  sub rsp, 0x40            
+  018015FCA6  mov rbx, r8              
+  018015FCA9  mov r14, rdx             
+  018015FCAC  mov r15, rcx             
+  018015FCAF  mov rax, qword ptr [rcx + 0x10] 
+  018015FCB3  cmp dword ptr [rax + 0x54], -1 
+  018015FCB7  jne 0x18015fd56          
+  018015FCBD  vpxor xmm0, xmm0, xmm0   
+  018015FCC1  vmovdqu xmmword ptr [rsp + 0x20], xmm0 
+  018015FCC7  xor r12d, r12d           
+  018015FCCA  mov ebp, r12d            
+  018015FCCD  test rbx, rbx            
+  018015FCD0  je 0x18015fce9           
+  018015FCD2  mov eax, dword ptr [r8]  
+  018015FCD5  test eax, eax            
+  018015FCD7  js 0x18015fce9           
+  018015FCD9  je 0x18015fd70           
+  018015FCDF  add rbx, 8               
+  018015FCE3  mov eax, dword ptr [rbx] 
+  018015FCE5  test eax, eax            
+  018015FCE7  jns 0x18015fcd9          
+  018015FCE9  mov rsi, qword ptr [rsp + 0x20] 
+  018015FCEE  mov rdi, qword ptr [rsp + 0x28] 
+  018015FCF3  mov rcx, rsi             
+  018015FCF6  test rsi, rsi            
+  018015FCF9  je 0x18015fd56           
+  018015FCFB  mov rdx, rcx             
+  018015FCFE  mov r8, rcx              
+  018015FD01  mov rax, rcx             
+  018015FD04  cmp rdx, r8              
+  018015FD07  jne 0x18015fd0d          
+  018015FD09  mov rsi, qword ptr [rax + 0x18] 
+  018015FD0D  cmp rdi, rcx             
+  018015FD10  jne 0x18015fd16          
+  018015FD12  mov rdi, qword ptr [rcx + 0x10] 
+  018015FD16  mov rdx, qword ptr [rcx + 0x18] 
+  018015FD1A  test rdx, rdx            
+  018015FD1D  je 0x18015fd27           
+  018015FD1F  mov rax, qword ptr [rcx + 0x10] 
+  018015FD23  mov qword ptr [rdx + 0x10], rax 
+  018015FD27  mov rdx, qword ptr [rcx + 0x10] 
+  018015FD2B  test rdx, rdx            
+  018015FD2E  je 0x18015fd38           
+  018015FD30  mov rax, qword ptr [rcx + 0x18] 
+  018015FD34  mov qword ptr [rdx + 0x18], rax 
+  018015FD38  mov qword ptr [rcx + 0x10], r12 
+  018015FD3C  mov qword ptr [rcx + 0x18], r12 
+  018015FD40  call 0x1802794c0         
+  018015FD45  mov rcx, rsi             
+  018015FD48  mov rdx, rsi             
+  018015FD4B  mov r8, rsi              
+  018015FD4E  mov rax, rsi             
+  018015FD51  test rsi, rsi            
+  018015FD54  jne 0x18015fd04          
+  018015FD56  mov rbx, qword ptr [rsp + 0x78] 
+  018015FD5B  mov rbp, qword ptr [rsp + 0x80] 
+  018015FD63  add rsp, 0x40            
+  018015FD67  pop r15                  
+  018015FD69  pop r14                  
+  018015FD6B  pop r12                  
+  018015FD6D  pop rdi                  
+  018015FD6E  pop rsi                  
+  018015FD6F  ret                      
+  018015FD70  test rbx, rbx            
+  018015FD73  je 0x18015fce9           
+  018015FD79  lea rax, [rbx + 4]       
+  018015FD7D  mov rcx, r12             
+  018015FD80  movsxd rdx, dword ptr [rax] 
+  018015FD83  test edx, edx            
+  018015FD85  je 0x18015fd8b           
+  018015FD87  lea rcx, [rax + rdx]     
+  018015FD8B  test rcx, rcx            
+  018015FD8E  je 0x18015fce9           
+  018015FD94  mov rdi, qword ptr [rsp + 0x28] 
+  018015FD99  mov rsi, qword ptr [rsp + 0x20] 
+  018015FD9E  nop                      
+  018015FDA0  movzx eax, word ptr [rcx + 0x16] 
+  018015FDA4  add ebp, eax             
+  018015FDA6  mov qword ptr [rsp + 0x30], rcx 
+  018015FDAB  mov dword ptr [rsp + 0x38], ebp 
+  018015FDAF  mov ecx, 0x20            
+  018015FDB4  call 0x180279490         
+  018015FDB9  mov qword ptr [rsp + 0x70], rax 
+  018015FDBE  test rax, rax            
+  018015FDC1  je 0x18015fdd7           
+  018015FDC3  vmovups xmm0, xmmword ptr [rsp + 0x30] 
+  018015FDC9  vmovups xmmword ptr [rax], xmm0 
+  018015FDCD  mov qword ptr [rax + 0x10], r12 
+  018015FDD1  mov qword ptr [rax + 0x18], r12 
+  018015FDD5  jmp 0x18015fdda          
+  018015FDD7  mov rax, r12             
+  018015FDDA  mov qword ptr [rsp + 0x28], rax 
+  018015FDDF  test rsi, rsi            
+  018015FDE2  jne 0x18015fdf1          
+  018015FDE4  mov rsi, rax             
+  018015FDE7  mov qword ptr [rsp + 0x20], rax 
+  018015FDEC  mov rcx, r12             
+  018015FDEF  jmp 0x18015fdf8          
+  018015FDF1  mov rcx, rdi             
+  018015FDF4  mov qword ptr [rdi + 0x18], rax 
+  018015FDF8  mov rdi, rax             
+  018015FDFB  mov qword ptr [rax + 0x18], r12 
+  018015FDFF  mov qword ptr [rax + 0x10], rcx 
+  018015FE03  test rbx, rbx            
+  018015FE06  je 0x18015fe43           
+  018015FE08  lea rax, [rbx + 8]       
+  018015FE0C  mov rbx, rax             
+  018015FE0F  test rax, rax            
+  018015FE12  je 0x18015fe43           
+  018015FE14  mov eax, dword ptr [rax] 
+  018015FE16  test eax, eax            
+  018015FE18  js 0x18015fe43           
+  018015FE1A  je 0x18015fe28           
+  018015FE1C  add rbx, 8               
+  018015FE20  mov eax, dword ptr [rbx] 
+  018015FE22  test eax, eax            
+  018015FE24  jns 0x18015fe1a          
+  018015FE26  jmp 0x18015fe43          
+  018015FE28  mov rcx, r12             
+  018015FE2B  movsxd rax, dword ptr [rbx + 4] 
+  018015FE2F  test eax, eax            
+  018015FE31  je 0x18015fe3a           
+  018015FE33  lea rcx, [rax + 4]       
+  018015FE37  add rcx, rbx             
+  018015FE3A  test rcx, rcx            
+  018015FE3D  jne 0x18015fda0          
+  018015FE43  test ebp, ebp            
+  018015FE45  je 0x18015fcf3           
+  018015FE4B  mov ecx, r12d            
+  018015FE4E  mov rax, rsi             
+  018015FE51  test rsi, rsi            
+  018015FE54  je 0x18015fcf3           
+  018015FE5A  nop word ptr [rax + rax] 
+  018015FE60  inc ecx                  
+  018015FE62  mov rax, qword ptr [rax + 0x18] 
+  018015FE66  test rax, rax            
+  018015FE69  jne 0x18015fe60          
+  018015FE6B  test ecx, ecx            
+  018015FE6D  je 0x18015fcf3           
+  018015FE73  mov ecx, r12d            
+  018015FE76  mov rax, rsi             
+  018015FE79  nop dword ptr [rax]      
+  018015FE80  inc ecx                  
+  018015FE82  mov rax, qword ptr [rax + 0x18] 
+  018015FE86  test rax, rax            
+  018015FE89  jne 0x18015fe80          
+  018015FE8B  cmp ecx, 1               
+  018015FE8E  jbe 0x18015feb4          
+  018015FE90  mov ecx, 1               
+  018015FE95  call 0x1802cac30         
+  018015FE9A  xor edx, edx             
+  018015FE9C  div ebp                  
+  018015FE9E  mov rax, rsi             
+  018015FEA1  cmp edx, dword ptr [rax + 8] 
+  018015FEA4  jb 0x18015feb1           
+  018015FEA6  mov rax, qword ptr [rax + 0x18] 
+  018015FEAA  test rax, rax            
+  018015FEAD  jne 0x18015fea1          
+  018015FEAF  jmp 0x18015feb4          
+  018015FEB1  mov r14, qword ptr [rax] 
+  018015FEB4  mov rcx, rsi             
+  018015FEB7  mov rdx, rsi             
+  018015FEBA  mov r8, rsi              
+  018015FEBD  mov rax, rsi             
+  018015FEC0  cmp rdx, r8              
+  018015FEC3  jne 0x18015fec9          
+  018015FEC5  mov rsi, qword ptr [rax + 0x18] 
+  018015FEC9  cmp rdi, rcx             
+  018015FECC  jne 0x18015fed2          
+  018015FECE  mov rdi, qword ptr [rcx + 0x10] 
+  018015FED2  mov rdx, qword ptr [rcx + 0x18] 
+  018015FED6  test rdx, rdx            
+  018015FED9  je 0x18015fee3           
+  018015FEDB  mov rax, qword ptr [rcx + 0x10] 
+  018015FEDF  mov qword ptr [rdx + 0x10], rax 
+  018015FEE3  mov rdx, qword ptr [rcx + 0x10] 
+  018015FEE7  test rdx, rdx            
+  018015FEEA  je 0x18015fef4           
+  018015FEEC  mov rax, qword ptr [rcx + 0x18] 
+  018015FEF0  mov qword ptr [rdx + 0x18], rax 
+  018015FEF4  mov qword ptr [rcx + 0x10], r12 
+  018015FEF8  mov qword ptr [rcx + 0x18], r12 
+  018015FEFC  call 0x1802794c0         
+  018015FF01  mov rcx, rsi             
+  018015FF04  mov rdx, rsi             
+  018015FF07  mov r8, rsi              
+  018015FF0A  mov rax, rsi             
+  018015FF0D  test rsi, rsi            
+  018015FF10  jne 0x18015fec0          
+  018015FF12  movsx ecx, word ptr [r14] 
+  018015FF16  mov rax, qword ptr [r15 + 0x10] 
+  018015FF1A  mov dword ptr [rax + 0x54], ecx 
+  018015FF1D  mov rcx, qword ptr [r15 + 0x10] 
+  018015FF21  mov eax, dword ptr [r14 + 4] 
+  018015FF25  mov dword ptr [rcx + 0x58], eax 
+  018015FF28  mov eax, dword ptr [r14 + 8] 
+  018015FF2C  mov dword ptr [rcx + 0x5c], eax 
+  018015FF2F  mov rcx, qword ptr [r15 + 0x10] 
+  018015FF33  mov eax, dword ptr [r14 + 0xc] 
+  018015FF37  mov dword ptr [rcx + 0x60], eax 
+  018015FF3A  mov eax, dword ptr [r14 + 0x10] 
+  018015FF3E  mov dword ptr [rcx + 0x64], eax 
+  018015FF41  movsx ecx, word ptr [r14 + 0x14] 
+  018015FF46  mov rax, qword ptr [r15 + 0x10] 
+  018015FF4A  mov dword ptr [rax + 0x68], ecx 
+  018015FF4D  jmp 0x18015fcf3          
+  018015FF52  int3                     
+  018015FF53  int3                     
+  018015FF54  int3                     
+  018015FF55  int3                     
+  018015FF56  int3                     
+  018015FF57  int3                     
+  018015FF58  int3                     
+  018015FF59  int3                     
+  018015FF5A  int3                     
+  018015FF5B  int3                     
+  018015FF5C  int3                     
+  018015FF5D  int3                     
+  018015FF5E  int3                     
+  018015FF5F  int3                     
+
+########## code 1 (0x01)  handler 0x18015FF60  (112 octets max)
+  018015FF60  movsx eax, word ptr [rdx] 
+  018015FF63  movsx r9d, word ptr [rdx + 2] 
+  018015FF68  movsx r8d, word ptr [rdx + 4] 
+  018015FF6D  vxorps xmm0, xmm0, xmm0  
+  018015FF71  vcvtsi2ss xmm0, xmm0, eax 
+  018015FF75  mov rax, qword ptr [rcx + 0x10] 
+  018015FF79  vmovss dword ptr [rax + 0x6c], xmm0 
+  018015FF7E  test r9w, r9w            
+  018015FF82  js 0x18015ff96           
+  018015FF84  mov rax, qword ptr [rcx + 0x10] 
+  018015FF88  vxorps xmm0, xmm0, xmm0  
+  018015FF8C  vcvtsi2ss xmm0, xmm0, r9d 
+  018015FF91  vmovss dword ptr [rax + 0x70], xmm0 
+  018015FF96  test r8w, r8w            
+  018015FF9A  js 0x18015ffae           
+  018015FF9C  mov rax, qword ptr [rcx + 0x10] 
+  018015FFA0  vxorps xmm0, xmm0, xmm0  
+  018015FFA4  vcvtsi2ss xmm0, xmm0, r8d 
+  018015FFA9  vmovss dword ptr [rax + 0x74], xmm0 
+  018015FFAE  mov rax, qword ptr [rcx + 0x10] 
+  018015FFB2  or dword ptr [rax + 0x1c], 2 
+  018015FFB6  mov rax, qword ptr [rcx + 8] 
+  018015FFBA  mov dword ptr [rax + 0x27c], 0 
+  018015FFC4  ret                      
+
+########## code 2 (0x02)  handler 0x18015FFD0  (352 octets max)
+  018015FFD0  sub rsp, 0x38            
+  018015FFD4  mov eax, dword ptr [rdx] 
+  018015FFD6  mov r8, qword ptr [rcx + 0x10] 
+  018015FFDA  vxorps xmm0, xmm0, xmm0  
+  018015FFDE  vxorps xmm1, xmm1, xmm1  
+  018015FFE2  mov qword ptr [rsp + 0x40], rbx 
+  018015FFE7  mov rbx, rcx             
+  018015FFEA  mov dword ptr [r8 + 0x2d4], eax 
+  018015FFF1  movsx eax, word ptr [rdx + 4] 
+  018015FFF5  vcvtsi2ss xmm0, xmm0, eax 
+  018015FFF9  mov rax, qword ptr [rcx + 0x10] 
+  018015FFFD  mov qword ptr [rsp + 0x30], rdi 
+  0180160002  mov rdi, rdx             
+  0180160005  vmovaps xmmword ptr [rsp + 0x20], xmm6 
+  018016000B  vmovss dword ptr [rax + 0x2d8], xmm0 
+  0180160013  movsx eax, word ptr [rdx + 6] 
+  0180160017  vcvtsi2ss xmm1, xmm1, eax 
+  018016001B  mov rax, qword ptr [rcx + 0x10] 
+  018016001F  vxorps xmm0, xmm0, xmm0  
+  0180160023  vmovss dword ptr [rax + 0x2dc], xmm1 
+  018016002B  movsx eax, word ptr [rdx + 8] 
+  018016002F  vcvtsi2ss xmm0, xmm0, eax 
+  0180160033  mov rax, qword ptr [rcx + 0x10] 
+  0180160037  vxorps xmm1, xmm1, xmm1  
+  018016003B  vmovss dword ptr [rax + 0x2e0], xmm0 
+  0180160043  movsx eax, word ptr [rdx + 0xa] 
+  0180160047  vcvtsi2ss xmm1, xmm1, eax 
+  018016004B  mov rax, qword ptr [rcx + 0x10] 
+  018016004F  vmovss dword ptr [rax + 0x2e4], xmm1 
+  0180160057  mov rcx, qword ptr [rcx + 0x10] 
+  018016005B  mov eax, dword ptr [rdx + 0xc] 
+  018016005E  mov dword ptr [rcx + 0x2e8], eax 
+  0180160064  call 0x1801ff670         
+  0180160069  test al, al              
+  018016006B  je 0x1801600b4           
+  018016006D  mov rcx, qword ptr [rbx + 0x10] 
+  0180160071  call 0x1801fe080         
+  0180160076  test al, al              
+  0180160078  je 0x1801600b4           
+  018016007A  xor ecx, ecx             
+  018016007C  call 0x1801fe530         
+  0180160081  mov rax, qword ptr [rbx + 0x10] 
+  0180160085  xor ecx, ecx             
+  0180160087  vmulss xmm0, xmm0, dword ptr [rdi + 0x10] 
+  018016008C  vaddss xmm1, xmm0, dword ptr [rax + 0x2ec] 
+  0180160094  vmovss dword ptr [rax + 0x2ec], xmm1 
+  018016009C  vmovss xmm2, dword ptr [rdi + 0x10] 
+  01801600A1  vxorps xmm6, xmm2, xmmword ptr [rip + 0x211787]    ; -> 0x180371830  = -0 (f32) / 0x80000000
+  01801600A9  call 0x1801fe530         
+  01801600AE  vmulss xmm6, xmm0, xmm6  
+  01801600B2  jmp 0x1801600da          
+  01801600B4  mov rax, qword ptr [rbx + 0x10] 
+  01801600B8  vmovss xmm0, dword ptr [rax + 0x2ec] 
+  01801600C0  vaddss xmm1, xmm0, dword ptr [rdi + 0x10] 
+  01801600C5  vmovss dword ptr [rax + 0x2ec], xmm1 
+  01801600CD  vmovss xmm2, dword ptr [rdi + 0x10] 
+  01801600D2  vxorps xmm6, xmm2, xmmword ptr [rip + 0x211756]    ; -> 0x180371830  = -0 (f32) / 0x80000000
+  01801600DA  call 0x180017ec0         
+  01801600DF  mov rax, qword ptr [rbx + 8] 
+  01801600E3  mov rdi, qword ptr [rsp + 0x30] 
+  01801600E8  vmulss xmm1, xmm0, xmm6  
+  01801600EC  vmovaps xmm6, xmmword ptr [rsp + 0x20] 
+  01801600F2  vmovss dword ptr [rax + 0x10c], xmm1 
+  01801600FA  mov rax, qword ptr [rbx + 0x10] 
+  01801600FE  mov rbx, qword ptr [rsp + 0x40] 
+  0180160103  vmovss xmm0, dword ptr [rax + 0x2dc] 
+  018016010B  vcomiss xmm0, dword ptr [rax + 0x2e0] 
+  0180160113  jbe 0x18016011d          
+  0180160115  vmovss dword ptr [rax + 0x2e0], xmm0 
+  018016011D  add rsp, 0x38            
+  0180160121  ret                      
+
+########## code 3 (0x03)  handler 0x180160130  (544 octets max)
+  0180160130  mov qword ptr [rsp + 8], rbx 
+  0180160135  push rdi                 
+  0180160136  sub rsp, 0x20            
+  018016013A  mov rax, qword ptr [rcx + 0x10] 
+  018016013E  mov rdi, rcx             
+  0180160141  mov rbx, rdx             
+  0180160144  mov byte ptr [rax + 0x7c], 1 
+  0180160148  mov r8, qword ptr [rcx + 0x10] 
+  018016014C  mov eax, dword ptr [rdx] 
+  018016014E  mov dword ptr [r8 + 0x80], eax 
+  0180160155  mov rax, qword ptr [rcx + 0x10] 
+  0180160159  movsx r8d, word ptr [rdx + 4] 
+  018016015E  mov dword ptr [rax + 0x84], r8d 
+  0180160165  mov rax, qword ptr [rcx + 0x10] 
+  0180160169  movsx r8d, word ptr [rdx + 6] 
+  018016016E  mov dword ptr [rax + 0x88], r8d 
+  0180160175  movzx eax, word ptr [rdx + 8] 
+  0180160179  mov rcx, qword ptr [rcx + 0x10] 
+  018016017D  mov word ptr [rcx + 0x8c], ax 
+  0180160184  mov rdx, qword ptr [rdi + 8] 
+  0180160188  movzx ecx, word ptr [rbx + 8] 
+  018016018C  mov edx, dword ptr [rdx + 0x24c] 
+  0180160192  call 0x180177cf0         
+  0180160197  mov rcx, qword ptr [rdi + 0x10] 
+  018016019B  xor edx, edx             
+  018016019D  mov word ptr [rcx + 0x8e], ax 
+  01801601A4  mov eax, dword ptr [rbx + 0xc] 
+  01801601A7  mov rcx, qword ptr [rdi + 0x10] 
+  01801601AB  mov dword ptr [rcx + 0x94], eax 
+  01801601B1  mov rcx, qword ptr [rdi + 0x10] 
+  01801601B5  movzx eax, word ptr [rbx + 0x10] 
+  01801601B9  mov word ptr [rcx + 0x98], ax 
+  01801601C0  movsx ecx, word ptr [rbx + 0x12] 
+  01801601C4  mov rax, qword ptr [rdi + 0x10] 
+  01801601C8  mov dword ptr [rax + 0x9c], ecx 
+  01801601CE  mov rcx, qword ptr [rdi + 0x10] 
+  01801601D2  mov ecx, dword ptr [rcx + 0x9c] 
+  01801601D8  call 0x180166400         
+  01801601DD  test rax, rax            
+  01801601E0  je 0x180160236           
+  01801601E2  vmovups ymm0, ymmword ptr [rax] 
+  01801601E6  mov rcx, qword ptr [rdi + 0x10] 
+  01801601EA  vmovups ymmword ptr [rcx + 0xac], ymm0 
+  01801601F2  vmovups ymm1, ymmword ptr [rax + 0x20] 
+  01801601F7  vmovups ymmword ptr [rcx + 0xcc], ymm1 
+  01801601FF  vmovups xmm0, xmmword ptr [rax + 0x40] 
+  0180160204  vmovups xmmword ptr [rcx + 0xec], xmm0 
+  018016020C  vmovups ymm0, ymmword ptr [rax] 
+  0180160210  mov rcx, qword ptr [rdi + 0x10] 
+  0180160214  vmovups ymmword ptr [rcx + 0xfc], ymm0 
+  018016021C  vmovups ymm1, ymmword ptr [rax + 0x20] 
+  0180160221  vmovups ymmword ptr [rcx + 0x11c], ymm1 
+  0180160229  vmovups xmm0, xmmword ptr [rax + 0x40] 
+  018016022E  vmovups xmmword ptr [rcx + 0x13c], xmm0 
+  0180160236  mov rcx, qword ptr [rdi + 0x10] 
+  018016023A  mov eax, dword ptr [rbx + 0x14] 
+  018016023D  mov dword ptr [rcx + 0xa0], eax 
+  0180160243  mov eax, dword ptr [rbx + 0x18] 
+  0180160246  mov dword ptr [rcx + 0xa4], eax 
+  018016024C  mov rax, qword ptr [rdi + 0x10] 
+  0180160250  movzx ecx, word ptr [rbx + 0x1c] 
+  0180160254  mov dword ptr [rax + 0xa8], ecx 
+  018016025A  mov rcx, qword ptr [rdi + 8] 
+  018016025E  mov eax, dword ptr [rcx + 0xc4] 
+  0180160264  mov dword ptr [rcx + 0xcc], eax 
+  018016026A  mov rcx, qword ptr [rdi + 8] 
+  018016026E  mov eax, dword ptr [rcx + 0xc8] 
+  0180160274  mov dword ptr [rcx + 0xd0], eax 
+  018016027A  xor ecx, ecx             
+  018016027C  mov rax, qword ptr [rdi + 8] 
+  0180160280  test byte ptr [rax + 0xc8], 1 
+  0180160287  jne 0x1801602a8          
+  0180160289  cmp dword ptr [rax + 0xc], 1 
+  018016028D  jne 0x180160298          
+  018016028F  test dword ptr [rax + 0x10], 0x400 
+  0180160296  jne 0x1801602a8          
+  0180160298  mov dword ptr [rax + 0xe0], ecx 
+  018016029E  mov rax, qword ptr [rdi + 8] 
+  01801602A2  mov dword ptr [rax + 0xe4], ecx 
+  01801602A8  mov rax, qword ptr [rdi + 8] 
+  01801602AC  mov dword ptr [rax + 0xc4], ecx 
+  01801602B2  mov rax, qword ptr [rdi + 8] 
+  01801602B6  mov dword ptr [rax + 0xc8], ecx 
+  01801602BC  mov rax, qword ptr [rdi + 8] 
+  01801602C0  test byte ptr [rax + 0x280], 8 
+  01801602C7  je 0x18016033b           
+  01801602C9  mov rbx, qword ptr [rdi + 0x10] 
+  01801602CD  mov ecx, dword ptr [rbx + 0x84] 
+  01801602D3  vzeroupper               
+  01801602D6  call 0x180144900         
+  01801602DB  mov dword ptr [rbx + 0x84], eax 
+  01801602E1  mov rcx, qword ptr [rdi + 0x10] 
+  01801602E5  movzx eax, word ptr [rcx + 0x98] 
+  01801602EC  neg ax                   
+  01801602EF  mov word ptr [rcx + 0x98], ax 
+  01801602F6  mov rdx, qword ptr [rdi + 0x10] 
+  01801602FA  mov eax, dword ptr [rdx + 0xa0] 
+  0180160300  mov ecx, eax             
+  0180160302  and ecx, 1               
+  0180160305  test al, 2               
+  0180160307  je 0x180160323           
+  0180160309  test cl, cl              
+  018016030B  jne 0x18016033b          
+  018016030D  and eax, 0xfffffffd      
+  0180160310  mov dword ptr [rdx + 0xa0], eax 
+  0180160316  mov rax, qword ptr [rdi + 0x10] 
+  018016031A  or dword ptr [rax + 0xa0], 1 
+  0180160321  jmp 0x18016033b          
+  0180160323  test cl, cl              
+  0180160325  je 0x18016033b           
+  0180160327  or eax, 2                
+  018016032A  mov dword ptr [rdx + 0xa0], eax 
+  0180160330  mov rax, qword ptr [rdi + 0x10] 
+  0180160334  and dword ptr [rax + 0xa0], 0xfffffffe 
+  018016033B  mov rax, qword ptr [rdi + 0x10] 
+  018016033F  inc dword ptr [rax + 0x78] 
+  0180160342  vzeroupper               
+  0180160345  mov rbx, qword ptr [rsp + 0x30] 
+  018016034A  add rsp, 0x20            
+  018016034E  pop rdi                  
+  018016034F  ret                      
+
+########## code 4 (0x04)  handler 0x180160350  (32 octets max)
+  0180160350  mov r8, qword ptr [rcx + 0x10] 
+  0180160354  mov eax, dword ptr [rdx] 
+  0180160356  mov dword ptr [r8 + 0x14c], eax 
+  018016035D  mov rcx, qword ptr [rcx + 0x10] 
+  0180160361  mov eax, dword ptr [rdx + 4] 
+  0180160364  mov dword ptr [rcx + 0x150], eax 
+  018016036A  ret                      
+
+########## code 5 (0x05)  handler 0x180160370  (688 octets max)
+  0180160370  mov qword ptr [rsp + 8], rbx 
+  0180160375  movsx eax, word ptr [rdx] 
+  0180160378  movsx r9d, word ptr [rdx + 6] 
+  018016037D  movsx r10d, word ptr [rdx + 0xc] 
+  0180160382  mov r8, qword ptr [rcx + 0x10] 
+  0180160386  test ax, ax              
+  0180160389  jle 0x18016039c          
+  018016038B  vxorps xmm0, xmm0, xmm0  
+  018016038F  vcvtsi2ss xmm0, xmm0, eax 
+  0180160393  vmovss dword ptr [r8 + 0x160], xmm0 
+  018016039C  test r9w, r9w            
+  01801603A0  js 0x1801603b4           
+  01801603A2  vxorps xmm0, xmm0, xmm0  
+  01801603A6  vcvtsi2ss xmm0, xmm0, r9d 
+  01801603AB  vmovss dword ptr [r8 + 0x164], xmm0 
+  01801603B4  vmovss xmm0, dword ptr [r8 + 4] 
+  01801603BA  vmovss xmm2, dword ptr [rip + 0x21143e]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801603C2  vsubss xmm1, xmm0, xmm2  
+  01801603C6  vmovss xmm0, dword ptr [r8 + 0x164] 
+  01801603CF  vcomiss xmm0, xmm1       
+  01801603D3  jbe 0x1801603de          
+  01801603D5  vmovss dword ptr [r8 + 0x164], xmm1 
+  01801603DE  cmp r10w, -1             
+  01801603E3  je 0x1801603f7           
+  01801603E5  vxorps xmm0, xmm0, xmm0  
+  01801603E9  vcvtsi2ss xmm0, xmm0, r10d 
+  01801603EE  vmovss dword ptr [r8 + 0x168], xmm0 
+  01801603F7  movsx r11d, word ptr [rdx + 2] 
+  01801603FC  movsx r10d, word ptr [rdx + 8] 
+  0180160401  movsx r9d, word ptr [rdx + 0xe] 
+  0180160406  test r11w, r11w          
+  018016040A  jle 0x18016041e          
+  018016040C  vxorps xmm0, xmm0, xmm0  
+  0180160410  vcvtsi2ss xmm0, xmm0, r11d 
+  0180160415  vmovss dword ptr [r8 + 0x154], xmm0 
+  018016041E  test r10w, r10w          
+  0180160422  js 0x180160436           
+  0180160424  vxorps xmm0, xmm0, xmm0  
+  0180160428  vcvtsi2ss xmm0, xmm0, r10d 
+  018016042D  vmovss dword ptr [r8 + 0x158], xmm0 
+  0180160436  vmovss xmm0, dword ptr [r8 + 4] 
+  018016043C  vsubss xmm1, xmm0, xmm2  
+  0180160440  vmovss xmm0, dword ptr [r8 + 0x158] 
+  0180160449  vcomiss xmm0, xmm1       
+  018016044D  jbe 0x180160458          
+  018016044F  vmovss dword ptr [r8 + 0x158], xmm1 
+  0180160458  cmp r9w, -1              
+  018016045D  je 0x180160471           
+  018016045F  vxorps xmm0, xmm0, xmm0  
+  0180160463  vcvtsi2ss xmm0, xmm0, r9d 
+  0180160468  vmovss dword ptr [r8 + 0x15c], xmm0 
+  0180160471  mov rcx, r8              
+  0180160474  test r11w, r11w          
+  0180160478  jle 0x18016048c          
+  018016047A  vxorps xmm0, xmm0, xmm0  
+  018016047E  vcvtsi2ss xmm0, xmm0, r11d 
+  0180160483  vmovss dword ptr [r8 + 0x19c], xmm0 
+  018016048C  test r10w, r10w          
+  0180160490  js 0x1801604a4           
+  0180160492  vxorps xmm0, xmm0, xmm0  
+  0180160496  vcvtsi2ss xmm0, xmm0, r10d 
+  018016049B  vmovss dword ptr [r8 + 0x1a0], xmm0 
+  01801604A4  vmovss xmm0, dword ptr [r8 + 4] 
+  01801604AA  vsubss xmm1, xmm0, xmm2  
+  01801604AE  vmovss xmm0, dword ptr [r8 + 0x1a0] 
+  01801604B7  vcomiss xmm0, xmm1       
+  01801604BB  jbe 0x1801604c6          
+  01801604BD  vmovss dword ptr [r8 + 0x1a0], xmm1 
+  01801604C6  cmp r9w, -1              
+  01801604CB  je 0x1801604df           
+  01801604CD  vxorps xmm0, xmm0, xmm0  
+  01801604D1  vcvtsi2ss xmm0, xmm0, r9d 
+  01801604D6  vmovss dword ptr [r8 + 0x1a4], xmm0 
+  01801604DF  movsx r9d, word ptr [rdx + 4] 
+  01801604E4  movsx r8d, word ptr [rdx + 0xa] 
+  01801604E9  movsx edx, word ptr [rdx + 0x10] 
+  01801604ED  test r9w, r9w            
+  01801604F1  jle 0x180160504          
+  01801604F3  vxorps xmm0, xmm0, xmm0  
+  01801604F7  vcvtsi2ss xmm0, xmm0, r9d 
+  01801604FC  vmovss dword ptr [rcx + 0x16c], xmm0 
+  0180160504  test r8w, r8w            
+  0180160508  js 0x18016051b           
+  018016050A  vxorps xmm0, xmm0, xmm0  
+  018016050E  vcvtsi2ss xmm0, xmm0, r8d 
+  0180160513  vmovss dword ptr [rcx + 0x170], xmm0 
+  018016051B  vmovss xmm0, dword ptr [rcx + 4] 
+  0180160520  vsubss xmm1, xmm0, xmm2  
+  0180160524  vmovss xmm0, dword ptr [rcx + 0x170] 
+  018016052C  vcomiss xmm0, xmm1       
+  0180160530  jbe 0x18016053a          
+  0180160532  vmovss dword ptr [rcx + 0x170], xmm1 
+  018016053A  cmp dx, -1               
+  018016053E  je 0x180160550           
+  0180160540  vxorps xmm0, xmm0, xmm0  
+  0180160544  vcvtsi2ss xmm0, xmm0, edx 
+  0180160548  vmovss dword ptr [rcx + 0x174], xmm0 
+  0180160550  test r9w, r9w            
+  0180160554  jle 0x180160567          
+  0180160556  vxorps xmm0, xmm0, xmm0  
+  018016055A  vcvtsi2ss xmm0, xmm0, r9d 
+  018016055F  vmovss dword ptr [rcx + 0x178], xmm0 
+  0180160567  test r8w, r8w            
+  018016056B  js 0x18016057e           
+  018016056D  vxorps xmm0, xmm0, xmm0  
+  0180160571  vcvtsi2ss xmm0, xmm0, r8d 
+  0180160576  vmovss dword ptr [rcx + 0x17c], xmm0 
+  018016057E  vmovss xmm0, dword ptr [rcx + 4] 
+  0180160583  vsubss xmm1, xmm0, xmm2  
+  0180160587  vmovss xmm0, dword ptr [rcx + 0x17c] 
+  018016058F  vcomiss xmm0, xmm1       
+  0180160593  jbe 0x18016059d          
+  0180160595  vmovss dword ptr [rcx + 0x17c], xmm1 
+  018016059D  cmp dx, -1               
+  01801605A1  je 0x1801605b3           
+  01801605A3  vxorps xmm0, xmm0, xmm0  
+  01801605A7  vcvtsi2ss xmm0, xmm0, edx 
+  01801605AB  vmovss dword ptr [rcx + 0x180], xmm0 
+  01801605B3  test r9w, r9w            
+  01801605B7  jle 0x1801605ca          
+  01801605B9  vxorps xmm0, xmm0, xmm0  
+  01801605BD  vcvtsi2ss xmm0, xmm0, r9d 
+  01801605C2  vmovss dword ptr [rcx + 0x184], xmm0 
+  01801605CA  test r8w, r8w            
+  01801605CE  js 0x1801605e1           
+  01801605D0  vxorps xmm0, xmm0, xmm0  
+  01801605D4  vcvtsi2ss xmm0, xmm0, r8d 
+  01801605D9  vmovss dword ptr [rcx + 0x188], xmm0 
+  01801605E1  vmovss xmm0, dword ptr [rcx + 4] 
+  01801605E6  vsubss xmm1, xmm0, xmm2  
+  01801605EA  vmovss xmm0, dword ptr [rcx + 0x188] 
+  01801605F2  vcomiss xmm0, xmm1       
+  01801605F6  jbe 0x180160600          
+  01801605F8  vmovss dword ptr [rcx + 0x188], xmm1 
+  0180160600  cmp dx, -1               
+  0180160604  je 0x180160616           
+  0180160606  vxorps xmm0, xmm0, xmm0  
+  018016060A  vcvtsi2ss xmm0, xmm0, edx 
+  018016060E  vmovss dword ptr [rcx + 0x18c], xmm0 
+  0180160616  mov rbx, qword ptr [rsp + 8] 
+  018016061B  ret                      
+
+########## code 6 (0x06)  handler 0x180160620  (128 octets max)
+  0180160620  movsx eax, word ptr [rdx] 
+  0180160623  mov r8, qword ptr [rcx + 0x10] 
+  0180160627  test ax, ax              
+  018016062A  jle 0x18016063d          
+  018016062C  vxorps xmm0, xmm0, xmm0  
+  0180160630  vcvtsi2ss xmm0, xmm0, eax 
+  0180160634  vmovss dword ptr [r8 + 0x154], xmm0 
+  018016063D  movsx eax, word ptr [rdx + 2] 
+  0180160641  test ax, ax              
+  0180160644  js 0x180160657           
+  0180160646  vxorps xmm0, xmm0, xmm0  
+  018016064A  vcvtsi2ss xmm0, xmm0, eax 
+  018016064E  vmovss dword ptr [r8 + 0x158], xmm0 
+  0180160657  vmovss xmm0, dword ptr [r8 + 4] 
+  018016065D  vsubss xmm1, xmm0, dword ptr [rip + 0x21119b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160665  vmovss xmm0, dword ptr [r8 + 0x158] 
+  018016066E  vcomiss xmm0, xmm1       
+  0180160672  jbe 0x18016067d          
+  0180160674  vmovss dword ptr [r8 + 0x158], xmm1 
+  018016067D  movsx eax, word ptr [rdx + 4] 
+  0180160681  cmp ax, -1               
+  0180160685  je 0x180160698           
+  0180160687  vxorps xmm0, xmm0, xmm0  
+  018016068B  vcvtsi2ss xmm0, xmm0, eax 
+  018016068F  vmovss dword ptr [r8 + 0x15c], xmm0 
+  0180160698  ret                      
+
+########## code 7 (0x07)  handler 0x1801606A0  (128 octets max)
+  01801606A0  movsx eax, word ptr [rdx] 
+  01801606A3  mov r8, qword ptr [rcx + 0x10] 
+  01801606A7  test ax, ax              
+  01801606AA  jle 0x1801606bd          
+  01801606AC  vxorps xmm0, xmm0, xmm0  
+  01801606B0  vcvtsi2ss xmm0, xmm0, eax 
+  01801606B4  vmovss dword ptr [r8 + 0x160], xmm0 
+  01801606BD  movsx eax, word ptr [rdx + 2] 
+  01801606C1  test ax, ax              
+  01801606C4  js 0x1801606d7           
+  01801606C6  vxorps xmm0, xmm0, xmm0  
+  01801606CA  vcvtsi2ss xmm0, xmm0, eax 
+  01801606CE  vmovss dword ptr [r8 + 0x164], xmm0 
+  01801606D7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801606DD  vsubss xmm1, xmm0, dword ptr [rip + 0x21111b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801606E5  vmovss xmm0, dword ptr [r8 + 0x164] 
+  01801606EE  vcomiss xmm0, xmm1       
+  01801606F2  jbe 0x1801606fd          
+  01801606F4  vmovss dword ptr [r8 + 0x164], xmm1 
+  01801606FD  movsx eax, word ptr [rdx + 4] 
+  0180160701  cmp ax, -1               
+  0180160705  je 0x180160718           
+  0180160707  vxorps xmm0, xmm0, xmm0  
+  018016070B  vcvtsi2ss xmm0, xmm0, eax 
+  018016070F  vmovss dword ptr [r8 + 0x168], xmm0 
+  0180160718  ret                      
+
+########## code 8 (0x08)  handler 0x180160720  (128 octets max)
+  0180160720  movsx eax, word ptr [rdx] 
+  0180160723  mov r8, qword ptr [rcx + 0x10] 
+  0180160727  test ax, ax              
+  018016072A  jle 0x18016073d          
+  018016072C  vxorps xmm0, xmm0, xmm0  
+  0180160730  vcvtsi2ss xmm0, xmm0, eax 
+  0180160734  vmovss dword ptr [r8 + 0x16c], xmm0 
+  018016073D  movsx eax, word ptr [rdx + 2] 
+  0180160741  test ax, ax              
+  0180160744  js 0x180160757           
+  0180160746  vxorps xmm0, xmm0, xmm0  
+  018016074A  vcvtsi2ss xmm0, xmm0, eax 
+  018016074E  vmovss dword ptr [r8 + 0x170], xmm0 
+  0180160757  vmovss xmm0, dword ptr [r8 + 4] 
+  018016075D  vsubss xmm1, xmm0, dword ptr [rip + 0x21109b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160765  vmovss xmm0, dword ptr [r8 + 0x170] 
+  018016076E  vcomiss xmm0, xmm1       
+  0180160772  jbe 0x18016077d          
+  0180160774  vmovss dword ptr [r8 + 0x170], xmm1 
+  018016077D  movsx eax, word ptr [rdx + 4] 
+  0180160781  cmp ax, -1               
+  0180160785  je 0x180160798           
+  0180160787  vxorps xmm0, xmm0, xmm0  
+  018016078B  vcvtsi2ss xmm0, xmm0, eax 
+  018016078F  vmovss dword ptr [r8 + 0x174], xmm0 
+  0180160798  ret                      
+
+########## code 9 (0x09)  handler 0x1801607A0  (128 octets max)
+  01801607A0  movsx eax, word ptr [rdx] 
+  01801607A3  mov r8, qword ptr [rcx + 0x10] 
+  01801607A7  test ax, ax              
+  01801607AA  jle 0x1801607bd          
+  01801607AC  vxorps xmm0, xmm0, xmm0  
+  01801607B0  vcvtsi2ss xmm0, xmm0, eax 
+  01801607B4  vmovss dword ptr [r8 + 0x178], xmm0 
+  01801607BD  movsx eax, word ptr [rdx + 2] 
+  01801607C1  test ax, ax              
+  01801607C4  js 0x1801607d7           
+  01801607C6  vxorps xmm0, xmm0, xmm0  
+  01801607CA  vcvtsi2ss xmm0, xmm0, eax 
+  01801607CE  vmovss dword ptr [r8 + 0x17c], xmm0 
+  01801607D7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801607DD  vsubss xmm1, xmm0, dword ptr [rip + 0x21101b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801607E5  vmovss xmm0, dword ptr [r8 + 0x17c] 
+  01801607EE  vcomiss xmm0, xmm1       
+  01801607F2  jbe 0x1801607fd          
+  01801607F4  vmovss dword ptr [r8 + 0x17c], xmm1 
+  01801607FD  movsx eax, word ptr [rdx + 4] 
+  0180160801  cmp ax, -1               
+  0180160805  je 0x180160818           
+  0180160807  vxorps xmm0, xmm0, xmm0  
+  018016080B  vcvtsi2ss xmm0, xmm0, eax 
+  018016080F  vmovss dword ptr [r8 + 0x180], xmm0 
+  0180160818  ret                      
+
+########## code 10 (0x0A)  handler 0x180160820  (128 octets max)
+  0180160820  movsx eax, word ptr [rdx] 
+  0180160823  mov r8, qword ptr [rcx + 0x10] 
+  0180160827  test ax, ax              
+  018016082A  jle 0x18016083d          
+  018016082C  vxorps xmm0, xmm0, xmm0  
+  0180160830  vcvtsi2ss xmm0, xmm0, eax 
+  0180160834  vmovss dword ptr [r8 + 0x184], xmm0 
+  018016083D  movsx eax, word ptr [rdx + 2] 
+  0180160841  test ax, ax              
+  0180160844  js 0x180160857           
+  0180160846  vxorps xmm0, xmm0, xmm0  
+  018016084A  vcvtsi2ss xmm0, xmm0, eax 
+  018016084E  vmovss dword ptr [r8 + 0x188], xmm0 
+  0180160857  vmovss xmm0, dword ptr [r8 + 4] 
+  018016085D  vsubss xmm1, xmm0, dword ptr [rip + 0x210f9b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160865  vmovss xmm0, dword ptr [r8 + 0x188] 
+  018016086E  vcomiss xmm0, xmm1       
+  0180160872  jbe 0x18016087d          
+  0180160874  vmovss dword ptr [r8 + 0x188], xmm1 
+  018016087D  movsx eax, word ptr [rdx + 4] 
+  0180160881  cmp ax, -1               
+  0180160885  je 0x180160898           
+  0180160887  vxorps xmm0, xmm0, xmm0  
+  018016088B  vcvtsi2ss xmm0, xmm0, eax 
+  018016088F  vmovss dword ptr [r8 + 0x18c], xmm0 
+  0180160898  ret                      
+
+########## code 11 (0x0B)  handler 0x1801608A0  (368 octets max)
+  01801608A0  movsx eax, word ptr [rdx] 
+  01801608A3  mov r8, qword ptr [rcx + 0x10] 
+  01801608A7  test ax, ax              
+  01801608AA  jle 0x1801608bd          
+  01801608AC  vxorps xmm0, xmm0, xmm0  
+  01801608B0  vcvtsi2ss xmm0, xmm0, eax 
+  01801608B4  vmovss dword ptr [r8 + 0x16c], xmm0 
+  01801608BD  movsx eax, word ptr [rdx + 2] 
+  01801608C1  lea rcx, [rdx + 2]       
+  01801608C5  test ax, ax              
+  01801608C8  js 0x1801608e1           
+  01801608CA  vxorps xmm0, xmm0, xmm0  
+  01801608CE  vcvtsi2ss xmm0, xmm0, eax 
+  01801608D2  vmovss dword ptr [r8 + 0x170], xmm0 
+  01801608DB  lea rax, [rdx + 2]       
+  01801608DF  jmp 0x1801608e4          
+  01801608E1  mov rax, rcx             
+  01801608E4  vmovss xmm0, dword ptr [r8 + 4] 
+  01801608EA  vmovss xmm2, dword ptr [rip + 0x210f0e]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801608F2  vsubss xmm1, xmm0, xmm2  
+  01801608F6  vmovss xmm0, dword ptr [r8 + 0x170] 
+  01801608FF  vcomiss xmm0, xmm1       
+  0180160903  jbe 0x180160911          
+  0180160905  vmovss dword ptr [r8 + 0x170], xmm1 
+  018016090E  mov rcx, rax             
+  0180160911  movsx eax, word ptr [rdx + 4] 
+  0180160915  cmp ax, -1               
+  0180160919  je 0x18016092c           
+  018016091B  vxorps xmm0, xmm0, xmm0  
+  018016091F  vcvtsi2ss xmm0, xmm0, eax 
+  0180160923  vmovss dword ptr [r8 + 0x174], xmm0 
+  018016092C  movsx eax, word ptr [rdx] 
+  018016092F  test ax, ax              
+  0180160932  jle 0x180160945          
+  0180160934  vxorps xmm0, xmm0, xmm0  
+  0180160938  vcvtsi2ss xmm0, xmm0, eax 
+  018016093C  vmovss dword ptr [r8 + 0x178], xmm0 
+  0180160945  movsx eax, word ptr [rcx] 
+  0180160948  test ax, ax              
+  018016094B  js 0x18016095e           
+  018016094D  vxorps xmm0, xmm0, xmm0  
+  0180160951  vcvtsi2ss xmm0, xmm0, eax 
+  0180160955  vmovss dword ptr [r8 + 0x17c], xmm0 
+  018016095E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160964  vsubss xmm1, xmm0, xmm2  
+  0180160968  vmovss xmm0, dword ptr [r8 + 0x17c] 
+  0180160971  vcomiss xmm0, xmm1       
+  0180160975  jbe 0x180160980          
+  0180160977  vmovss dword ptr [r8 + 0x17c], xmm1 
+  0180160980  movsx eax, word ptr [rdx + 4] 
+  0180160984  cmp ax, -1               
+  0180160988  je 0x18016099b           
+  018016098A  vxorps xmm0, xmm0, xmm0  
+  018016098E  vcvtsi2ss xmm0, xmm0, eax 
+  0180160992  vmovss dword ptr [r8 + 0x180], xmm0 
+  018016099B  movsx eax, word ptr [rdx] 
+  018016099E  test ax, ax              
+  01801609A1  jle 0x1801609b4          
+  01801609A3  vxorps xmm0, xmm0, xmm0  
+  01801609A7  vcvtsi2ss xmm0, xmm0, eax 
+  01801609AB  vmovss dword ptr [r8 + 0x184], xmm0 
+  01801609B4  movsx eax, word ptr [rdx + 2] 
+  01801609B8  test ax, ax              
+  01801609BB  js 0x1801609ce           
+  01801609BD  vxorps xmm0, xmm0, xmm0  
+  01801609C1  vcvtsi2ss xmm0, xmm0, eax 
+  01801609C5  vmovss dword ptr [r8 + 0x188], xmm0 
+  01801609CE  vmovss xmm0, dword ptr [r8 + 4] 
+  01801609D4  vsubss xmm1, xmm0, xmm2  
+  01801609D8  vmovss xmm0, dword ptr [r8 + 0x188] 
+  01801609E1  vcomiss xmm0, xmm1       
+  01801609E5  jbe 0x1801609f0          
+  01801609E7  vmovss dword ptr [r8 + 0x188], xmm1 
+  01801609F0  movsx eax, word ptr [rdx + 4] 
+  01801609F4  cmp ax, -1               
+  01801609F8  je 0x180160a0b           
+  01801609FA  vxorps xmm0, xmm0, xmm0  
+  01801609FE  vcvtsi2ss xmm0, xmm0, eax 
+  0180160A02  vmovss dword ptr [r8 + 0x18c], xmm0 
+  0180160A0B  ret                      
+
+########## code 12 (0x0C)  handler 0x180160A10  (128 octets max)
+  0180160A10  movsx eax, word ptr [rdx] 
+  0180160A13  mov r8, qword ptr [rcx + 0x10] 
+  0180160A17  test ax, ax              
+  0180160A1A  jle 0x180160a2d          
+  0180160A1C  vxorps xmm0, xmm0, xmm0  
+  0180160A20  vcvtsi2ss xmm0, xmm0, eax 
+  0180160A24  vmovss dword ptr [r8 + 0x190], xmm0 
+  0180160A2D  movsx eax, word ptr [rdx + 2] 
+  0180160A31  test ax, ax              
+  0180160A34  js 0x180160a47           
+  0180160A36  vxorps xmm0, xmm0, xmm0  
+  0180160A3A  vcvtsi2ss xmm0, xmm0, eax 
+  0180160A3E  vmovss dword ptr [r8 + 0x194], xmm0 
+  0180160A47  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160A4D  vsubss xmm1, xmm0, dword ptr [rip + 0x210dab]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160A55  vmovss xmm0, dword ptr [r8 + 0x194] 
+  0180160A5E  vcomiss xmm0, xmm1       
+  0180160A62  jbe 0x180160a6d          
+  0180160A64  vmovss dword ptr [r8 + 0x194], xmm1 
+  0180160A6D  movsx eax, word ptr [rdx + 4] 
+  0180160A71  cmp ax, -1               
+  0180160A75  je 0x180160a88           
+  0180160A77  vxorps xmm0, xmm0, xmm0  
+  0180160A7B  vcvtsi2ss xmm0, xmm0, eax 
+  0180160A7F  vmovss dword ptr [r8 + 0x198], xmm0 
+  0180160A88  ret                      
+
+########## code 13 (0x0D)  handler 0x180160A90  (128 octets max)
+  0180160A90  movsx eax, word ptr [rdx] 
+  0180160A93  mov r8, qword ptr [rcx + 0x10] 
+  0180160A97  test ax, ax              
+  0180160A9A  jle 0x180160aad          
+  0180160A9C  vxorps xmm0, xmm0, xmm0  
+  0180160AA0  vcvtsi2ss xmm0, xmm0, eax 
+  0180160AA4  vmovss dword ptr [r8 + 0x19c], xmm0 
+  0180160AAD  movsx eax, word ptr [rdx + 2] 
+  0180160AB1  test ax, ax              
+  0180160AB4  js 0x180160ac7           
+  0180160AB6  vxorps xmm0, xmm0, xmm0  
+  0180160ABA  vcvtsi2ss xmm0, xmm0, eax 
+  0180160ABE  vmovss dword ptr [r8 + 0x1a0], xmm0 
+  0180160AC7  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160ACD  vsubss xmm1, xmm0, dword ptr [rip + 0x210d2b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160AD5  vmovss xmm0, dword ptr [r8 + 0x1a0] 
+  0180160ADE  vcomiss xmm0, xmm1       
+  0180160AE2  jbe 0x180160aed          
+  0180160AE4  vmovss dword ptr [r8 + 0x1a0], xmm1 
+  0180160AED  movsx eax, word ptr [rdx + 4] 
+  0180160AF1  cmp ax, -1               
+  0180160AF5  je 0x180160b08           
+  0180160AF7  vxorps xmm0, xmm0, xmm0  
+  0180160AFB  vcvtsi2ss xmm0, xmm0, eax 
+  0180160AFF  vmovss dword ptr [r8 + 0x1a4], xmm0 
+  0180160B08  ret                      
+
+########## code 14 (0x0E)  handler 0x180160B10  (128 octets max)
+  0180160B10  movsx eax, word ptr [rdx] 
+  0180160B13  mov r8, qword ptr [rcx + 0x10] 
+  0180160B17  test ax, ax              
+  0180160B1A  jle 0x180160b2d          
+  0180160B1C  vxorps xmm0, xmm0, xmm0  
+  0180160B20  vcvtsi2ss xmm0, xmm0, eax 
+  0180160B24  vmovss dword ptr [r8 + 0x1a8], xmm0 
+  0180160B2D  movsx eax, word ptr [rdx + 2] 
+  0180160B31  test ax, ax              
+  0180160B34  js 0x180160b47           
+  0180160B36  vxorps xmm0, xmm0, xmm0  
+  0180160B3A  vcvtsi2ss xmm0, xmm0, eax 
+  0180160B3E  vmovss dword ptr [r8 + 0x1ac], xmm0 
+  0180160B47  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160B4D  vsubss xmm1, xmm0, dword ptr [rip + 0x210cab]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160B55  vmovss xmm0, dword ptr [r8 + 0x1ac] 
+  0180160B5E  vcomiss xmm0, xmm1       
+  0180160B62  jbe 0x180160b6d          
+  0180160B64  vmovss dword ptr [r8 + 0x1ac], xmm1 
+  0180160B6D  movsx eax, word ptr [rdx + 4] 
+  0180160B71  cmp ax, -1               
+  0180160B75  je 0x180160b88           
+  0180160B77  vxorps xmm0, xmm0, xmm0  
+  0180160B7B  vcvtsi2ss xmm0, xmm0, eax 
+  0180160B7F  vmovss dword ptr [r8 + 0x1b0], xmm0 
+  0180160B88  ret                      
+
+########## code 15 (0x0F)  handler 0x180160B90  (128 octets max)
+  0180160B90  movsx eax, word ptr [rdx] 
+  0180160B93  mov r8, qword ptr [rcx + 0x10] 
+  0180160B97  test ax, ax              
+  0180160B9A  jle 0x180160bad          
+  0180160B9C  vxorps xmm0, xmm0, xmm0  
+  0180160BA0  vcvtsi2ss xmm0, xmm0, eax 
+  0180160BA4  vmovss dword ptr [r8 + 0x1b4], xmm0 
+  0180160BAD  movsx eax, word ptr [rdx + 2] 
+  0180160BB1  test ax, ax              
+  0180160BB4  js 0x180160bc7           
+  0180160BB6  vxorps xmm0, xmm0, xmm0  
+  0180160BBA  vcvtsi2ss xmm0, xmm0, eax 
+  0180160BBE  vmovss dword ptr [r8 + 0x1b8], xmm0 
+  0180160BC7  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160BCD  vsubss xmm1, xmm0, dword ptr [rip + 0x210c2b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160BD5  vmovss xmm0, dword ptr [r8 + 0x1b8] 
+  0180160BDE  vcomiss xmm0, xmm1       
+  0180160BE2  jbe 0x180160bed          
+  0180160BE4  vmovss dword ptr [r8 + 0x1b8], xmm1 
+  0180160BED  movsx eax, word ptr [rdx + 4] 
+  0180160BF1  cmp ax, -1               
+  0180160BF5  je 0x180160c08           
+  0180160BF7  vxorps xmm0, xmm0, xmm0  
+  0180160BFB  vcvtsi2ss xmm0, xmm0, eax 
+  0180160BFF  vmovss dword ptr [r8 + 0x1bc], xmm0 
+  0180160C08  ret                      
+
+########## code 16 (0x10)  handler 0x180160C10  (128 octets max)
+  0180160C10  movsx eax, word ptr [rdx] 
+  0180160C13  mov r8, qword ptr [rcx + 0x10] 
+  0180160C17  test ax, ax              
+  0180160C1A  jle 0x180160c2d          
+  0180160C1C  vxorps xmm0, xmm0, xmm0  
+  0180160C20  vcvtsi2ss xmm0, xmm0, eax 
+  0180160C24  vmovss dword ptr [r8 + 0x1c0], xmm0 
+  0180160C2D  movsx eax, word ptr [rdx + 2] 
+  0180160C31  test ax, ax              
+  0180160C34  js 0x180160c47           
+  0180160C36  vxorps xmm0, xmm0, xmm0  
+  0180160C3A  vcvtsi2ss xmm0, xmm0, eax 
+  0180160C3E  vmovss dword ptr [r8 + 0x1c4], xmm0 
+  0180160C47  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160C4D  vsubss xmm1, xmm0, dword ptr [rip + 0x210bab]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160C55  vmovss xmm0, dword ptr [r8 + 0x1c4] 
+  0180160C5E  vcomiss xmm0, xmm1       
+  0180160C62  jbe 0x180160c6d          
+  0180160C64  vmovss dword ptr [r8 + 0x1c4], xmm1 
+  0180160C6D  movsx eax, word ptr [rdx + 4] 
+  0180160C71  cmp ax, -1               
+  0180160C75  je 0x180160c88           
+  0180160C77  vxorps xmm0, xmm0, xmm0  
+  0180160C7B  vcvtsi2ss xmm0, xmm0, eax 
+  0180160C7F  vmovss dword ptr [r8 + 0x1c8], xmm0 
+  0180160C88  ret                      
+
+########## code 17 (0x11)  handler 0x180160C90  (128 octets max)
+  0180160C90  movsx eax, word ptr [rdx] 
+  0180160C93  mov r8, qword ptr [rcx + 0x10] 
+  0180160C97  test ax, ax              
+  0180160C9A  jle 0x180160cad          
+  0180160C9C  vxorps xmm0, xmm0, xmm0  
+  0180160CA0  vcvtsi2ss xmm0, xmm0, eax 
+  0180160CA4  vmovss dword ptr [r8 + 0x1cc], xmm0 
+  0180160CAD  movsx eax, word ptr [rdx + 2] 
+  0180160CB1  test ax, ax              
+  0180160CB4  js 0x180160cc7           
+  0180160CB6  vxorps xmm0, xmm0, xmm0  
+  0180160CBA  vcvtsi2ss xmm0, xmm0, eax 
+  0180160CBE  vmovss dword ptr [r8 + 0x1d0], xmm0 
+  0180160CC7  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160CCD  vsubss xmm1, xmm0, dword ptr [rip + 0x210b2b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160CD5  vmovss xmm0, dword ptr [r8 + 0x1d0] 
+  0180160CDE  vcomiss xmm0, xmm1       
+  0180160CE2  jbe 0x180160ced          
+  0180160CE4  vmovss dword ptr [r8 + 0x1d0], xmm1 
+  0180160CED  movsx eax, word ptr [rdx + 4] 
+  0180160CF1  cmp ax, -1               
+  0180160CF5  je 0x180160d08           
+  0180160CF7  vxorps xmm0, xmm0, xmm0  
+  0180160CFB  vcvtsi2ss xmm0, xmm0, eax 
+  0180160CFF  vmovss dword ptr [r8 + 0x1d4], xmm0 
+  0180160D08  ret                      
+
+########## code 18 (0x12)  handler 0x180160D10  (128 octets max)
+  0180160D10  movsx eax, word ptr [rdx] 
+  0180160D13  mov r8, qword ptr [rcx + 0x10] 
+  0180160D17  test ax, ax              
+  0180160D1A  jle 0x180160d2d          
+  0180160D1C  vxorps xmm0, xmm0, xmm0  
+  0180160D20  vcvtsi2ss xmm0, xmm0, eax 
+  0180160D24  vmovss dword ptr [r8 + 0x1d8], xmm0 
+  0180160D2D  movsx eax, word ptr [rdx + 2] 
+  0180160D31  test ax, ax              
+  0180160D34  js 0x180160d47           
+  0180160D36  vxorps xmm0, xmm0, xmm0  
+  0180160D3A  vcvtsi2ss xmm0, xmm0, eax 
+  0180160D3E  vmovss dword ptr [r8 + 0x1dc], xmm0 
+  0180160D47  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160D4D  vsubss xmm1, xmm0, dword ptr [rip + 0x210aab]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160D55  vmovss xmm0, dword ptr [r8 + 0x1dc] 
+  0180160D5E  vcomiss xmm0, xmm1       
+  0180160D62  jbe 0x180160d6d          
+  0180160D64  vmovss dword ptr [r8 + 0x1dc], xmm1 
+  0180160D6D  movsx eax, word ptr [rdx + 4] 
+  0180160D71  cmp ax, -1               
+  0180160D75  je 0x180160d88           
+  0180160D77  vxorps xmm0, xmm0, xmm0  
+  0180160D7B  vcvtsi2ss xmm0, xmm0, eax 
+  0180160D7F  vmovss dword ptr [r8 + 0x1e0], xmm0 
+  0180160D88  ret                      
+
+########## code 19 (0x13)  handler 0x180160D90  (128 octets max)
+  0180160D90  movsx eax, word ptr [rdx] 
+  0180160D93  mov r8, qword ptr [rcx + 0x10] 
+  0180160D97  test ax, ax              
+  0180160D9A  jle 0x180160dad          
+  0180160D9C  vxorps xmm0, xmm0, xmm0  
+  0180160DA0  vcvtsi2ss xmm0, xmm0, eax 
+  0180160DA4  vmovss dword ptr [r8 + 0x1e4], xmm0 
+  0180160DAD  movsx eax, word ptr [rdx + 2] 
+  0180160DB1  test ax, ax              
+  0180160DB4  js 0x180160dc7           
+  0180160DB6  vxorps xmm0, xmm0, xmm0  
+  0180160DBA  vcvtsi2ss xmm0, xmm0, eax 
+  0180160DBE  vmovss dword ptr [r8 + 0x1e8], xmm0 
+  0180160DC7  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160DCD  vsubss xmm1, xmm0, dword ptr [rip + 0x210a2b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160DD5  vmovss xmm0, dword ptr [r8 + 0x1e8] 
+  0180160DDE  vcomiss xmm0, xmm1       
+  0180160DE2  jbe 0x180160ded          
+  0180160DE4  vmovss dword ptr [r8 + 0x1e8], xmm1 
+  0180160DED  movsx eax, word ptr [rdx + 4] 
+  0180160DF1  cmp ax, -1               
+  0180160DF5  je 0x180160e08           
+  0180160DF7  vxorps xmm0, xmm0, xmm0  
+  0180160DFB  vcvtsi2ss xmm0, xmm0, eax 
+  0180160DFF  vmovss dword ptr [r8 + 0x1ec], xmm0 
+  0180160E08  ret                      
+
+########## code 20 (0x14)  handler 0x180160E10  (368 octets max)
+  0180160E10  movsx eax, word ptr [rdx] 
+  0180160E13  mov r8, qword ptr [rcx + 0x10] 
+  0180160E17  test ax, ax              
+  0180160E1A  jle 0x180160e2d          
+  0180160E1C  vxorps xmm0, xmm0, xmm0  
+  0180160E20  vcvtsi2ss xmm0, xmm0, eax 
+  0180160E24  vmovss dword ptr [r8 + 0x1cc], xmm0 
+  0180160E2D  movsx eax, word ptr [rdx + 2] 
+  0180160E31  lea rcx, [rdx + 2]       
+  0180160E35  test ax, ax              
+  0180160E38  js 0x180160e51           
+  0180160E3A  vxorps xmm0, xmm0, xmm0  
+  0180160E3E  vcvtsi2ss xmm0, xmm0, eax 
+  0180160E42  vmovss dword ptr [r8 + 0x1d0], xmm0 
+  0180160E4B  lea rax, [rdx + 2]       
+  0180160E4F  jmp 0x180160e54          
+  0180160E51  mov rax, rcx             
+  0180160E54  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160E5A  vmovss xmm2, dword ptr [rip + 0x21099e]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160E62  vsubss xmm1, xmm0, xmm2  
+  0180160E66  vmovss xmm0, dword ptr [r8 + 0x1d0] 
+  0180160E6F  vcomiss xmm0, xmm1       
+  0180160E73  jbe 0x180160e81          
+  0180160E75  vmovss dword ptr [r8 + 0x1d0], xmm1 
+  0180160E7E  mov rcx, rax             
+  0180160E81  movsx eax, word ptr [rdx + 4] 
+  0180160E85  cmp ax, -1               
+  0180160E89  je 0x180160e9c           
+  0180160E8B  vxorps xmm0, xmm0, xmm0  
+  0180160E8F  vcvtsi2ss xmm0, xmm0, eax 
+  0180160E93  vmovss dword ptr [r8 + 0x1d4], xmm0 
+  0180160E9C  movsx eax, word ptr [rdx] 
+  0180160E9F  test ax, ax              
+  0180160EA2  jle 0x180160eb5          
+  0180160EA4  vxorps xmm0, xmm0, xmm0  
+  0180160EA8  vcvtsi2ss xmm0, xmm0, eax 
+  0180160EAC  vmovss dword ptr [r8 + 0x1d8], xmm0 
+  0180160EB5  movsx eax, word ptr [rcx] 
+  0180160EB8  test ax, ax              
+  0180160EBB  js 0x180160ece           
+  0180160EBD  vxorps xmm0, xmm0, xmm0  
+  0180160EC1  vcvtsi2ss xmm0, xmm0, eax 
+  0180160EC5  vmovss dword ptr [r8 + 0x1dc], xmm0 
+  0180160ECE  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160ED4  vsubss xmm1, xmm0, xmm2  
+  0180160ED8  vmovss xmm0, dword ptr [r8 + 0x1dc] 
+  0180160EE1  vcomiss xmm0, xmm1       
+  0180160EE5  jbe 0x180160ef0          
+  0180160EE7  vmovss dword ptr [r8 + 0x1dc], xmm1 
+  0180160EF0  movsx eax, word ptr [rdx + 4] 
+  0180160EF4  cmp ax, -1               
+  0180160EF8  je 0x180160f0b           
+  0180160EFA  vxorps xmm0, xmm0, xmm0  
+  0180160EFE  vcvtsi2ss xmm0, xmm0, eax 
+  0180160F02  vmovss dword ptr [r8 + 0x1e0], xmm0 
+  0180160F0B  movsx eax, word ptr [rdx] 
+  0180160F0E  test ax, ax              
+  0180160F11  jle 0x180160f24          
+  0180160F13  vxorps xmm0, xmm0, xmm0  
+  0180160F17  vcvtsi2ss xmm0, xmm0, eax 
+  0180160F1B  vmovss dword ptr [r8 + 0x1e4], xmm0 
+  0180160F24  movsx eax, word ptr [rdx + 2] 
+  0180160F28  test ax, ax              
+  0180160F2B  js 0x180160f3e           
+  0180160F2D  vxorps xmm0, xmm0, xmm0  
+  0180160F31  vcvtsi2ss xmm0, xmm0, eax 
+  0180160F35  vmovss dword ptr [r8 + 0x1e8], xmm0 
+  0180160F3E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160F44  vsubss xmm1, xmm0, xmm2  
+  0180160F48  vmovss xmm0, dword ptr [r8 + 0x1e8] 
+  0180160F51  vcomiss xmm0, xmm1       
+  0180160F55  jbe 0x180160f60          
+  0180160F57  vmovss dword ptr [r8 + 0x1e8], xmm1 
+  0180160F60  movsx eax, word ptr [rdx + 4] 
+  0180160F64  cmp ax, -1               
+  0180160F68  je 0x180160f7b           
+  0180160F6A  vxorps xmm0, xmm0, xmm0  
+  0180160F6E  vcvtsi2ss xmm0, xmm0, eax 
+  0180160F72  vmovss dword ptr [r8 + 0x1ec], xmm0 
+  0180160F7B  ret                      
+
+########## code 21 (0x15)  handler 0x180160F80  (128 octets max)
+  0180160F80  movsx eax, word ptr [rdx] 
+  0180160F83  mov r8, qword ptr [rcx + 0x10] 
+  0180160F87  test ax, ax              
+  0180160F8A  jle 0x180160f9d          
+  0180160F8C  vxorps xmm0, xmm0, xmm0  
+  0180160F90  vcvtsi2ss xmm0, xmm0, eax 
+  0180160F94  vmovss dword ptr [r8 + 0x1f0], xmm0 
+  0180160F9D  movsx eax, word ptr [rdx + 2] 
+  0180160FA1  test ax, ax              
+  0180160FA4  js 0x180160fb7           
+  0180160FA6  vxorps xmm0, xmm0, xmm0  
+  0180160FAA  vcvtsi2ss xmm0, xmm0, eax 
+  0180160FAE  vmovss dword ptr [r8 + 0x1f4], xmm0 
+  0180160FB7  vmovss xmm0, dword ptr [r8 + 4] 
+  0180160FBD  vsubss xmm1, xmm0, dword ptr [rip + 0x21083b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180160FC5  vmovss xmm0, dword ptr [r8 + 0x1f4] 
+  0180160FCE  vcomiss xmm0, xmm1       
+  0180160FD2  jbe 0x180160fdd          
+  0180160FD4  vmovss dword ptr [r8 + 0x1f4], xmm1 
+  0180160FDD  movsx eax, word ptr [rdx + 4] 
+  0180160FE1  cmp ax, -1               
+  0180160FE5  je 0x180160ff8           
+  0180160FE7  vxorps xmm0, xmm0, xmm0  
+  0180160FEB  vcvtsi2ss xmm0, xmm0, eax 
+  0180160FEF  vmovss dword ptr [r8 + 0x1f8], xmm0 
+  0180160FF8  ret                      
+
+########## code 22 (0x16)  handler 0x180161000  (128 octets max)
+  0180161000  movsx eax, word ptr [rdx] 
+  0180161003  mov r8, qword ptr [rcx + 0x10] 
+  0180161007  test ax, ax              
+  018016100A  jle 0x18016101d          
+  018016100C  vxorps xmm0, xmm0, xmm0  
+  0180161010  vcvtsi2ss xmm0, xmm0, eax 
+  0180161014  vmovss dword ptr [r8 + 0x1fc], xmm0 
+  018016101D  movsx eax, word ptr [rdx + 2] 
+  0180161021  test ax, ax              
+  0180161024  js 0x180161037           
+  0180161026  vxorps xmm0, xmm0, xmm0  
+  018016102A  vcvtsi2ss xmm0, xmm0, eax 
+  018016102E  vmovss dword ptr [r8 + 0x200], xmm0 
+  0180161037  vmovss xmm0, dword ptr [r8 + 4] 
+  018016103D  vsubss xmm1, xmm0, dword ptr [rip + 0x2107bb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161045  vmovss xmm0, dword ptr [r8 + 0x200] 
+  018016104E  vcomiss xmm0, xmm1       
+  0180161052  jbe 0x18016105d          
+  0180161054  vmovss dword ptr [r8 + 0x200], xmm1 
+  018016105D  movsx eax, word ptr [rdx + 4] 
+  0180161061  cmp ax, -1               
+  0180161065  je 0x180161078           
+  0180161067  vxorps xmm0, xmm0, xmm0  
+  018016106B  vcvtsi2ss xmm0, xmm0, eax 
+  018016106F  vmovss dword ptr [r8 + 0x204], xmm0 
+  0180161078  ret                      
+
+########## code 23 (0x17)  handler 0x180161080  (128 octets max)
+  0180161080  movsx eax, word ptr [rdx] 
+  0180161083  mov r8, qword ptr [rcx + 0x10] 
+  0180161087  test ax, ax              
+  018016108A  jle 0x18016109d          
+  018016108C  vxorps xmm0, xmm0, xmm0  
+  0180161090  vcvtsi2ss xmm0, xmm0, eax 
+  0180161094  vmovss dword ptr [r8 + 0x208], xmm0 
+  018016109D  movsx eax, word ptr [rdx + 2] 
+  01801610A1  test ax, ax              
+  01801610A4  js 0x1801610b7           
+  01801610A6  vxorps xmm0, xmm0, xmm0  
+  01801610AA  vcvtsi2ss xmm0, xmm0, eax 
+  01801610AE  vmovss dword ptr [r8 + 0x20c], xmm0 
+  01801610B7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801610BD  vsubss xmm1, xmm0, dword ptr [rip + 0x21073b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801610C5  vmovss xmm0, dword ptr [r8 + 0x20c] 
+  01801610CE  vcomiss xmm0, xmm1       
+  01801610D2  jbe 0x1801610dd          
+  01801610D4  vmovss dword ptr [r8 + 0x20c], xmm1 
+  01801610DD  movsx eax, word ptr [rdx + 4] 
+  01801610E1  cmp ax, -1               
+  01801610E5  je 0x1801610f8           
+  01801610E7  vxorps xmm0, xmm0, xmm0  
+  01801610EB  vcvtsi2ss xmm0, xmm0, eax 
+  01801610EF  vmovss dword ptr [r8 + 0x210], xmm0 
+  01801610F8  ret                      
+
+########## code 24 (0x18)  handler 0x180161100  (128 octets max)
+  0180161100  movsx eax, word ptr [rdx] 
+  0180161103  mov r8, qword ptr [rcx + 0x10] 
+  0180161107  test ax, ax              
+  018016110A  jle 0x18016111d          
+  018016110C  vxorps xmm0, xmm0, xmm0  
+  0180161110  vcvtsi2ss xmm0, xmm0, eax 
+  0180161114  vmovss dword ptr [r8 + 0x214], xmm0 
+  018016111D  movsx eax, word ptr [rdx + 2] 
+  0180161121  test ax, ax              
+  0180161124  js 0x180161137           
+  0180161126  vxorps xmm0, xmm0, xmm0  
+  018016112A  vcvtsi2ss xmm0, xmm0, eax 
+  018016112E  vmovss dword ptr [r8 + 0x218], xmm0 
+  0180161137  vmovss xmm0, dword ptr [r8 + 4] 
+  018016113D  vsubss xmm1, xmm0, dword ptr [rip + 0x2106bb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161145  vmovss xmm0, dword ptr [r8 + 0x218] 
+  018016114E  vcomiss xmm0, xmm1       
+  0180161152  jbe 0x18016115d          
+  0180161154  vmovss dword ptr [r8 + 0x218], xmm1 
+  018016115D  movsx eax, word ptr [rdx + 4] 
+  0180161161  cmp ax, -1               
+  0180161165  je 0x180161178           
+  0180161167  vxorps xmm0, xmm0, xmm0  
+  018016116B  vcvtsi2ss xmm0, xmm0, eax 
+  018016116F  vmovss dword ptr [r8 + 0x21c], xmm0 
+  0180161178  ret                      
+
+########## code 25 (0x19)  handler 0x180161180  (128 octets max)
+  0180161180  movsx eax, word ptr [rdx] 
+  0180161183  mov r8, qword ptr [rcx + 0x10] 
+  0180161187  test ax, ax              
+  018016118A  jle 0x18016119d          
+  018016118C  vxorps xmm0, xmm0, xmm0  
+  0180161190  vcvtsi2ss xmm0, xmm0, eax 
+  0180161194  vmovss dword ptr [r8 + 0x220], xmm0 
+  018016119D  movsx eax, word ptr [rdx + 2] 
+  01801611A1  test ax, ax              
+  01801611A4  js 0x1801611b7           
+  01801611A6  vxorps xmm0, xmm0, xmm0  
+  01801611AA  vcvtsi2ss xmm0, xmm0, eax 
+  01801611AE  vmovss dword ptr [r8 + 0x224], xmm0 
+  01801611B7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801611BD  vsubss xmm1, xmm0, dword ptr [rip + 0x21063b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801611C5  vmovss xmm0, dword ptr [r8 + 0x224] 
+  01801611CE  vcomiss xmm0, xmm1       
+  01801611D2  jbe 0x1801611dd          
+  01801611D4  vmovss dword ptr [r8 + 0x224], xmm1 
+  01801611DD  movsx eax, word ptr [rdx + 4] 
+  01801611E1  cmp ax, -1               
+  01801611E5  je 0x1801611f8           
+  01801611E7  vxorps xmm0, xmm0, xmm0  
+  01801611EB  vcvtsi2ss xmm0, xmm0, eax 
+  01801611EF  vmovss dword ptr [r8 + 0x228], xmm0 
+  01801611F8  ret                      
+
+########## code 26 (0x1A)  handler 0x180161200  (368 octets max)
+  0180161200  movsx eax, word ptr [rdx] 
+  0180161203  mov r8, qword ptr [rcx + 0x10] 
+  0180161207  test ax, ax              
+  018016120A  jle 0x18016121d          
+  018016120C  vxorps xmm0, xmm0, xmm0  
+  0180161210  vcvtsi2ss xmm0, xmm0, eax 
+  0180161214  vmovss dword ptr [r8 + 0x208], xmm0 
+  018016121D  movsx eax, word ptr [rdx + 2] 
+  0180161221  lea rcx, [rdx + 2]       
+  0180161225  test ax, ax              
+  0180161228  js 0x180161241           
+  018016122A  vxorps xmm0, xmm0, xmm0  
+  018016122E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161232  vmovss dword ptr [r8 + 0x20c], xmm0 
+  018016123B  lea rax, [rdx + 2]       
+  018016123F  jmp 0x180161244          
+  0180161241  mov rax, rcx             
+  0180161244  vmovss xmm0, dword ptr [r8 + 4] 
+  018016124A  vmovss xmm2, dword ptr [rip + 0x2105ae]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161252  vsubss xmm1, xmm0, xmm2  
+  0180161256  vmovss xmm0, dword ptr [r8 + 0x20c] 
+  018016125F  vcomiss xmm0, xmm1       
+  0180161263  jbe 0x180161271          
+  0180161265  vmovss dword ptr [r8 + 0x20c], xmm1 
+  018016126E  mov rcx, rax             
+  0180161271  movsx eax, word ptr [rdx + 4] 
+  0180161275  cmp ax, -1               
+  0180161279  je 0x18016128c           
+  018016127B  vxorps xmm0, xmm0, xmm0  
+  018016127F  vcvtsi2ss xmm0, xmm0, eax 
+  0180161283  vmovss dword ptr [r8 + 0x210], xmm0 
+  018016128C  movsx eax, word ptr [rdx] 
+  018016128F  test ax, ax              
+  0180161292  jle 0x1801612a5          
+  0180161294  vxorps xmm0, xmm0, xmm0  
+  0180161298  vcvtsi2ss xmm0, xmm0, eax 
+  018016129C  vmovss dword ptr [r8 + 0x214], xmm0 
+  01801612A5  movsx eax, word ptr [rcx] 
+  01801612A8  test ax, ax              
+  01801612AB  js 0x1801612be           
+  01801612AD  vxorps xmm0, xmm0, xmm0  
+  01801612B1  vcvtsi2ss xmm0, xmm0, eax 
+  01801612B5  vmovss dword ptr [r8 + 0x218], xmm0 
+  01801612BE  vmovss xmm0, dword ptr [r8 + 4] 
+  01801612C4  vsubss xmm1, xmm0, xmm2  
+  01801612C8  vmovss xmm0, dword ptr [r8 + 0x218] 
+  01801612D1  vcomiss xmm0, xmm1       
+  01801612D5  jbe 0x1801612e0          
+  01801612D7  vmovss dword ptr [r8 + 0x218], xmm1 
+  01801612E0  movsx eax, word ptr [rdx + 4] 
+  01801612E4  cmp ax, -1               
+  01801612E8  je 0x1801612fb           
+  01801612EA  vxorps xmm0, xmm0, xmm0  
+  01801612EE  vcvtsi2ss xmm0, xmm0, eax 
+  01801612F2  vmovss dword ptr [r8 + 0x21c], xmm0 
+  01801612FB  movsx eax, word ptr [rdx] 
+  01801612FE  test ax, ax              
+  0180161301  jle 0x180161314          
+  0180161303  vxorps xmm0, xmm0, xmm0  
+  0180161307  vcvtsi2ss xmm0, xmm0, eax 
+  018016130B  vmovss dword ptr [r8 + 0x220], xmm0 
+  0180161314  movsx eax, word ptr [rdx + 2] 
+  0180161318  test ax, ax              
+  018016131B  js 0x18016132e           
+  018016131D  vxorps xmm0, xmm0, xmm0  
+  0180161321  vcvtsi2ss xmm0, xmm0, eax 
+  0180161325  vmovss dword ptr [r8 + 0x224], xmm0 
+  018016132E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161334  vsubss xmm1, xmm0, xmm2  
+  0180161338  vmovss xmm0, dword ptr [r8 + 0x224] 
+  0180161341  vcomiss xmm0, xmm1       
+  0180161345  jbe 0x180161350          
+  0180161347  vmovss dword ptr [r8 + 0x224], xmm1 
+  0180161350  movsx eax, word ptr [rdx + 4] 
+  0180161354  cmp ax, -1               
+  0180161358  je 0x18016136b           
+  018016135A  vxorps xmm0, xmm0, xmm0  
+  018016135E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161362  vmovss dword ptr [r8 + 0x228], xmm0 
+  018016136B  ret                      
+
+########## code 27 (0x1B)  handler 0x180161370  (128 octets max)
+  0180161370  movsx eax, word ptr [rdx] 
+  0180161373  mov r8, qword ptr [rcx + 0x10] 
+  0180161377  test ax, ax              
+  018016137A  jle 0x18016138d          
+  018016137C  vxorps xmm0, xmm0, xmm0  
+  0180161380  vcvtsi2ss xmm0, xmm0, eax 
+  0180161384  vmovss dword ptr [r8 + 0x22c], xmm0 
+  018016138D  movsx eax, word ptr [rdx + 2] 
+  0180161391  test ax, ax              
+  0180161394  js 0x1801613a7           
+  0180161396  vxorps xmm0, xmm0, xmm0  
+  018016139A  vcvtsi2ss xmm0, xmm0, eax 
+  018016139E  vmovss dword ptr [r8 + 0x230], xmm0 
+  01801613A7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801613AD  vsubss xmm1, xmm0, dword ptr [rip + 0x21044b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801613B5  vmovss xmm0, dword ptr [r8 + 0x230] 
+  01801613BE  vcomiss xmm0, xmm1       
+  01801613C2  jbe 0x1801613cd          
+  01801613C4  vmovss dword ptr [r8 + 0x230], xmm1 
+  01801613CD  movsx eax, word ptr [rdx + 4] 
+  01801613D1  cmp ax, -1               
+  01801613D5  je 0x1801613e8           
+  01801613D7  vxorps xmm0, xmm0, xmm0  
+  01801613DB  vcvtsi2ss xmm0, xmm0, eax 
+  01801613DF  vmovss dword ptr [r8 + 0x234], xmm0 
+  01801613E8  ret                      
+
+########## code 28 (0x1C)  handler 0x1801613F0  (128 octets max)
+  01801613F0  movsx eax, word ptr [rdx] 
+  01801613F3  mov r8, qword ptr [rcx + 0x10] 
+  01801613F7  test ax, ax              
+  01801613FA  jle 0x18016140d          
+  01801613FC  vxorps xmm0, xmm0, xmm0  
+  0180161400  vcvtsi2ss xmm0, xmm0, eax 
+  0180161404  vmovss dword ptr [r8 + 0x238], xmm0 
+  018016140D  movsx eax, word ptr [rdx + 2] 
+  0180161411  test ax, ax              
+  0180161414  js 0x180161427           
+  0180161416  vxorps xmm0, xmm0, xmm0  
+  018016141A  vcvtsi2ss xmm0, xmm0, eax 
+  018016141E  vmovss dword ptr [r8 + 0x23c], xmm0 
+  0180161427  vmovss xmm0, dword ptr [r8 + 4] 
+  018016142D  vsubss xmm1, xmm0, dword ptr [rip + 0x2103cb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161435  vmovss xmm0, dword ptr [r8 + 0x23c] 
+  018016143E  vcomiss xmm0, xmm1       
+  0180161442  jbe 0x18016144d          
+  0180161444  vmovss dword ptr [r8 + 0x23c], xmm1 
+  018016144D  movsx eax, word ptr [rdx + 4] 
+  0180161451  cmp ax, -1               
+  0180161455  je 0x180161468           
+  0180161457  vxorps xmm0, xmm0, xmm0  
+  018016145B  vcvtsi2ss xmm0, xmm0, eax 
+  018016145F  vmovss dword ptr [r8 + 0x240], xmm0 
+  0180161468  ret                      
+
+########## code 29 (0x1D)  handler 0x180161470  (128 octets max)
+  0180161470  movsx eax, word ptr [rdx] 
+  0180161473  mov r8, qword ptr [rcx + 0x10] 
+  0180161477  test ax, ax              
+  018016147A  jle 0x18016148d          
+  018016147C  vxorps xmm0, xmm0, xmm0  
+  0180161480  vcvtsi2ss xmm0, xmm0, eax 
+  0180161484  vmovss dword ptr [r8 + 0x244], xmm0 
+  018016148D  movsx eax, word ptr [rdx + 2] 
+  0180161491  test ax, ax              
+  0180161494  js 0x1801614a7           
+  0180161496  vxorps xmm0, xmm0, xmm0  
+  018016149A  vcvtsi2ss xmm0, xmm0, eax 
+  018016149E  vmovss dword ptr [r8 + 0x248], xmm0 
+  01801614A7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801614AD  vsubss xmm1, xmm0, dword ptr [rip + 0x21034b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801614B5  vmovss xmm0, dword ptr [r8 + 0x248] 
+  01801614BE  vcomiss xmm0, xmm1       
+  01801614C2  jbe 0x1801614cd          
+  01801614C4  vmovss dword ptr [r8 + 0x248], xmm1 
+  01801614CD  movsx eax, word ptr [rdx + 4] 
+  01801614D1  cmp ax, -1               
+  01801614D5  je 0x1801614e8           
+  01801614D7  vxorps xmm0, xmm0, xmm0  
+  01801614DB  vcvtsi2ss xmm0, xmm0, eax 
+  01801614DF  vmovss dword ptr [r8 + 0x24c], xmm0 
+  01801614E8  ret                      
+
+########## code 30 (0x1E)  handler 0x1801614F0  (128 octets max)
+  01801614F0  movsx eax, word ptr [rdx] 
+  01801614F3  mov r8, qword ptr [rcx + 0x10] 
+  01801614F7  test ax, ax              
+  01801614FA  jle 0x18016150d          
+  01801614FC  vxorps xmm0, xmm0, xmm0  
+  0180161500  vcvtsi2ss xmm0, xmm0, eax 
+  0180161504  vmovss dword ptr [r8 + 0x250], xmm0 
+  018016150D  movsx eax, word ptr [rdx + 2] 
+  0180161511  test ax, ax              
+  0180161514  js 0x180161527           
+  0180161516  vxorps xmm0, xmm0, xmm0  
+  018016151A  vcvtsi2ss xmm0, xmm0, eax 
+  018016151E  vmovss dword ptr [r8 + 0x254], xmm0 
+  0180161527  vmovss xmm0, dword ptr [r8 + 4] 
+  018016152D  vsubss xmm1, xmm0, dword ptr [rip + 0x2102cb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161535  vmovss xmm0, dword ptr [r8 + 0x254] 
+  018016153E  vcomiss xmm0, xmm1       
+  0180161542  jbe 0x18016154d          
+  0180161544  vmovss dword ptr [r8 + 0x254], xmm1 
+  018016154D  movsx eax, word ptr [rdx + 4] 
+  0180161551  cmp ax, -1               
+  0180161555  je 0x180161568           
+  0180161557  vxorps xmm0, xmm0, xmm0  
+  018016155B  vcvtsi2ss xmm0, xmm0, eax 
+  018016155F  vmovss dword ptr [r8 + 0x258], xmm0 
+  0180161568  ret                      
+
+########## code 31 (0x1F)  handler 0x180161570  (128 octets max)
+  0180161570  movsx eax, word ptr [rdx] 
+  0180161573  mov r8, qword ptr [rcx + 0x10] 
+  0180161577  test ax, ax              
+  018016157A  jle 0x18016158d          
+  018016157C  vxorps xmm0, xmm0, xmm0  
+  0180161580  vcvtsi2ss xmm0, xmm0, eax 
+  0180161584  vmovss dword ptr [r8 + 0x25c], xmm0 
+  018016158D  movsx eax, word ptr [rdx + 2] 
+  0180161591  test ax, ax              
+  0180161594  js 0x1801615a7           
+  0180161596  vxorps xmm0, xmm0, xmm0  
+  018016159A  vcvtsi2ss xmm0, xmm0, eax 
+  018016159E  vmovss dword ptr [r8 + 0x260], xmm0 
+  01801615A7  vmovss xmm0, dword ptr [r8 + 4] 
+  01801615AD  vsubss xmm1, xmm0, dword ptr [rip + 0x21024b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801615B5  vmovss xmm0, dword ptr [r8 + 0x260] 
+  01801615BE  vcomiss xmm0, xmm1       
+  01801615C2  jbe 0x1801615cd          
+  01801615C4  vmovss dword ptr [r8 + 0x260], xmm1 
+  01801615CD  movsx eax, word ptr [rdx + 4] 
+  01801615D1  cmp ax, -1               
+  01801615D5  je 0x1801615e8           
+  01801615D7  vxorps xmm0, xmm0, xmm0  
+  01801615DB  vcvtsi2ss xmm0, xmm0, eax 
+  01801615DF  vmovss dword ptr [r8 + 0x264], xmm0 
+  01801615E8  ret                      
+
+########## code 32 (0x20)  handler 0x1801615F0  (368 octets max)
+  01801615F0  movsx eax, word ptr [rdx] 
+  01801615F3  mov r8, qword ptr [rcx + 0x10] 
+  01801615F7  test ax, ax              
+  01801615FA  jle 0x18016160d          
+  01801615FC  vxorps xmm0, xmm0, xmm0  
+  0180161600  vcvtsi2ss xmm0, xmm0, eax 
+  0180161604  vmovss dword ptr [r8 + 0x244], xmm0 
+  018016160D  movsx eax, word ptr [rdx + 2] 
+  0180161611  lea rcx, [rdx + 2]       
+  0180161615  test ax, ax              
+  0180161618  js 0x180161631           
+  018016161A  vxorps xmm0, xmm0, xmm0  
+  018016161E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161622  vmovss dword ptr [r8 + 0x248], xmm0 
+  018016162B  lea rax, [rdx + 2]       
+  018016162F  jmp 0x180161634          
+  0180161631  mov rax, rcx             
+  0180161634  vmovss xmm0, dword ptr [r8 + 4] 
+  018016163A  vmovss xmm2, dword ptr [rip + 0x2101be]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161642  vsubss xmm1, xmm0, xmm2  
+  0180161646  vmovss xmm0, dword ptr [r8 + 0x248] 
+  018016164F  vcomiss xmm0, xmm1       
+  0180161653  jbe 0x180161661          
+  0180161655  vmovss dword ptr [r8 + 0x248], xmm1 
+  018016165E  mov rcx, rax             
+  0180161661  movsx eax, word ptr [rdx + 4] 
+  0180161665  cmp ax, -1               
+  0180161669  je 0x18016167c           
+  018016166B  vxorps xmm0, xmm0, xmm0  
+  018016166F  vcvtsi2ss xmm0, xmm0, eax 
+  0180161673  vmovss dword ptr [r8 + 0x24c], xmm0 
+  018016167C  movsx eax, word ptr [rdx] 
+  018016167F  test ax, ax              
+  0180161682  jle 0x180161695          
+  0180161684  vxorps xmm0, xmm0, xmm0  
+  0180161688  vcvtsi2ss xmm0, xmm0, eax 
+  018016168C  vmovss dword ptr [r8 + 0x250], xmm0 
+  0180161695  movsx eax, word ptr [rcx] 
+  0180161698  test ax, ax              
+  018016169B  js 0x1801616ae           
+  018016169D  vxorps xmm0, xmm0, xmm0  
+  01801616A1  vcvtsi2ss xmm0, xmm0, eax 
+  01801616A5  vmovss dword ptr [r8 + 0x254], xmm0 
+  01801616AE  vmovss xmm0, dword ptr [r8 + 4] 
+  01801616B4  vsubss xmm1, xmm0, xmm2  
+  01801616B8  vmovss xmm0, dword ptr [r8 + 0x254] 
+  01801616C1  vcomiss xmm0, xmm1       
+  01801616C5  jbe 0x1801616d0          
+  01801616C7  vmovss dword ptr [r8 + 0x254], xmm1 
+  01801616D0  movsx eax, word ptr [rdx + 4] 
+  01801616D4  cmp ax, -1               
+  01801616D8  je 0x1801616eb           
+  01801616DA  vxorps xmm0, xmm0, xmm0  
+  01801616DE  vcvtsi2ss xmm0, xmm0, eax 
+  01801616E2  vmovss dword ptr [r8 + 0x258], xmm0 
+  01801616EB  movsx eax, word ptr [rdx] 
+  01801616EE  test ax, ax              
+  01801616F1  jle 0x180161704          
+  01801616F3  vxorps xmm0, xmm0, xmm0  
+  01801616F7  vcvtsi2ss xmm0, xmm0, eax 
+  01801616FB  vmovss dword ptr [r8 + 0x25c], xmm0 
+  0180161704  movsx eax, word ptr [rdx + 2] 
+  0180161708  test ax, ax              
+  018016170B  js 0x18016171e           
+  018016170D  vxorps xmm0, xmm0, xmm0  
+  0180161711  vcvtsi2ss xmm0, xmm0, eax 
+  0180161715  vmovss dword ptr [r8 + 0x260], xmm0 
+  018016171E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161724  vsubss xmm1, xmm0, xmm2  
+  0180161728  vmovss xmm0, dword ptr [r8 + 0x260] 
+  0180161731  vcomiss xmm0, xmm1       
+  0180161735  jbe 0x180161740          
+  0180161737  vmovss dword ptr [r8 + 0x260], xmm1 
+  0180161740  movsx eax, word ptr [rdx + 4] 
+  0180161744  cmp ax, -1               
+  0180161748  je 0x18016175b           
+  018016174A  vxorps xmm0, xmm0, xmm0  
+  018016174E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161752  vmovss dword ptr [r8 + 0x264], xmm0 
+  018016175B  ret                      
+
+########## code 33 (0x21)  handler 0x180161760  (128 octets max)
+  0180161760  movsx eax, word ptr [rdx] 
+  0180161763  mov r8, qword ptr [rcx + 0x10] 
+  0180161767  test ax, ax              
+  018016176A  jle 0x18016177d          
+  018016176C  vxorps xmm0, xmm0, xmm0  
+  0180161770  vcvtsi2ss xmm0, xmm0, eax 
+  0180161774  vmovss dword ptr [r8 + 0x268], xmm0 
+  018016177D  movsx eax, word ptr [rdx + 2] 
+  0180161781  test ax, ax              
+  0180161784  js 0x180161797           
+  0180161786  vxorps xmm0, xmm0, xmm0  
+  018016178A  vcvtsi2ss xmm0, xmm0, eax 
+  018016178E  vmovss dword ptr [r8 + 0x26c], xmm0 
+  0180161797  vmovss xmm0, dword ptr [r8 + 4] 
+  018016179D  vsubss xmm1, xmm0, dword ptr [rip + 0x21005b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801617A5  vmovss xmm0, dword ptr [r8 + 0x26c] 
+  01801617AE  vcomiss xmm0, xmm1       
+  01801617B2  jbe 0x1801617bd          
+  01801617B4  vmovss dword ptr [r8 + 0x26c], xmm1 
+  01801617BD  movsx eax, word ptr [rdx + 4] 
+  01801617C1  cmp ax, -1               
+  01801617C5  je 0x1801617d8           
+  01801617C7  vxorps xmm0, xmm0, xmm0  
+  01801617CB  vcvtsi2ss xmm0, xmm0, eax 
+  01801617CF  vmovss dword ptr [r8 + 0x270], xmm0 
+  01801617D8  ret                      
+
+########## code 34 (0x22)  handler 0x1801617E0  (128 octets max)
+  01801617E0  movsx eax, word ptr [rdx] 
+  01801617E3  mov r8, qword ptr [rcx + 0x10] 
+  01801617E7  test ax, ax              
+  01801617EA  jle 0x1801617fd          
+  01801617EC  vxorps xmm0, xmm0, xmm0  
+  01801617F0  vcvtsi2ss xmm0, xmm0, eax 
+  01801617F4  vmovss dword ptr [r8 + 0x274], xmm0 
+  01801617FD  movsx eax, word ptr [rdx + 2] 
+  0180161801  test ax, ax              
+  0180161804  js 0x180161817           
+  0180161806  vxorps xmm0, xmm0, xmm0  
+  018016180A  vcvtsi2ss xmm0, xmm0, eax 
+  018016180E  vmovss dword ptr [r8 + 0x278], xmm0 
+  0180161817  vmovss xmm0, dword ptr [r8 + 4] 
+  018016181D  vsubss xmm1, xmm0, dword ptr [rip + 0x20ffdb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161825  vmovss xmm0, dword ptr [r8 + 0x278] 
+  018016182E  vcomiss xmm0, xmm1       
+  0180161832  jbe 0x18016183d          
+  0180161834  vmovss dword ptr [r8 + 0x278], xmm1 
+  018016183D  movsx eax, word ptr [rdx + 4] 
+  0180161841  cmp ax, -1               
+  0180161845  je 0x180161858           
+  0180161847  vxorps xmm0, xmm0, xmm0  
+  018016184B  vcvtsi2ss xmm0, xmm0, eax 
+  018016184F  vmovss dword ptr [r8 + 0x27c], xmm0 
+  0180161858  ret                      
+
+########## code 35 (0x23)  handler 0x180161860  (128 octets max)
+  0180161860  movsx eax, word ptr [rdx] 
+  0180161863  mov r8, qword ptr [rcx + 0x10] 
+  0180161867  test ax, ax              
+  018016186A  jle 0x18016187d          
+  018016186C  vxorps xmm0, xmm0, xmm0  
+  0180161870  vcvtsi2ss xmm0, xmm0, eax 
+  0180161874  vmovss dword ptr [r8 + 0x280], xmm0 
+  018016187D  movsx eax, word ptr [rdx + 2] 
+  0180161881  test ax, ax              
+  0180161884  js 0x180161897           
+  0180161886  vxorps xmm0, xmm0, xmm0  
+  018016188A  vcvtsi2ss xmm0, xmm0, eax 
+  018016188E  vmovss dword ptr [r8 + 0x284], xmm0 
+  0180161897  vmovss xmm0, dword ptr [r8 + 4] 
+  018016189D  vsubss xmm1, xmm0, dword ptr [rip + 0x20ff5b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801618A5  vmovss xmm0, dword ptr [r8 + 0x284] 
+  01801618AE  vcomiss xmm0, xmm1       
+  01801618B2  jbe 0x1801618bd          
+  01801618B4  vmovss dword ptr [r8 + 0x284], xmm1 
+  01801618BD  movsx eax, word ptr [rdx + 4] 
+  01801618C1  cmp ax, -1               
+  01801618C5  je 0x1801618d8           
+  01801618C7  vxorps xmm0, xmm0, xmm0  
+  01801618CB  vcvtsi2ss xmm0, xmm0, eax 
+  01801618CF  vmovss dword ptr [r8 + 0x288], xmm0 
+  01801618D8  ret                      
+
+########## code 36 (0x24)  handler 0x1801618E0  (128 octets max)
+  01801618E0  movsx eax, word ptr [rdx] 
+  01801618E3  mov r8, qword ptr [rcx + 0x10] 
+  01801618E7  test ax, ax              
+  01801618EA  jle 0x1801618fd          
+  01801618EC  vxorps xmm0, xmm0, xmm0  
+  01801618F0  vcvtsi2ss xmm0, xmm0, eax 
+  01801618F4  vmovss dword ptr [r8 + 0x28c], xmm0 
+  01801618FD  movsx eax, word ptr [rdx + 2] 
+  0180161901  test ax, ax              
+  0180161904  js 0x180161917           
+  0180161906  vxorps xmm0, xmm0, xmm0  
+  018016190A  vcvtsi2ss xmm0, xmm0, eax 
+  018016190E  vmovss dword ptr [r8 + 0x290], xmm0 
+  0180161917  vmovss xmm0, dword ptr [r8 + 4] 
+  018016191D  vsubss xmm1, xmm0, dword ptr [rip + 0x20fedb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161925  vmovss xmm0, dword ptr [r8 + 0x290] 
+  018016192E  vcomiss xmm0, xmm1       
+  0180161932  jbe 0x18016193d          
+  0180161934  vmovss dword ptr [r8 + 0x290], xmm1 
+  018016193D  movsx eax, word ptr [rdx + 4] 
+  0180161941  cmp ax, -1               
+  0180161945  je 0x180161958           
+  0180161947  vxorps xmm0, xmm0, xmm0  
+  018016194B  vcvtsi2ss xmm0, xmm0, eax 
+  018016194F  vmovss dword ptr [r8 + 0x294], xmm0 
+  0180161958  ret                      
+
+########## code 37 (0x25)  handler 0x180161960  (128 octets max)
+  0180161960  movsx eax, word ptr [rdx] 
+  0180161963  mov r8, qword ptr [rcx + 0x10] 
+  0180161967  test ax, ax              
+  018016196A  jle 0x18016197d          
+  018016196C  vxorps xmm0, xmm0, xmm0  
+  0180161970  vcvtsi2ss xmm0, xmm0, eax 
+  0180161974  vmovss dword ptr [r8 + 0x298], xmm0 
+  018016197D  movsx eax, word ptr [rdx + 2] 
+  0180161981  test ax, ax              
+  0180161984  js 0x180161997           
+  0180161986  vxorps xmm0, xmm0, xmm0  
+  018016198A  vcvtsi2ss xmm0, xmm0, eax 
+  018016198E  vmovss dword ptr [r8 + 0x29c], xmm0 
+  0180161997  vmovss xmm0, dword ptr [r8 + 4] 
+  018016199D  vsubss xmm1, xmm0, dword ptr [rip + 0x20fe5b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801619A5  vmovss xmm0, dword ptr [r8 + 0x29c] 
+  01801619AE  vcomiss xmm0, xmm1       
+  01801619B2  jbe 0x1801619bd          
+  01801619B4  vmovss dword ptr [r8 + 0x29c], xmm1 
+  01801619BD  movsx eax, word ptr [rdx + 4] 
+  01801619C1  cmp ax, -1               
+  01801619C5  je 0x1801619d8           
+  01801619C7  vxorps xmm0, xmm0, xmm0  
+  01801619CB  vcvtsi2ss xmm0, xmm0, eax 
+  01801619CF  vmovss dword ptr [r8 + 0x2a0], xmm0 
+  01801619D8  ret                      
+
+########## code 38 (0x26)  handler 0x1801619E0  (128 octets max)
+  01801619E0  movsx eax, word ptr [rdx] 
+  01801619E3  mov r8, qword ptr [rcx + 0x10] 
+  01801619E7  test ax, ax              
+  01801619EA  jle 0x1801619fd          
+  01801619EC  vxorps xmm0, xmm0, xmm0  
+  01801619F0  vcvtsi2ss xmm0, xmm0, eax 
+  01801619F4  vmovss dword ptr [r8 + 0x2a4], xmm0 
+  01801619FD  movsx eax, word ptr [rdx + 2] 
+  0180161A01  test ax, ax              
+  0180161A04  js 0x180161a17           
+  0180161A06  vxorps xmm0, xmm0, xmm0  
+  0180161A0A  vcvtsi2ss xmm0, xmm0, eax 
+  0180161A0E  vmovss dword ptr [r8 + 0x2a8], xmm0 
+  0180161A17  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161A1D  vsubss xmm1, xmm0, dword ptr [rip + 0x20fddb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161A25  vmovss xmm0, dword ptr [r8 + 0x2a8] 
+  0180161A2E  vcomiss xmm0, xmm1       
+  0180161A32  jbe 0x180161a3d          
+  0180161A34  vmovss dword ptr [r8 + 0x2a8], xmm1 
+  0180161A3D  movsx eax, word ptr [rdx + 4] 
+  0180161A41  cmp ax, -1               
+  0180161A45  je 0x180161a58           
+  0180161A47  vxorps xmm0, xmm0, xmm0  
+  0180161A4B  vcvtsi2ss xmm0, xmm0, eax 
+  0180161A4F  vmovss dword ptr [r8 + 0x2ac], xmm0 
+  0180161A58  ret                      
+
+########## code 39 (0x27)  handler 0x180161A60  (128 octets max)
+  0180161A60  movsx eax, word ptr [rdx] 
+  0180161A63  mov r8, qword ptr [rcx + 0x10] 
+  0180161A67  test ax, ax              
+  0180161A6A  jle 0x180161a7d          
+  0180161A6C  vxorps xmm0, xmm0, xmm0  
+  0180161A70  vcvtsi2ss xmm0, xmm0, eax 
+  0180161A74  vmovss dword ptr [r8 + 0x2b0], xmm0 
+  0180161A7D  movsx eax, word ptr [rdx + 2] 
+  0180161A81  test ax, ax              
+  0180161A84  js 0x180161a97           
+  0180161A86  vxorps xmm0, xmm0, xmm0  
+  0180161A8A  vcvtsi2ss xmm0, xmm0, eax 
+  0180161A8E  vmovss dword ptr [r8 + 0x2b4], xmm0 
+  0180161A97  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161A9D  vsubss xmm1, xmm0, dword ptr [rip + 0x20fd5b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161AA5  vmovss xmm0, dword ptr [r8 + 0x2b4] 
+  0180161AAE  vcomiss xmm0, xmm1       
+  0180161AB2  jbe 0x180161abd          
+  0180161AB4  vmovss dword ptr [r8 + 0x2b4], xmm1 
+  0180161ABD  movsx eax, word ptr [rdx + 4] 
+  0180161AC1  cmp ax, -1               
+  0180161AC5  je 0x180161ad8           
+  0180161AC7  vxorps xmm0, xmm0, xmm0  
+  0180161ACB  vcvtsi2ss xmm0, xmm0, eax 
+  0180161ACF  vmovss dword ptr [r8 + 0x2b8], xmm0 
+  0180161AD8  ret                      
+
+########## code 40 (0x28)  handler 0x180161AE0  (368 octets max)
+  0180161AE0  movsx eax, word ptr [rdx] 
+  0180161AE3  mov r8, qword ptr [rcx + 0x10] 
+  0180161AE7  test ax, ax              
+  0180161AEA  jle 0x180161afd          
+  0180161AEC  vxorps xmm0, xmm0, xmm0  
+  0180161AF0  vcvtsi2ss xmm0, xmm0, eax 
+  0180161AF4  vmovss dword ptr [r8 + 0x298], xmm0 
+  0180161AFD  movsx eax, word ptr [rdx + 2] 
+  0180161B01  lea rcx, [rdx + 2]       
+  0180161B05  test ax, ax              
+  0180161B08  js 0x180161b21           
+  0180161B0A  vxorps xmm0, xmm0, xmm0  
+  0180161B0E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161B12  vmovss dword ptr [r8 + 0x29c], xmm0 
+  0180161B1B  lea rax, [rdx + 2]       
+  0180161B1F  jmp 0x180161b24          
+  0180161B21  mov rax, rcx             
+  0180161B24  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161B2A  vmovss xmm2, dword ptr [rip + 0x20fcce]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161B32  vsubss xmm1, xmm0, xmm2  
+  0180161B36  vmovss xmm0, dword ptr [r8 + 0x29c] 
+  0180161B3F  vcomiss xmm0, xmm1       
+  0180161B43  jbe 0x180161b51          
+  0180161B45  vmovss dword ptr [r8 + 0x29c], xmm1 
+  0180161B4E  mov rcx, rax             
+  0180161B51  movsx eax, word ptr [rdx + 4] 
+  0180161B55  cmp ax, -1               
+  0180161B59  je 0x180161b6c           
+  0180161B5B  vxorps xmm0, xmm0, xmm0  
+  0180161B5F  vcvtsi2ss xmm0, xmm0, eax 
+  0180161B63  vmovss dword ptr [r8 + 0x2a0], xmm0 
+  0180161B6C  movsx eax, word ptr [rdx] 
+  0180161B6F  test ax, ax              
+  0180161B72  jle 0x180161b85          
+  0180161B74  vxorps xmm0, xmm0, xmm0  
+  0180161B78  vcvtsi2ss xmm0, xmm0, eax 
+  0180161B7C  vmovss dword ptr [r8 + 0x2a4], xmm0 
+  0180161B85  movsx eax, word ptr [rcx] 
+  0180161B88  test ax, ax              
+  0180161B8B  js 0x180161b9e           
+  0180161B8D  vxorps xmm0, xmm0, xmm0  
+  0180161B91  vcvtsi2ss xmm0, xmm0, eax 
+  0180161B95  vmovss dword ptr [r8 + 0x2a8], xmm0 
+  0180161B9E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161BA4  vsubss xmm1, xmm0, xmm2  
+  0180161BA8  vmovss xmm0, dword ptr [r8 + 0x2a8] 
+  0180161BB1  vcomiss xmm0, xmm1       
+  0180161BB5  jbe 0x180161bc0          
+  0180161BB7  vmovss dword ptr [r8 + 0x2a8], xmm1 
+  0180161BC0  movsx eax, word ptr [rdx + 4] 
+  0180161BC4  cmp ax, -1               
+  0180161BC8  je 0x180161bdb           
+  0180161BCA  vxorps xmm0, xmm0, xmm0  
+  0180161BCE  vcvtsi2ss xmm0, xmm0, eax 
+  0180161BD2  vmovss dword ptr [r8 + 0x2ac], xmm0 
+  0180161BDB  movsx eax, word ptr [rdx] 
+  0180161BDE  test ax, ax              
+  0180161BE1  jle 0x180161bf4          
+  0180161BE3  vxorps xmm0, xmm0, xmm0  
+  0180161BE7  vcvtsi2ss xmm0, xmm0, eax 
+  0180161BEB  vmovss dword ptr [r8 + 0x2b0], xmm0 
+  0180161BF4  movsx eax, word ptr [rdx + 2] 
+  0180161BF8  test ax, ax              
+  0180161BFB  js 0x180161c0e           
+  0180161BFD  vxorps xmm0, xmm0, xmm0  
+  0180161C01  vcvtsi2ss xmm0, xmm0, eax 
+  0180161C05  vmovss dword ptr [r8 + 0x2b4], xmm0 
+  0180161C0E  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161C14  vsubss xmm1, xmm0, xmm2  
+  0180161C18  vmovss xmm0, dword ptr [r8 + 0x2b4] 
+  0180161C21  vcomiss xmm0, xmm1       
+  0180161C25  jbe 0x180161c30          
+  0180161C27  vmovss dword ptr [r8 + 0x2b4], xmm1 
+  0180161C30  movsx eax, word ptr [rdx + 4] 
+  0180161C34  cmp ax, -1               
+  0180161C38  je 0x180161c4b           
+  0180161C3A  vxorps xmm0, xmm0, xmm0  
+  0180161C3E  vcvtsi2ss xmm0, xmm0, eax 
+  0180161C42  vmovss dword ptr [r8 + 0x2b8], xmm0 
+  0180161C4B  ret                      
+
+########## code 41 (0x29)  handler 0x180161C50  (128 octets max)
+  0180161C50  movsx eax, word ptr [rdx] 
+  0180161C53  mov r8, qword ptr [rcx + 0x10] 
+  0180161C57  test ax, ax              
+  0180161C5A  jle 0x180161c6d          
+  0180161C5C  vxorps xmm0, xmm0, xmm0  
+  0180161C60  vcvtsi2ss xmm0, xmm0, eax 
+  0180161C64  vmovss dword ptr [r8 + 0x2bc], xmm0 
+  0180161C6D  movsx eax, word ptr [rdx + 2] 
+  0180161C71  test ax, ax              
+  0180161C74  js 0x180161c87           
+  0180161C76  vxorps xmm0, xmm0, xmm0  
+  0180161C7A  vcvtsi2ss xmm0, xmm0, eax 
+  0180161C7E  vmovss dword ptr [r8 + 0x2c0], xmm0 
+  0180161C87  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161C8D  vsubss xmm1, xmm0, dword ptr [rip + 0x20fb6b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161C95  vmovss xmm0, dword ptr [r8 + 0x2c0] 
+  0180161C9E  vcomiss xmm0, xmm1       
+  0180161CA2  jbe 0x180161cad          
+  0180161CA4  vmovss dword ptr [r8 + 0x2c0], xmm1 
+  0180161CAD  movsx eax, word ptr [rdx + 4] 
+  0180161CB1  cmp ax, -1               
+  0180161CB5  je 0x180161cc8           
+  0180161CB7  vxorps xmm0, xmm0, xmm0  
+  0180161CBB  vcvtsi2ss xmm0, xmm0, eax 
+  0180161CBF  vmovss dword ptr [r8 + 0x2c4], xmm0 
+  0180161CC8  ret                      
+
+########## code 42 (0x2A)  handler 0x180161CD0  (128 octets max)
+  0180161CD0  movsx eax, word ptr [rdx] 
+  0180161CD3  mov r8, qword ptr [rcx + 0x10] 
+  0180161CD7  test ax, ax              
+  0180161CDA  jle 0x180161ced          
+  0180161CDC  vxorps xmm0, xmm0, xmm0  
+  0180161CE0  vcvtsi2ss xmm0, xmm0, eax 
+  0180161CE4  vmovss dword ptr [r8 + 0x2c8], xmm0 
+  0180161CED  movsx eax, word ptr [rdx + 2] 
+  0180161CF1  test ax, ax              
+  0180161CF4  js 0x180161d07           
+  0180161CF6  vxorps xmm0, xmm0, xmm0  
+  0180161CFA  vcvtsi2ss xmm0, xmm0, eax 
+  0180161CFE  vmovss dword ptr [r8 + 0x2cc], xmm0 
+  0180161D07  vmovss xmm0, dword ptr [r8 + 4] 
+  0180161D0D  vsubss xmm1, xmm0, dword ptr [rip + 0x20faeb]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  0180161D15  vmovss xmm0, dword ptr [r8 + 0x2cc] 
+  0180161D1E  vcomiss xmm0, xmm1       
+  0180161D22  jbe 0x180161d2d          
+  0180161D24  vmovss dword ptr [r8 + 0x2cc], xmm1 
+  0180161D2D  movsx eax, word ptr [rdx + 4] 
+  0180161D31  cmp ax, -1               
+  0180161D35  je 0x180161d48           
+  0180161D37  vxorps xmm0, xmm0, xmm0  
+  0180161D3B  vcvtsi2ss xmm0, xmm0, eax 
+  0180161D3F  vmovss dword ptr [r8 + 0x2d0], xmm0 
+  0180161D48  ret                      
+
+########## code 43 (0x2B) : AUCUN GESTIONNAIRE
+
+
+########## code 44 (0x2C) : AUCUN GESTIONNAIRE
+
+
+########## code 45 (0x2D)  handler 0x180161D50  (224 octets max)
+  0180161D50  mov qword ptr [rsp + 8], rbx 
+  0180161D55  mov qword ptr [rsp + 0x10], rsi 
+  0180161D5A  push rdi                 
+  0180161D5B  sub rsp, 0x20            
+  0180161D5F  mov eax, dword ptr [rdx] 
+  0180161D61  mov rsi, rdx             
+  0180161D64  mov r8, qword ptr [rcx + 0x10] 
+  0180161D68  mov rdi, rcx             
+  0180161D6B  mov dword ptr [r8 + 0x2f0], eax 
+  0180161D72  mov eax, dword ptr [rdx + 4] 
+  0180161D75  mov dword ptr [r8 + 0x2f4], eax 
+  0180161D7C  mov eax, dword ptr [rdx + 0xc] 
+  0180161D7F  mov r8, qword ptr [rcx + 0x10] 
+  0180161D83  mov dword ptr [r8 + 0x2f8], eax 
+  0180161D8A  mov eax, dword ptr [rdx + 0x10] 
+  0180161D8D  mov dword ptr [r8 + 0x2fc], eax 
+  0180161D94  mov rdx, qword ptr [rcx + 8] 
+  0180161D98  movzx ecx, word ptr [rsi + 8] 
+  0180161D9C  mov edx, dword ptr [rdx + 0x24c] 
+  0180161DA2  call 0x180177cf0         
+  0180161DA7  mov rcx, qword ptr [rdi + 8] 
+  0180161DAB  mov rbx, qword ptr [rdi + 0x10] 
+  0180161DAF  mov edx, dword ptr [rcx + 0x10] 
+  0180161DB2  movzx ecx, ax            
+  0180161DB5  shr edx, 0x14            
+  0180161DB8  and dl, 1                
+  0180161DBB  call 0x180177d20         
+  0180161DC0  mov word ptr [rbx + 0x30c], ax 
+  0180161DC7  movsx eax, word ptr [rsi + 0xa] 
+  0180161DCB  test ax, ax              
+  0180161DCE  jns 0x180161ddb          
+  0180161DD0  mov rax, qword ptr [rdi + 0x10] 
+  0180161DD4  vmovss xmm0, dword ptr [rax + 0x6c] 
+  0180161DD9  jmp 0x180161de3          
+  0180161DDB  vxorps xmm0, xmm0, xmm0  
+  0180161DDF  vcvtsi2ss xmm0, xmm0, eax 
+  0180161DE3  mov rax, qword ptr [rdi + 0x10] 
+  0180161DE7  mov rbx, qword ptr [rsp + 0x30] 
+  0180161DEC  vxorps xmm1, xmm1, xmm1  
+  0180161DF0  vmovss dword ptr [rax + 0x300], xmm0 
+  0180161DF8  movsx eax, word ptr [rsi + 0x14] 
+  0180161DFC  vxorps xmm0, xmm0, xmm0  
+  0180161E00  vcvtsi2ss xmm0, xmm0, eax 
+  0180161E04  mov rax, qword ptr [rdi + 0x10] 
+  0180161E08  vmovss dword ptr [rax + 0x304], xmm0 
+  0180161E10  movsx eax, word ptr [rsi + 0x16] 
+  0180161E14  mov rsi, qword ptr [rsp + 0x38] 
+  0180161E19  vcvtsi2ss xmm1, xmm1, eax 
+  0180161E1D  mov rax, qword ptr [rdi + 0x10] 
+  0180161E21  vmovss dword ptr [rax + 0x308], xmm1 
+  0180161E29  add rsp, 0x20            
+  0180161E2D  pop rdi                  
+  0180161E2E  ret                      
+
+########## code 46 (0x2E)  handler 0x180161E30  (96 octets max)
+  0180161E30  movsx eax, word ptr [rdx] 
+  0180161E33  vxorps xmm0, xmm0, xmm0  
+  0180161E37  vcvtsi2ss xmm0, xmm0, eax 
+  0180161E3B  mov rax, qword ptr [rcx + 0x10] 
+  0180161E3F  vxorps xmm1, xmm1, xmm1  
+  0180161E43  vmovss dword ptr [rax + 0x2e0], xmm0 
+  0180161E4B  movsx eax, word ptr [rdx + 2] 
+  0180161E4F  vcvtsi2ss xmm1, xmm1, eax 
+  0180161E53  mov rax, qword ptr [rcx + 0x10] 
+  0180161E57  vxorps xmm0, xmm0, xmm0  
+  0180161E5B  vmovss dword ptr [rax + 0x300], xmm1 
+  0180161E63  movsx eax, word ptr [rdx + 4] 
+  0180161E67  vcvtsi2ss xmm0, xmm0, eax 
+  0180161E6B  mov rax, qword ptr [rcx + 0x10] 
+  0180161E6F  vmovss dword ptr [rax + 0x304], xmm0 
+  0180161E77  mov rcx, qword ptr [rcx] 
+  0180161E7A  mov rcx, qword ptr [rcx + 0x5d38] 
+  0180161E81  jmp 0x18005b420          
+  0180161E86  int3                     
+  0180161E87  int3                     
+  0180161E88  int3                     
+  0180161E89  int3                     
+  0180161E8A  int3                     
+  0180161E8B  int3                     
+  0180161E8C  int3                     
+  0180161E8D  int3                     
+  0180161E8E  int3                     
+  0180161E8F  int3                     
+
+########## code 47 (0x2F)  handler 0x180161E90  (64 octets max)
+  0180161E90  mov r9, qword ptr [rcx + 0x10] 
+  0180161E94  xor r8d, r8d             
+  0180161E97  mov ecx, r8d             
+  0180161E9A  lea rax, [r9 + 0x310]    
+  0180161EA1  cmp word ptr [rax], -1   
+  0180161EA5  je 0x180161eb8           
+  0180161EA7  inc r8d                  
+  0180161EAA  inc rcx                  
+  0180161EAD  add rax, 8               
+  0180161EB1  cmp rcx, 5               
+  0180161EB5  jl 0x180161ea1           
+  0180161EB7  ret                      
+  0180161EB8  mov rax, qword ptr [rdx] 
+  0180161EBB  movsxd rcx, r8d          
+  0180161EBE  mov qword ptr [r9 + rcx*8 + 0x310], rax 
+  0180161EC6  ret                      
+
+########## code 48 (0x30)  handler 0x180161ED0  (144 octets max)
+  0180161ED0  push rbx                 
+  0180161ED2  sub rsp, 0x30            
+  0180161ED6  movzx eax, word ptr [rdx] 
+  0180161ED9  mov rbx, rcx             
+  0180161EDC  mov r8, qword ptr [rcx + 0x10] 
+  0180161EE0  vmovss xmm2, dword ptr [rip + 0x20f948]    ; -> 0x180371830  = -0 (f32) / 0x80000000
+  0180161EE8  vmovaps xmmword ptr [rsp + 0x20], xmm6 
+  0180161EEE  mov word ptr [r8 + 0x338], ax 
+  0180161EF6  mov rax, qword ptr [rcx + 8] 
+  0180161EFA  test byte ptr [rax + 0x280], 8 
+  0180161F01  je 0x180161f1a           
+  0180161F03  vmovss xmm0, dword ptr [rdx + 4] 
+  0180161F08  mov rax, qword ptr [rcx + 0x10] 
+  0180161F0C  vxorps xmm1, xmm0, xmm2  
+  0180161F10  vmovss dword ptr [rax + 0x33c], xmm1 
+  0180161F18  jmp 0x180161f27          
+  0180161F1A  mov rcx, qword ptr [rcx + 0x10] 
+  0180161F1E  mov eax, dword ptr [rdx + 4] 
+  0180161F21  mov dword ptr [rcx + 0x33c], eax 
+  0180161F27  mov rcx, qword ptr [rbx + 0x10] 
+  0180161F2B  mov eax, dword ptr [rdx + 8] 
+  0180161F2E  mov dword ptr [rcx + 0x340], eax 
+  0180161F34  vmovss xmm0, dword ptr [rdx + 0xc] 
+  0180161F39  vxorps xmm6, xmm0, xmm2  
+  0180161F3D  call 0x180017ec0         
+  0180161F42  mov rax, qword ptr [rbx + 8] 
+  0180161F46  vmulss xmm1, xmm0, xmm6  
+  0180161F4A  vmovaps xmm6, xmmword ptr [rsp + 0x20] 
+  0180161F50  vmovss dword ptr [rax + 0x10c], xmm1 
+  0180161F58  add rsp, 0x30            
+  0180161F5C  pop rbx                  
+  0180161F5D  ret                      
+
+########## code 49 (0x31)  handler 0x180161F60  (48 octets max)
+  0180161F60  mov rax, qword ptr [rcx + 0x10] 
+  0180161F64  cmp word ptr [rax + 0x344], 0 
+  0180161F6C  jg 0x180161f75           
+  0180161F6E  mov qword ptr [rax + 0x348], r8 
+  0180161F75  mov rax, qword ptr [rcx + 0x10] 
+  0180161F79  inc word ptr [rax + 0x344] 
+  0180161F80  ret                      
+
+########## code 50 (0x32)  handler 0x180161F90  (352 octets max)
+  0180161F90  push rbx                 
+  0180161F92  push rsi                 
+  0180161F93  push rdi                 
+  0180161F94  sub rsp, 0x50            
+  0180161F98  vmovss xmm4, dword ptr [rdx + 0xc] 
+  0180161F9D  vmovss xmm3, dword ptr [rdx + 4] 
+  0180161FA2  movsx eax, word ptr [rdx] 
+  0180161FA5  mov rdi, rcx             
+  0180161FA8  mov rcx, qword ptr [rcx + 0x10] 
+  0180161FAC  mov rsi, rdx             
+  0180161FAF  vmovaps xmmword ptr [rsp + 0x40], xmm6 
+  0180161FB5  vxorps xmm2, xmm2, xmm2  
+  0180161FB9  vcvtsi2ss xmm2, xmm2, eax 
+  0180161FBD  movsx eax, word ptr [rcx + 0x8c] 
+  0180161FC4  vxorps xmm1, xmm1, xmm1  
+  0180161FC8  vcvtsi2ss xmm1, xmm1, eax 
+  0180161FCC  mov rax, qword ptr [rdi + 8] 
+  0180161FD0  vcmpltss xmm0, xmm4, xmm3 
+  0180161FD5  vblendvps xmm0, xmm1, xmm2, xmm0 
+  0180161FDB  vmovss dword ptr [rsp + 0x78], xmm0 
+  0180161FE1  vmovss xmm6, dword ptr [rax + 0x2ae0] 
+  0180161FE9  vcmpltss xmm0, xmm4, xmm3 
+  0180161FEE  vblendvps xmm0, xmm2, xmm1, xmm0 
+  0180161FF4  vmovss dword ptr [rsp + 0x70], xmm0 
+  0180161FFA  vcmpltss xmm0, xmm4, xmm3 
+  0180161FFF  vblendvps xmm5, xmm3, xmm4, xmm0 
+  0180162005  vmovaps xmmword ptr [rsp + 0x30], xmm7 
+  018016200B  vcomiss xmm5, xmm6       
+  018016200F  vmovss xmm7, dword ptr [rdx + 8] 
+  0180162014  vcmpltss xmm0, xmm4, xmm3 
+  0180162019  vblendvps xmm0, xmm4, xmm3, xmm0 
+  018016201F  vmovss dword ptr [rsp + 0x88], xmm0 
+  0180162028  jbe 0x180162032          
+  018016202A  vmovss xmm0, dword ptr [rsp + 0x70] 
+  0180162030  jmp 0x18016208e          
+  0180162032  vmovss xmm3, dword ptr [rsp + 0x88] 
+  018016203B  vcomiss xmm6, xmm3       
+  018016203F  vmovss xmm0, dword ptr [rsp + 0x78] 
+  0180162045  ja 0x18016208e           
+  0180162047  movsx eax, word ptr [rdx + 2] 
+  018016204B  vmovss xmm4, dword ptr [rsp + 0x70] 
+  0180162051  test ax, ax              
+  0180162054  je 0x180162076           
+  0180162056  vcomiss xmm7, xmm6       
+  018016205A  vxorps xmm1, xmm1, xmm1  
+  018016205E  vcvtsi2ss xmm1, xmm1, eax 
+  0180162062  jbe 0x18016206e          
+  0180162064  vmovaps xmm3, xmm7       
+  0180162068  vmovaps xmm0, xmm1       
+  018016206C  jmp 0x180162076          
+  018016206E  vmovaps xmm5, xmm7       
+  0180162072  vmovaps xmm4, xmm1       
+  0180162076  vsubss xmm1, xmm0, xmm4  
+  018016207A  vsubss xmm0, xmm6, xmm5  
+  018016207E  vmulss xmm2, xmm1, xmm0  
+  0180162082  vsubss xmm1, xmm3, xmm5  
+  0180162086  vdivss xmm2, xmm2, xmm1  
+  018016208A  vaddss xmm0, xmm2, xmm4  
+  018016208E  vcvttss2si eax, xmm0     
+  0180162092  mov word ptr [rcx + 0x8e], ax 
+  0180162099  mov rbx, qword ptr [rdi + 0x10] 
+  018016209D  mov rdx, qword ptr [rdi + 8] 
+  01801620A1  movzx ecx, word ptr [rbx + 0x8e] 
+  01801620A8  mov edx, dword ptr [rdx + 0x24c] 
+  01801620AE  call 0x180177cf0         
+  01801620B3  mov word ptr [rbx + 0x8e], ax 
+  01801620BA  mov rdx, qword ptr [rdi + 8] 
+  01801620BE  movzx ecx, word ptr [rsi] 
+  01801620C1  mov rbx, qword ptr [rdi + 0x10] 
+  01801620C5  mov edx, dword ptr [rdx + 0x24c] 
+  01801620CB  call 0x180177cf0         
+  01801620D0  vmovaps xmm6, xmmword ptr [rsp + 0x40] 
+  01801620D6  vmovaps xmm7, xmmword ptr [rsp + 0x30] 
+  01801620DC  mov word ptr [rbx + 0x90], ax 
+  01801620E3  add rsp, 0x50            
+  01801620E7  pop rdi                  
+  01801620E8  pop rsi                  
+  01801620E9  pop rbx                  
+  01801620EA  ret                      
+
+########## code 51 (0x33)  handler 0x1801620F0  (128 octets max)
+  01801620F0  movsx eax, word ptr [rdx] 
+  01801620F3  mov r8, rcx              
+  01801620F6  vxorps xmm0, xmm0, xmm0  
+  01801620FA  vcvtsi2ss xmm0, xmm0, eax 
+  01801620FE  mov rax, qword ptr [rcx + 0x10] 
+  0180162102  vxorps xmm1, xmm1, xmm1  
+  0180162106  vmovss dword ptr [rax + 0x350], xmm0 
+  018016210E  movsx eax, word ptr [rdx + 2] 
+  0180162112  vcvtsi2ss xmm1, xmm1, eax 
+  0180162116  mov rax, qword ptr [rcx + 0x10] 
+  018016211A  vxorps xmm0, xmm0, xmm0  
+  018016211E  vmovss dword ptr [rax + 0x354], xmm1 
+  0180162126  movsx eax, word ptr [rdx + 4] 
+  018016212A  vcvtsi2ss xmm0, xmm0, eax 
+  018016212E  mov rax, qword ptr [rcx + 0x10] 
+  0180162132  vmovss dword ptr [rax + 0x358], xmm0 
+  018016213A  mov eax, dword ptr [rdx + 8] 
+  018016213D  mov rcx, qword ptr [rcx + 0x10] 
+  0180162141  mov dword ptr [rcx + 0x35c], eax 
+  0180162147  mov rax, qword ptr [r8 + 8] 
+  018016214B  mov dword ptr [rax + 0x1dc], 0 
+  0180162155  mov rax, qword ptr [r8 + 8] 
+  0180162159  or byte ptr [rax + 0x1dc], 1 
+  0180162160  ret                      
+
+########## code 52 (0x34)  handler 0x180162170  (48 octets max)
+  0180162170  test byte ptr [rdx + 4], 8 
+  0180162174  mov r9, rcx              
+  0180162177  jne 0x18016219e          
+  0180162179  mov eax, dword ptr [rdx] 
+  018016217B  mov r8, qword ptr [rcx + 0x10] 
+  018016217F  mov dword ptr [r8 + 0x360], eax 
+  0180162186  mov eax, dword ptr [rdx + 4] 
+  0180162189  mov dword ptr [r8 + 0x364], eax 
+  0180162190  mov rax, qword ptr [r9 + 0x10] 
+  0180162194  movsx ecx, word ptr [rdx + 8] 
+  0180162198  mov dword ptr [rax + 0x370], ecx 
+  018016219E  ret                      
+
+########## code 53 (0x35)  handler 0x1801621A0  (32 octets max)
+  01801621A0  mov eax, dword ptr [rdx] 
+  01801621A2  mov r8, qword ptr [rcx + 0x10] 
+  01801621A6  mov dword ptr [r8 + 0x368], eax 
+  01801621AD  mov eax, dword ptr [rdx + 4] 
+  01801621B0  mov dword ptr [r8 + 0x36c], eax 
+  01801621B7  ret                      
+
+########## code 54 (0x36)  handler 0x1801621C0  (48 octets max)
+  01801621C0  mov r8, qword ptr [rcx + 0x10] 
+  01801621C4  test dword ptr [r8 + 0xc], 0x100 
+  01801621CC  je 0x1801621e9           
+  01801621CE  mov rax, qword ptr [rcx + 8] 
+  01801621D2  movzx edx, word ptr [rdx] 
+  01801621D5  test byte ptr [rax + 0x280], 8 
+  01801621DC  je 0x1801621e1           
+  01801621DE  neg dx                   
+  01801621E1  mov word ptr [r8 + 0x374], dx 
+  01801621E9  ret                      
+
+########## code 55 (0x37)  handler 0x1801621F0  (80 octets max)
+  01801621F0  mov eax, dword ptr [rdx] 
+  01801621F2  mov r8, qword ptr [rcx + 0x10] 
+  01801621F6  vxorps xmm0, xmm0, xmm0  
+  01801621FA  mov dword ptr [r8 + 0x378], eax 
+  0180162201  mov eax, dword ptr [rdx + 4] 
+  0180162204  mov r8, qword ptr [rcx + 0x10] 
+  0180162208  mov dword ptr [r8 + 0x37c], eax 
+  018016220F  mov eax, dword ptr [rdx + 8] 
+  0180162212  mov dword ptr [r8 + 0x380], eax 
+  0180162219  movzx eax, word ptr [rdx + 0xc] 
+  018016221D  mov r8, qword ptr [rcx + 0x10] 
+  0180162221  mov word ptr [r8 + 0x384], ax 
+  0180162229  movsx eax, word ptr [rdx + 0xe] 
+  018016222D  vcvtsi2ss xmm0, xmm0, eax 
+  0180162231  mov rax, qword ptr [rcx + 0x10] 
+  0180162235  vmovss dword ptr [rax + 0x388], xmm0 
+  018016223D  ret                      
+
+########## code 56 (0x38)  handler 0x180162240  (64 octets max)
+  0180162240  mov rax, qword ptr [rcx + 0x10] 
+  0180162244  movsx r8d, word ptr [rdx] 
+  0180162248  vxorps xmm0, xmm0, xmm0  
+  018016224C  mov dword ptr [rax + 0x38c], r8d 
+  0180162253  mov eax, dword ptr [rdx + 4] 
+  0180162256  mov r8, qword ptr [rcx + 0x10] 
+  018016225A  mov dword ptr [r8 + 0x390], eax 
+  0180162261  movsx eax, word ptr [rdx + 8] 
+  0180162265  vcvtsi2ss xmm0, xmm0, eax 
+  0180162269  mov rax, qword ptr [rcx + 0x10] 
+  018016226D  vmovss dword ptr [rax + 0x394], xmm0 
+  0180162275  ret                      
+
+########## code 57 (0x39)  handler 0x180162280  (128 octets max)
+  0180162280  mov r8, qword ptr [rcx + 0x10] 
+  0180162284  mov r9, rcx              
+  0180162287  mov eax, dword ptr [rdx] 
+  0180162289  vxorps xmm0, xmm0, xmm0  
+  018016228D  mov dword ptr [r8 + 0x398], eax 
+  0180162294  movsx eax, word ptr [rdx + 4] 
+  0180162298  vcvtsi2ss xmm0, xmm0, eax 
+  018016229C  mov rax, qword ptr [rcx + 0x10] 
+  01801622A0  vmovss dword ptr [rax + 0x39c], xmm0 
+  01801622A8  mov r8, qword ptr [rcx + 0x10] 
+  01801622AC  movzx eax, byte ptr [rdx + 6] 
+  01801622B0  vxorps xmm0, xmm0, xmm0  
+  01801622B4  mov byte ptr [r8 + 0x3a0], al 
+  01801622BB  movsx eax, byte ptr [rdx + 7] 
+  01801622BF  vcvtsi2ss xmm0, xmm0, eax 
+  01801622C3  mov rax, qword ptr [rcx + 0x10] 
+  01801622C7  vmovss dword ptr [rax + 0x3a4], xmm0 
+  01801622CF  mov eax, dword ptr [rdx + 8] 
+  01801622D2  mov rcx, qword ptr [rcx + 0x10] 
+  01801622D6  mov dword ptr [rcx + 0x3a8], eax 
+  01801622DC  mov eax, dword ptr [rdx + 0xc] 
+  01801622DF  mov rcx, qword ptr [r9 + 0x10] 
+  01801622E3  mov dword ptr [rcx + 0x3ac], eax 
+  01801622E9  mov rax, qword ptr [r9 + 8] 
+  01801622ED  or byte ptr [rax + 0x280], 0x40 
+  01801622F4  ret                      
+
+########## code 58 (0x3A)  handler 0x180162300  (16 octets max)
+  0180162300  mov rax, qword ptr [rcx + 0x10] 
+  0180162304  mov qword ptr [rax + 0x3b0], rdx 
+  018016230B  ret                      
+
+########## code 59 (0x3B)  handler 0x180162310  (48 octets max)
+  0180162310  mov rax, qword ptr [rcx + 8] 
+  0180162314  test byte ptr [rax + 0x280], 8 
+  018016231B  je 0x18016232f           
+  018016231D  movzx edx, word ptr [rdx] 
+  0180162320  mov rax, qword ptr [rcx + 0x10] 
+  0180162324  neg dx                   
+  0180162327  mov word ptr [rax + 0x3b8], dx 
+  018016232E  ret                      
+  018016232F  mov rcx, qword ptr [rcx + 0x10] 
+  0180162333  movzx eax, word ptr [rdx] 
+  0180162336  mov word ptr [rcx + 0x3b8], ax 
+  018016233D  ret                      
+
+########## code 60 (0x3C)  handler 0x180162340  (16 octets max)
+  0180162340  mov rax, qword ptr [rcx + 0x10] 
+  0180162344  or dword ptr [rax + 0x24], 0x80 
+  018016234B  ret                      
+
+########## code 61 (0x3D)  handler 0x18000AF20  (128 octets max)
+  018000AF20  ret 0                    
+  018000AF23  int3                     
+  018000AF24  int3                     
+  018000AF25  int3                     
+  018000AF26  int3                     
+  018000AF27  int3                     
+  018000AF28  int3                     
+  018000AF29  int3                     
+  018000AF2A  int3                     
+  018000AF2B  int3                     
+  018000AF2C  int3                     
+  018000AF2D  int3                     
+  018000AF2E  int3                     
+  018000AF2F  int3                     
+  018000AF30  mov rax, qword ptr [rcx] 
+  018000AF33  jmp qword ptr [rax + 0x10] 
+  018000AF37  int3                     
+  018000AF38  int3                     
+  018000AF39  int3                     
+  018000AF3A  int3                     
+  018000AF3B  int3                     
+  018000AF3C  int3                     
+  018000AF3D  int3                     
+  018000AF3E  int3                     
+  018000AF3F  int3                     
+  018000AF40  movzx eax, byte ptr [rdx + 3] 
+  018000AF44  mov r10, rdx             
+  018000AF47  mov byte ptr [rcx + 3], al 
+  018000AF4A  mov r8, rcx              
+  018000AF4D  movzx eax, byte ptr [rdx + 4] 
+  018000AF51  sub r10, rcx             
+  018000AF54  mov byte ptr [rcx + 4], al 
+  018000AF57  mov r9d, 0xa3            
+  018000AF5D  movzx eax, byte ptr [rdx + 5] 
+  018000AF61  mov byte ptr [rcx + 5], al 
+  018000AF64  movzx eax, byte ptr [rdx + 6] 
+  018000AF68  mov byte ptr [rcx + 6], al 
+  018000AF6B  movzx eax, byte ptr [rdx + 7] 
+  018000AF6F  mov byte ptr [rcx + 7], al 
+  018000AF72  mov eax, dword ptr [rdx + 0xc] 
+  018000AF75  mov dword ptr [rcx + 0xc], eax 
+  018000AF78  mov eax, dword ptr [rdx + 0x10] 
+  018000AF7B  mov dword ptr [rcx + 0x10], eax 
+  018000AF7E  movzx eax, word ptr [rdx + 0xa] 
+  018000AF82  mov word ptr [rcx + 0xa], ax 
+  018000AF86  movzx eax, byte ptr [rdx + 8] 
+  018000AF8A  mov byte ptr [rcx + 8], al 
+  018000AF8D  movzx eax, byte ptr [rdx + 9] 
+  018000AF91  mov byte ptr [rcx + 9], al 
+  018000AF94  movzx eax, byte ptr [rdx] 
+  018000AF97  mov byte ptr [rcx], al   
+  018000AF99  movzx eax, byte ptr [rdx + 1] 
+  018000AF9D  mov byte ptr [rcx + 1], al 
+
+########## code 62 (0x3E)  handler 0x180162350  (256 octets max)
+  0180162350  mov qword ptr [rsp + 8], rbx 
+  0180162355  push rdi                 
+  0180162356  sub rsp, 0x50            
+  018016235A  mov rbx, qword ptr [rcx + 8] 
+  018016235E  mov rdi, rdx             
+  0180162361  vmovaps xmmword ptr [rsp + 0x40], xmm6 
+  0180162367  vmovaps xmmword ptr [rsp + 0x30], xmm7 
+  018016236D  vmovaps xmmword ptr [rsp + 0x20], xmm8 
+  0180162373  vmovss xmm8, dword ptr [rbx + 0x120] 
+  018016237B  vmovss xmm7, dword ptr [rbx + 0x128] 
+  0180162383  vmulss xmm0, xmm8, xmm8  
+  0180162388  vxorps xmm6, xmm6, xmm6  
+  018016238C  vaddss xmm1, xmm0, xmm6  
+  0180162390  vmulss xmm0, xmm7, xmm7  
+  0180162394  vaddss xmm0, xmm1, xmm0  
+  0180162398  vxorps xmm2, xmm2, xmm2  
+  018016239C  vucomiss xmm2, xmm0      
+  01801623A0  mov dword ptr [rbx + 0x124], 0 
+  01801623AA  ja 0x1801623b2           
+  01801623AC  vsqrtss xmm0, xmm0, xmm0 
+  01801623B0  jmp 0x1801623b7          
+  01801623B2  call 0x18033f4b0         
+  01801623B7  vcomiss xmm0, xmm6       
+  01801623BB  jbe 0x180162416          
+  01801623BD  vmovss xmm1, dword ptr [rip + 0x20f43b]    ; -> 0x180371800  = 1 (f32) / 0x3F800000
+  01801623C5  vdivss xmm0, xmm1, xmm0  
+  01801623C9  vmulss xmm1, xmm0, xmm6  
+  01801623CD  vmulss xmm4, xmm0, xmm8  
+  01801623D2  vmulss xmm3, xmm0, xmm7  
+  01801623D6  vmovss dword ptr [rbx + 0x124], xmm1 
+  01801623DE  vmovss dword ptr [rbx + 0x120], xmm4 
+  01801623E6  vmovss dword ptr [rbx + 0x128], xmm3 
+  01801623EE  vmovss xmm2, dword ptr [rdi] 
+  01801623F2  vmulss xmm0, xmm2, xmm4  
+  01801623F6  vmovss dword ptr [rbx + 0x120], xmm0 
+  01801623FE  vmulss xmm0, xmm2, xmm3  
+  0180162402  vmulss xmm1, xmm2, xmm1  
+  0180162406  vmovss dword ptr [rbx + 0x128], xmm0 
+  018016240E  vmovss dword ptr [rbx + 0x124], xmm1 
+  0180162416  vmovss xmm6, dword ptr [rdi + 4] 
+  018016241B  call 0x180017ec0         
+  0180162420  vmovaps xmm7, xmmword ptr [rsp + 0x30] 
+  0180162426  vmovaps xmm8, xmmword ptr [rsp + 0x20] 
+  018016242C  vmulss xmm1, xmm0, xmm6  
+  0180162430  vmovaps xmm6, xmmword ptr [rsp + 0x40] 
+  0180162436  vmovss dword ptr [rbx + 0x124], xmm1 
+  018016243E  mov rbx, qword ptr [rsp + 0x60] 
+  0180162443  add rsp, 0x50            
+  0180162447  pop rdi                  
+  0180162448  ret                      
+
+########## code 63 (0x3F)  handler 0x180162450  (48 octets max)
+  0180162450  mov r8, qword ptr [rcx + 0x10] 
+  0180162454  mov eax, dword ptr [rdx] 
+  0180162456  mov dword ptr [r8 + 0x3c0], eax 
+  018016245D  mov r8, qword ptr [rcx + 0x10] 
+  0180162461  mov eax, dword ptr [rdx + 4] 
+  0180162464  mov dword ptr [r8 + 0x3c4], eax 
+  018016246B  mov rcx, qword ptr [rcx + 0x10] 
+  018016246F  mov eax, dword ptr [rdx + 8] 
+  0180162472  mov dword ptr [rcx + 0x3c8], eax 
+  0180162478  ret                      
+
+########## code 64 (0x40)  handler 0x180162480  (32 octets max)
+  0180162480  vmovss xmm0, dword ptr [rdx] 
+  0180162484  vcomiss xmm0, dword ptr [rip + 0x2aa14c]    ; -> 0x18040C5D8
+  018016248C  jbe 0x18016249a          
+  018016248E  mov rax, qword ptr [rcx + 0x10] 
+  0180162492  vmovss dword ptr [rax + 0x3cc], xmm0 
+  018016249A  ret                      
+
+########## code 65 (0x41)  handler 0x1801624A0  (80 octets max)
+  01801624A0  mov r9, qword ptr [rcx + 0x10] 
+  01801624A4  xor r8d, r8d             
+  01801624A7  mov ecx, r8d             
+  01801624AA  lea rax, [r9 + 0x3d0]    
+  01801624B1  cmp byte ptr [rax], 0xff 
+  01801624B4  je 0x1801624c7           
+  01801624B6  inc r8d                  
+  01801624B9  inc rcx                  
+  01801624BC  add rax, 0xc             
+  01801624C0  cmp rcx, 0xa             
+  01801624C4  jl 0x1801624b1           
+  01801624C6  ret                      
+  01801624C7  vmovsd xmm0, qword ptr [rdx] 
+  01801624CB  movsxd rax, r8d          
+  01801624CE  lea rcx, [rax + rax*2]   
+  01801624D2  vmovsd qword ptr [r9 + rcx*4 + 0x3d0], xmm0 
+  01801624DC  mov eax, dword ptr [rdx + 8] 
+  01801624DF  mov dword ptr [r9 + rcx*4 + 0x3d8], eax 
+  01801624E7  ret                      
+
+########## code 66 (0x42)  handler 0x1801624F0  (32 octets max)
+  01801624F0  movzx eax, word ptr [rdx] 
+  01801624F3  mov r8, qword ptr [rcx + 0x10] 
+  01801624F7  mov word ptr [r8 + 0x448], ax 
+  01801624FF  mov rax, qword ptr [rcx + 0x10] 
+  0180162503  movsx edx, word ptr [rdx + 2] 
+  0180162507  mov dword ptr [rax + 0x44c], edx 
+  018016250D  ret                      
+
+########## code 67 (0x43)  handler 0x180162510  (32 octets max)
+  0180162510  mov rcx, qword ptr [rcx] 
+  0180162513  movsx edx, word ptr [rdx] 
+  0180162516  mov rcx, qword ptr [rcx + 0x5d38] 
+  018016251D  jmp 0x18005bb20          
+  0180162522  int3                     
+  0180162523  int3                     
+  0180162524  int3                     
+  0180162525  int3                     
+  0180162526  int3                     
+  0180162527  int3                     
+  0180162528  int3                     
+  0180162529  int3                     
+  018016252A  int3                     
+  018016252B  int3                     
+  018016252C  int3                     
+  018016252D  int3                     
+  018016252E  int3                     
+  018016252F  int3                     
+
+########## code 68 (0x44)  handler 0x180162530  (144 octets max)
+  0180162530  mov r8, qword ptr [rcx + 0x10] 
+  0180162534  mov r9, rcx              
+  0180162537  mov eax, dword ptr [rdx] 
+  0180162539  vxorps xmm0, xmm0, xmm0  
+  018016253D  mov dword ptr [r8 + 0x454], eax 
+  0180162544  mov eax, dword ptr [rdx + 4] 
+  0180162547  mov dword ptr [r8 + 0x458], eax 
+  018016254E  mov r8, qword ptr [rcx + 0x10] 
+  0180162552  movzx eax, word ptr [rdx + 8] 
+  0180162556  mov word ptr [r8 + 0x45c], ax 
+  018016255E  mov r8, qword ptr [rcx + 0x10] 
+  0180162562  movzx eax, word ptr [rdx + 0xa] 
+  0180162566  mov word ptr [r8 + 0x45e], ax 
+  018016256E  mov rcx, qword ptr [rcx + 0x10] 
+  0180162572  movzx eax, word ptr [rdx + 0xc] 
+  0180162576  mov word ptr [rcx + 0x460], ax 
+  018016257D  mov rax, qword ptr [r9 + 0x10] 
+  0180162581  movsx ecx, byte ptr [rdx + 0xe] 
+  0180162585  mov dword ptr [rax + 0x464], ecx 
+  018016258B  movsx eax, word ptr [rdx + 0x10] 
+  018016258F  vcvtsi2ss xmm0, xmm0, eax 
+  0180162593  mov rax, qword ptr [r9 + 0x10] 
+  0180162597  vmovss dword ptr [rax + 0x468], xmm0 
+  018016259F  mov rcx, qword ptr [r9 + 0x10] 
+  01801625A3  mov eax, dword ptr [rdx + 0x14] 
+  01801625A6  mov dword ptr [rcx + 0x46c], eax 
+  01801625AC  mov rcx, qword ptr [r9 + 0x10] 
+  01801625B0  mov eax, dword ptr [rdx + 0x18] 
+  01801625B3  mov dword ptr [rcx + 0x470], eax 
+  01801625B9  ret                      
+
+########## code 69 (0x45)  handler 0x1801625C0  (16 octets max)
+  01801625C0  mov r8, qword ptr [rcx + 0x10] 
+  01801625C4  mov eax, dword ptr [rdx] 
+  01801625C6  mov dword ptr [r8 + 0x450], eax 
+  01801625CD  ret                      
+
+########## code 70 (0x46)  handler 0x1801625D0  (32 octets max)
+  01801625D0  mov rax, qword ptr [rcx + 0x10] 
+  01801625D4  movsx r8d, word ptr [rdx] 
+  01801625D8  mov dword ptr [rax + 0x474], r8d 
+  01801625DF  mov rcx, qword ptr [rcx + 0x10] 
+  01801625E3  movzx eax, word ptr [rdx + 2] 
+  01801625E7  mov word ptr [rcx + 0x478], ax 
+  01801625EE  ret                      
+
+########## code 71 (0x47) : AUCUN GESTIONNAIRE
+
+
+########## code 72 (0x48)  handler 0x1801625F0  (80 octets max)
+  01801625F0  mov rax, qword ptr [rcx + 8] 
+  01801625F4  mov r8, rcx              
+  01801625F7  vmovss xmm0, dword ptr [rdx] 
+  01801625FB  test byte ptr [rax + 0x280], 8 
+  0180162602  je 0x18016260c           
+  0180162604  vxorps xmm0, xmm0, xmmword ptr [rip + 0x20f224]    ; -> 0x180371830  = -0 (f32) / 0x80000000
+  018016260C  mov rax, qword ptr [rcx + 0x10] 
+  0180162610  vmovss dword ptr [rax + 0x47c], xmm0 
+  0180162618  mov rcx, qword ptr [rcx + 0x10] 
+  018016261C  mov eax, dword ptr [rdx + 4] 
+  018016261F  mov dword ptr [rcx + 0x480], eax 
+  0180162625  mov rcx, qword ptr [r8 + 0x10] 
+  0180162629  mov eax, dword ptr [rdx + 8] 
+  018016262C  mov dword ptr [rcx + 0x484], eax 
+  0180162632  ret                      
+
+########## code 73 (0x49)  handler 0x180162640  (208 octets max)
+  0180162640  mov r8d, dword ptr [rdx + 4] 
+  0180162644  mov r11, rcx             
+  0180162647  mov r10, rdx             
+  018016264A  mov r9d, r8d             
+  018016264D  shr r9d, 1               
+  0180162650  and r8d, 0x55555555      
+  0180162657  and r9d, 0x55555555      
+  018016265E  add r9d, r8d             
+  0180162661  mov ecx, r9d             
+  0180162664  and r9d, 0x33333333      
+  018016266B  shr ecx, 2               
+  018016266E  and ecx, 0x33333333      
+  0180162674  add ecx, r9d             
+  0180162677  mov edx, ecx             
+  0180162679  and ecx, 0xf0f0f0f       
+  018016267F  shr edx, 4               
+  0180162682  and edx, 0xf0f0f0f       
+  0180162688  add edx, ecx             
+  018016268A  mov eax, edx             
+  018016268C  and edx, 0xff00ff        
+  0180162692  shr eax, 8               
+  0180162695  and eax, 0xff00ff        
+  018016269A  add eax, edx             
+  018016269C  mov ecx, eax             
+  018016269E  movzx eax, ax            
+  01801626A1  shr ecx, 0x10            
+  01801626A4  add ecx, eax             
+  01801626A6  je 0x1801626c9           
+  01801626A8  mov rax, qword ptr [r11] 
+  01801626AB  mov rcx, qword ptr [rax + 0x20] 
+  01801626AF  movsxd rdx, dword ptr [rcx + 0x10] 
+  01801626B3  movzx eax, dl            
+  01801626B6  shr rdx, 5               
+  01801626BA  and al, 0x1f             
+  01801626BC  movzx ecx, al            
+  01801626BF  mov eax, dword ptr [r10 + rdx*4 + 4] 
+  01801626C4  bt eax, ecx              
+  01801626C7  jae 0x180162703          
+  01801626C9  movzx eax, word ptr [r10] 
+  01801626CD  cmp eax, 0x14            
+  01801626D0  jae 0x180162703          
+  01801626D2  test byte ptr [r10 + 8], 1 
+  01801626D7  mov edx, eax             
+  01801626D9  movzx eax, word ptr [r10 + 2] 
+  01801626DE  mov rcx, qword ptr [r11 + 0x10] 
+  01801626E2  je 0x1801626ec           
+  01801626E4  mov dword ptr [rcx + rdx*4 + 0xfc], eax 
+  01801626EB  ret                      
+  01801626EC  mov dword ptr [rcx + rdx*4 + 0xac], eax 
+  01801626F3  mov rax, qword ptr [r11 + 0x10] 
+  01801626F7  movzx ecx, word ptr [r10 + 2] 
+  01801626FC  mov dword ptr [rax + rdx*4 + 0xfc], ecx 
+  0180162703  ret                      
+
+########## code 74 (0x4A)  handler 0x180162710  (64 octets max)
+  0180162710  mov eax, dword ptr [rdx] 
+  0180162712  mov r8, qword ptr [rcx + 0x10] 
+  0180162716  vxorps xmm0, xmm0, xmm0  
+  018016271A  mov dword ptr [r8 + 0x488], eax 
+  0180162721  mov rax, qword ptr [rcx + 0x10] 
+  0180162725  vmovss xmm1, dword ptr [rax + 0x488] 
+  018016272D  vcomiss xmm0, xmm1       
+  0180162731  jbe 0x180162743          
+  0180162733  vmulss xmm0, xmm1, dword ptr [rip + 0x20f8bd]    ; -> 0x180371FF8  = -1 (f32) / 0xBF800000
+  018016273B  vmovss dword ptr [rax + 0x488], xmm0 
+  0180162743  ret                      
+
+########## code 75 (0x4B)  handler 0x180162750  (32 octets max)
+  0180162750  movsx eax, word ptr [rdx] 
+  0180162753  vxorps xmm0, xmm0, xmm0  
+  0180162757  vcvtsi2ss xmm0, xmm0, eax 
+  018016275B  mov rax, qword ptr [rcx + 0x10] 
+  018016275F  vmovss dword ptr [rax + 0x48c], xmm0 
+  0180162767  ret                      
+
+########## code 76 (0x4C)  handler 0x180162770  (448 octets max)
+  0180162770  mov r8, qword ptr [rcx + 0x10] 
+  0180162774  mov r9, rcx              
+  0180162777  mov eax, dword ptr [rdx] 
+  0180162779  mov dword ptr [r8 + 0x490], eax 
+  0180162780  movzx eax, word ptr [rdx + 4] 
+  0180162784  mov word ptr [r8 + 0x494], ax 
+  018016278C  movzx eax, word ptr [rdx + 6] 
+  0180162790  mov word ptr [r8 + 0x496], ax 
+  0180162798  movzx eax, word ptr [rdx + 8] 
+  018016279C  mov word ptr [r8 + 0x498], ax 
+  01801627A4  movzx eax, byte ptr [rdx + 0xa] 
+  01801627A8  mov byte ptr [r8 + 0x49a], al 
+  01801627AF  movzx eax, byte ptr [rdx + 0xb] 
+  01801627B3  mov byte ptr [r8 + 0x49b], al 
+  01801627BA  movzx eax, word ptr [rdx + 0xc] 
+  01801627BE  mov word ptr [r8 + 0x49c], ax 
+  01801627C6  movzx eax, word ptr [rdx + 0xe] 
+  01801627CA  mov word ptr [r8 + 0x49e], ax 
+  01801627D2  movzx eax, word ptr [rdx + 0x10] 
+  01801627D6  mov word ptr [r8 + 0x4a0], ax 
+  01801627DE  movzx eax, byte ptr [rdx + 0x12] 
+  01801627E2  mov byte ptr [r8 + 0x4a2], al 
+  01801627E9  mov rcx, qword ptr [rcx + 0x10] 
+  01801627ED  mov eax, dword ptr [rdx] 
+  01801627EF  mov dword ptr [rcx + 0x4a4], eax 
+  01801627F5  movzx eax, word ptr [rdx + 4] 
+  01801627F9  mov word ptr [rcx + 0x4a8], ax 
+  0180162800  movzx eax, word ptr [rdx + 6] 
+  0180162804  mov word ptr [rcx + 0x4aa], ax 
+  018016280B  movzx eax, word ptr [rdx + 8] 
+  018016280F  mov word ptr [rcx + 0x4ac], ax 
+  0180162816  movzx eax, byte ptr [rdx + 0xa] 
+  018016281A  mov byte ptr [rcx + 0x4ae], al 
+  0180162820  movzx eax, byte ptr [rdx + 0xb] 
+  0180162824  mov byte ptr [rcx + 0x4af], al 
+  018016282A  movzx eax, word ptr [rdx + 0xc] 
+  018016282E  mov word ptr [rcx + 0x4b0], ax 
+  0180162835  movzx eax, word ptr [rdx + 0xe] 
+  0180162839  mov word ptr [rcx + 0x4b2], ax 
+  0180162840  movzx eax, word ptr [rdx + 0x10] 
+  0180162844  mov word ptr [rcx + 0x4b4], ax 
+  018016284B  movzx eax, byte ptr [rdx + 0x12] 
+  018016284F  mov byte ptr [rcx + 0x4b6], al 
+  0180162855  mov eax, dword ptr [rdx] 
+  0180162857  mov rcx, qword ptr [r9 + 0x10] 
+  018016285B  mov dword ptr [rcx + 0x4b8], eax 
+  0180162861  movzx eax, word ptr [rdx + 4] 
+  0180162865  mov word ptr [rcx + 0x4bc], ax 
+  018016286C  movzx eax, word ptr [rdx + 6] 
+  0180162870  mov word ptr [rcx + 0x4be], ax 
+  0180162877  movzx eax, word ptr [rdx + 8] 
+  018016287B  mov word ptr [rcx + 0x4c0], ax 
+  0180162882  movzx eax, byte ptr [rdx + 0xa] 
+  0180162886  mov byte ptr [rcx + 0x4c2], al 
+  018016288C  movzx eax, byte ptr [rdx + 0xb] 
+  0180162890  mov byte ptr [rcx + 0x4c3], al 
+  0180162896  movzx eax, word ptr [rdx + 0xc] 
+  018016289A  mov word ptr [rcx + 0x4c4], ax 
+  01801628A1  movzx eax, word ptr [rdx + 0xe] 
+  01801628A5  mov word ptr [rcx + 0x4c6], ax 
+  01801628AC  movzx eax, word ptr [rdx + 0x10] 
+  01801628B0  mov word ptr [rcx + 0x4c8], ax 
+  01801628B7  movzx eax, byte ptr [rdx + 0x12] 
+  01801628BB  mov byte ptr [rcx + 0x4ca], al 
+  01801628C1  mov eax, dword ptr [rdx] 
+  01801628C3  mov rcx, qword ptr [r9 + 0x10] 
+  01801628C7  mov dword ptr [rcx + 0x4cc], eax 
+  01801628CD  movzx eax, word ptr [rdx + 4] 
+  01801628D1  mov word ptr [rcx + 0x4d0], ax 
+  01801628D8  movzx eax, word ptr [rdx + 6] 
+  01801628DC  mov word ptr [rcx + 0x4d2], ax 
+  01801628E3  movzx eax, word ptr [rdx + 8] 
+  01801628E7  mov word ptr [rcx + 0x4d4], ax 
+  01801628EE  movzx eax, byte ptr [rdx + 0xa] 
+  01801628F2  mov byte ptr [rcx + 0x4d6], al 
+  01801628F8  movzx eax, byte ptr [rdx + 0xb] 
+  01801628FC  mov byte ptr [rcx + 0x4d7], al 
+  0180162902  movzx eax, word ptr [rdx + 0xc] 
+  0180162906  mov word ptr [rcx + 0x4d8], ax 
+  018016290D  movzx eax, word ptr [rdx + 0xe] 
+  0180162911  mov word ptr [rcx + 0x4da], ax 
+  0180162918  movzx eax, word ptr [rdx + 0x10] 
+  018016291C  mov word ptr [rcx + 0x4dc], ax 
+  0180162923  movzx eax, byte ptr [rdx + 0x12] 
+  0180162927  mov byte ptr [rcx + 0x4de], al 
+  018016292D  ret                      
+
+########## code 77 (0x4D)  handler 0x180162930  (128 octets max)
+  0180162930  mov eax, dword ptr [rdx] 
+  0180162932  mov r8, qword ptr [rcx + 0x10] 
+  0180162936  mov dword ptr [r8 + 0x4a4], eax 
+  018016293D  movzx eax, word ptr [rdx + 4] 
+  0180162941  mov word ptr [r8 + 0x4a8], ax 
+  0180162949  movzx eax, word ptr [rdx + 6] 
+  018016294D  mov word ptr [r8 + 0x4aa], ax 
+  0180162955  movzx eax, word ptr [rdx + 8] 
+  0180162959  mov word ptr [r8 + 0x4ac], ax 
+  0180162961  movzx eax, byte ptr [rdx + 0xa] 
+  0180162965  mov byte ptr [r8 + 0x4ae], al 
+  018016296C  movzx eax, byte ptr [rdx + 0xb] 
+  0180162970  mov byte ptr [r8 + 0x4af], al 
+  0180162977  movzx eax, word ptr [rdx + 0xc] 
+  018016297B  mov word ptr [r8 + 0x4b0], ax 
+  0180162983  movzx eax, word ptr [rdx + 0xe] 
+  0180162987  mov word ptr [r8 + 0x4b2], ax 
+  018016298F  movzx eax, word ptr [rdx + 0x10] 
+  0180162993  mov word ptr [r8 + 0x4b4], ax 
+  018016299B  movzx eax, byte ptr [rdx + 0x12] 
+  018016299F  mov byte ptr [r8 + 0x4b6], al 
+  01801629A6  ret                      
+
+########## code 78 (0x4E)  handler 0x1801629B0  (128 octets max)
+  01801629B0  mov eax, dword ptr [rdx] 
+  01801629B2  mov r8, qword ptr [rcx + 0x10] 
+  01801629B6  mov dword ptr [r8 + 0x4b8], eax 
+  01801629BD  movzx eax, word ptr [rdx + 4] 
+  01801629C1  mov word ptr [r8 + 0x4bc], ax 
+  01801629C9  movzx eax, word ptr [rdx + 6] 
+  01801629CD  mov word ptr [r8 + 0x4be], ax 
+  01801629D5  movzx eax, word ptr [rdx + 8] 
+  01801629D9  mov word ptr [r8 + 0x4c0], ax 
+  01801629E1  movzx eax, byte ptr [rdx + 0xa] 
+  01801629E5  mov byte ptr [r8 + 0x4c2], al 
+  01801629EC  movzx eax, byte ptr [rdx + 0xb] 
+  01801629F0  mov byte ptr [r8 + 0x4c3], al 
+  01801629F7  movzx eax, word ptr [rdx + 0xc] 
+  01801629FB  mov word ptr [r8 + 0x4c4], ax 
+  0180162A03  movzx eax, word ptr [rdx + 0xe] 
+  0180162A07  mov word ptr [r8 + 0x4c6], ax 
+  0180162A0F  movzx eax, word ptr [rdx + 0x10] 
+  0180162A13  mov word ptr [r8 + 0x4c8], ax 
+  0180162A1B  movzx eax, byte ptr [rdx + 0x12] 
+  0180162A1F  mov byte ptr [r8 + 0x4ca], al 
+  0180162A26  ret                      
+
+########## code 79 (0x4F)  handler 0x180162A30  (128 octets max)
+  0180162A30  mov eax, dword ptr [rdx] 
+  0180162A32  mov r8, qword ptr [rcx + 0x10] 
+  0180162A36  mov dword ptr [r8 + 0x4cc], eax 
+  0180162A3D  movzx eax, word ptr [rdx + 4] 
+  0180162A41  mov word ptr [r8 + 0x4d0], ax 
+  0180162A49  movzx eax, word ptr [rdx + 6] 
+  0180162A4D  mov word ptr [r8 + 0x4d2], ax 
+  0180162A55  movzx eax, word ptr [rdx + 8] 
+  0180162A59  mov word ptr [r8 + 0x4d4], ax 
+  0180162A61  movzx eax, byte ptr [rdx + 0xa] 
+  0180162A65  mov byte ptr [r8 + 0x4d6], al 
+  0180162A6C  movzx eax, byte ptr [rdx + 0xb] 
+  0180162A70  mov byte ptr [r8 + 0x4d7], al 
+  0180162A77  movzx eax, word ptr [rdx + 0xc] 
+  0180162A7B  mov word ptr [r8 + 0x4d8], ax 
+  0180162A83  movzx eax, word ptr [rdx + 0xe] 
+  0180162A87  mov word ptr [r8 + 0x4da], ax 
+  0180162A8F  movzx eax, word ptr [rdx + 0x10] 
+  0180162A93  mov word ptr [r8 + 0x4dc], ax 
+  0180162A9B  movzx eax, byte ptr [rdx + 0x12] 
+  0180162A9F  mov byte ptr [r8 + 0x4de], al 
+  0180162AA6  ret                      
+
+########## code 80 (0x50)  handler 0x180162AB0  (48 octets max)
+  0180162AB0  movsx eax, word ptr [rdx] 
+  0180162AB3  vxorps xmm0, xmm0, xmm0  
+  0180162AB7  vcvtsi2ss xmm0, xmm0, eax 
+  0180162ABB  mov rax, qword ptr [rcx + 0x10] 
+  0180162ABF  vmovss dword ptr [rax + 0x4e0], xmm0 
+  0180162AC7  mov rcx, qword ptr [rcx + 0x10] 
+  0180162ACB  mov eax, dword ptr [rdx + 4] 
+  0180162ACE  mov dword ptr [rcx + 0x4e4], eax 
+  0180162AD4  ret                      
+
+########## code 81 (0x51)  handler 0x180162AE0  (96 octets max)
+  0180162AE0  mov r8, qword ptr [rcx + 0x10] 
+  0180162AE4  mov eax, dword ptr [rdx] 
+  0180162AE6  mov dword ptr [r8 + 0x4e8], eax 
+  0180162AED  mov eax, dword ptr [rdx + 4] 
+  0180162AF0  mov dword ptr [r8 + 0x4ec], eax 
+  0180162AF7  mov eax, dword ptr [rdx + 8] 
+  0180162AFA  mov dword ptr [r8 + 0x4f0], eax 
+  0180162B01  mov eax, dword ptr [rdx + 0xc] 
+  0180162B04  mov dword ptr [r8 + 0x4f4], eax 
+  0180162B0B  mov eax, dword ptr [rdx + 0x10] 
+  0180162B0E  mov dword ptr [r8 + 0x4f8], eax 
+  0180162B15  mov eax, dword ptr [rdx + 0x14] 
+  0180162B18  mov dword ptr [r8 + 0x4fc], eax 
+  0180162B1F  test byte ptr [r8 + 0x4e8], 4 
+  0180162B27  je 0x180162b31           
+  0180162B29  mov rcx, qword ptr [rcx] 
+  0180162B2C  jmp 0x180141ca0          
+  0180162B31  ret                      
+
+########## code 82 (0x52)  handler 0x180162B40  (32 octets max)
+  0180162B40  mov r8, qword ptr [rcx + 0x10] 
+  0180162B44  movzx eax, word ptr [rdx] 
+  0180162B47  mov word ptr [r8 + 0x500], ax 
+  0180162B4F  mov rcx, qword ptr [rcx + 0x10] 
+  0180162B53  movzx eax, word ptr [rdx + 2] 
+  0180162B57  mov word ptr [rcx + 0x502], ax 
+  0180162B5E  ret                      
+
+########## code 83 (0x53)  handler 0x180162B60  (512 octets max)
+  0180162B60  mov eax, dword ptr [rdx] 
+  0180162B62  mov r8, qword ptr [rcx + 0x10] 
+  0180162B66  cmp eax, -1              
+  0180162B69  jne 0x180162b76          
+  0180162B6B  mov eax, dword ptr [r8]  
+  0180162B6E  mov dword ptr [r8 + 0x504], eax 
+  0180162B75  ret                      
+  0180162B76  mov dword ptr [r8 + 0x504], eax 
+  0180162B7D  mov eax, dword ptr [rdx + 4] 
+  0180162B80  mov dword ptr [r8 + 0x508], eax 
+  0180162B87  ret                      
+  0180162B88  int3                     
+  0180162B89  int3                     
+  0180162B8A  int3                     
+  0180162B8B  int3                     
+  0180162B8C  int3                     
+  0180162B8D  int3                     
+  0180162B8E  int3                     
+  0180162B8F  int3                     
+  0180162B90  mov qword ptr [rsp + 8], rbx 
+  0180162B95  mov qword ptr [rsp + 0x10], rsi 
+  0180162B9A  push rdi                 
+  0180162B9B  sub rsp, 0x20            
+  0180162B9F  mov byte ptr [rcx + 0x7c], 0 
+  0180162BA3  xor eax, eax             
+  0180162BA5  mov qword ptr [rcx + 0x80], rax 
+  0180162BAC  xor edi, edi             
+  0180162BAE  mov qword ptr [rcx + 0x88], rdi 
+  0180162BB5  mov rbx, rcx             
+  0180162BB8  mov esi, 0xffffffff      
+  0180162BBD  xor edx, edx             
+  0180162BBF  mov word ptr [rcx + 0x90], si 
+  0180162BC6  mov dword ptr [rcx + 0x94], eax 
+  0180162BCC  mov word ptr [rcx + 0x98], di 
+  0180162BD3  mov dword ptr [rcx + 0x9c], edi 
+  0180162BD9  mov qword ptr [rcx + 0xa0], rax 
+  0180162BE0  mov dword ptr [rcx + 0xa8], edi 
+  0180162BE6  mov ecx, dword ptr [rcx + 0x9c] 
+  0180162BEC  call 0x180166400         
+  0180162BF1  test rax, rax            
+  0180162BF4  je 0x180162c44           
+  0180162BF6  vmovups ymm0, ymmword ptr [rax] 
+  0180162BFA  vmovups ymmword ptr [rbx + 0xac], ymm0 
+  0180162C02  vmovups ymm1, ymmword ptr [rax + 0x20] 
+  0180162C07  vmovups ymmword ptr [rbx + 0xcc], ymm1 
+  0180162C0F  vmovups xmm0, xmmword ptr [rax + 0x40] 
+  0180162C14  vmovups xmmword ptr [rbx + 0xec], xmm0 
+  0180162C1C  vmovups ymm0, ymmword ptr [rax] 
+  0180162C20  vmovups ymmword ptr [rbx + 0xfc], ymm0 
+  0180162C28  vmovups ymm1, ymmword ptr [rax + 0x20] 
+  0180162C2D  vmovups ymmword ptr [rbx + 0x11c], ymm1 
+  0180162C35  vmovups xmm0, xmmword ptr [rax + 0x40] 
+  0180162C3A  vmovups xmmword ptr [rbx + 0x13c], xmm0 
+  0180162C42  jmp 0x180162c7c          
+  0180162C44  vpxor xmm0, xmm0, xmm0   
+  0180162C48  vmovups ymmword ptr [rbx + 0xac], ymm0 
+  0180162C50  vmovups ymmword ptr [rbx + 0xcc], ymm0 
+  0180162C58  vpxor xmm1, xmm1, xmm1   
+  0180162C5C  vmovups xmmword ptr [rbx + 0xec], xmm0 
+  0180162C64  vmovups ymmword ptr [rbx + 0xfc], ymm1 
+  0180162C6C  vmovups ymmword ptr [rbx + 0x11c], ymm1 
+  0180162C74  vmovups xmmword ptr [rbx + 0x13c], xmm1 
+  0180162C7C  mov dword ptr [rbx + 0x14c], 0x3f99999a 
+  0180162C86  mov qword ptr [rbx + 0x150], 0x3f800000 
+  0180162C91  mov dword ptr [rbx + 0x15c], 0xbf800000 
+  0180162C9B  mov dword ptr [rbx + 0x158], 0xbf800000 
+  0180162CA5  mov dword ptr [rbx + 0x160], edi 
+  0180162CAB  mov dword ptr [rbx + 0x168], 0xbf800000 
+  0180162CB5  mov dword ptr [rbx + 0x164], 0xbf800000 
+  0180162CBF  mov dword ptr [rbx + 0x16c], edi 
+  0180162CC5  mov dword ptr [rbx + 0x174], 0xbf800000 
+  0180162CCF  mov dword ptr [rbx + 0x170], 0xbf800000 
+  0180162CD9  mov dword ptr [rbx + 0x178], edi 
+  0180162CDF  mov dword ptr [rbx + 0x180], 0xbf800000 
+  0180162CE9  mov dword ptr [rbx + 0x17c], 0xbf800000 
+  0180162CF3  mov dword ptr [rbx + 0x184], edi 
+  0180162CF9  mov dword ptr [rbx + 0x18c], 0xbf800000 
+  0180162D03  mov dword ptr [rbx + 0x188], 0xbf800000 
+  0180162D0D  mov dword ptr [rbx + 0x190], edi 
+  0180162D13  mov dword ptr [rbx + 0x198], 0xbf800000 
+  0180162D1D  mov dword ptr [rbx + 0x194], 0xbf800000 
+  0180162D27  mov dword ptr [rbx + 0x19c], edi 
+  0180162D2D  mov dword ptr [rbx + 0x1a4], 0xbf800000 
+  0180162D37  mov dword ptr [rbx + 0x1a0], 0xbf800000 
+  0180162D41  mov dword ptr [rbx + 0x1a8], edi 
+  0180162D47  mov dword ptr [rbx + 0x1b0], 0xbf800000 
+  0180162D51  mov dword ptr [rbx + 0x1ac], 0xbf800000 

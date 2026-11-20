@@ -1,0 +1,98 @@
+# ---------------------------------------------------------------------------
+# Scenario "combat puis martelage". Meme entete que tools/apm_entrees.txt.
+#
+# Mene le jeu au combat (deux appuis sur START, code 7 ETABLI), puis tient
+# chaque autre code a tour de role : le personnage joue donc des mouvements, ce
+# qui remplit les fenetres temporelles de son etat. Sert au pistage.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+front   = 150
+journal = 0
+
+0       rien
+25000   start
+25300   rien
+33000   start
+33300   rien
+
+45000   2
+45400   rien
+45600   3
+46000   rien
+46200   4
+46600   rien
+46800   5
+47200   rien
+47400   9
+47800   rien
+48000   10
+48400   rien
+48600   11
+49000   rien
+49200   12
+49600   rien
+49800   13
+50200   rien
+50400   14
+50800   rien
+51000   2
+51400   rien
+51600   3
+52000   rien
+52200   4
+52600   rien
+52800   5
+53200   rien
+53400   9
+53800   rien
+54000   10
+54400   rien
+54600   11
+55000   rien
+55200   12
+55600   rien
+55800   13
+56200   rien
+56400   14
+56800   rien
+57000   2
+57400   rien
+57600   3
+58000   rien
+58200   4
+58600   rien
+58800   5
+59200   rien
+59400   9
+59800   rien
+60000   10
+60400   rien
+60600   11
+61000   rien
+61200   12
+61600   rien
+61800   13
+62200   rien
+62400   14
+62800   rien
+63000   2
+63400   rien
+63600   3
+64000   rien
+64200   4
+64600   rien
+64800   5
+65200   rien
+65400   9
+65800   rien
+66000   10
+66400   rien
+66600   11
+67000   rien
+67200   12
+67600   rien
+67800   13
+68200   rien
+68400   14
+68800   rien

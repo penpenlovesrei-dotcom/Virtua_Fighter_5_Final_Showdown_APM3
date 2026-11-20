@@ -1,0 +1,25 @@
+processus 11844 lance sous debogage
+  image     0x00007FF69ABE0000  vfes.exe
+  dll       0x00007FFD0FC20000  apm.dll
+  dll       0x00007FFD25830000  d3d11.dll
+  dll       0x00007FFD26780000  dxgi.dll
+  dll       0x00007FFD247D0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD2F0C2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD2C6441CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFCA7610000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur Chargeur = 0x7FFCA76E7130 (octet d'origine 0x83)
+  point d'arret sur le chargeur pose a t=1 s
+  sourdine : session audio du processus 11844 coupee apres 2 s
+  DR0 arme sur TaskStage+0x5C (4 o, w) -- 48 thread(s)
+  DR arme sur 0x20F6DBBCE5C (t=2.7 s) -- valeur actuelle tst
+  DR0 TaskStage+0x5C acces 1 : apres 0x00007FFD2F000B82 = ntdll.dll+0x60B82, valeur eefeeefe
+  t=  50.5 s  ecriture depuis 0x7FFD2F000B82 (rva 0x879F0B82) -> 4277075694
+  DR0 TaskStage+0x5C acces 2 : apres 0x00007FFD2F000B82 = ntdll.dll+0x60B82, valeur eefeeefe
+  t=  50.5 s  ecriture depuis 0x7FFD2F000B82 (rva 0x879F0B82) -> 4277075694
+  DR0 TaskStage+0x5C acces 3 : apres 0x00007FFD2F000B82 = ntdll.dll+0x60B82, valeur eefeeefe
+  t=  50.5 s  ecriture depuis 0x7FFD2F000B82 (rva 0x879F0B82) -> 4277075694
+  DR0 TaskStage+0x5C acces 4 : apres 0x00007FFD2F000B82 = ntdll.dll+0x60B82, valeur eefeeefe
+  t=  50.5 s  ecriture depuis 0x7FFD2F000B82 (rva 0x879F0B82) -> 4277075694
+  DR0 TaskStage+0x5C acces 5 : apres 0x00007FFD2F000B82 = ntdll.dll+0x60B82, valeur eefeeefe
+  t=  50.5 s  ecriture depuis 0x7FFD2F000B82 (rva 0x879F0B82) -> 4277075694

@@ -1,0 +1,20 @@
+processus 12840 lance sous debogage
+  image     0x00007FF6B0C30000  vfes.exe
+  dll       0x00007FFB00360000  apm.dll
+  dll       0x00007FFB273B0000  d3d11.dll
+  dll       0x00007FFB28380000  dxgi.dll
+  dll       0x00007FFB26430000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB2E11D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2B86187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFA71CE0000  vf5fs-pxd-w64-Retail_APM3.dll
+  drapeau de region a 0x7FFA7232D956 : 0  (Japon)
+  [t=1 s] drapeau 0 -> 1
+  sourdine : session audio du processus 12840 coupee apres 2 s
+  [t=3 s] drapeau 0 -> 1
+  capture : C:\Users\frede\Desktop\VF5RE\analysis\lang_a.png (1280x720) a t=40.0 s
+  capture : C:\Users\frede\Desktop\VF5RE\analysis\lang_b.png (1280x720) a t=66.0 s
+  capture : C:\Users\frede\Desktop\VF5RE\analysis\lang_c.png (1280x720) a t=86.0 s
+--- 95 s ecoulees, on arrete ---
+
+78 module(s) charge(s)

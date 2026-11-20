@@ -1,0 +1,43 @@
+processus 9300 lance sous debogage
+  image     0x00007FF7CF940000  vfes.exe
+  dll       0x00007FFD7C2E0000  apm.dll
+  dll       0x00007FFD80260000  d3d11.dll
+  dll       0x00007FFD81480000  dxgi.dll
+  dll       0x00007FFD7F550000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD8719D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD848E187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFCCC980000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 9300 coupee apres 2 s
+  BP arme sur MontageGrille = 0x7FFCCCAF03E9 (octet d'origine 0xE8)
+  BP arme sur CasesA = 0x7FFCCCAEEEBA (octet d'origine 0x41)
+  BP arme sur CasesB = 0x7FFCCCBB7DC9 (octet d'origine 0x48)
+  point d'arret sur le montage de la grille, a t=8 s
+  --- releve 1, rbp = 0x3E437DECA0 ---
+    case  0  indice 0    AKI      aki          aki_end     
+    case  1  indice 5    PAI      pai          pai_end     
+    case  2  indice 2    LAU      lau          lau_end     
+    case  3  indice 9    WOL      wol          wol_end     
+    case  4  indice 4    JEF      jef          jef_end     
+    case  5  indice 7    KAG      kag          kag_end     
+    case  6  indice 1    SAR      sar          sar_end     
+    case  7  indice 6    JAK      jak          jak_end     
+    case  8  indice 3    SHU      shu          shu_end     
+    case  9  indice 8    LIO      lio          lio_end     
+    case 10  indice 10   AOI      aoi          aoi_end     
+    case 11  indice 11   LEI      lei          lei_end     
+    case 12  indice 12   VAN      van          van_end     
+    case 13  indice 14   GOH      goh          goh_end     
+    case 14  indice 13   BRA      bra          bra_end     
+    case 15  indice 16   MSK      msk          msk_end     
+    case 16  indice 15   MON      mon          mon_end     
+    case 17  indice 17   KRT      krt          krt_end     
+    case 18  indice 18   TAK      tak          tak_end     
+    case 19  indice 20   DUR      dur          dur_end        <<<< DURAL
+    case 20  indice 3439937856 ?3439937856                          
+--- 130 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP MontageGrille : 366 passage(s)
+  BP CasesA : 0 passage(s)
+  BP CasesB : 0 passage(s)

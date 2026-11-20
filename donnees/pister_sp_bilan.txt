@@ -1,0 +1,28 @@
+
+======================================================================
+COMPTES :
+   ModeChoisi   1
+   SceneMode    1
+   SousPage     479
+   Relais       0
+   Caverne      0
+   DemandeMode  1
+   DemandeSousEtat 2
+
+RECIT HORODATE :
+         0.0 ms  demande de SOUS-ETAT 3
+      2613.7 ms  demande de MODE 4
+      2614.0 ms  demande de SOUS-ETAT 55
+      6282.9 ms  la mise a jour voit sous-page = 0x0
+      8515.2 ms  MODE CHOISI : 0 (Arcade)
+      8515.4 ms  SCENE DU MODE demarree : OUI
+      8534.0 ms  la mise a jour voit sous-page = 0x1E75C0E57E8
+      9909.2 ms  la mise a jour voit sous-page = 0x0
+
+LECTURE :
+   pas de RELAIS      -> le site 0x1801DBEF2 n est jamais atteint :
+                         la page des modes n arrive pas jusque-la.
+   RELAIS toujours non -> le predicat ne dit jamais OUI : ce n est pas
+                         le bon signal de validation.
+   CAVERNE mais pas de demande de MODE -> la caverne echoue en amont
+                         (la session ne se cree pas).

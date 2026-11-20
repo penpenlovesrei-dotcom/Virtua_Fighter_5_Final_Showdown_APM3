@@ -1,0 +1,125 @@
+# mothead : les dix codes UNKNOWN qui ecrivent un champ d etat
+# etat = ROB + 0x798 ; un acces [reg + 0x798 + X] vise le champ X
+
+=== code 68 : 0x1801405D0 lit etat+0x454/+0x458 comme un masque de 64 bits ===
+#   ROB+0xBEC = etat+0x454 ; meme motif que les codes 52 et 53
+   ...
+   01801406AF  cmovl r10w, r9w
+   01801406B4  cmp word ptr [rbx + 0xa], r10w
+   01801406B9  jle 0x18014096a
+>> 01801406BF  mov ecx, dword ptr [rbx + 0xbec]
+   01801406C5  mov edx, ecx
+   01801406C7  shr edx, 1
+   01801406C9  and ecx, 0x55555555
+   ...
+   01801406F2  shr edx, 4
+   01801406F5  and edx, 0xf0f0f0f
+   01801406FB  add edx, ecx
+>> 01801406FD  mov ecx, dword ptr [rbx + 0xbf0]
+   0180140703  mov eax, edx
+   0180140705  and edx, 0xff00ff
+   018014070B  shr eax, 8
+   ...
+   0180140786  and al, 0x1f
+   0180140788  shr rdx, 5
+   018014078C  movzx ecx, al
+>> 018014078F  mov eax, dword ptr [rbx + rdx*4 + 0xbec]
+   0180140796  bt eax, ecx
+   0180140799  jae 0x18014096a
+>> 018014079F  mov rcx, qword ptr [rbx + 0xbec]
+   01801407A6  mov eax, r8d
+   01801407A9  and eax, ecx
+   01801407AB  mov qword ptr [rsp + 0x68], rcx
+
+=== code 70 : 0x180141702 nie etat+0x478 et le retranche de ROB+0x588 ===
+   ...
+   0180141734  je 0x1801417af
+   0180141736  test byte ptr [rdi + 0x339], 0x20
+   018014173D  jne 0x1801417af
+>> 018014173F  mov edx, dword ptr [rdi + 0xc0c]
+   0180141745  movzx r8d, byte ptr [rdi + 0x33b]
+   018014174D  test edx, edx
+   018014174F  je 0x1801417af
+   ...
+   0180141793  call 0x18005b4b0
+   0180141798  cmp eax, 4
+   018014179B  jne 0x1801417af
+>> 018014179D  movzx edx, byte ptr [rdi + 0xc10]
+   01801417A4  mov rcx, qword ptr [rdi + 0x20]
+   01801417A8  neg dl
+   01801417AA  call 0x180177c20
+--- 0x180177C20 :
+0x0000000180177C20  0fbec2                   movsx eax, dl                           
+0x0000000180177C23  018188050000             add dword ptr [rcx + 0x588], eax        
+0x0000000180177C29  c3                       ret                                     
+
+=== code 66 : 0x18013C9FF remplace etat+0x448 par ROB+0x4E6 quand il vaut -1 ===
+   ...
+   018013CA41  vmovaps xmmword ptr [rsp + 0x180], xmm7
+   018013CA4A  vmovaps xmmword ptr [rsp + 0x170], xmm8
+   018013CA53  je 0x18013cb8c
+>> 018013CA59  movzx edi, word ptr [rbx + 0xbe0]
+   018013CA60  cmp di, -1
+   018013CA64  jne 0x18013ca6d
+   018013CA66  movzx edi, word ptr [rbx + 0x4e6]
+
+=== code 51 : 0x18014FAD0 relit etat+0x350 et +0x354 en flottants ===
+   ...
+   018014FAD7  movzx ecx, byte ptr [rcx + 0x514]
+   018014FADE  test cl, 1
+   018014FAE1  je 0x18014fd66
+>> 018014FAE7  vmovss xmm3, dword ptr [rdx + 0xae8]
+   018014FAEF  vmovss xmm1, dword ptr [rdx + 0x5a0]
+>> 018014FAF7  vmovss xmm5, dword ptr [rdx + 0xaec]
+   018014FAFF  vxorps xmm2, xmm2, xmm2
+   018014FB03  vcomiss xmm2, xmm3
+
+=== code 81 : 0x180141CA0 depose une requete dans le singleton 0x1806B84C0 ===
+0x0000000180141CA0  4883ec48                 sub rsp, 0x48                           
+0x0000000180141CA4  8b91800c0000             mov edx, dword ptr [rcx + 0xc80]        
+0x0000000180141CAA  8bc2                     mov eax, edx                            
+0x0000000180141CAC  c5fb1081840c0000         vmovsd xmm0, qword ptr [rcx + 0xc84]    
+0x0000000180141CB4  c1e803                   shr eax, 3                              
+0x0000000180141CB7  2401                     and al, 1                               
+0x0000000180141CB9  c1ea04                   shr edx, 4                              
+0x0000000180141CBC  88442420                 mov byte ptr [rsp + 0x20], al           
+0x0000000180141CC0  80e201                   and dl, 1                               
+0x0000000180141CC3  8b818c0c0000             mov eax, dword ptr [rcx + 0xc8c]        
+0x0000000180141CC9  8944242c                 mov dword ptr [rsp + 0x2c], eax         
+0x0000000180141CCD  8b81900c0000             mov eax, dword ptr [rcx + 0xc90]        
+0x0000000180141CD3  89442430                 mov dword ptr [rsp + 0x30], eax         
+0x0000000180141CD7  8b81940c0000             mov eax, dword ptr [rcx + 0xc94]        
+0x0000000180141CDD  488d4c2420               lea rcx, [rsp + 0x20]                   
+0x0000000180141CE2  88542421                 mov byte ptr [rsp + 0x21], dl           
+0x0000000180141CE6  c5fb11442424             vmovsd qword ptr [rsp + 0x24], xmm0     
+0x0000000180141CEC  89442434                 mov dword ptr [rsp + 0x34], eax         
+0x0000000180141CF0  e83bb2f0ff               call 0x18004cf30                        
+0x0000000180141CF5  4883c448                 add rsp, 0x48                           
+0x0000000180141CF9  c3                       ret                                     
+--- 0x18004CF30 (le depot) :
+0x000000018004CF30  488b0589b56600           mov rax, qword ptr [rip + 0x66b589]       ; -> 0x1806B84C0
+0x000000018004CF37  c5f81001                 vmovups xmm0, xmmword ptr [rcx]         
+0x000000018004CF3B  c5f81180a4000000         vmovups xmmword ptr [rax + 0xa4], xmm0  
+0x000000018004CF43  c5fb104910               vmovsd xmm1, qword ptr [rcx + 0x10]     
+0x000000018004CF48  c5fb1188b4000000         vmovsd qword ptr [rax + 0xb4], xmm1     
+0x000000018004CF50  c680a000000001           mov byte ptr [rax + 0xa0], 1            
+0x000000018004CF57  c3                       ret                                     
+
+=== code 83 : le gestionnaire, ou -1 signifie l animation courante (etat+0x00) ===
+0x0000000180162B60  8b02                     mov eax, dword ptr [rdx]                
+0x0000000180162B62  4c8b4110                 mov r8, qword ptr [rcx + 0x10]          
+0x0000000180162B66  83f8ff                   cmp eax, -1                             
+0x0000000180162B69  750b                     jne 0x180162b76                         
+0x0000000180162B6B  418b00                   mov eax, dword ptr [r8]                 
+0x0000000180162B6E  41898004050000           mov dword ptr [r8 + 0x504], eax         
+0x0000000180162B75  c3                       ret                                     
+
+=== code 75 : 0x1801440EC ne s en sert que si le flottant est positif ===
+   ...
+   018014412A  movzx r14d, byte ptr [rsp + 0xb0]
+   0180144133  cmp byte ptr [rcx + 0x339], bpl
+   018014413A  jl 0x18014415c
+>> 018014413C  vmovss xmm1, dword ptr [rcx + 0xc24]
+   0180144144  vxorps xmm0, xmm0, xmm0
+   0180144148  vcomiss xmm1, xmm0
+   018014414C  jbe 0x1801441d5

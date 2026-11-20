@@ -1,0 +1,38 @@
+processus 20356 lance sous debogage
+  image     0x00007FF60C730000  vfes.exe
+  dll       0x00007FF83E650000  apm.dll
+  dll       0x00007FF856F30000  d3d11.dll
+  dll       0x00007FF858080000  dxgi.dll
+  dll       0x00007FF8561F0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF85DE1D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF85B3A187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFF9D510000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur entree CS_DEMO = 0x7FFF9D5EDC40 (octet d'origine 0x40)
+  BP arme sur reponse requete 14 = 0x7FFF9D5EDC87 (octet d'origine 0x83)
+  BP arme sur maj CS_DEMO = 0x7FFF9D5ED4F0 (octet d'origine 0x48)
+  BP arme sur scene vivante ? = 0x7FFF9D5ED54D (octet d'origine 0x84)
+  BP arme sur sortie CS_DEMO = 0x7FFF9D5ED558 (octet d'origine 0xB0)
+  BP arme sur TaskMovie ? = 0x7FFF9D5F8800 (octet d'origine 0x48)
+  points d'arret poses a t=1 s
+  sourdine : session audio du processus 20356 coupee apres 2 s
+      0.0 ms  PREMIERE FOIS : TaskMovie ?
+  12499.8 ms  PREMIERE FOIS : entree CS_DEMO
+  12519.7 ms  PREMIERE FOIS : maj CS_DEMO
+  12520.3 ms  scene vivante ? al = 1
+  12539.9 ms  scene vivante ? al = 1
+  12555.9 ms  scene vivante ? al = 1
+  12566.9 ms  scene vivante ? al = 1
+  12584.7 ms  scene vivante ? al = 1
+  12599.9 ms  scene vivante ? al = 1
+  12627.1 ms  PREMIERE FOIS : scene vivante ?
+  12646.5 ms  PREMIERE FOIS : sortie CS_DEMO
+  sortie du processus, code 0x00000000
+
+77 module(s) charge(s)
+  BP entree CS_DEMO : 2 passage(s)
+  BP reponse requete 14 : 0 passage(s)
+  BP maj CS_DEMO : 18 passage(s)
+  BP scene vivante ? : 18 passage(s)
+  BP sortie CS_DEMO : 2 passage(s)
+  BP TaskMovie ? : 2462 passage(s)

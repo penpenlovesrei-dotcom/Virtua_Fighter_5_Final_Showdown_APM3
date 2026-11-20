@@ -1,0 +1,20 @@
+
+======================================================================
+COMPTES :
+   Curseur      881
+   Predicat     872
+   Valider      1
+   dont « presse » : 2
+
+Predicat par tour de curseur : 0.99   (1.00 attendu)
+
+RECIT HORODATE :
+      9008.5 ms  PREDICAT : presse
+      9025.3 ms  PREDICAT : presse
+      9025.9 ms  VALIDER (0x1801A8090)
+
+LECTURE :
+   deux PREDICAT presses a une trame d ecart (~17 ms) -> la FENETRE
+        du stub reste ouverte trop longtemps : baisser `front`.
+   un seul PREDICAT mais deux VALIDER -> le curseur partage tourne
+        DEUX FOIS par trame : c est un site d appel a fermer.

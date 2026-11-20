@@ -1,0 +1,262 @@
+@echo off
+rem ===========================================================================
+rem  monter_banc_revo.cmd : fabrique FS APM3\banc_revo -- le CODE d'APM3 sur
+rem  les DONNEES de R.E.V.O. Idempotent.
+rem
+rem  LA QUESTION : " la DLL et l'exe d'APM3 peuvent-ils demarrer avec les
+rem  fichiers de REVO ? " Meme protocole que banc_gog.
+rem
+rem  CE QUE LA MESURE A DEJA ETABLI, AVANT TOUT LANCEMENT :
+rem
+rem    .par de REVO   1862 fichiers, 3.71 Go   \  memes noms, memes tailles,
+rem    .par d'APM3    1862 fichiers, 3.71 Go   /  a UN fichier pres :
+rem                   mot_db.farc  83726 o contre 83728 o -- DEUX octets.
+rem
+rem  Autrement dit REVO embarque l'archive de la borne. Les dix-neuf
+rem  <perso>itm_patch.farc qui manquent au GOG sont ici. Et rom\sound\bgm
+rem  porte 268 vfes_bgm_*, la nomenclature arcade, logo SEGA compris : le
+rem  patch de chaines du banc_gog serait ici NUISIBLE. On pose donc le module
+rem  VIERGE, pas le patche.
+rem
+rem  LE MUR PREVU, NOMME D'AVANCE, ET IL EST NET :
+rem
+rem    vf5fs_media\w64\        REVO                      APM3
+rem      shader_pxd_w64.farc     9 026 o            10 530 083 o
+rem      shader_pxd_w64_d3d12.farc  53 778 o              --
+rem      shader_vf5_w64.farc          --                3 303 o
+rem
+rem  REVO a VIDE l'archive de nuanceurs D3D11 et mis les siens dans une
+rem  archive D3D12. Le module d'APM3 est D3D11 et importe D3DCOMPILER_47 ;
+rem  il va chercher 10,5 Mo de nuanceurs et en trouver 9 Ko. C'est la
+rem  difference d'avec le GOG, dont le shader_pxd_w64.farc etait identique a
+rem  l'octet pres -- et c'est pour cela que le GOG, lui, a affiche.
+rem
+rem  L'EMPRUNT EST ICI UN REMPLACEMENT, PAS UN AJOUT. Le fichier existe des
+rem  deux cotes sous le meme nom. `monter_banc_revo.cmd emprunt` met celui
+rem  d'APM3 a la place de celui de REVO, et le dit.
+rem ===========================================================================
+setlocal EnableDelayedExpansion
+
+set "ICI=%~dp0"
+set "RACINE=%ICI%.."
+set "SRC=%ICI%..\..\SOURCES"
+set "APM3=%SRC%\APM3_US\runtime\media\vf5fs"
+set "REVO=%ICI%..\..\FS REVO\Virtua Fighter 5 REVO World Stage\runtime\media\vf5fs"
+set "VF5RE=%ICI%..\..\VF5RE\runtime\media\vf5fs"
+set "LIB=%SRC%\lib"
+set "BOUCHON=%ICI%..\..\VF5RE\runtime\media\vf5fs\apm.dll"
+set "ENTREES=%ICI%..\..\VF5RE\runtime\media\vf5fs\apm_entrees.txt"
+set "BANC=%RACINE%\banc_revo"
+
+rem Les deux arguments, dans n'importe quel ordre : " emprunt " et " mod ".
+set "MOD="
+set "EMPRUNT="
+for %%A in (%1 %2) do (
+    if /i "%%~A"=="mod"     set "MOD=1"
+    if /i "%%~A"=="emprunt" set "EMPRUNT=1"
+)
+
+echo === controle de la matiere premiere ===
+for %%F in ("%APM3%\vfes.exe" "%APM3%\vf5fs-pxd-w64-Retail_APM3.dll" "%APM3%\vf5fs_media\w64\shader_pxd_w64.farc" "%REVO%\vf5fs_data.par" "%REVO%\vf5fs-pxd-w64-d3d12_SteamRetail.dll" "%REVO%\vf5fs_media\w64\shader_pxd_w64.farc" "%BOUCHON%" "%ENTREES%") do (
+    if not exist "%%~F" ( echo   ECHEC : introuvable : %%~F & exit /b 1 )
+    echo   ok  %%~nxF  %%~zF octets
+)
+
+if not exist "%BANC%" mkdir "%BANC%"
+
+echo.
+rem Le module patche BGM du banc_gog n'a RIEN A FAIRE ICI : les donnees de
+rem REVO portent la nomenclature arcade (268 vfes_bgm_*), que ce patch
+rem repeindrait a tort. Les deux seuls choix sont : vierge, ou patche VF5RE.
+if defined MOD (
+    echo === le CODE : les binaires PATCHES de VF5RE ===
+    copy /y "%VF5RE%\vfes.exe"                      "%BANC%\vfes.exe" >nul
+    copy /y "%VF5RE%\vf5fs-pxd-w64-Retail_APM3.dll" "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll" >nul
+    echo   poses    vfes.exe et le module patches
+) else (
+    echo === le CODE : APM3, VIERGE ===
+    if exist "%BANC%\vfes.exe" del "%BANC%\vfes.exe"
+    if exist "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll" del "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll"
+    call :COPIE "%APM3%\vfes.exe"                      "%BANC%\vfes.exe"
+    call :COPIE "%APM3%\vf5fs-pxd-w64-Retail_APM3.dll" "%BANC%\vf5fs-pxd-w64-Retail_APM3.dll"
+)
+
+echo.
+echo === les DONNEES : REVO, copiees en dur ===
+call :COPIE "%REVO%\vf5fs_data.par"                  "%BANC%\vf5fs_data.par"
+if exist "%REVO%\ws_rob_data.par" call :COPIE "%REVO%\ws_rob_data.par" "%BANC%\ws_rob_data.par"
+if exist "%REVO%\ws_sound.par"    call :COPIE "%REVO%\ws_sound.par"    "%BANC%\ws_sound.par"
+rem Le module D3D12 de REVO, pose sans etre charge : temoin de l'essai
+rem reciproque (module REVO sous vfes.exe), jamais tente non plus.
+call :COPIE "%REVO%\vf5fs-pxd-w64-d3d12_SteamRetail.dll" "%BANC%\vf5fs-pxd-w64-d3d12_SteamRetail.dll"
+
+echo.
+echo === vf5fs_media : tout copie, dossier par dossier ===
+rem POURQUOI DOSSIER PAR DOSSIER. Les surcharges de VF5RE vivent dans rom\2d,
+rem rom\auth_3d, rom\ibl, rom\light_param et rom\objset -- des dossiers que
+rem REVO n'a PAS. Mesure du 4 novembre 2026 : les deux arborescences ont ZERO
+rem fichier en commun. L'union se fait donc dossier par dossier, sans qu'aucun
+rem fichier n'en masque un autre.
+if not exist "%BANC%\vf5fs_media"     mkdir "%BANC%\vf5fs_media"
+if not exist "%BANC%\vf5fs_media\w64" mkdir "%BANC%\vf5fs_media\w64"
+if not exist "%BANC%\vf5fs_media\rom" mkdir "%BANC%\vf5fs_media\rom"
+call :COPIE_DOSSIER "%REVO%\vf5fs_media\rom\movie" "%BANC%\vf5fs_media\rom\movie"
+call :COPIE_DOSSIER "%REVO%\vf5fs_media\rom\rob"   "%BANC%\vf5fs_media\rom\rob"
+call :COPIE_DOSSIER "%REVO%\vf5fs_media\rom\sound" "%BANC%\vf5fs_media\rom\sound"
+if exist "%REVO%\vf5fs_media\rom_200" call :COPIE_DOSSIER "%REVO%\vf5fs_media\rom_200" "%BANC%\vf5fs_media\rom_200"
+if exist "%REVO%\vf5fs_media\w64\shader_pxd_w64_d3d12.farc" call :COPIE "%REVO%\vf5fs_media\w64\shader_pxd_w64_d3d12.farc" "%BANC%\vf5fs_media\w64\shader_pxd_w64_d3d12.farc"
+
+rem --- le nuanceur D3D11 : celui de REVO, ou celui d'APM3 si on emprunte ---
+if exist "%BANC%\vf5fs_media\w64\shader_pxd_w64.farc" del "%BANC%\vf5fs_media\w64\shader_pxd_w64.farc"
+if defined EMPRUNT (
+    echo   EMPRUNT : shader_pxd_w64.farc d'APM3 REMPLACE celui de REVO
+    call :COPIE "%APM3%\vf5fs_media\w64\shader_pxd_w64.farc" "%BANC%\vf5fs_media\w64\shader_pxd_w64.farc"
+    if exist "%APM3%\vf5fs_media\w64\shader_vf5_w64.farc" call :COPIE "%APM3%\vf5fs_media\w64\shader_vf5_w64.farc" "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc"
+) else (
+    echo   sans emprunt : shader_pxd_w64.farc de REVO ^(9 Ko^)
+    call :COPIE "%REVO%\vf5fs_media\w64\shader_pxd_w64.farc" "%BANC%\vf5fs_media\w64\shader_pxd_w64.farc"
+    if exist "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc" del "%BANC%\vf5fs_media\w64\shader_vf5_w64.farc"
+)
+
+rem --- les surcharges du mod VF5RE, si on les veut -------------------------
+rem CE QUE " mod " AJOUTE, ET CE QU'IL FAUT POUR QUE CE SOIT LU.
+rem
+rem VF5RE surcharge 477 fichiers de medias, dont les 46 archives de decor de
+rem Virtua Fighter 5 et de Virtua Fighter 5 R posees en septembre 2026 sous
+rem des codes a trois lettres (stgae5, stgaeb, stgar5...).
+rem
+rem Environ 452 de ces fichiers n'existent PAS dans le .par : le moteur les
+rem cherche sur le disque et les copies suffisent.
+rem
+rem LES 26 AUTRES EXISTENT DANS LE .par, ET L'ARCHIVE GAGNE TOUJOURS -- mesure
+rem prise au point d'arret sur CreateFileW. Tant que leur nom est dans l'index,
+rem la copie posee a cote n'est JAMAIS ouverte. C'est :MASQUER qui s'en occupe,
+rem juste apres, et obj_db.bin est le plus important des vingt-six.
+if defined MOD (
+    echo.
+    echo === SURCHARGES DU MOD VF5RE ^(477 fichiers, copies^) ===
+    for %%D in (2d auth_3d ibl light_param objset) do (
+        if exist "%VF5RE%\vf5fs_media\rom\%%D" call :COPIE_DOSSIER "%VF5RE%\vf5fs_media\rom\%%D" "%BANC%\vf5fs_media\rom\%%D"
+    )
+    for %%F in ("%VF5RE%\vf5fs_media\rom\*.bin" "%VF5RE%\vf5fs_media\rom\*.farc") do (
+        if exist "%%~F" call :COPIE "%%~F" "%BANC%\vf5fs_media\rom\%%~nxF"
+    )
+) else (
+    echo.
+    echo === sans les surcharges du mod ^(ajouter " mod " pour les poser^) ===
+    for %%D in (2d auth_3d ibl light_param objset) do (
+        if exist "%BANC%\vf5fs_media\rom\%%D" rmdir /s /q "%BANC%\vf5fs_media\rom\%%D" 2>nul
+    )
+)
+
+if defined MOD call :MASQUER
+if errorlevel 1 exit /b 1
+
+echo.
+echo === notre apm.dll et sa configuration ===
+copy /y "%BOUCHON%" "%BANC%\apm.dll" >nul
+if errorlevel 1 ( echo   ECHEC : copie de notre apm.dll & exit /b 1 )
+echo   posee    apm.dll
+copy /y "%ENTREES%" "%BANC%\apm_entrees.txt" >nul
+if errorlevel 1 ( echo   ECHEC : copie de apm_entrees.txt & exit /b 1 )
+echo   pose     apm_entrees.txt  ^(clavier et manette^)
+
+> "%BANC%\LANCER.cmd" (
+  echo @echo off
+  echo rem GENERE PAR outils\monter_banc_revo.cmd -- NE PAS MODIFIER A LA MAIN.
+  echo setlocal
+  echo set "ICI=%%~dp0"
+  echo set "APM_INERTE=1"
+  echo set "APM_JOURNAL=%%ICI%%apm_journal.txt"
+  echo set "APM_DETAIL=8"
+  echo pushd "%%ICI%%"
+  echo vfes.exe
+  echo set "CODE=%%ERRORLEVEL%%"
+  echo popd
+  echo echo.
+  echo echo vfes.exe a rendu %%CODE%%
+  echo endlocal
+)
+echo   ecrit    LANCER.cmd
+
+echo.
+echo === le banc ===
+dir /b "%BANC%"
+echo.
+echo Pret.
+endlocal
+exit /b 0
+
+rem ===========================================================================
+rem  DE VRAIES COPIES, PAS DES RENVOIS. Consigne du 4 novembre 2026 :
+rem  " je veux que dans le banc soit copiees-collees les donnees necessaires
+rem  au banc, PAS DE RENVOI ".
+rem
+rem  Ce montage posait avant des liens durs (mklink /H) et des jonctions
+rem  (mklink /J). Trois raisons de ne plus le faire :
+rem    1. un lien dur vers SOURCES ou vers le dump de REVO fait qu'ecrire dans
+rem       le banc ECRIT DANS LE DUMP, qui est en lecture seule par regle ;
+rem    2. le banc n'etait pas lisible : les dates et les tailles qu'on y voit
+rem       etaient celles d'ailleurs ;
+rem    3. masquer un nom dans l'index du .par exige un .par en ecriture, donc
+rem       une vraie copie. par_masquer.py refuse d'ailleurs un fichier dont le
+rem       compteur de liens depasse 1.
+rem  Le banc pese donc 8,5 Go au lieu de presque rien. C'est le prix, et il est
+rem  paye une fois : les deux sous-programmes sautent ce qui est deja la.
+rem ===========================================================================
+
+:COPIE
+if exist "%~2" ( echo   deja la  %~nx2 & exit /b 0 )
+copy /y "%~1" "%~2" >nul
+if errorlevel 1 ( echo   ECHEC : copie de %~nx2 & exit /b 1 )
+echo   copie    %~nx2
+exit /b 0
+
+:COPIE_DOSSIER
+if exist "%~2" ( echo   deja la  %~nx2 & exit /b 0 )
+robocopy "%~1" "%~2" /E /NFL /NDL /NJH /NJS /NP /R:1 /W:1 >nul
+rem robocopy rend 0 a 7 quand tout va bien, 8 et plus quand il echoue.
+if errorlevel 8 ( echo   ECHEC : copie du dossier %~nx2 & exit /b 1 )
+echo   copie    %~nx2\  ^(dossier entier^)
+exit /b 0
+
+rem ===========================================================================
+rem  :MASQUER -- rend lisibles les copies que l'archive recouvrait.
+rem
+rem  LA REGLE, MESUREE AU POINT D'ARRET SUR CreateFileW : le moteur consulte le
+rem  .par D'ABORD. Un nom qui s'y trouve est lu depuis l'archive et le disque
+rem  n'est JAMAIS interroge. Un nom absent de l'index fait retomber le moteur
+rem  sur vf5fs_media\. Donc poser un fichier a cote ne sert a RIEN tant que son
+rem  nom figure dans l'index.
+rem
+rem  Le remede coute un octet par nom : stgnyc.farc devient stgnyc.far_, le
+rem  moteur ne le trouve plus et prend celui du disque. Reversible avec
+rem  par_masquer.py --rendre.
+rem
+rem  LES VINGT-SIX. Vingt-cinq sont ceux que VF5RE masque dans sa propre
+rem  archive. Le vingt-sixieme est obj_db.bin, et c'est le decisif : ce fichier
+rem  traduit un code de decor en liste d'objets a charger. Celui de REVO fait
+rem  1 141 248 octets et ne connait AUCUN des codes des decors de VF5 et VF5R ;
+rem  celui de VF5RE en fait 1 586 674 et les connait. Sans ce masquage les 46
+rem  archives de decor sont sur le disque, completes, et le jeu affiche des
+rem  decors VIDES -- constate le 4 novembre 2026.
+rem ===========================================================================
+
+:MASQUER
+echo.
+echo === masquage dans l'index du .par ^(26 noms^) ===
+set "MASQUEUR=%ICI%..\..\VF5RE\tools\par_masquer.py"
+if not exist "%MASQUEUR%" ( echo   ECHEC : introuvable : %MASQUEUR% & exit /b 1 )
+set "NOMS=aet_db.bin aet_n_adv.bin aet_n_buy.bin aet_n_clg.bin aet_n_cmn.bin"
+set "NOMS=%NOMS% aet_n_dojo.bin aet_n_info.bin aet_n_main.bin aet_n_match.bin"
+set "NOMS=%NOMS% aet_n_term.bin auth_3d_db.bin spr_db.bin spr_n_adv.farc"
+set "NOMS=%NOMS% spr_n_buy.farc spr_n_clg.farc spr_n_cmn.farc spr_n_cmnps3.farc"
+set "NOMS=%NOMS% spr_n_dojo.farc spr_n_fnt32.farc spr_n_info.farc spr_n_main.farc"
+set "NOMS=%NOMS% spr_n_match.farc spr_n_term.farc stgnyc.farc string_array.farc"
+set "NOMS=%NOMS% obj_db.bin"
+rem py -3, jamais " python " nu : sur cette machine c'est le bouchon du Store,
+rem qui sort en silence avec le code 0 sans rien faire.
+py -3 "%MASQUEUR%" --par "%BANC%\vf5fs_data.par" --masquer %NOMS% >nul
+if errorlevel 1 ( echo   ECHEC : par_masquer.py & exit /b 1 )
+echo   masques  26 noms, dont obj_db.bin ^(le catalogue des decors^)
+exit /b 0

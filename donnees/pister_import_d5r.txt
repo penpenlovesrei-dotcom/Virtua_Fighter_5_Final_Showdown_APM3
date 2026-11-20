@@ -1,0 +1,64 @@
+processus 6676 lance sous debogage
+  image     0x00007FF76E7D0000  vfes.exe
+  dll       0x00007FFB14D00000  apm.dll
+  dll       0x00007FFB2B640000  d3d11.dll
+  dll       0x00007FFB2CBA0000  dxgi.dll
+  dll       0x00007FFB2AC40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB329A2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2FD841CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFA87110000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur porte0 = 0x7FFA8729F74A (octet d'origine 0x48)
+  BP arme sur porte1 = 0x7FFA8729F760 (octet d'origine 0xE8)
+  BP arme sur porte2 = 0x7FFA8729F76D (octet d'origine 0xE8)
+  BP arme sur porte3 = 0x7FFA8729F77A (octet d'origine 0x48)
+  BP arme sur porte4 = 0x7FFA8729F78E (octet d'origine 0xE8)
+  BP arme sur porte5 = 0x7FFA8729F7A2 (octet d'origine 0x48)
+  BP arme sur porte6 = 0x7FFA8729F7B7 (octet d'origine 0xE8)
+  BP arme sur porte7 = 0x7FFA8729F7C4 (octet d'origine 0x48)
+  BP arme sur jalon0 = 0x7FFA8729FAF5 (octet d'origine 0xC7)
+  BP arme sur jalon1 = 0x7FFA8729F952 (octet d'origine 0xC7)
+  BP arme sur jalon2 = 0x7FFA8729F821 (octet d'origine 0xC7)
+  BP arme sur jalon3 = 0x7FFA8729F73E (octet d'origine 0xC7)
+  BP arme sur CreateFileW = 0x7FFB2FCE77F0 (octet d'origine 0x48)
+  BP arme sur CreateFileA = 0x7FFB2FCE6790 (octet d'origine 0x48)
+  BP arme sur CreateFileW = 0x7FFB320970B0 (octet d'origine 0xFF)
+  BP arme sur CreateFileA = 0x7FFB320970A0 (octet d'origine 0xFF)
+  instruments poses a t=1.3 s
+  sourdine : session audio du processus 6676 coupee apres 2 s
+  t=   2.6 s  etat 0 (inactif)  decor courant tst
+  JALON : etat 2 : les fichiers annexes sont demandes
+  t=  42.0 s  etat 2 (fichiers annexes)  decor courant AJOUTE-42
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/objset/stgd5r.farc
+  JALON : etat 3 : la barriere commence
+  t=  42.7 s  etat 3 (BARRIERE D'ATTENTE)  decor courant AJOUTE-42
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/auth_3d/EFFSTGD5R.farc
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/light_param/wind_d5r.txt
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/light_param/glow_d5r.txt
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/light_param/fog_d5r.txt
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/light_param/light_d5r.txt
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/ibl/d5r.ibl
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/light_param/envmap_correct_d5r.txt
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/STGD5R_COLI.000.bin
+  JALON : etat 4 : tout est charge
+  t=  43.1 s  etat 4 (derniere attente)  decor courant AJOUTE-42
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  BP porte0 : 24 passage(s)
+  BP porte1 : 24 passage(s)
+  BP porte2 : 9 passage(s)
+  BP porte3 : 5 passage(s)
+  BP porte4 : 5 passage(s)
+  BP porte5 : 5 passage(s)
+  BP porte6 : 5 passage(s)
+  BP porte7 : 1 passage(s)
+  BP jalon0 : 1 passage(s)
+  BP jalon1 : 1 passage(s)
+  BP jalon2 : 1 passage(s)
+  BP jalon3 : 0 passage(s)
+  BP CreateFileW : 7 passage(s)
+  BP CreateFileA : 30 passage(s)
+  BP CreateFileW : 4 passage(s)
+  BP CreateFileA : 30 passage(s)
+  scenario d entrees remis en jeu manuel

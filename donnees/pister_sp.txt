@@ -1,0 +1,37 @@
+processus 8128 lance sous debogage
+  image     0x00007FF707B90000  vfes.exe
+  dll       0x00007FFBF8E90000  apm.dll
+  dll       0x00007FFC181F0000  d3d11.dll
+  dll       0x00007FFC191E0000  dxgi.dll
+  dll       0x00007FFC174B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFC1EF7D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFC1C43187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFB738D0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 8128 coupee apres 2 s
+  BP arme sur ModeChoisi = 0x7FFB73AADD1D (octet d'origine 0x8B)
+  BP arme sur SceneMode = 0x7FFB73AADDC5 (octet d'origine 0x84)
+  BP arme sur SousPage = 0x7FFB73AABED4 (octet d'origine 0x48)
+  BP arme sur Relais = 0x7FFB73A77046 (octet d'origine 0x84)
+  BP arme sur Caverne = 0x7FFB73C1579C (octet d'origine 0x48)
+  BP arme sur DemandeMode = 0x7FFB739AA9A0 (octet d'origine 0x89)
+  BP arme sur DemandeSousEtat = 0x7FFB739AA9C0 (octet d'origine 0x89)
+  points d'arret poses a t=8 s
+      0.0 ms  demande de SOUS-ETAT 3
+   2613.7 ms  demande de MODE 4
+   2614.0 ms  demande de SOUS-ETAT 55
+   6282.9 ms  la mise a jour voit sous-page = 0x0
+   8515.2 ms  MODE CHOISI : 0 (Arcade)
+   8515.4 ms  SCENE DU MODE demarree : OUI
+   8534.0 ms  la mise a jour voit sous-page = 0x1E75C0E57E8
+   9909.2 ms  la mise a jour voit sous-page = 0x0
+  sortie du processus, code 0x00000000
+
+77 module(s) charge(s)
+  BP ModeChoisi : 1 passage(s)
+  BP SceneMode : 1 passage(s)
+  BP SousPage : 479 passage(s)
+  BP Relais : 0 passage(s)
+  BP Caverne : 0 passage(s)
+  BP DemandeMode : 1 passage(s)
+  BP DemandeSousEtat : 2 passage(s)

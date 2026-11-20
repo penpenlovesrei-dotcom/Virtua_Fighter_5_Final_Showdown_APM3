@@ -1,0 +1,38 @@
+processus 3588 lance sous debogage
+  image     0x00007FF77ACB0000  vfes.exe
+  dll       0x00007FFB01F80000  apm.dll
+  dll       0x00007FFB2B640000  d3d11.dll
+  dll       0x00007FFB2CBA0000  dxgi.dll
+  dll       0x00007FFB2AC40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB329A2239 = ntdll.dll+0x122239
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB2FD841CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+  dll       0x00007FFA876D0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur Chargeur = 0x7FFA877A7130 (octet d'origine 0x83)
+  BP arme sur Mode = 0x7FFA878DAE60 (octet d'origine 0x44)
+  BP arme sur Ecretage = 0x7FFA878D3F2E (octet d'origine 0x0F)
+  BP arme sur Requete = 0x7FFA8785FCF0 (octet d'origine 0x83)
+  DR0 arme sur pointeur TaskStage (8 o, w) -- 48 thread(s)
+  t=   1.4 s  quatre points d'arret et le pointeur armes
+              borne d ecretage VIVANTE : 43, repli 42 (ajoute-42)
+  sourdine : session audio du processus 3588 coupee apres 2 s
+  DR0 pointeur TaskStage acces 1 : apres 0x00007FFA8785EE7F = vf5fs-pxd-w64-Retail_APM3.dll+0x18EE7F, valeur e0f94439c6010000
+  t=   3.4 s  POINTEUR : CREATION depuis rva 0x18EE7F -> 0x1C63944F9E0
+  DR1 arme sur tache+0x60 DEMANDE (4 o, w) -- 48 thread(s)
+  DR2 arme sur tache+0x5C courant (4 o, w) -- 48 thread(s)
+  t=   3.4 s  TACHE 0x1C63944F9E0  --  demande 0 (tst), courant 0 (tst)
+--- 100 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP Chargeur : 0 passage(s)
+  BP Mode : 0 passage(s)
+  BP Ecretage : 0 passage(s)
+  BP Requete : 0 passage(s)
+  DR0 pointeur TaskStage : 1 acces
+  DR1 tache+0x60 DEMANDE : 0 acces
+  DR2 tache+0x5C courant : 0 acces
+  scenario d entrees remis en jeu manuel
+
+AUCUNE ecriture de la demande n'a ete vue. Si un
+CHARGEMENT a eu lieu quand meme, la demande passe par un
+autre chemin que ce champ, et c'est un resultat.

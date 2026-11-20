@@ -1,0 +1,120 @@
+# Xbox 360 (console) 0x82356840 -- 110 instructions
+#
+# TaskRobSingle::update cote console (vtable 0x820B20F4, creneau 2). La ou
+# la borne attend un drapeau par joueur (0x180151D3A), elle interroge le
+# MEME singleton de chargement que la tache d'equipement. Confirme que
+# +0x796 n'a pas d'homologue console. REPRISE (114).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+0x82356840  7d8802a6   mflr       r12
+0x82356844  48382389   bl         0x826d8bcc
+0x82356848  9421ff80   stwu       r1, -0x80(r1)
+0x8235684C  8163004c   lwz        r11, 0x4c(r3)
+0x82356850  7c7f1b78   mr         r31, r3
+0x82356854  2b0b0004   cmplwi     cr6, r11, 4
+0x82356858  419901b4   bgt        cr6, 0x82356a0c
+0x8235685C  7d6903a6   mtctr      r11
+0x82356860  2f0b0000   cmpwi      cr6, r11, 0
+0x82356864  405a0098   bdzf       4*cr6+eq, 0x823568fc
+0x82356868  405a00ec   bdzf       4*cr6+eq, 0x82356954
+0x8235686C  405a0110   bdzf       4*cr6+eq, 0x8235697c
+0x82356870  409a013c   bne        cr6, 0x823569ac
+0x82356874  807f0054   lwz        r3, 0x54(r31)
+0x82356878  81630010   lwz        r11, 0x10(r3)
+0x8235687C  2f0b0013   cmpwi      cr6, r11, 0x13
+0x82356880  40980048   bge        cr6, 0x823568c8
+0x82356884  4bfffbb5   bl         0x82356438
+0x82356888  546b063e   clrlwi     r11, r3, 0x18
+0x8235688C  2b0b0000   cmplwi     cr6, r11, 0
+0x82356890  409a0038   bne        cr6, 0x823568c8
+0x82356894  817f0054   lwz        r11, 0x54(r31)
+0x82356898  806b0010   lwz        r3, 0x10(r11)
+0x8235689C  4bea1465   bl         0x821f7d00
+0x823568A0  546a063e   clrlwi     r10, r3, 0x18
+0x823568A4  2b0a0000   cmplwi     cr6, r10, 0
+0x823568A8  409a0034   bne        cr6, 0x823568dc
+0x823568AC  83df0054   lwz        r30, 0x54(r31)
+0x823568B0  38800000   li         r4, 0
+0x823568B4  7fc3f378   mr         r3, r30
+0x823568B8  4bff3499   bl         0x82349d50
+0x823568BC  4bffe9ed   bl         0x823552a8
+0x823568C0  7fc4f378   mr         r4, r30
+0x823568C4  4bffea25   bl         0x823552e8
+0x823568C8  39600002   li         r11, 2
+0x823568CC  38600000   li         r3, 0
+0x823568D0  917f004c   stw        r11, 0x4c(r31)
+0x823568D4  38210080   addi       r1, r1, 0x80
+0x823568D8  48382344   b          0x826d8c1c
+0x823568DC  817f0054   lwz        r11, 0x54(r31)
+0x823568E0  386b0028   addi       r3, r11, 0x28
+0x823568E4  4bff85a5   bl         0x8234ee88
+0x823568E8  39600001   li         r11, 1
+0x823568EC  38600000   li         r3, 0
+0x823568F0  917f004c   stw        r11, 0x4c(r31)
+0x823568F4  38210080   addi       r1, r1, 0x80
+0x823568F8  48382324   b          0x826d8c1c
+0x823568FC  817f0054   lwz        r11, 0x54(r31)
+0x82356900  38810050   addi       r4, r1, 0x50
+0x82356904  386b0028   addi       r3, r11, 0x28
+0x82356908  4bff85f1   bl         0x8234eef8
+0x8235690C  546b063e   clrlwi     r11, r3, 0x18
+0x82356910  2b0b0000   cmplwi     cr6, r11, 0
+0x82356914  409a00f8   bne        cr6, 0x82356a0c
+0x82356918  817f0054   lwz        r11, 0x54(r31)
+0x8235691C  386b0028   addi       r3, r11, 0x28
+0x82356920  4bff86b9   bl         0x8234efd8
+0x82356924  89410050   lbz        r10, 0x50(r1)
+0x82356928  2b0a0000   cmplwi     cr6, r10, 0
+0x8235692C  409a0020   bne        cr6, 0x8235694c
+0x82356930  83df0054   lwz        r30, 0x54(r31)
+0x82356934  38800000   li         r4, 0
+0x82356938  7fc3f378   mr         r3, r30
+0x8235693C  4bff3415   bl         0x82349d50
+0x82356940  4bffe969   bl         0x823552a8
+0x82356944  7fc4f378   mr         r4, r30
+0x82356948  4bffe9a1   bl         0x823552e8
+0x8235694C  39600002   li         r11, 2
+0x82356950  917f004c   stw        r11, 0x4c(r31)
+0x82356954  3d608272   lis        r11, -0x7d8e
+0x82356958  80bf0054   lwz        r5, 0x54(r31)
+0x8235695C  809f0050   lwz        r4, 0x50(r31)
+0x82356960  806b63d8   lwz        r3, 0x63d8(r11)
+0x82356964  4bffd675   bl         0x82353fd8
+0x82356968  39400003   li         r10, 3
+0x8235696C  38600000   li         r3, 0
+0x82356970  915f004c   stw        r10, 0x4c(r31)
+0x82356974  38210080   addi       r1, r1, 0x80
+0x82356978  483822a4   b          0x826d8c1c
+0x8235697C  3d608272   lis        r11, -0x7d8e
+0x82356980  806b63d8   lwz        r3, 0x63d8(r11)
+0x82356984  4bffd40d   bl         0x82353d90
+0x82356988  546a063e   clrlwi     r10, r3, 0x18
+0x8235698C  2b0a0000   cmplwi     cr6, r10, 0
+0x82356990  409a007c   bne        cr6, 0x82356a0c
+0x82356994  4bec0c05   bl         0x82217598
+0x82356998  39600004   li         r11, 4
+0x8235699C  38600000   li         r3, 0
+0x823569A0  917f004c   stw        r11, 0x4c(r31)
+0x823569A4  38210080   addi       r1, r1, 0x80
+0x823569A8  48382274   b          0x826d8c1c
+0x823569AC  807f0054   lwz        r3, 0x54(r31)
+0x823569B0  3bdf0054   addi       r30, r31, 0x54
+0x823569B4  4bfd8afd   bl         0x8232f4b0
+0x823569B8  807f0054   lwz        r3, 0x54(r31)
+0x823569BC  809f0058   lwz        r4, 0x58(r31)
+0x823569C0  4bfdaf21   bl         0x823318e0
+0x823569C4  3bbf00c0   addi       r29, r31, 0xc0
+0x823569C8  7fa3eb78   mr         r3, r29
+0x823569CC  4be749d5   bl         0x821cb3a0
+0x823569D0  7fa3eb78   mr         r3, r29
+0x823569D4  7fc4f378   mr         r4, r30
+0x823569D8  4bfebb21   bl         0x823424f8
+0x823569DC  3bdf0060   addi       r30, r31, 0x60
+0x823569E0  7fc3f378   mr         r3, r30
+0x823569E4  4bfd6595   bl         0x8232cf78
+0x823569E8  7fc3f378   mr         r3, r30
+0x823569EC  7fa4eb78   mr         r4, r29
+0x823569F0  4bff4571   bl         0x8234af60
+0x823569F4  3d60820b   lis        r11, -0x7df5

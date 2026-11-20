@@ -1,0 +1,30 @@
+processus 10112 lance sous debogage
+  image     0x00007FF6554C0000  vfes.exe
+  BP arme sur test du nombre = 0x7FF65559629F (octet d'origine 0x4D)
+  BP arme sur enregistrement A = 0x7FF6555959D8 (octet d'origine 0x48)
+  BP arme sur enregistrement B = 0x7FF655595AB1 (octet d'origine 0x48)
+  BP arme sur erreur aucun = 0x7FF6555962D5 (octet d'origine 0x48)
+  points poses dans vfes.exe, base 0x7FF6554C0000
+  dll       0x00007FF837D70000  apm.dll
+  dll       0x00007FF856F30000  d3d11.dll
+  dll       0x00007FF858080000  dxgi.dll
+  dll       0x00007FF8561F0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF85DE1D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF85B3A187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFF9D510000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 10112 coupee apres 2 s
+      0.0 ms  decodeurs inscrits = 1   codec reclame = 0x5
+              entree 0 : id=0x1  010000000000000090d06855f67f0000a0d16855f67f0000
+      0.5 ms  PREMIERE FOIS : erreur aucun
+      0.8 ms  decodeurs inscrits = 1   codec reclame = 0x5
+              entree 0 : id=0x1  010000000000000090d06855f67f0000a0d16855f67f0000
+      1.3 ms  decodeurs inscrits = 1   codec reclame = 0x5
+              entree 0 : id=0x1  010000000000000090d06855f67f0000a0d16855f67f0000
+--- 55 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP test du nombre : 3 passage(s)
+  BP enregistrement A : 0 passage(s)
+  BP enregistrement B : 0 passage(s)
+  BP erreur aucun : 3 passage(s)

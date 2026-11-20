@@ -1,0 +1,79 @@
+# APM3 (borne) 0x1801C7B50 -- 288 octets
+#
+# LE CONSOMMATEUR DE MESSAGE MORT de « select item », et la piece maitresse
+# : en 0x1801C7B83 il fait d'un index ABSOLU le couple (position +0x9D0,
+# defilement +0x9C8) -- ecretage au total et pas de huit compris. Types 9 et
+# 10, jamais postes. Et 0x1801C7BF4 recalcule +0x58 DEPUIS la grille : le
+# curseur du repartiteur en est l'esclave. REPRISE (97).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801C7B50  48895c2408           mov qword ptr [rsp + 8], rbx
+  0x1801C7B55  48896c2410           mov qword ptr [rsp + 0x10], rbp
+  0x1801C7B5A  4889742418           mov qword ptr [rsp + 0x18], rsi
+  0x1801C7B5F  48897c2420           mov qword ptr [rsp + 0x20], rdi
+  0x1801C7B64  4156                 push r14
+  0x1801C7B66  4883ec20             sub rsp, 0x20
+  0x1801C7B6A  488bf9               mov rdi, rcx
+  0x1801C7B6D  e8eebaffff           call 0x1801c3660
+  0x1801C7B72  4533f6               xor r14d, r14d
+  0x1801C7B75  4c8bc0               mov r8, rax
+  0x1801C7B78  0fb610               movzx edx, byte ptr [rax]
+  0x1801C7B7B  80ea09               sub dl, 9
+  0x1801C7B7E  80fa01               cmp dl, 1
+  0x1801C7B81  775e                 ja 0x1801c7be1
+  0x1801C7B83  0fb74806             movzx ecx, word ptr [rax + 6]
+  0x1801C7B87  48898fd0090000       mov qword ptr [rdi + 0x9d0], rcx
+  0x1801C7B8E  4c89b7c8090000       mov qword ptr [rdi + 0x9c8], r14
+  0x1801C7B95  488b87b8090000       mov rax, qword ptr [rdi + 0x9b8]
+  0x1801C7B9C  482b87b0090000       sub rax, qword ptr [rdi + 0x9b0]
+  0x1801C7BA3  48d1f8               sar rax, 1
+  0x1801C7BA6  483bc8               cmp rcx, rax
+  0x1801C7BA9  720b                 jb 0x1801c7bb6
+  0x1801C7BAB  488d48ff             lea rcx, [rax - 1]
+  0x1801C7BAF  48898fd0090000       mov qword ptr [rdi + 0x9d0], rcx
+> 0x1801C7BB6  488bc1               mov rax, rcx
+  0x1801C7BB9  4883f928             cmp rcx, 0x28
+  0x1801C7BBD  721f                 jb 0x1801c7bde
+  0x1801C7BBF  498bce               mov rcx, r14
+> 0x1801C7BC2  4883e808             sub rax, 8
+  0x1801C7BC6  4883c108             add rcx, 8
+  0x1801C7BCA  4883f828             cmp rax, 0x28
+  0x1801C7BCE  73f2                 jae 0x1801c7bc2
+  0x1801C7BD0  488987d0090000       mov qword ptr [rdi + 0x9d0], rax
+  0x1801C7BD7  48898fc8090000       mov qword ptr [rdi + 0x9c8], rcx
+> 0x1801C7BDE  458830               mov byte ptr [r8], r14b
+> 0x1801C7BE1  8b87d0090000         mov eax, dword ptr [rdi + 0x9d0]
+  0x1801C7BE7  0387c8090000         add eax, dword ptr [rdi + 0x9c8]
+  0x1801C7BED  0fb78faa090000       movzx ecx, word ptr [rdi + 0x9aa]
+  0x1801C7BF4  894758               mov dword ptr [rdi + 0x58], eax
+  0x1801C7BF7  e8843f0000           call 0x1801cbb80
+  0x1801C7BFC  0fb6f0               movzx esi, al
+  0x1801C7BFF  e84cbaffff           call 0x1801c3650
+  0x1801C7C04  48634f58             movsxd rcx, dword ptr [rdi + 0x58]
+  0x1801C7C08  488be8               mov rbp, rax
+  0x1801C7C0B  f644887601           test byte ptr [rax + rcx*4 + 0x76], 1
+  0x1801C7C10  b900020000           mov ecx, 0x200
+  0x1801C7C15  410f44f6             cmove esi, r14d
+  0x1801C7C19  33d2                 xor edx, edx
+  0x1801C7C1B  e880b0fdff           call 0x1801a2ca0
+  0x1801C7C20  85c0                 test eax, eax
+  0x1801C7C22  752f                 jne 0x1801c7c53
+  0x1801C7C24  488b0de5a95800       mov rcx, qword ptr [rip + 0x58a9e5]  ; -> 0x180752610
+  0x1801C7C2B  488d15068d3600       lea rdx, [rip + 0x368d06]  ; -> 0x180530938  "CUSTOM MENU"
+  0x1801C7C32  e8f9db0700           call 0x180245830
+  0x1801C7C37  488d0d527d2300       lea rcx, [rip + 0x237d52]  ; -> 0x1803FF990  "vfes_se_window_op"
+  0x1801C7C3E  e86ddefbff           call 0x180185ab0
+  0x1801C7C43  488b05c6a95800       mov rax, qword ptr [rip + 0x58a9c6]  ; -> 0x180752610
+  0x1801C7C4A  48898770090000       mov qword ptr [rdi + 0x970], rax
+  0x1801C7C51  eb55                 jmp 0x1801c7ca8
+> 0x1801C7C53  e868affdff           call 0x1801a2bc0
+  0x1801C7C58  85c0                 test eax, eax
+  0x1801C7C5A  744c                 je 0x1801c7ca8
+  0x1801C7C5C  e82faffdff           call 0x1801a2b90
+  0x1801C7C61  85c0                 test eax, eax
+  0x1801C7C63  7443                 je 0x1801c7ca8
+  0x1801C7C65  33d2                 xor edx, edx
+  0x1801C7C67  8d4a08               lea ecx, [rdx + 8]
+  0x1801C7C6A  e831b0fdff           call 0x1801a2ca0

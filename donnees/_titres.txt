@@ -1,0 +1,51 @@
+sections (20) : AKI AOI BRA GOH JAK JEF KAG KRT LAU LEI LIO MON MSK PAI SAR SHU TAK VAN WOL 
+DUR present : NON
+  chara.0.id=AKI
+  chara.1.id=AOI
+  chara.2.id=BRA
+  chara.3.id=GOH
+  chara.4.id=JAK
+  chara.5.id=JEF
+  chara.6.id=KAG
+  chara.7.id=KRT
+  chara.8.id=LAU
+  chara.9.id=LEI
+  chara.10.id=LIO
+  chara.11.id=MON
+  chara.12.id=MSK
+  chara.13.id=PAI
+  chara.14.id=SAR
+  chara.15.id=SHU
+  chara.16.id=TAK
+  chara.17.id=VAN
+  chara.18.id=WOL
+  chara_list.length=19
+
+--- longueurs par personnage ---
+  chara.0.data_list.length=512
+  chara.1.data_list.length=512
+  chara.2.data_list.length=512
+  chara.3.data_list.length=512
+  chara.4.data_list.length=512
+  chara.5.data_list.length=512
+  chara.6.data_list.length=512
+  chara.7.data_list.length=512
+  chara.8.data_list.length=512
+  chara.9.data_list.length=512
+  chara.10.data_list.length=512
+  chara.11.data_list.length=512
+  chara.12.data_list.length=512
+  chara.13.data_list.length=512
+  chara.14.data_list.length=512
+  chara.15.data_list.length=512
+  chara.16.data_list.length=512
+  chara.17.data_list.length=512
+  chara.18.data_list.length=512
+
+--- 8 noms non vides ---
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "C:\Users\frede\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 22-23: character maps to <undefined>

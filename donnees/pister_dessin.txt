@@ -1,0 +1,54 @@
+processus 1504 lance sous debogage
+  image     0x00007FF77C530000  vfes.exe
+  dll       0x00007FFE3A680000  apm.dll
+  dll       0x00007FFE57C80000  d3d11.dll
+  dll       0x00007FFE58E10000  dxgi.dll
+  dll       0x00007FFE56F40000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFE5EAFD78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFE5BCB187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFDB07F0000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur construire le DESCRIPTEUR (0x18019A8C0) = 0x7FFDB1691313 (octet d'origine 0x48)
+  BP arme sur construire le STYLE (0x18019A9D0) = 0x7FFDB169131F (octet d'origine 0x48)
+  BP arme sur poser le mode 2 (0x18019B6F0) = 0x7FFDB169132B (octet d'origine 0x48)
+  BP arme sur poser la taille 32.0 (0x18019B830) = 0x7FFDB1691344 (octet d'origine 0x48)
+  BP arme sur LE DESSIN (0x18019B2E0) = 0x7FFDB16913B9 (octet d'origine 0xE8)
+  BP arme sur apres -- ATTENTION : la garde y saute aussi = 0x7FFDB16913BE (octet d'origine 0x48)
+  six jalons poses dans DESSINER (t=1.4 s)
+  sourdine : session audio du processus 1504 coupee apres 2 s
+  JALON atteint : apres -- ATTENTION : la garde y saute aussi
+  JALON atteint : construire le DESCRIPTEUR (0x18019A8C0)
+  JALON atteint : construire le STYLE (0x18019A9D0)
+  JALON atteint : poser le mode 2 (0x18019B6F0)
+  JALON atteint : poser la taille 32.0 (0x18019B830)
+  JALON atteint : LE DESSIN (0x18019B2E0)
+  --- ce que le dessin recoit ---
+    chaine   0x7FFDB1691900 = b'SNOW'
+    couleur  +0x08 = 0xFFFFFFFF   +0x0C = 0xFF808080
+    modes    +0x24 = 7   +0x2C = 9
+    x1 y1    640 460
+    x2 y2    640 460
+    style    0x7FFDB1691880
+      mode +0x00 = 2   police +0x08 = 0x2E14C784900
+      metriques +0x14 = 48   +0x18 = 48
+      echelles  +0x24 = 32  +0x28 = 32  +0x2C = 0.666667  +0x30 = 0.666667
+  --- ce que le dessin recoit ---
+    chaine   0x7FFDB1691900 = b'SNOW'
+    couleur  +0x08 = 0xFFFFFFFF   +0x0C = 0xFF808080
+    modes    +0x24 = 7   +0x2C = 9
+    x1 y1    640 460
+    x2 y2    640 460
+    style    0x7FFDB1691880
+      mode +0x00 = 2   police +0x08 = 0x2E14C784900
+      metriques +0x14 = 48   +0x18 = 48
+      echelles  +0x24 = 32  +0x28 = 32  +0x2C = 0.666667  +0x30 = 0.666667
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP construire le DESCRIPTEUR (0x18019A8C0) : 602 passage(s)
+  BP construire le STYLE (0x18019A9D0) : 602 passage(s)
+  BP poser le mode 2 (0x18019B6F0) : 602 passage(s)
+  BP poser la taille 32.0 (0x18019B830) : 602 passage(s)
+  BP LE DESSIN (0x18019B2E0) : 602 passage(s)
+  BP apres -- ATTENTION : la garde y saute aussi : 744 passage(s)
+  scenario d entrees remis en jeu manuel

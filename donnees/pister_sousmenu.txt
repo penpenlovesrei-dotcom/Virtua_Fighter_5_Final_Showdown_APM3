@@ -1,0 +1,25 @@
+processus 16936 lance sous debogage
+  image     0x00007FF709CF0000  vfes.exe
+  dll       0x00007FFB8A140000  apm.dll
+  dll       0x00007FFBA65D0000  d3d11.dll
+  dll       0x00007FFBA7590000  dxgi.dll
+  dll       0x00007FFBA5650000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFBAD35D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFBAA65187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFAFE8B0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 16936 coupee apres 2 s
+  BP arme sur Garde = 0x7FFAFEA8C64E (octet d'origine 0x84)
+  BP arme sur Oubli = 0x7FFAFEA8C656 (octet d'origine 0x48)
+  BP arme sur Curseur = 0x7FFAFEA8D12B (octet d'origine 0xE8)
+  BP arme sur OuvVersus = 0x7FFAFEA8DFCF (octet d'origine 0x84)
+  BP arme sur OuvAutres = 0x7FFAFEA8E074 (octet d'origine 0x84)
+  points d'arret poses a t=8 s
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  BP Garde : 1 passage(s)
+  BP Oubli : 1 passage(s)
+  BP Curseur : 1323 passage(s)
+  BP OuvVersus : 3 passage(s)
+  BP OuvAutres : 0 passage(s)

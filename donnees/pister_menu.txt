@@ -1,0 +1,25 @@
+processus 16376 lance sous debogage
+  image     0x00007FF6D6680000  vfes.exe
+  dll       0x00007FFD7C2E0000  apm.dll
+  dll       0x00007FFD80260000  d3d11.dll
+  dll       0x00007FFD81480000  dxgi.dll
+  dll       0x00007FFD7F550000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD8719D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD848E187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFCCC980000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur GardeTexte = 0x7FFCCCB60E5F (octet d'origine 0x48)
+  BP arme sur jalon ss_entree = 0x7FFCCCA5CA90 (octet d'origine 0x40)
+  BP arme sur jalon ss_milieu = 0x7FFCCCA5B270 (octet d'origine 0x41)
+  BP arme sur jalon montage_grille = 0x7FFCCCAF03E9 (octet d'origine 0xE8)
+  points d'arret poses a t=12 s
+  menu : objet 0x2A2F9A04630   en-tete = 2 (?)   texte = 2 (?)
+  menu : objet 0x2A2F9A04630   en-tete = 3 (PRET)   texte = 3 (PRET)
+  >>> sous-etat force a 17, phase 0, a t=32.0 s
+  sortie du processus, code 0x00000000
+
+77 module(s) charge(s)
+  BP GardeTexte : 1512 passage(s)
+  BP jalon ss_entree : 1 passage(s)
+  BP jalon ss_milieu : 783 passage(s)
+  BP jalon montage_grille : 1472 passage(s)

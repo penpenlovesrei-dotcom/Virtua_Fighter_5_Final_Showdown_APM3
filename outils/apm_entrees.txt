@@ -1,0 +1,183 @@
+# ---------------------------------------------------------------------------
+# Scenario d'entrees joue par le apm.dll de substitution.
+#
+# Le stub relit ce fichier des qu'il change (controle toutes les 250 ms) :
+# on peut donc le modifier PENDANT que le jeu tourne, sans rien recompiler.
+# La copie qui compte est celle placee a cote de apm.dll, dans
+# runtime\media\vf5fs\ ; construire_stub.cmd y recopie celle-ci.
+#
+# Lignes reconnues
+#   nom <mot> = <code>   donne un nom a un code d'Input_isOn (0 a 15)
+#   front = <ms>         duree pendant laquelle Input_isOnNow reste vrai apres
+#                        un appui (34 ms = environ deux trames ; 150 ms est plus
+#                        sur quand on ecrit le fichier a la main)
+#   journal = 0|1        journalise les appels du stub. A 1 le jeu tombe a
+#                        25 images par seconde sous debogueur : mettre 0 des
+#                        qu'on ne cherche plus a compter les appels.
+#   <t_ms> <codes>       a partir de t_ms (compte du premier appel d'entree),
+#                        les codes cites sont tenus. « rien » = tout relache.
+#                        Codes separes par des espaces, des virgules ou des +.
+#
+# LES CODES
+# Input_isOn(code) et Input_isOnNow(code) prennent un code de 0 a 15. Le jeu
+# interroge isOn pour 2 a 14 (les treize), et isOnNow pour 0, 7, 8 et 15.
+# Dans la vraie apm.dll, 2 a 14 designent les bits 0 a 11 d'un masque materiel
+# unique (le code 6 n'a pas de bit et rend toujours faux) ; 0 et 15 sont deux
+# cas particuliers testes a part.
+#
+#   code 7 = START     ETABLI a l'ecran : au titre il ouvre la selection de
+#                      personnage, a la selection il valide et lance le combat.
+#   les autres         sens non etabli.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+
+front   = 10
+# MESURE du 2026-09-05 (tools/pister_validation.cmd) : a 20 ms, un seul appui
+# donnait DEUX � presse �, espaces de 16,8 ms -- exactement une trame. La
+# fenetre doit etre PLUS COURTE qu'une trame (16,7 ms a 60 images/s), sinon
+# deux scrutations tombent dedans. 10 ms tient dans une seule.
+#   trop long  -> validation en double
+#   trop court -> appuis manques
+# Le stub relit ce fichier a chaud : ajustable pendant que le jeu tourne.
+journal = 0
+test    = 0            # 1 = demarrer dans le MENU OPERATEUR (Sequence_isTest vrai)
+
+# Sequence qui mene seule au combat. Les instants comptent a partir du premier
+# appel d'entree, c'est-a-dire du demarrage du moteur ; ils sont larges parce
+# que le chargement est plus lent sous debogueur.
+# JEU MANUEL : aucun scenario. Le clavier et la manette m�nent.
+clavier = 1
+manette = 1
+
+# SUR QUEL JOUEUR LA MANETTE TOMBE (2026-10-04)
+#   1 = elle DOUBLE le clavier sur le JOUEUR 1 -- ecran-titre, menus,
+#       Customize, tout le solo. C'est le defaut, et ce qu'il faut quand on
+#       joue seul devant le PC.
+#   2 = elle tient le JOUEUR 2, le clavier gardant le joueur 1 : le VERSUS
+#       a deux.
+# A 2 la manette ne fait RIEN dans les menus -- c'est normal, ils sont du
+# joueur 1 et celui-ci ne lit que les codes 0 a 14. C'etait l'etat d'avant,
+# et il passait pour une panne de manette.
+# Relu A CHAUD, comme le reste : modifiable pendant que le jeu tourne.
+#
+# 2026-10-10, demande de Frederic : LE CLAVIER TIENT LA MANETTE 1, LE PAD XBOX
+# ONE LA MANETTE 2. C'est donc 2. Consequence attendue, et ce n'est pas une
+# panne : dans les MENUS le pad ne fait plus rien -- les menus sont du joueur 1
+# et celui-ci ne lit que les codes 0 a 14. On navigue au clavier, on joue a
+# deux. Pour revenir au pad dans les menus, remettre 1 (a chaud, sans relancer).
+manette_joueur = 2
+
+# LE JOURNAL SUR FICHIER (2026-10-04) -- la manette se regle avec, pas au juge.
+#   0 = rien
+#   1 = le stub ecrit runtime\mediaf5fspm_journal.txt, trois sortes de
+#       lignes, et RIEN quand rien ne change :
+#         PAD    0x1000  A              l'etat BRUT de la manette a change
+#         MASQUE 0x000200  codes 9      ce que le stub en a tire
+#         LU     Input_isOn(9) = OUI    ce que le MOTEUR a demande et obtenu
+#       Les trois separent les trois pannes possibles : la manette n'arrive
+#       pas / elle arrive mais sur le mauvais code / elle arrive bien et le
+#       moteur ne demande pas ce code. Le fichier est vide a chaque lancement.
+# Sans cout mesurable, et SANS debogueur : c'est tout l'interet.
+journal_fichier = 1
+
+# LA SAUVEGARDE DU PERSONNAGE PERSONNALISE (2026-10-04)
+#   0 = rien
+#   1 = le stub garde l'enregistrement de personnalisation dans
+#       runtime\mediaf5fs
+am\customize.bin, et le relit au lancement.
+#
+# POURQUOI IL FAUT LE FAIRE NOUS-MEMES, et c'est mesure :
+#   . la sauvegarde LOCALE de la borne ne porte que 128 octets -- quatre
+#     enregistrements de reglages machine (0x38, 0x10, 0x2C, 0x0C) ;
+#   . le moteur a bien une sauvegarde SUR FICHIER (BackupRamFile,
+#     "ram/BackupRam") et on a cree le dossier qui manquait -- il reste VIDE ;
+#   . la personnalisation d'une borne va sur le serveur ABAAS, par carte.
+#     Hors ligne, il n'y a nulle part ou la mettre.
+# L'enregistrement vit en [0x18070FB10] + 0x18 + joueur*0x5A0, et ses 24
+# parties equipees sont les mots a partir de +0x262.
+#
+# CE QUI REND L'OPERATION INOFFENSIVE : on ne RELIT que si l'enregistrement
+# est encore vide, on n'enregistre jamais du vide, et la page est verifiee par
+# VirtualQuery avant d'etre touchee. On ne se bat jamais contre le joueur.
+sauvegarde = 1
+
+0       rien
+
+# LA DISPOSITION (rappel ; elle est compilee dans le stub)
+#
+#   CLAVIER                      MANETTE
+#   fleches      directions      croix directionnelle / stick gauche
+#   Entree       VALIDER         START, et A
+#   W            ANNULER         B
+#   X            P               A
+#   C            K               B
+#   V            G (la garde)    X
+#   Q            le 4e bouton    Y        -- le jeu l affiche "NO USE"
+#   Espace       piece           BACK
+#   F1 / F2      TEST / SERVICE
+#   Echap        quitter le mode courant (aussi BACK a la manette)
+#
+# LB, RB, LT, RT NE FONT RIEN, et ce n est pas un choix -- voir plus bas.
+#
+# EN MODE ARCADE (ram\mode.txt = arcade), la MANETTE change sur trois lignes :
+#   bouton menu       START
+#   bouton affichage  TEST     -- il n'est alors plus SELECT ni la sortie
+#   bouton XBOX       SERVICE
+# Le clavier ne change pas : Entree, Espace, Echap, F1 et F2 gardent leurs
+# roles. BACK est retire des codes 6 et 15 parce qu'un masque est un ACCORD :
+# trois roles sur un bouton s'additionneraient au lieu de se choisir.
+# Le bouton XBOX n'arrive que par XInputGetStateEx (l'export sans nom
+# d'ordinal 100 de xinput1_4) ; le journal dit a chaque lancement s'il est
+# lisible -- la ligne " PAD    XInputGetStateEx ... ".
+#
+# POURQUOI LE L2 ET LE R2 NE SE CABLENT PAS -- mesure du 2026-10-10,
+# tools/entrees.py, sur CE build. La chaine va de la touche au code que
+# l interface lit, en trois etages :
+#
+#   code apm   bit du masque arcade   code logique   role
+#      7              0                     7        VALIDER
+#      8              1                     8        VALIDER (annuler)
+#     12              2                     7        VALIDER
+#     11              3                     9        VALIDER
+#      9              6                   100        COMBAT  -- P
+#     10              7                   102        COMBAT  -- K
+#     13              4                   103        COMBAT  -- G
+#     14              5                   101        COMBAT  -- le quatrieme
+#
+# IL N Y A QUE QUATRE BOUTONS D ACTION, et le jeu lui-meme n en emploie que
+# TROIS : son ecran OPTIONS > Controls affiche P sur la croix, K sur le rond,
+# G sur le carre, et NO USE sur le triangle. Les codes 8, 11 et 12 ne font que
+# valider.
+#
+# Les boutons L1, L2, R1, R2 existent bien dans le jeu d ORIGINE : la version
+# console a sa propre couche d entrees. Ici, le masque arcade que compose
+# 0x180243ED0 ne porte que douze bits, et ses bits 8, 10 et 11 ne sont produits
+# par AUCUN code d entree -- le modele APM3 n a pas de quoi les alimenter.
+# L ecran Controls le dit lui-meme : toutes ses lignes de gachette sont
+# " NO USE ". Il n y a donc rien a quoi les brancher.
+#
+# " touche2 <code> = <nom> " donne une SECONDE touche a un code, comme
+# " bouton2 " pour la manette : de quoi faire doubler un code par un autre
+# bouton si on le veut.
+#
+# Dans les menus, le moteur ne lit que DEUX codes : le 7 (Entree / START)
+# pour valider, le 8 (W / X) pour annuler. Voir analysis/carte_options.md
+# section 6. Le bouton A n'y fait donc rien par defaut ; pour qu'il valide :
+#     nom valider = 7
+#     bouton valider = a
+# Attention, un masque a PLUSIEURS boutons est un ACCORD, pas une
+# alternative : `(etat & masque) == masque`. On ne peut donc pas mettre
+# START et A sur le meme code pour qu'ils vaillent l'un ou l'autre.
+#
+# D'OU LE SECOND MASQUE (2026-10-04) : " bouton2 <code> = <nom> " donne un
+# DEUXIEME bouton au meme code, combine par OU. C'est lui qui regle le defaut
+# signale -- " a la manette les boutons ne sont pas reconnus, seul le bouton
+# start fonctionne ". C'etait vrai : les menus ne lisent QUE le code 7 et le
+# code 8, et A ne portait aucun des deux. La disposition compilee pose donc
+# maintenant, par defaut :
+#     bouton2 7 = a            A valide, comme START
+#     bouton2 8 = b            B annule, comme X
+# A garde aussi le code 9 (la croix, en combat) : presser A envoie donc les
+# codes 7 ET 9. En combat le code 7 n'est lu par personne, c'est sans effet ;
+# c'est dit plutot que cache.

@@ -1,0 +1,6 @@
+
+========================================================================
+COMPTES : --> entree CS_DEMO=1, erreur CRI=305
+
+MESSAGES CRI, dans l ordre :
+     17635.3 ms  rcx=0x1  rdx='W2015080610:Voice buffer underrun.'  r8=0x0  r9=0x0

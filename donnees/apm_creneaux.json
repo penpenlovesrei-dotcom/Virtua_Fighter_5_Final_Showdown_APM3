@@ -1,0 +1,287 @@
+[
+ {
+  "creneau": 0,
+  "offset": 0,
+  "nom": "Aime_isDBAlive"
+ },
+ {
+  "creneau": 1,
+  "offset": 8,
+  "nom": "Aime_start"
+ },
+ {
+  "creneau": 2,
+  "offset": 16,
+  "nom": "Aime_cancel"
+ },
+ {
+  "creneau": 3,
+  "offset": 24,
+  "nom": "Aime_isBusy"
+ },
+ {
+  "creneau": 4,
+  "offset": 32,
+  "nom": "Aime_hasConfirm"
+ },
+ {
+  "creneau": 5,
+  "offset": 40,
+  "nom": "Aime_getConfirm"
+ },
+ {
+  "creneau": 6,
+  "offset": 48,
+  "nom": "Aime_acceptConfirm"
+ },
+ {
+  "creneau": 7,
+  "offset": 56,
+  "nom": "Aime_hasResult"
+ },
+ {
+  "creneau": 8,
+  "offset": 64,
+  "nom": "Aime_hasError"
+ },
+ {
+  "creneau": 9,
+  "offset": 72,
+  "nom": "Aime_setLedSuccess"
+ },
+ {
+  "creneau": 10,
+  "offset": 80,
+  "nom": "Aime_setLedError"
+ },
+ {
+  "creneau": 11,
+  "offset": 88,
+  "nom": "Aime_isReaderDetected"
+ },
+ {
+  "creneau": 12,
+  "offset": 96,
+  "nom": "Aime_isMobile"
+ },
+ {
+  "creneau": 13,
+  "offset": 104,
+  "nom": "Aime_getAccessCode"
+ },
+ {
+  "creneau": 14,
+  "offset": 112,
+  "nom": "Aime_getAimeId"
+ },
+ {
+  "creneau": 15,
+  "offset": 120,
+  "nom": "Aime_getErrorCategory"
+ },
+ {
+  "creneau": 16,
+  "offset": 128,
+  "nom": "ApmSystemSetting_getAdvertizeSound"
+ },
+ {
+  "creneau": 17,
+  "offset": 136,
+  "nom": "ApmSystemSetting_getFixedTitle"
+ },
+ {
+  "creneau": 18,
+  "offset": 144,
+  "nom": "ApmSystemSetting_getMatchingGroup"
+ },
+ {
+  "creneau": 19,
+  "offset": 152,
+  "nom": "ApmSystemSetting_getTimeToClosingTime"
+ },
+ {
+  "creneau": 20,
+  "offset": 160,
+  "nom": "AllnetAuth_isGood"
+ },
+ {
+  "creneau": 21,
+  "offset": 168,
+  "nom": "AllnetAuth_getAbaasGsServerName"
+ },
+ {
+  "creneau": 22,
+  "offset": 176,
+  "nom": "AllnetAuth_getAbaasLinkServerName"
+ },
+ {
+  "creneau": 23,
+  "offset": 184,
+  "nom": "AllnetAuth_getLocationId"
+ },
+ {
+  "creneau": 24,
+  "offset": 192,
+  "nom": "AllnetAuth_getLocationName"
+ },
+ {
+  "creneau": 25,
+  "offset": 200,
+  "nom": "AllnetAuth_getCountryCode"
+ },
+ {
+  "creneau": 26,
+  "offset": 208,
+  "nom": "Backup_setupRecords"
+ },
+ {
+  "creneau": 27,
+  "offset": 216,
+  "nom": "Backup_saveRecord"
+ },
+ {
+  "creneau": 28,
+  "offset": 224,
+  "nom": "Backup_isSetupSucceeded"
+ },
+ {
+  "creneau": 29,
+  "offset": 232,
+  "nom": "Backup_getRecordStatus"
+ },
+ {
+  "creneau": 30,
+  "offset": 240,
+  "nom": "Core_execute"
+ },
+ {
+  "creneau": 31,
+  "offset": 248,
+  "nom": "Core_isExitNeeded"
+ },
+ {
+  "creneau": 32,
+  "offset": 256,
+  "nom": "Core_exitGame"
+ },
+ {
+  "creneau": 33,
+  "offset": 264,
+  "nom": "Credit_setCoinInHook"
+ },
+ {
+  "creneau": 34,
+  "offset": 272,
+  "nom": "Credit_isFreePlay"
+ },
+ {
+  "creneau": 35,
+  "offset": 280,
+  "nom": "Credit_getCredit"
+ },
+ {
+  "creneau": 36,
+  "offset": 288,
+  "nom": "Credit_getRemain"
+ },
+ {
+  "creneau": 37,
+  "offset": 296,
+  "nom": "Credit_isZero"
+ },
+ {
+  "creneau": 38,
+  "offset": 304,
+  "nom": "Credit_toString"
+ },
+ {
+  "creneau": 39,
+  "offset": 312,
+  "nom": "Credit_isGameCostEnough"
+ },
+ {
+  "creneau": 40,
+  "offset": 320,
+  "nom": "Emoney_isOpenMainWindow"
+ },
+ {
+  "creneau": 41,
+  "offset": 328,
+  "nom": "Error_isOccurred"
+ },
+ {
+  "creneau": 42,
+  "offset": 336,
+  "nom": "Error_setDeviceLost"
+ },
+ {
+  "creneau": 43,
+  "offset": 344,
+  "nom": "Input_isOn"
+ },
+ {
+  "creneau": 44,
+  "offset": 352,
+  "nom": "Input_isOnNow"
+ },
+ {
+  "creneau": 45,
+  "offset": 360,
+  "nom": "Input_isGamepadDetect"
+ },
+ {
+  "creneau": 46,
+  "offset": 368,
+  "nom": "Input_setGamepadConfig"
+ },
+ {
+  "creneau": 47,
+  "offset": 376,
+  "nom": "Sequence_clearBackup"
+ },
+ {
+  "creneau": 48,
+  "offset": 384,
+  "nom": "Sequence_getBookkeeping"
+ },
+ {
+  "creneau": 49,
+  "offset": 392,
+  "nom": "?"
+ },
+ {
+  "creneau": 50,
+  "offset": 400,
+  "nom": "?"
+ },
+ {
+  "creneau": 51,
+  "offset": 408,
+  "nom": "?"
+ },
+ {
+  "creneau": 52,
+  "offset": 416,
+  "nom": "Sequence_isTest"
+ },
+ {
+  "creneau": 53,
+  "offset": 424,
+  "nom": "System_getBoardId"
+ },
+ {
+  "creneau": 54,
+  "offset": 432,
+  "nom": "System_getKeychipId"
+ },
+ {
+  "creneau": 55,
+  "offset": 440,
+  "nom": "System_getGameId"
+ },
+ {
+  "creneau": 56,
+  "offset": 448,
+  "nom": "System_getGameVersion"
+ }
+]

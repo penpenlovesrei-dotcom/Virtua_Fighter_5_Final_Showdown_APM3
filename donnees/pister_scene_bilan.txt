@@ -1,0 +1,111 @@
+
+======================================================================
+SCENES DEMANDEES :
+   MENU_EXPLAIN -> OK                                   x7
+   MENU_CONTROL -> OK                                   x7
+   OPTION MENU -> OK                                    x4
+   OPTION -> OK                                         x2
+   OPTION INFO -> OK                                    x2
+   INFORMATION -> OK                                    x1
+   WAIT_SCREEN -> OK                                    x1
+   ICRW_1P -> OK                                        x1
+   ICRW_2P -> OK                                        x1
+   ICRW_INFO_1P -> OK                                   x1
+   ICRW_INFO_2P -> OK                                   x1
+   CLOSING -> OK                                        x1
+   TOUCH AREA -> OK                                     x1
+   MOVIE -> OK                                          x1
+   WARNING -> OK                                        x1
+   TaskAutoLoad -> OK                                   x1
+   MAIN MENU -> OK                                      x1
+   REPLAY_SCORE -> OK                                   x1
+   ROB LOAD -> OK                                       x1
+
+COMPTES :
+   Garde              3
+   Demande            36
+   Resultat           36
+   L0 How to Play     0
+   L1 Controls        0
+   L2 Settings        0
+   L3 Save Data       0
+   L5 Info            2
+
+RECIT (les 80 premiers evenements, dans l ordre) :
+   DEMANDE "INFORMATION"   scene deja presente : non
+      "INFORMATION" -> OK
+   DEMANDE "WAIT_SCREEN"   scene deja presente : non
+      "WAIT_SCREEN" -> OK
+   DEMANDE "ICRW_1P"   scene deja presente : non
+      "ICRW_1P" -> OK
+   DEMANDE "ICRW_2P"   scene deja presente : non
+      "ICRW_2P" -> OK
+   DEMANDE "ICRW_INFO_1P"   scene deja presente : non
+      "ICRW_INFO_1P" -> OK
+   DEMANDE "ICRW_INFO_2P"   scene deja presente : non
+      "ICRW_INFO_2P" -> OK
+   DEMANDE "CLOSING"   scene deja presente : non
+      "CLOSING" -> OK
+   DEMANDE "TOUCH AREA"   scene deja presente : non
+      "TOUCH AREA" -> OK
+   DEMANDE "MOVIE"   scene deja presente : non
+      "MOVIE" -> OK
+   DEMANDE "WARNING"   scene deja presente : non
+      "WARNING" -> OK
+   DEMANDE "TaskAutoLoad"   scene deja presente : non
+      "TaskAutoLoad" -> OK
+   DEMANDE "MAIN MENU"   scene deja presente : non
+      "MAIN MENU" -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   DEMANDE "OPTION"   scene deja presente : non
+      "OPTION" -> OK
+   DEMANDE "OPTION MENU"   scene deja presente : non
+      "OPTION MENU" -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   GARDE  validation=1  entree=5
+   DEMANDE "OPTION INFO"   scene deja presente : non
+      "OPTION INFO" -> OK
+   LIGNE L5 Info -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   DEMANDE "OPTION MENU"   scene deja presente : non
+      "OPTION MENU" -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   GARDE  validation=0  entree=0   -> le switch est SAUTE
+   DEMANDE "REPLAY_SCORE"   scene deja presente : non
+      "REPLAY_SCORE" -> OK
+   DEMANDE "ROB LOAD"   scene deja presente : non
+      "ROB LOAD" -> OK
+   DEMANDE "OPTION"   scene deja presente : non
+      "OPTION" -> OK
+   DEMANDE "OPTION MENU"   scene deja presente : non
+      "OPTION MENU" -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   GARDE  validation=1  entree=5
+   DEMANDE "OPTION INFO"   scene deja presente : non
+      "OPTION INFO" -> OK
+   LIGNE L5 Info -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK
+   DEMANDE "OPTION MENU"   scene deja presente : non
+      "OPTION MENU" -> OK
+   DEMANDE "MENU_EXPLAIN"   scene deja presente : non
+      "MENU_EXPLAIN" -> OK
+   DEMANDE "MENU_CONTROL"   scene deja presente : non
+      "MENU_CONTROL" -> OK

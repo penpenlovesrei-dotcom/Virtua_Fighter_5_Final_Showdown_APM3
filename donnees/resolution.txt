@@ -1,0 +1,94 @@
+processus 9924 lance sous debogage
+  image     0x00007FF60AB20000  vfes.exe
+  BP arme sur CreateWindowExW = 0x7FFD2DFDCD50 (octet d'origine 0x4C)
+  point d'arret sur USER32.dll!CreateWindowExW
+  BP arme sur SetWindowPos = 0x7FFD2E023720 (octet d'origine 0xFF)
+  point d'arret sur USER32.dll!SetWindowPos
+  BP arme sur MoveWindow = 0x7FFD2E022F80 (octet d'origine 0xFF)
+  point d'arret sur USER32.dll!MoveWindow
+  BP arme sur AdjustWindowRectEx = 0x7FFD2DFC8500 (octet d'origine 0x48)
+  point d'arret sur USER32.dll!AdjustWindowRectEx
+  dll       0x00007FFD27220000  apm.dll
+  dll       0x00007FFD28430000  d3d11.dll
+  BP arme sur D3D11CreateDeviceAndSwapChain = 0x7FFD284B2470 (octet d'origine 0x48)
+  point d'arret sur d3d11.dll!D3D11CreateDeviceAndSwapChain
+  dll       0x00007FFD294B0000  dxgi.dll
+  dll       0x00007FFD274B0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD2F1BD78D = ntdll.dll+0x11D78D
+  fenetre creee : 320 x 240  en (-2147483648, -2147483648)   « Virtua Fighter 5 FS (PXD/64bit) »
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD2C73187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  AdjustWindowRectEx : 1280 x 720
+  SetWindowPos : 1280 x 720  en (0, 0)  depuis vfes.exe+0x34DDB
+  appele depuis vfes.exe+0x35833   (descripteur en 0x17C09FE150)
+  chaine d'echange demandee : 1280 x 720  a 60 Hz  format B8G8R8A8_UNORM
+      echantillons 1 (qualite 0)   tampons 3   fenetre oui
+  BP arme sur retour_D3D11 = 0x7FF60AB55833 (octet d'origine 0x44)
+  BP arme sur CreateTexture2D = 0x7FFD2843DCE0 (octet d'origine 0x40)
+  device 0x192A99EEEC0  CreateTexture2D 0x7FFD2843DCE0
+  BP arme sur RSSetViewports = 0x7FFD2858B300 (octet d'origine 0x48)
+  contexte 0x192A99F0268  RSSetViewports 0x7FFD2858B300
+  cible 1280 x 720   format 19   ech 1  usage +profondeur   par vfes.exe+0x34EC4
+  vue 1280 x 720   en (0, 0)   par vfes.exe+0x3DA0F
+  dll       0x00007FFCAEDC0000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 9924 coupee apres 2 s
+  cible 1920 x 1080  format 90   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible 1920 x 1080  format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible 1920 x 1080  format 39   ech 8  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible 1920 x 1080  format 9    ech 8  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  vue 1920 x 1080  en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  cible 1920 x 1080  format 39   ech 1  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible 1920 x 1080  format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  640 x 360   format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  320 x 180   format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  160 x 90    format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   80 x 45    format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   40 x 23    format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  512 x 256   format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  512 x 256   format 39   ech 8  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible  512 x 256   format 27   ech 8  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  vue  512 x 256   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  cible  512 x 256   format 39   ech 1  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible  256 x 256   format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  256 x 256   format 39   ech 8  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible  256 x 256   format 27   ech 8  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  vue  256 x 256   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  cible  256 x 256   format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  512 x 512   format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  vue  512 x 512   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  cible 1280 x 720   format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   20 x 12    format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   10 x 6     format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   32 x 2     format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible    2 x 2     format 9    ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible 1024 x 1024  format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible 1024 x 1024  format 39   ech 1  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  cible  128 x 128   format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   64 x 64    format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   32 x 32    format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible   16 x 16    format 27   ech 1  usage rendu         par vf5fs-pxd-w64-Retail_APM3.dll+0x26EEBD
+  cible  512 x 512   format 39   ech 1  usage +profondeur   par vf5fs-pxd-w64-Retail_APM3.dll+0x26F4AA
+  vue  128 x 128   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   64 x 64    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   32 x 32    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   16 x 16    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue  640 x 360   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue  320 x 180   en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue  160 x 90    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   80 x 45    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   40 x 23    en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue   10 x 6     en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue    1 x 1     en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26E1D3
+  vue   32 x 2     en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+  vue    2 x 2     en (0, 0)   par vf5fs-pxd-w64-Retail_APM3.dll+0x26D31F
+--- 45 s ecoulees, on arrete ---
+
+78 module(s) charge(s)
+  BP CreateWindowExW : 6 passage(s)
+  BP SetWindowPos : 2 passage(s)
+  BP MoveWindow : 0 passage(s)
+  BP AdjustWindowRectEx : 1 passage(s)
+  BP D3D11CreateDeviceAndSwapChain : 1 passage(s)
+  BP retour_D3D11 : 1 passage(s)
+  BP CreateTexture2D : 376 passage(s)
+  BP RSSetViewports : 98345 passage(s)

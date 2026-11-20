@@ -1,0 +1,47 @@
+# ---------------------------------------------------------------------------
+# UN SEUL FILM : la LIGNE 1 (vf5verAend), et on le laisse tourner.
+#
+# Pourquoi la ligne 1 : le banc avait teste la ligne 2, et vf5verBadv est
+# l un des DEUX fichiers (avec vf5verCadv) qui portent QUATRE pistes audio
+# la ou tous les autres n en ont qu une. Il faut donc une ligne ordinaire
+# pour savoir si le defaut est general ou propre a ces deux-la.
+#
+# Rien d autre n est fait : pas d arret, pas de second lancement. On regarde
+# seulement si l etat de la tache passe de 1 (charge) a 3 (tourne).
+# ---------------------------------------------------------------------------
+
+nom start = 7
+nom bas   = 3
+nom haut  = 2
+
+0       rien
+
+# --- passer le titre
+18000   start
+18120   rien
+21000   start
+21120   rien
+
+# --- trois crans jusqu a VF.TV (les lignes grisees sont sautees)
+24000   bas
+24120   rien
+24520   bas
+24640   rien
+25040   bas
+25160   rien
+
+# --- ouvrir VF.TV, puis sa ligne 0 : Movie Theater
+26000   start
+26120   rien
+27500   start
+27620   rien
+
+# --- UN cran : la ligne 1
+29000   bas
+29120   rien
+
+# --- et on lance
+30000   start
+30120   rien
+
+45000   rien

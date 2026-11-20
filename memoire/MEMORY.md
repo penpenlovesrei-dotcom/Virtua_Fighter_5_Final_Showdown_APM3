@@ -1,0 +1,107 @@
+# Memory Index
+## Façon de travailler
+- [Vérifier le build](feedback_verifier_le_build.md) — ne jamais filtrer la sortie de compilation.
+- [Ne pas suggérer d'arrêter](feedback_ne_pas_suggerer_arret.md) · [Ne pas s'arrêter](feedback_ne_pas_s_arreter.md) — rendre la main pour une vraie question ou un essai.
+- [Demander confirmation](feedback_demander_confirmation.md) — une description n'est pas une plainte.
+- [Montrer les captures](feedback_montrer_les_captures.md) · [Soumettre les images](feedback_soumettre_les_images.md) · [Visuel avant de valider](feedback_visuel_avant_validation.md) — toutes, sans verdict : il tranche.
+- [Toujours un lanceur .cmd](feedback_lanceurs_cmd.md) — jamais de ligne à recopier.
+- [Lire le code, pas l'image](feedback_lire_le_code_pas_l_image.md) · [Analogie ≠ lecture](feedback_analogie_nest_pas_lecture.md) · [Observation → code](feedback_observation_puis_code.md) — « lu » = décodé par un outil.
+- [Son observation prime](feedback_son_observation_prime.md) — s'il l'a vu marcher, ma théorie est fausse.
+- [La prémisse qui borne](feedback_premisse_qui_borne.md) · [Cartographier la zone](feedback_cartographier_la_zone.md) — la zone entière, prémisse écrite.
+- [Chercher avant de rétro-concevoir](feedback_chercher_avant_de_retroconcevoir.md) — SLLZ était public.
+- [Chercher la borne](feedback_chercher_la_borne.md) — une valeur « raisonnable » est un aveu.
+- [Pas de donneur](feedback_pas_de_donneur.md) — fabriquer la ressource, ne rien emprunter.
+- [Ajouter, jamais remplacer](feedback_ajouter_jamais_remplacer.md) · [Ne pas défaire le validé](feedback_ne_pas_defaire_le_valide.md) — recette dès « ça marche », construire à côté.
+- [Garde partagée](feedback_garde_partagee.md) — un saut retiré casse les autres cas.
+- [Recopier tout l'enregistrement](feedback_recopier_tout_l_enregistrement.md) — recycler = cloner en entier.
+- [Differ les deux lanceurs](feedback_diffe_les_deux_lanceurs.md) — comparer les INVOCATIONS d'abord.
+- [Un contrôle qui ment](feedback_controle_qui_ment.md) · [Un registre, pas une règle](feedback_registre_pas_regle.md) — lister ce qui a été VU.
+- [Pas touche aux décors de FS](feedback_ne_pas_toucher_decors_fs.md) — dire quel fichier on retouche.
+- [Lanceurs en fond](feedback_verifier_lanceurs_en_fond.md) · [Pas de copie à blanc](feedback_pas_de_copie_a_blanc.md) — un script destructeur ne s'exécute jamais.
+## Machine
+- [Pièges MSYS2](reference_msys2_ca_bundle_vide.md) · [`python` inerte](reference_python_stub_windows.md) — bundle CA vide ; lancer `py -3`.
+- [Écran à 250 %](reference_ecran_250_pourcent.md) · [Capturer une fenêtre](reference_capture_zone_ecran.md) — ×2,5 ; vérifier le premier plan.
+- [Clavier de Frédéric](reference_clavier_frederic.md) — AZERTY compact, `KEY_DEL`.
+- [Débogueur Win32](reference_debogueur_win32_pieges.md) — trois défauts silencieux.
+- [Disques Xbox illisibles](reference_disques_xbox_illisibles.md) — support Xbox écarté.
+## Playnite
+- [Tuile Digital Game Library](project_digital_library_tile.md) — on part sur un plugin.
+- [Type d'extension.yaml](reference_extension_yaml_types.md) · [Chargement](reference_playnite_extension_load_path.md) — `GameLibrary` ; la copie Roaming.
+- [Tags de release](reference_release_tag_scheme.md) · [Settings](reference_playnite_sdk_settings.md) — un tag = un lot ; ObservableObject.
+- [SN Operator](reference_sn_operator_slot_vide.md) — réponse `0x04` ; checksum `0000` = vide.
+## 3SX / SF3
+- [BGM Remix](project_3sx_bgm_remix.md) · [Palettes](project_3sx_palettes.md) — briefings dans Downloads ; ciel d'Ibuki.
+- [Assets HD](project_3sx_hd_assets.md) — portraits OE HD validés.
+- [Traduire](project_3sx_traduction.md) · [Chaîne de traduction](project_3sx_chaine_traduction.md) — citations et fins ; build jouable.
+- [Décalages de l'amont](reference_3sx_amont_decalages.md) — tables parallèles ; piège CRLF.
+- [Alpha 32 bits](reference_3sx_alpha_32bits.md) — 3SX halvait l'alpha.
+- [En fenêtré](feedback_lancer_3sx_fenetre.md) · [Quel 3sx.exe](reference_3sx_binaire.md) — `fullscreen = false` ; `build\application\bin`.
+- [Audio 3SX](project_3sx_audio_formats.md) — ADPCM AICA ; SIMM 30 inversé.
+- [Décors DC de SF3](project_sf3_dc_decors.md) — 44 décors sortis.
+- [F_ETCnn](reference_sf3_dc_fetc.md) · [Palettes DC](reference_sf3_dc_palettes.md) · [Assemblage](reference_sf3_dc_assemblage.md) · [Pool de tuiles](reference_sf3_dc_pool_tuiles.md) — sprites DC.
+- [Objets animés](reference_3sx_objets_decor_animes.md) — eff05 ; cg_ctr n'est pas une image.
+- [Ajouter des décors](project_ajouter_decors_3sx.md) · [New Generation](project_new_generation.md) — ajouter ; 19 décors, étages 37-55.
+- [Tables par étage](reference_tables_indexees_par_etage.md) · [par personnage](reference_tables_indexees_par_personnage.md) — trois plantent SANS message.
+- [Cohérence ≠ rôle](reference_coherence_nest_pas_role.md) — régulière ≠ identifiée.
+- [Reprendre le chantier](reference_reprise_chantier.md) · [Doc des décors](reference_decors_doc_unique.md) — dc-decors/REPRISE.md ; DECORS.md.
+- [Table de trans](reference_3sx_table_trans_partagee.md) · [Fenêtre tex_remix](reference_tex_remix_fenetre.md) — la rendre ; la refermer.
+- [Gel sans message](reference_3sx_gel_sans_message.md) — pas de fatal.log = pas mtrans.
+- [Shin Akuma](project_shin_akuma.md) · [son build](project_shin_akuma_build.md) — ROM d'arcade ; `C:\Temp3sx-shin`.
+- [Programmes CPS3](reference_cps3_programmes.md) — clés dans `mame.exe`.
+- [Fin SH-4](reference_sh4_fin_de_fonction.md) · [Remonter le graphe](reference_remonter_graphe_appels.md) — premier rts = échec.
+- [Fenêtre fixe](reference_fenetre_fixe_attribution.md) — un site pour deux décors = défaut.
+- [Trois tables de palettes](reference_palettes_trois_tables.md) · [Case vide = canal](reference_case_vide_est_un_canal.md) — jamais `52 + bande`.
+- [Plusieurs bandes](reference_decor_plusieurs_bandes.md) · [Planches](reference_planches_inventaire.md) — on élimine ; `planches.py`.
+## 2I (SF3 DC)
+- [Plans](reference_2i_plans_profondeur.md) · [Chaîne sans état](reference_2i_chaine_sans_etat.md) · [Annuaire](reference_2i_annuaire_elements.md) — `0x8C5F9B38`.
+- [Scènes d'intro](project_2i_scenes_intro.md) · [Parallaxe](reference_2i_coefficients_binaire.md) — `0x8C1D4F48`.
+- [Drapeaux = miroirs](reference_2i_drapeaux_miroirs.md) · [Objet = WORK](reference_2i_objet_est_un_work.md) — +8 est l'id.
+- [Ménagerie d'Oro](project_oro_menagerie.md) · [Repos/action](reference_2i_paire_repos_action.md) — deux scripts.
+- [Décors alternatifs](reference_2i_variantes_aire.md) · [Deux jeux de palettes](reference_2i_palettes_deux_jeux.md) — 6, 8, 16.
+- [Axe vertical](reference_2i_sens_axe_vertical.md) · [Index = bande](reference_2i_index_est_la_bande.md) — `sol` ↑ descend.
+- [Objet peint](reference_2i_peint_page_assemblee.md) · [Chargeurs](reference_2i_inventaire_chargeurs.md) — 16 lisent un bloc.
+- [Profondeur = palette](reference_2i_profondeur_palette.md) · [Copies = cuisson](reference_2i_copies_notre_cuisson.md) — `+556` ; `poser2i`.
+- [Objets à états](reference_2i_objets_a_etats.md) · [Transfert](reference_2i_protocole_transfert.md) — `transfert2i.py`.
+## DBZ3 / FV2 / Model 3
+- [MSU-1 DBZ3](project_dbz3_msu1.md) · [Décors BT3 ↔ BT2](project_dbz3_decors.md) — jamais lancé ; trace Mesen2.
+- [Docs FV2](reference_docs_projet_fv2.md) · [Mod FV2](project_fv2_mod.md) — image depuis la RAM.
+- [Portraits](project_fv2_portraits.md) · [Inventaire 2D](project_fv2_inventaire_2d.md) · [Vie infinie](project_fv2_vie_infinie.md) — FV2.
+- [Menu console FV2](project_fv2_menu_console.md) · [Freeplay d'abord](project_fv2_freeplay_dabord.md) — VS DIAGRAM.
+- [Tuiles HD](project_tuiles_hd.md) · [Textures 3D HD](project_tex3d_hd.md) — `SupermodelSrc/Docs/`.
+- [VF3 sur Model 3](project_vf3_model3.md) — Dural jouable, pack de tuiles.
+- [Clavier](feedback_piloter_supermodel_clavier.md) · [RAM](reference_supermodel_memoire.md) · [CRC32](reference_supermodel_crc32_jeu_patche.md) · [Binaire](reference_supermodel_binaire.md) — Supermodel.
+## VF5
+- [Rétro-ingénierie VF5](project_vf5_re.md) · [Reprendre VF5](reference_reprise_vf5.md) — PROMPT_REPRISE + REPRISE.
+- [Pierre de Rosette](reference_vf5_pxd_pierre_de_rosette.md) · [Yakuza 6](reference_vf5_build_yakuza6.md) — R.E.V.O. x64 ; collision DU2.
+- [ROB : état](reference_vf5_etat_dans_rob.md) · [ROB : champs](reference_vf5_champs_rob.md) — `+0x8A0`.
+- [Stub manette](reference_vf5_stub_entrees.md) · [Joueur 2](reference_vf5_joueur2.md) — code 7 = START ; trois octets.
+- [Liste 2](reference_vf5_liste2_repartiteur.md) · [Machine à états](reference_vf5_machine_etats.md) — DOJO : 50 → 52.
+- [Personnages](reference_vf5_enumeration_persos.md) · [Dural sur APM3](project_vf5_dural.md) — 20 est Dural.
+- [Le .par d'abord](reference_vf5_par_avant_disque.md) · [Résolution](reference_vf5_resolution.md) — lien dur ; quatre immédiats.
+- [Outils Xbox 360](reference_xbox360_outils.md) · [VF5 console 2007](reference_vf5_console_2007.md) — X360 ver.C.
+- [Langue](reference_vf5_langue.md) · [Écran noir](reference_vf5_ecran_noir.md) — traverser APM3_ENTRY.
+- [YAMP](reference_vf5_yamp.md) · [Mode console](project_vf5_mode_console.md) — VERSUS à deux.
+- [Verrou bouchonné](reference_vf5_verrou_bouchonne.md) — patcher le site d'appel.
+- [Deux index de décor](reference_vf5_gestionnaire_decor.md) · [game_score](reference_vf5_index_decor_game_score.md) — 0x18018EF87.
+- [obj_db](reference_vf5_obj_db.md) · [stgdur ver.B](reference_vf5_stgdur_verb.md) · [Décors de Dural](project_vf5_decors_dural.md) — validé.
+- [Case de grille](reference_vf5_case_grille_ancrage.md) · [Grille agrandie](reference_vf5_grille_agrandir.md) — +0x18 ; 43 cases.
+- [KNOCK OUT TRIAL](project_vf5_knockout_trial.md) · [Écran de chargement](reference_vf5_ecran_chargement.md).
+- [Réseau](reference_vf5_reseau.md) · [RTTI MSVC](reference_rtti_msvc_du_moteur.md) — `am::abaas` ; `tools/rtti.py`.
+- [Cavernes int3](reference_vf5_cavernes_int3.md) · [Polices et pictos](reference_vf5_polices_pictos.md).
+- [Objset](reference_vf5_objset_lecture.md) · [Cinq objets](reference_vf5_cinq_objets_rangs.md) · [Clone](reference_vf5_clone_pointe.md) — un ciel ; rangs variables.
+- [Décors VF5 R](project_vf5_import_5r.md) · [VF5 R lisible](reference_vf5r_binaire_lisible.md) — indices 42-60.
+- [Décors ver.B](project_vf5_import_verb.md) · [ver.B : textures](reference_vf5_verb_textures_rangs.md) — 61-81 ; renuméroter.
+- [État hérité](reference_vf5_etat_fichiers_herite.md) · [Éclairage](reference_vf5_eclairage_decor.md) — 0x18039F7A0.
+- [Multiplexeur USM](reference_usm_multiplexeur.md) — remballage sans perte.
+- [Greffe](reference_vf5_greffe_section.md) · [Disposition](reference_vf5_greffe_disposition.md) · [Relocation nulle](reference_vf5_relocation_pointeur_nul.md).
+- [Texte 2D](reference_vf5_texte_2d.md) — rang 127, validé.
+- [Borne = taille](reference_borne_ou_taille_de_tableau.md) · [sentinelle](reference_borne_ou_sentinelle.md) · [écrêtage](reference_borne_ou_ecretage.md) — `jae`/`je`/cmova.
+- [Tâches d'effet](reference_vf5_taches_effet.md) · [Chaîne déroulée](reference_vf5_chaine_deroulee.md) — 0x18034D570.
+- [La base décrit l'archive](reference_vf5_base_decrit_l_archive.md) — auth_3d_db.
+- [Chaque génération](reference_vf5_chaque_generation_ses_tables.md) · [Câblages](reference_vf5_cablages_numero.md) — generation.py.
+- [Sonde d'un décor](reference_vf5_sonde_decor.md) — ~2 min 30, sans clavier.
+- [APM3 en D3D11](reference_vf5_apm3_direct3d11.md) · [Dépôt public](reference_vf5_depot_public.md) — DXBC ; PR #1.
+## APM3
+- [La borne APM3 en C++](project_borne_apm3.md) — clips et transitions lus (§10) ; pause du 13/09 avant de corriger les écarts ; exe validé sauvegardé.
+- [Interface APM3](reference_apm3_interface.md) · [Code de l'interface](reference_apm3_code_interface.md) — game.bat destructeur ; C# via ilspycmd.
+- [Images APM3 chiffrées](reference_apm3_images_chiffrees.md) — clé dans la puce.

@@ -1,0 +1,155 @@
+/* FUN_1802c8b70  --  VF5FS+0x2c8b70
+ *
+ * Decompilation Ghidra, vidée par VF5RE/vider_fonctions.py.
+ * Binaire : vf5fs_revo / vf5fs-pxd-w64-d3d12_SteamRetail.dll
+ * Base d'image 0x180000000 ; adresse absolue 0x1802c8b70.
+ * Vidée le 2026-11-08.
+ *
+ * CE N'EST PAS DU CODE A COMPILER ni a recopier dans l'hote : c'est
+ * une LECTURE du module, gardée pour ne pas la refaire.
+ */
+
+
+longlong FUN_1802c8b70(longlong param_1)
+
+{
+  FUN_1802cc8e0();
+  FUN_1802776d0(param_1 + 1);
+  FUN_1802dba30();
+  FUN_180066c60();
+  FUN_180066750();
+  FUN_18005a260();
+  FUN_18005a2f0();
+  FUN_1800471d0();
+  FUN_18001e280();
+  FUN_18001dff0();
+  FUN_180196cc0();
+  FUN_18001e170();
+  FUN_180030b10();
+  FUN_180166ff0();
+  FUN_1801ab4a0();
+  FUN_180055d50();
+  FUN_1800865a0();
+  FUN_180091d00();
+  FUN_180093d30();
+  FUN_1800a0d90();
+  FUN_1800b6db0();
+  FUN_1800b9ff0();
+  FUN_1800d9e20();
+  FUN_1800da4c0();
+  FUN_1800dfe10();
+  FUN_1800e4fc0();
+  FUN_1800e4ea0();
+  FUN_1800e4f30();
+  FUN_1800e5050();
+  FUN_1800e50e0();
+  FUN_1800e4e00();
+  FUN_1800ece90();
+  FUN_1800f1740();
+  FUN_1800fbc50();
+  FUN_1800fbdd0();
+  FUN_1800fbe50();
+  FUN_180104d30();
+  FUN_180104de0();
+  FUN_1801102f0();
+  FUN_180113940();
+  FUN_180115550();
+  FUN_18011ab80();
+  FUN_180155ca0();
+  FUN_180155d10();
+  FUN_180155dd0();
+  FUN_180151650();
+  FUN_180151580();
+  FUN_180151720();
+  FUN_18015ad30();
+  FUN_180165ae0();
+  FUN_180173140();
+  FUN_180171980();
+  FUN_18016bfc0();
+  FUN_18016c070();
+  FUN_18017a210();
+  FUN_18017ad60();
+  FUN_180192f60();
+  FUN_180195560();
+  FUN_180196fb0();
+  FUN_180196e40();
+  FUN_18019f1c0();
+  FUN_1801a1000();
+  FUN_1801a10a0();
+  FUN_1801a6e30();
+  FUN_1801a7b40();
+  FUN_1801aa280();
+  FUN_1801ab3b0();
+  FUN_1801b3e40();
+  FUN_1801b3f70();
+  FUN_1801b6bc0();
+  FUN_1801b6b40();
+  FUN_1801bba00();
+  FUN_1801c7210();
+  FUN_1801c7a70();
+  FUN_1801cb5c0();
+  FUN_1801d8ba0();
+  FUN_1801da160();
+  FUN_1801eef20();
+  FUN_1801eee90();
+  FUN_1802270b0();
+  FUN_1802274c0();
+  FUN_18023cb80();
+  FUN_180268480();
+  FUN_1801e6b70();
+  FUN_180266e70();
+  FUN_180264140();
+  FUN_18026ca40();
+  FUN_18026d700();
+  FUN_1801f12d0();
+  FUN_1801f11a0();
+  FUN_1801f10b0();
+  FUN_1801f9ff0();
+  FUN_1801fa070();
+  FUN_1801fa0f0();
+  FUN_1801fd770();
+  FUN_180203a60();
+  FUN_180206570();
+  FUN_1802065f0();
+  FUN_180212a60();
+  FUN_1801d7f30();
+  FUN_1801aa0c0();
+  FUN_18021e950();
+  FUN_18021eda0();
+  FUN_18021ed10();
+  FUN_18021ea40();
+  FUN_18021ec60();
+  FUN_18021eb60();
+  FUN_1802232b0();
+  FUN_18022c260();
+  FUN_180241590();
+  FUN_1802416d0();
+  FUN_180241630();
+  FUN_180246f30();
+  FUN_180256e60();
+  FUN_18025eb00();
+  FUN_18025ebd0();
+  FUN_18025e850();
+  FUN_18025e920();
+  FUN_180261dd0();
+  FUN_180261e90();
+  FUN_18023f1a0();
+  FUN_18023f280();
+  FUN_180262990();
+  FUN_180167340();
+  FUN_180107840();
+  FUN_18019bf90();
+  FUN_1801fc8d0();
+  FUN_1800ef310();
+  FUN_180085b50();
+  FUN_180085ac0();
+  FUN_180222d70();
+  FUN_18004a130();
+  FUN_18004a0b0();
+  FUN_1800686c0();
+  FUN_1802529b0();
+  FUN_180074e10();
+  FUN_1800e5170();
+  FUN_1801c50a0();
+  return param_1;
+}

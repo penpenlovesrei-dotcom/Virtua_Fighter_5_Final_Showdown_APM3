@@ -1,0 +1,34 @@
+
+========================================================================
+COMPTES :
+   SetterBloc     1
+   SetterSolo     0
+   SetterVersus   0
+   SetterTrain    0
+   SetterSeul     0
+   CaverneSA      1
+   CaverneLC      0
+   ModeLu         1
+   DemandeMode    2
+   DemandeSsEtat  3
+
+RECIT HORODATE :
+         0.0 ms  demande de SOUS-ETAT 3
+      2438.4 ms  demande de MODE 4
+      2438.7 ms  demande de SOUS-ETAT 55
+      8554.0 ms  >>> NOTRE CAVERNE SA ATTEINTE  (mode=9 (9, jamais ecrit)  sante=0/0 temps=0 rounds=0 cpu=0)
+      8554.4 ms  ECRITURE mode=1 (Score Attack)  par 0x7FFB778A7061  
+      8554.7 ms  demande de MODE 2
+      8555.2 ms  demande de SOUS-ETAT 17
+     16049.5 ms  LE COMBAT LIT le mode 1 (Score Attack)   mode=1 Score Attack       sante=220/220 temps=45 rounds=2 cpu=2
+
+LECTURE :
+   CaverneSA a 0 coup            -> cause A : la mise a jour n atteint
+                                    jamais le site. Les gardes
+                                    d animation ne retombent pas.
+   CaverneSA atteinte, puis une ECRITURE mode=0 apres elle
+                                 -> cause C : quelqu un repose 0.
+                                    L adresse de retour le nomme.
+   CaverneSA atteinte, aucune ecriture apres, mais LE COMBAT LIT 0
+                                 -> cause B : trop tard, ou le combat
+                                    lit autre chose que ce bloc.

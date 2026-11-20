@@ -1,0 +1,31 @@
+processus 17892 lance sous debogage
+  image     0x00007FF7CF940000  vfes.exe
+  dll       0x00007FFD7C2E0000  apm.dll
+  dll       0x00007FFD80260000  d3d11.dll
+  dll       0x00007FFD81480000  dxgi.dll
+  dll       0x00007FFD7F550000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFD8719D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFD848E187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFCCC980000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 17892 coupee apres 2 s
+  BP arme sur MothApplyRecord = 0x7FFCCCAD8B40 (octet d'origine 0x4D)
+  BP arme sur SourceIndice = 0x7FFCCCACF5B3 (octet d'origine 0x8B)
+  BP arme sur CodeDuPersonnage = 0x7FFCCCAACA90 (octet d'origine 0x83)
+  points d'arret poses a t=6 s
+  SourceIndice : rbx=0x1D64347AE98  [rbx-0x10C]=0x1D64347AD8C vaut 0 (AKI)
+  CodeDuPersonnage(0 = AKI)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x14F5CA
+  CodeDuPersonnage(0 = AKI)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x62BF2
+  SourceIndice : rbx=0x1D64347B060  [rbx-0x10C]=0x1D64347AF54 vaut 13 (BRA)
+  CodeDuPersonnage(13 = BRA)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x14F5CA
+  CodeDuPersonnage(13 = BRA)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x62BF2
+  CodeDuPersonnage(0 = AKI)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x14FAEE
+  CodeDuPersonnage(13 = BRA)   depuis vf5fs-pxd-w64-Retail_APM3.dll+0x14FAEE
+  en combat : ROB 1 = 0x1D63F204C70   personnage AKI
+  en combat : ROB 2 = 0x1D63F20A9D8   personnage BRA
+--- 130 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP MothApplyRecord : 292 passage(s)
+  BP SourceIndice : 2 passage(s)
+  BP CodeDuPersonnage : 510 passage(s)

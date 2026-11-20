@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# MOVIE THEATER : y aller seul, et lancer TROIS films differents.
+#
+# MESURE, pas comptage a l aveugle (deux reperages avec capture) :
+#   - le menu porte dix lignes, mais les GRISEES SONT SAUTEES. Les entrees
+#     atteignables sont SINGLE PLAYER, DOJO, VF.TERMINAL, VF.TV, OPTIONS,
+#     EXIT : six. VF.TV est donc a TROIS crans, pas sept.
+#   - le curseur BUTE sur EXIT, il ne reboucle pas : sept appuis y restaient
+#     collee, et le START suivant fermait le jeu.
+#   - un maintien de 300 ms se REPETE. On appuie 120 ms, on relache 400 ms.
+#
+# L horloge du stub a environ deux secondes d avance sur ces pas.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+nom bas   = 3
+nom haut  = 2
+# PAS DE front ICI : le depot emploie front = 10, et c est ce qui
+# ressemble a un vrai appui. A 150 ms le stub repond " nouvel appui "
+# pendant NEUF images, et le moteur valide neuf fois -- une rafale que
+# j avais prise pour un defaut du jeu (2026-10-15).
+
+0       rien
+
+# --- passer le titre
+18000   start
+18120   rien
+21000   start
+21120   rien
+
+# --- trois crans jusqu a VF.TV
+24000   bas
+24120   rien
+24520   bas
+24640   rien
+25040   bas
+25160   rien
+
+# --- ouvrir VF.TV, puis sa ligne 0 : Movie Theater
+26000   start
+26120   rien
+27500   start
+27620   rien
+
+# --- PREMIER FILM : la ligne 0
+29000   start
+29120   rien
+
+# --- le couper, puis DEUXIEME FILM : deux crans plus bas
+35000   start
+35120   rien
+37000   bas
+37120   rien
+37520   bas
+37640   rien
+38200   start
+38320   rien
+
+# --- le couper, puis TROISIEME FILM : trois crans plus bas
+44000   start
+44120   rien
+46000   bas
+46120   rien
+46520   bas
+46640   rien
+47040   bas
+47160   rien
+47700   start
+47820   rien
+
+55000   rien

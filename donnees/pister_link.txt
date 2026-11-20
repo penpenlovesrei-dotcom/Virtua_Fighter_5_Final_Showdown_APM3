@@ -1,0 +1,85 @@
+processus 9668 lance sous debogage
+  image     0x00007FF659EA0000  vfes.exe
+  dll       0x00007FF8AF000000  apm.dll
+  dll       0x00007FF8AFF90000  d3d11.dll
+  dll       0x00007FF8B14E0000  dxgi.dll
+  dll       0x00007FF8AF650000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF8B727D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF8B488187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FF80C690000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur SetupLink = 0x7FF80C8A9BF0 (octet d'origine 0x40)
+  BP arme sur conv entree = 0x7FF80C8AA470 (octet d'origine 0x40)
+  BP arme sur conv SUCCES = 0x7FF80C8AA4BF (octet d'origine 0x48)
+  BP arme sur conv ECHEC = 0x7FF80C8AA50B (octet d'origine 0x48)
+  BP arme sur _invalid_param = 0x7FF80C993B20 (octet d'origine 0x48)
+  BP arme sur wcstombs_s = 0x7FF80C9A5F54 (octet d'origine 0x40)
+  BP arme sur versionGS = 0x7FF80C92E6C2 (octet d'origine 0x41)
+  BP arme sur ImplSetup = 0x7FF80C959D20 (octet d'origine 0x40)
+  BP arme sur okGameId = 0x7FF80C959E03 (octet d'origine 0x4C)
+  BP arme sur okKeychipId = 0x7FF80C959E9C (octet d'origine 0x48)
+  BP arme sur okMainId = 0x7FF80C959EDD (octet d'origine 0x44)
+  BP arme sur okCountry = 0x7FF80C959F2C (octet d'origine 0x45)
+  BP arme sur tic Setup = 0x7FF80C968F80 (octet d'origine 0x40)
+  BP arme sur tic Standby = 0x7FF80C969920 (octet d'origine 0x40)
+  BP arme sur tic Unavailable = 0x7FF80C972FA0 (octet d'origine 0x40)
+  BP arme sur tic MatchAlloc = 0x7FF80C969E20 (octet d'origine 0x40)
+  BP arme sur tic MatchMatch = 0x7FF80C96AAF0 (octet d'origine 0x40)
+  BP arme sur tic Playing = 0x7FF80C972280 (octet d'origine 0x40)
+  points d'arret poses a t=1 s
+  sourdine : session audio du processus 9668 coupee apres 2 s
+      0.0 ms  conversion <- 0x7FF8AF005082  large='A69E01A8888'  etroit=b'A'
+      1.2 ms  PREMIERE FOIS : conv SUCCES
+      1.6 ms  conversion <- 0x7FF8AF006454  large='0000'  etroit=b'0'
+      1.8 ms  --- comptes : conv SUCCES=2, conv entree=2
+      2.1 ms  conversion <- 0x7FF8AF006400  large='http://127.0.0.1:8081'  etroit=b'h'
+      2.8 ms  version GS : major=1 minor=0 -> "1.00" (4 octets + NUL, le tampon en fait 5)
+      3.1 ms  wcstombs_s : tampon=5 octets  <- '搥┮㈰d猢煥楟≤∺' (9 car.)
+      3.3 ms  PREMIERE FOIS : SetupLink
+      6.4 ms  conversion <- 0x7FF8AF0063B0  large='http://127.0.0.1:8080'  etroit=b'h'
+      6.8 ms  conversion <- 0x7FF8AF006454  large='0000'  etroit=b'0'
+      7.3 ms  conversion <- 0x7FF8AF006346  large='JPN'  etroit=b'J'
+      7.6 ms  conversion <- 0x7FF8AF005082  large='A69E01A8888'  etroit=b'A'
+      8.0 ms  conversion <- 0x7FF8AF005042  large='AAVE01A8888'  etroit=b'A'
+      8.4 ms  ImplSetup : les parametres recus
+              serverURI    taille=21    http://127.0.0.1:8080
+              gameId       taille=4     0000
+              countryCode  taille=3     JPNt
+              keychipId    taille=11    A69E01A8888t
+              mainId       taille=11    AAVE01A8888
+      8.7 ms  PREMIERE FOIS : okGameId
+      8.9 ms  PREMIERE FOIS : okKeychipId
+      9.2 ms  PREMIERE FOIS : okMainId
+      9.4 ms  PREMIERE FOIS : okCountry
+      9.7 ms  wcstombs_s : tampon=5 octets  <- '搥┮㈰d猢煥楟≤∺' (9 car.)
+     12.8 ms  PREMIERE FOIS : tic Setup
+   2007.6 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+   3268.8 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+   6563.6 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+   6780.3 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+   9813.6 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+  10004.3 ms  --- comptes : ImplSetup=1, SetupLink=1, conv SUCCES=8, conv entree=8, okCountry=1, okGameId=1, okKeychipId=1, okMainId=1, tic Setup=4845, versionGS=1, wcstombs_s=7
+  13050.2 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+  13106.9 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+  16413.9 ms  wcstombs_s : tampon=15 octets  <- '〥搴〥搲〥搲〥搲〥搲〥搲' (12 car.)
+--- 20 s ecoulees, on arrete ---
+
+83 module(s) charge(s)
+  BP SetupLink : 1 passage(s)
+  BP conv entree : 8 passage(s)
+  BP conv SUCCES : 8 passage(s)
+  BP conv ECHEC : 0 passage(s)
+  BP _invalid_param : 0 passage(s)
+  BP wcstombs_s : 10 passage(s)
+  BP versionGS : 1 passage(s)
+  BP ImplSetup : 1 passage(s)
+  BP okGameId : 1 passage(s)
+  BP okKeychipId : 1 passage(s)
+  BP okMainId : 1 passage(s)
+  BP okCountry : 1 passage(s)
+  BP tic Setup : 8266 passage(s)
+  BP tic Standby : 0 passage(s)
+  BP tic Unavailable : 0 passage(s)
+  BP tic MatchAlloc : 0 passage(s)
+  BP tic MatchMatch : 0 passage(s)
+  BP tic Playing : 0 passage(s)

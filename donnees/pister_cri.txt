@@ -1,0 +1,23 @@
+processus 6048 lance sous debogage
+  image     0x00007FF70AD70000  vfes.exe
+  BP arme sur erreur CRI = 0x7FF70AE2427C (octet d'origine 0x48)
+  point sur le notificateur CRI, base vfes.exe = 0x7FF70AD70000
+  dll       0x00007FFF957D0000  apm.dll
+  dll       0x00007FFF96BF0000  d3d11.dll
+  dll       0x00007FFF97BE0000  dxgi.dll
+  dll       0x00007FFF95EB0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFF9D97D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFF9B08187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFEF0880000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur --> entree CS_DEMO = 0x7FFEF095DC40 (octet d'origine 0x40)
+  BP arme sur <-- sortie CS_DEMO = 0x7FFEF095D558 (octet d'origine 0xB0)
+  sourdine : session audio du processus 6048 coupee apres 2 s
+      0.0 ms  --> entree CS_DEMO
+  17635.3 ms  CRI : rcx=0x1  rdx='W2015080610:Voice buffer underrun.'  r8=0x0  r9=0x0
+--- 90 s ecoulees, on arrete ---
+
+77 module(s) charge(s)
+  BP erreur CRI : 305 passage(s)
+  BP --> entree CS_DEMO : 1 passage(s)
+  BP <-- sortie CS_DEMO : 0 passage(s)

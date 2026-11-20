@@ -1,0 +1,79 @@
+==========================================================================
+SONDE DE PLANTAGE -- 70 s, le clavier est a vous
+==========================================================================
+sections de vf5fs-pxd-w64-Retail_APM3.dll (RVA) :
+   .text      0x00001000 .. 0x00345800   (VA preferee 0x180001000)
+   .rdata     0x00346000 .. 0x00641C00   (VA preferee 0x180346000)
+   .data      0x00642000 .. 0x00E6437C   (VA preferee 0x180642000)
+   .pdata     0x00E65000 .. 0x00E8D200   (VA preferee 0x180E65000)
+   .rsrc      0x00E8E000 .. 0x00E91600   (VA preferee 0x180E8E000)
+   .reloc     0x00E92000 .. 0x00EA1000   (VA preferee 0x180E92000)
+   .greffe    0x00EA1000 .. 0x00EA4F40   (VA preferee 0x180EA1000)
+carte de .decors :
+   +0x000000  descripteurs (61 x 0xF0)
+   +0x003930  codes
+   +0x003B20  grille
+   +0x003DC0  objsets + taches d effet
+   +0x0054A0  effets a3d
+   +0x005750  effets mur
+   +0x006490  uid des decors neufs
+   +0x007110  charges de mur, puis les chaines
+
+processus 19872 lance sous debogage
+  image     0x00007FF7A2470000  vfes.exe
+  dll       0x00007FFA13420000  apm.dll
+  dll       0x00007FFA31600000  d3d11.dll
+  dll       0x00007FFA325E0000  dxgi.dll
+  dll       0x00007FFA30680000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFA383E2239 = ntdll.dll+0x122239
+  [dbg] [apm] stub charge
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFA359F41CA = KernelBase.dll+0xC41CA
+      type    : .?AV_com_error@@
+      ou      : KernelBase.dll+0xC41CA
+        rax=000001D06B2C0000 rcx=0000000000000001 rdx=00007FFA382E670B rbx=0000000000000000
+        rsp=000000A7565FDDF0 rbp=0000000000000004 rsi=000000A7565FDE10 rdi=000000A7565FD7C0
+        r8 =00007FFA382E670B r9 =0000610000006100 r10=00000000A40402A2 r11=000001D06D940000
+      --- code autour de RIP ---
+      >>> 0x7FFA359F41CA  nop dword ptr [rax + rax]
+          0x7FFA359F41CF  mov rcx, qword ptr [rsp + 0xc0]
+          0x7FFA359F41D7  xor rcx, rsp
+          0x7FFA359F41DA  call 0x7ffa35ac6ec0
+          0x7FFA359F41DF  add rsp, 0xd8
+          0x7FFA359F41E6  pop rdi
+      AUCUN decor demande avant ce plantage.
+  dll       0x00007FF995770000  vf5fs-pxd-w64-Retail_APM3.dll
+  [dbg] [apm] Core_execute
+  [dbg] [apm] entrees: 13 pas, 1 nom(s), front=10 ms
+  [dbg] [apm] manette : XInput charge
+  [dbg] [quest] moteur trouve, base 140709931188224
+  [dbg] [quest] notre fil d execution 14168
+  [dbg] [quest] machine : mode 0, sous-etat 0
+  [dbg] [quest] pas de boite QUESTBOX : moteur sans --quest-ecran 0
+  [dbg] [apm] entrees: pas 0 a t=46 ms, masque=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 1
+  [dbg] [quest] machine : mode 0, sous-etat 6
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 3
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [quest] machine : mode 0, sous-etat 4
+  [dbg] [quest] machine : mode 0, sous-etat 2
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  [dbg] [quest] machine : mode 0, sous-etat 5
+  [dbg] [quest] machine : mode 4, sous-etat 36
+  [dbg] [apm] personnalisation remise
+  [dbg] [apm] fronts: courant=0x00000280 montants=0x00000280 descendants=0x00000000
+  [dbg] [quest] machine : mode 4, sous-etat 55
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000280
+  [dbg] [apm] entrees: pas 1 a t=18000 ms, masque=0x00000080
+  [dbg] [apm] fronts: courant=0x00000080 montants=0x00000080 descendants=0x00000000
+  [dbg] [apm] entrees: pas 2 a t=18406 ms, masque=0x00000000
+  [dbg] [apm] fronts: courant=0x00000000 montants=0x00000000 descendants=0x00000080
+  sortie du processus, code 0x00000000
+
+79 module(s) charge(s)
+  scenario d entrees remis en jeu manuel
+
+--------------------------------------------------------------------------
+1 exception(s) retenue(s).
+AUCUN decor demande : le plantage est avant tout chargement de decor.

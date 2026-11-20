@@ -1,0 +1,101 @@
+descripteur        famille              nb_vp nb_fp  vp on  fp on
+0x180556370        blinn_per_vert         128   192      5     16
+    vp charges : blinn_per_vert.00000100000.vp, blinn_per_vert.01000100000.vp, blinn_per_vert.00000100010.vp, blinn_per_vert.00000100001.vp, blinn_per_vert.01000100001.vp
+0x1805563B0        blinn_per_frag          64   384      2      3
+    vp charges : blinn_per_frag.00000100000.vp, blinn_per_frag.00000100001.vp
+0x1805563F0        item_blinn             512   128     43     29
+    vp charges : item_blinn.1000000000.vp, item_blinn.0000010000.vp, item_blinn.1000010000.vp, item_blinn.1010010000.vp, item_blinn.0001010000.vp, item_blinn.1001010000.vp, item_blinn.1011010000.vp, item_blinn.1011110000.vp, item_blinn.0011111000.vp, item_blinn.1000000001.vp, item_blinn.1010000001.vp, item_blinn.0001000001.vp, item_blinn.1001000001.vp, item_blinn.1000100001.vp, item_blinn.1001100001.vp, item_blinn.0000010001.vp, item_blinn.1000010001.vp, item_blinn.0010010001.vp, item_blinn.1010010001.vp, item_blinn.1001010001.vp, item_blinn.0011010001.vp, item_blinn.1011010001.vp, item_blinn.0111010001.vp, item_blinn.0000110001.vp, item_blinn.1000110001.vp, item_blinn.0100110001.vp, item_blinn.0010110001.vp, item_blinn.1010110001.vp, item_blinn.0001110001.vp, item_blinn.1001110001.vp, item_blinn.0011110001.vp, item_blinn.1011110001.vp, item_blinn.0111110001.vp, item_blinn.0010011001.vp, item_blinn.1010011001.vp, item_blinn.0011011001.vp, item_blinn.1011011001.vp, item_blinn.0111011001.vp, item_blinn.1000111001.vp, item_blinn.1010111001.vp, item_blinn.0011111001.vp, item_blinn.1011111001.vp, item_blinn.0111111001.vp
+0x180556430        stage_blinn             32   192      2      8
+    vp charges : stage_blinn.00000010.vp, stage_blinn.00001010.vp
+0x180556470        skin_default            16    96      2     24
+    vp charges : skin_default.10000001.vp, skin_default.10010001.vp
+0x1805564B0        hair_default           256   384     11     29
+    vp charges : hair_default.10000000010.vp, hair_default.10010000010.vp, hair_default.10000100010.vp, hair_default.00010100010.vp, hair_default.10010100010.vp, hair_default.10010010010.vp, hair_default.10010110010.vp, hair_default.10010020010.vp, hair_default.10011020010.vp, hair_default.10010120010.vp, hair_default.10010130010.vp
+0x1805564F0        hair_default           256    32     11      6
+    vp charges : hair_default.10000000010.vp, hair_default.10010000010.vp, hair_default.10000100010.vp, hair_default.00010100010.vp, hair_default.10010100010.vp, hair_default.10010010010.vp, hair_default.10010110010.vp, hair_default.10010020010.vp, hair_default.10011020010.vp, hair_default.10010120010.vp, hair_default.10010130010.vp
+0x180556530        cloth_default           64   192      5     34
+    vp charges : cloth_default.1000000010.vp, cloth_default.0001000010.vp, cloth_default.1001000010.vp, cloth_default.0001100010.vp, cloth_default.1001100010.vp
+0x180556570        sky_default              1     1      1      1
+    vp charges : sky_default..vp
+0x1805565B0        eye_ball                 8    16      1      3
+    vp charges : eye_ball.100001.vp
+0x1805565F0        eye_lens                 8    16      1      2
+    vp charges : eye_lens.10000.vp
+0x180556630        membrane                16    16      1      1
+    vp charges : membrane.10000.vp
+0x180556670        glass                   16     4      0      0
+    vp charges : (aucun)
+0x1805566B0        shadowmap                8    48      8     48
+    vp charges : shadowmap.00000.vp, shadowmap.10000.vp, shadowmap.01000.vp, shadowmap.11000.vp, shadowmap.00100.vp, shadowmap.10100.vp, shadowmap.01100.vp, shadowmap.11100.vp
+0x1805566F0        simple                   4    12      4     12
+    vp charges : simple.00000.vp, simple.10000.vp, simple.00010.vp, simple.10010.vp
+0x180556730        silhouette              32     4     32      4
+    vp charges : silhouette.00000.vp, silhouette.10000.vp, silhouette.01000.vp, silhouette.11000.vp, silhouette.00100.vp, silhouette.10100.vp, silhouette.01100.vp, silhouette.11100.vp, silhouette.00010.vp, silhouette.10010.vp, silhouette.01010.vp, silhouette.11010.vp, silhouette.00110.vp, silhouette.10110.vp, silhouette.01110.vp, silhouette.11110.vp, silhouette.00001.vp, silhouette.10001.vp, silhouette.01001.vp, silhouette.11001.vp, silhouette.00101.vp, silhouette.10101.vp, silhouette.01101.vp, silhouette.11101.vp, silhouette.00011.vp, silhouette.10011.vp, silhouette.01011.vp, silhouette.11011.vp, silhouette.00111.vp, silhouette.10111.vp, silhouette.01111.vp, silhouette.11111.vp
+0x180556770        lambert                256    48     38     20
+    vp charges : lambert.00000000.vp, lambert.01000000.vp, lambert.00100000.vp, lambert.01100000.vp, lambert.00200000.vp, lambert.00010000.vp, lambert.01010000.vp, lambert.00110000.vp, lambert.01110000.vp, lambert.00111000.vp, lambert.00000100.vp, lambert.01000100.vp, lambert.00100100.vp, lambert.01100100.vp, lambert.00200100.vp, lambert.00010100.vp, lambert.01010100.vp, lambert.00110100.vp, lambert.01110100.vp, lambert.00111100.vp, lambert.00000010.vp, lambert.01000010.vp, lambert.00100010.vp, lambert.01100010.vp, lambert.00110010.vp, lambert.01110010.vp, lambert.00111010.vp, lambert.00000110.vp, lambert.01000110.vp, lambert.00100110.vp, lambert.01100110.vp, lambert.00110110.vp, lambert.01110110.vp, lambert.00111110.vp, lambert.00100001.vp, lambert.01100001.vp, lambert.00100101.vp, lambert.01100101.vp
+0x1805567B0        constant                64    12      9      4
+    vp charges : constant.000000.vp, constant.010000.vp, constant.001000.vp, constant.011000.vp, constant.001100.vp, constant.011100.vp, constant.010010.vp, constant.011010.vp, constant.011110.vp
+0x1805567F0        depth_peel               2     2      0      0
+    vp charges : (aucun)
+0x180556830        tone_map                 3   120      3    120
+    vp charges : tone_map.00000.vp, tone_map.01000.vp, tone_map.02000.vp
+0x180556870        reduce_tex              10    10     10     10
+    vp charges : reduce_tex.0.vp, reduce_tex.1.vp, reduce_tex.2.vp, reduce_tex.3.vp, reduce_tex.4.vp, reduce_tex.5.vp, reduce_tex.6.vp, reduce_tex.7.vp, reduce_tex.8.vp, reduce_tex.9.vp
+0x1805568B0        magnify                  8    32      2      8
+    vp charges : magnify.000.vp, magnify.300.vp
+0x1805568F0        pp_gauss                 1     2      1      2
+    vp charges : pp_gauss.0.vp
+0x180556930        sun                      1     1      1      1
+    vp charges : sun..vp
+0x180556970        fade                     6     6      6      6
+    vp charges : fade.0.vp, fade.1.vp, fade.2.vp, fade.3.vp, fade.4.vp, fade.5.vp
+0x1805569B0        water01                 32   192      2      4
+    vp charges : water01.0001000001.vp, water01.1101000001.vp
+0x1805569F0        water02                  1     1      1      1
+    vp charges : water02..vp
+0x180556A30        water_ring               4     4      2      4
+    vp charges : water_ring.100.vp, water_ring.110.vp
+0x180556A70        water_particle           1     1      1      1
+    vp charges : water_particle..vp
+0x180556AB0        snow_particle            2     1      2      1
+    vp charges : snow_particle.0.vp, snow_particle.1.vp
+0x180556AF0        snow_ring                4    48      0      0
+    vp charges : (aucun)
+0x180556B30        snow_footprint           1     1      1      1
+    vp charges : snow_footprint..vp
+0x180556B70        snow_tex_space_light     1     1      1      1
+    vp charges : snow_tex_space_light..vp
+0x180556BB0        snow_calc_normal         1     1      1      1
+    vp charges : snow_calc_normal..vp
+0x180556BF0        floor                    8     8      2      8
+    vp charges : floor.0001.vp, floor.0101.vp
+0x180556C30        puddle                   2     8      2      4
+    vp charges : puddle.000.vp, puddle.010.vp
+0x180556C70        simple_reflect          16     1     16      1
+    vp charges : simple_reflect.0000.vp, simple_reflect.1000.vp, simple_reflect.0100.vp, simple_reflect.1100.vp, simple_reflect.0010.vp, simple_reflect.1010.vp, simple_reflect.0110.vp, simple_reflect.1110.vp, simple_reflect.0001.vp, simple_reflect.1001.vp, simple_reflect.0101.vp, simple_reflect.1101.vp, simple_reflect.0011.vp, simple_reflect.1011.vp, simple_reflect.0111.vp, simple_reflect.1111.vp
+0x180556CB0        simple_refract           2    12      2     12
+    vp charges : simple_refract.0000.vp, simple_refract.1000.vp
+0x180556CF0        ripple_emit              1     4      1      4
+    vp charges : ripple_emit.00.vp
+0x180556D30        rain                     1     1      1      1
+    vp charges : rain..vp
+0x180556D70        volume_light             1     1      0      0
+    vp charges : (aucun)
+0x180556DB0        fence_alpha              8     4      8      4
+    vp charges : fence_alpha.00.vp, fence_alpha.10.vp, fence_alpha.01.vp, fence_alpha.11.vp, fence_alpha.02.vp, fence_alpha.12.vp, fence_alpha.03.vp, fence_alpha.13.vp
+0x180556DF0        ripple                   1     2      1      2
+    vp charges : ripple.0.vp
+0x180556E30        fog_ptcl                 1     1      1      1
+    vp charges : fog_ptcl..vp
+0x180556E70        particle                 2     2      2      2
+    vp charges : particle.0.vp, particle.1.vp
+0x180556EB0        show_vector              8     1      8      1
+    vp charges : show_vector.00.vp, show_vector.10.vp, show_vector.01.vp, show_vector.11.vp, show_vector.02.vp, show_vector.12.vp, show_vector.03.vp, show_vector.13.vp
+0x180556EF0        font                     1     1      1      1
+    vp charges : font..vp
+0x180556F30        movie                    1     1      1      1
+    vp charges : movie..vp
+0x180556F70        default                  5    80      5     80
+    vp charges : default.00000.vp, default.10000.vp, default.20000.vp, default.30000.vp, default.40000.vp
+0x180556FB0        color_correct            1     1      0      0
+    vp charges : (aucun)

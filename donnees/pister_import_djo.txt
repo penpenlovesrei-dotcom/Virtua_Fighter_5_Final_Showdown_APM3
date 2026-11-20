@@ -1,0 +1,61 @@
+processus 1716 lance sous debogage
+  image     0x00007FF654880000  vfes.exe
+  dll       0x00007FF938220000  apm.dll
+  dll       0x00007FF954350000  d3d11.dll
+  dll       0x00007FF9558B0000  dxgi.dll
+  dll       0x00007FF9539C0000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FF95B59D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FF9588F187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FF8A0A60000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur porte0 = 0x7FF8A0BEF74A (octet d'origine 0x48)
+  BP arme sur porte1 = 0x7FF8A0BEF760 (octet d'origine 0xE8)
+  BP arme sur porte2 = 0x7FF8A0BEF76D (octet d'origine 0xE8)
+  BP arme sur porte3 = 0x7FF8A0BEF77A (octet d'origine 0x48)
+  BP arme sur porte4 = 0x7FF8A0BEF78E (octet d'origine 0xE8)
+  BP arme sur porte5 = 0x7FF8A0BEF7A2 (octet d'origine 0x48)
+  BP arme sur porte6 = 0x7FF8A0BEF7B7 (octet d'origine 0xE8)
+  BP arme sur porte7 = 0x7FF8A0BEF7C4 (octet d'origine 0x48)
+  BP arme sur jalon0 = 0x7FF8A0BEFAF5 (octet d'origine 0xC7)
+  BP arme sur jalon1 = 0x7FF8A0BEF952 (octet d'origine 0xC7)
+  BP arme sur jalon2 = 0x7FF8A0BEF821 (octet d'origine 0xC7)
+  BP arme sur jalon3 = 0x7FF8A0BEF73E (octet d'origine 0xC7)
+  BP arme sur CreateFileW = 0x7FF958857A70 (octet d'origine 0x48)
+  BP arme sur CreateFileA = 0x7FF958856A10 (octet d'origine 0x48)
+  BP arme sur CreateFileW = 0x7FF95AAC7130 (octet d'origine 0xFF)
+  BP arme sur CreateFileA = 0x7FF95AAC7120 (octet d'origine 0xFF)
+  instruments poses a t=1.4 s
+  sourdine : session audio du processus 1716 coupee apres 2 s
+  t=   2.6 s  etat 0 (inactif)  decor courant tst
+  JALON : etat 2 : les fichiers annexes sont demandes
+  t=  70.7 s  etat 1 (pesee + demande de geometrie)  decor courant djo
+  t=  70.7 s  etat 2 (fichiers annexes)  decor courant djo
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/objset/stgdjo.farc
+  JALON : etat 3 : la barriere commence
+  t=  71.4 s  etat 3 (BARRIERE D'ATTENTE)  decor courant djo
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/auth_3d/EFFSTGDJO.farc
+  OUVERT : c:/users/frede/desktop/vf5re/runtime/media/vf5fs/vf5fs_media/rom/ibl/djo.ibl
+  JALON : etat 4 : tout est charge
+  t=  71.7 s  etat 4 (derniere attente)  decor courant djo
+  JALON : ETAT 5 : LE DECOR EST EN PLACE
+  t=  71.8 s  etat 5 (EN PLACE)  decor courant djo
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP porte0 : 24 passage(s)
+  BP porte1 : 24 passage(s)
+  BP porte2 : 9 passage(s)
+  BP porte3 : 5 passage(s)
+  BP porte4 : 5 passage(s)
+  BP porte5 : 5 passage(s)
+  BP porte6 : 5 passage(s)
+  BP porte7 : 1 passage(s)
+  BP jalon0 : 1 passage(s)
+  BP jalon1 : 1 passage(s)
+  BP jalon2 : 1 passage(s)
+  BP jalon3 : 1 passage(s)
+  BP CreateFileW : 6 passage(s)
+  BP CreateFileA : 25 passage(s)
+  BP CreateFileW : 4 passage(s)
+  BP CreateFileA : 25 passage(s)
+  scenario d entrees remis en jeu manuel

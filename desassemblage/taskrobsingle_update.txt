@@ -1,0 +1,108 @@
+# APM3 (borne) 0x180151CF0 -- 384 octets
+#
+# TaskRobSingle::update (vtable 0x1803F8E68, creneau 2). L'un des cinq
+# lecteurs de +0x796 : son etat 4 attend le drapeau pour passer a 5
+# (0x180151D3A). Cote console la meme fonction (0x82356840) attend a cet
+# endroit un singleton de chargement, PAS un drapeau par joueur. C'est ce
+# lecteur qui a permis de nommer le champ : il appartient aux COMBATTANTS,
+# pas a Customize. REPRISE (114).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x180151CF0  48895c2410           mov qword ptr [rsp + 0x10], rbx
+  0x180151CF5  57                   push rdi
+  0x180151CF6  4883ec20             sub rsp, 0x20
+  0x180151CFA  488bf9               mov rdi, rcx
+  0x180151CFD  8b4958               mov ecx, dword ptr [rcx + 0x58]
+  0x180151D00  85c9                 test ecx, ecx
+  0x180151D02  0f840d010000         je 0x180151e15
+  0x180151D08  83e901               sub ecx, 1
+  0x180151D0B  0f8470010000         je 0x180151e81
+  0x180151D11  83e901               sub ecx, 1
+  0x180151D14  0f84ce000000         je 0x180151de8
+  0x180151D1A  83e901               sub ecx, 1
+  0x180151D1D  743d                 je 0x180151d5c
+  0x180151D1F  83f901               cmp ecx, 1
+  0x180151D22  0f8573010000         jne 0x180151e9b
+  0x180151D28  4863475c             movsxd rax, dword ptr [rdi + 0x5c]
+  0x180151D2C  4869c888fa0000       imul rcx, rax, 0xfa88
+  0x180151D33  488b05b699ae00       mov rax, qword ptr [rip + 0xae99b6]  ; -> 0x180C3B6F0
+  0x180151D3A  80bc019607000000     cmp byte ptr [rcx + rax + 0x796], 0
+  0x180151D42  0f8453010000         je 0x180151e9b
+  0x180151D48  c7475805000000       mov dword ptr [rdi + 0x58], 5
+  0x180151D4F  32c0                 xor al, al
+  0x180151D51  488b5c2438           mov rbx, qword ptr [rsp + 0x38]
+  0x180151D56  4883c420             add rsp, 0x20
+  0x180151D5A  5f                   pop rdi
+  0x180151D5B  c3                   ret 
+> 0x180151D5C  488b4f60             mov rcx, qword ptr [rdi + 0x60]
+  0x180151D60  4889742430           mov qword ptr [rsp + 0x30], rsi
+  0x180151D65  e8269cfdff           call 0x18012b990
+  0x180151D6A  488b5768             mov rdx, qword ptr [rdi + 0x68]
+  0x180151D6E  488b4f60             mov rcx, qword ptr [rdi + 0x60]
+  0x180151D72  e8f99dfdff           call 0x18012bb70
+  0x180151D77  488db7f0000000       lea rsi, [rdi + 0xf0]
+  0x180151D7E  488b16               mov rdx, qword ptr [rsi]
+  0x180151D81  48895608             mov qword ptr [rsi + 8], rdx
+  0x180151D85  48395610             cmp qword ptr [rsi + 0x10], rdx
+  0x180151D89  740e                 je 0x180151d99
+  0x180151D8B  488b4760             mov rax, qword ptr [rdi + 0x60]
+  0x180151D8F  488902               mov qword ptr [rdx], rax
+  0x180151D92  4883460808           add qword ptr [rsi + 8], 8
+  0x180151D97  eb0c                 jmp 0x180151da5
+> 0x180151D99  4c8d4760             lea r8, [rdi + 0x60]
+  0x180151D9D  488bce               mov rcx, rsi
+  0x180151DA0  e88b89feff           call 0x18013a730
+> 0x180151DA5  488b87d0000000       mov rax, qword ptr [rdi + 0xd0]
+  0x180151DAC  488d4f78             lea rcx, [rdi + 0x78]
+  0x180151DB0  488bd6               mov rdx, rsi
+  0x180151DB3  488987d8000000       mov qword ptr [rdi + 0xd8], rax
+  0x180151DBA  e83130ffff           call 0x180144df0
+  0x180151DBF  488d154a762a00       lea rdx, [rip + 0x2a764a]  ; -> 0x1803F9410  "ROB_DISP_SINGLE"
+  0x180151DC6  488d4f78             lea rcx, [rdi + 0x78]
+  0x180151DCA  e8613a0f00           call 0x180245830
+  0x180151DCF  488b742430           mov rsi, qword ptr [rsp + 0x30]
+  0x180151DD4  32c0                 xor al, al
+  0x180151DD6  c7475804000000       mov dword ptr [rdi + 0x58], 4
+  0x180151DDD  488b5c2438           mov rbx, qword ptr [rsp + 0x38]
+  0x180151DE2  4883c420             add rsp, 0x20
+  0x180151DE6  5f                   pop rdi
+  0x180151DE7  c3                   ret 
+> 0x180151DE8  488b0dc1694f00       mov rcx, qword ptr [rip + 0x4f69c1]  ; -> 0x1806487B0
+  0x180151DEF  e84cdcffff           call 0x18014fa40
+  0x180151DF4  84c0                 test al, al
+  0x180151DF6  0f859f000000         jne 0x180151e9b
+  0x180151DFC  e82f56ebff           call 0x180007430
+  0x180151E01  32c0                 xor al, al
+  0x180151E03  c7475803000000       mov dword ptr [rdi + 0x58], 3
+  0x180151E0A  488b5c2438           mov rbx, qword ptr [rsp + 0x38]
+  0x180151E0F  4883c420             add rsp, 0x20
+  0x180151E13  5f                   pop rdi
+  0x180151E14  c3                   ret 
+> 0x180151E15  488b5f60             mov rbx, qword ptr [rdi + 0x60]
+  0x180151E19  488bcb               mov rcx, rbx
+  0x180151E1C  e89f29f6ff           call 0x1800b47c0
+  0x180151E21  83f801               cmp eax, 1
+  0x180151E24  7712                 ja 0x180151e38
+  0x180151E26  8b4b10               mov ecx, dword ptr [rbx + 0x10]
+  0x180151E29  4c8d4338             lea r8, [rbx + 0x38]
+  0x180151E2D  8bd0                 mov edx, eax
+  0x180151E2F  e89c5dffff           call 0x180147bd0
+  0x180151E34  84c0                 test al, al
+  0x180151E36  752e                 jne 0x180151e66
+> 0x180151E38  488b4760             mov rax, qword ptr [rdi + 0x60]
+  0x180151E3C  8b4810               mov ecx, dword ptr [rax + 0x10]
+  0x180151E3F  e86c81edff           call 0x180029fb0
+  0x180151E44  84c0                 test al, al
+  0x180151E46  7532                 jne 0x180151e7a
+  0x180151E48  488b5f60             mov rbx, qword ptr [rdi + 0x60]
+  0x180151E4C  33d2                 xor edx, edx
+  0x180151E4E  488bcb               mov rcx, rbx
+  0x180151E51  e86a0af6ff           call 0x1800b28c0
+  0x180151E56  e855ebffff           call 0x1801509b0
+  0x180151E5B  488bc8               mov rcx, rax
+  0x180151E5E  488bd3               mov rdx, rbx
+  0x180151E61  e89af3ffff           call 0x180151200
+> 0x180151E66  c7475801000000       mov dword ptr [rdi + 0x58], 1
+  0x180151E6D  32c0                 xor al, al

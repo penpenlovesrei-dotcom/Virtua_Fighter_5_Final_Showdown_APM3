@@ -1,0 +1,445 @@
+; Xbox 360, Virtua Fighter 5 Final Showdown (VERSION A, 2012-04-06)
+; image   VF5RE/extracted/X360_FS/sel/default.img
+; PE PowerPC gros-boutiste, machine 0x1F2, base 0x82000000, 17 629 184 o
+; bornes  .pdata  (BeginAddress + mot empaquete : prologue sur 8 bits de
+;         poids faible, longueur en INSTRUCTIONS sur les bits 8-29)
+; Aucun jeu lance, aucun binaire patche, Ghidra pas touche.
+; Depose le 2026-11-19.
+
+============================================================================
+0x822BE7D0  Etat_UnPas -- LA POMPE : phase du mode, puis phase du sous-etat (632 o)
+============================================================================
+; fonction 0x822BE7D0 .. 0x822BEA44  (632 o, 158 instructions) -- bornes .pdata
+0x822BE7D0  7d8802a6  mflr       r12
+0x822BE7D4  9181fff8  stw        r12, -8(r1)
+0x822BE7D8  fbc1ffe8  std        r30, -0x18(r1)
+0x822BE7DC  fbe1fff0  std        r31, -0x10(r1)
+0x822BE7E0  9421ff90  stwu       r1, -0x70(r1)
+0x822BE7E4  3d608206  lis        r11, -0x7dfa
+0x822BE7E8  806b61c4  lwz        r3, 0x61c4(r11)
+0x822BE7EC  4820cfa5  bl         0x824cb790
+0x822BE7F0  2f030000  cmpwi      cr6, r3, 0
+0x822BE7F4  419a0008  beq        cr6, 0x822be7fc
+0x822BE7F8  4bf58da1  bl         0x82217598
+0x822BE7FC  3d6082a9  lis        r11, -0x7d57
+0x822BE800  3bc00000  li         r30, 0
+0x822BE804  3bebcfe4  addi       r31, r11, -0x301c
+0x822BE808  88bf0010  lbz        r5, 0x10(r31)
+0x822BE80C  2b050000  cmplwi     cr6, r5, 0
+0x822BE810  419a0044  beq        cr6, 0x822be854
+0x822BE814  897f0011  lbz        r11, 0x11(r31)
+0x822BE818  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE81C  419a007c  beq        cr6, 0x822be898
+0x822BE820  895f002d  lbz        r10, 0x2d(r31)
+0x822BE824  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE828  419a0070  beq        cr6, 0x822be898
+0x822BE82C  480ee595  bl         0x823acdc0
+0x822BE830  546b063e  clrlwi     r11, r3, 0x18
+0x822BE834  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE838  409a01ec  bne        cr6, 0x822bea24
+0x822BE83C  897f002c  lbz        r11, 0x2c(r31)
+0x822BE840  807f0004  lwz        r3, 4(r31)
+0x822BE844  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE848  409a0038  bne        cr6, 0x822be880
+0x822BE84C  3880002f  li         r4, 0x2f
+0x822BE850  48000034  b          0x822be884
+0x822BE854  895f002c  lbz        r10, 0x2c(r31)
+0x822BE858  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE85C  419a003c  beq        cr6, 0x822be898
+0x822BE860  895f002d  lbz        r10, 0x2d(r31)
+0x822BE864  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE868  419a0030  beq        cr6, 0x822be898
+0x822BE86C  480ee555  bl         0x823acdc0
+0x822BE870  546b063e  clrlwi     r11, r3, 0x18
+0x822BE874  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE878  409a01ac  bne        cr6, 0x822bea24
+0x822BE87C  38600008  li         r3, 8
+0x822BE880  809f0020  lwz        r4, 0x20(r31)
+0x822BE884  4bfffd95  bl         0x822be618
+0x822BE888  88bf0010  lbz        r5, 0x10(r31)
+0x822BE88C  7fcbf378  mr         r11, r30
+0x822BE890  9bdf002d  stb        r30, 0x2d(r31)
+0x822BE894  9bdf0011  stb        r30, 0x11(r31)
+0x822BE898  54ab063e  clrlwi     r11, r5, 0x18
+0x822BE89C  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE8A0  419a001c  beq        cr6, 0x822be8bc
+0x822BE8A4  895f002d  lbz        r10, 0x2d(r31)
+0x822BE8A8  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE8AC  419a0010  beq        cr6, 0x822be8bc
+0x822BE8B0  38e00002  li         r7, 2
+0x822BE8B4  90ff000c  stw        r7, 0xc(r31)
+0x822BE8B8  48000008  b          0x822be8c0
+0x822BE8BC  80ff000c  lwz        r7, 0xc(r31)
+0x822BE8C0  3d608206  lis        r11, -0x7dfa
+0x822BE8C4  80df0000  lwz        r6, 0(r31)
+0x822BE8C8  7fc9f378  mr         r9, r30
+0x822BE8CC  390b3968  addi       r8, r11, 0x3968
+0x822BE8D0  7fcaf378  mr         r10, r30
+0x822BE8D4  7d0b4378  mr         r11, r8
+0x822BE8D8  808b0000  lwz        r4, 0(r11)
+0x822BE8DC  7f043000  cmpw       cr6, r4, r6
+0x822BE8E0  419a001c  beq        cr6, 0x822be8fc
+0x822BE8E4  394a0058  addi       r10, r10, 0x58
+0x822BE8E8  39290001  addi       r9, r9, 1
+0x822BE8EC  396b0058  addi       r11, r11, 0x58
+0x822BE8F0  2b0a02c0  cmplwi     cr6, r10, 0x2c0
+0x822BE8F4  4198ffe4  blt        cr6, 0x822be8d8
+0x822BE8F8  4800012c  b          0x822bea24
+0x822BE8FC  1d690058  mulli      r11, r9, 0x58
+0x822BE900  7d4b4215  add.       r10, r11, r8
+0x822BE904  41820120  beq        0x822bea24
+0x822BE908  39270001  addi       r9, r7, 1
+0x822BE90C  3967ffff  addi       r11, r7, -1
+0x822BE910  5528103a  slwi       r8, r9, 2
+0x822BE914  30cbffff  addic      r6, r11, -1
+0x822BE918  7c665910  subfe      r3, r6, r11
+0x822BE91C  7d68502e  lwzx       r11, r8, r10
+0x822BE920  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE924  419a0014  beq        cr6, 0x822be938
+0x822BE928  7d6903a6  mtctr      r11
+0x822BE92C  4e800421  bctrl      
+0x822BE930  88bf0010  lbz        r5, 0x10(r31)
+0x822BE934  80ff000c  lwz        r7, 0xc(r31)
+0x822BE938  546b063e  clrlwi     r11, r3, 0x18
+0x822BE93C  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE940  419a0058  beq        cr6, 0x822be998
+0x822BE944  2b070001  cmplwi     cr6, r7, 1
+0x822BE948  41980044  blt        cr6, 0x822be98c
+0x822BE94C  419a0034  beq        cr6, 0x822be980
+0x822BE950  2b070003  cmplwi     cr6, r7, 3
+0x822BE954  40980044  bge        cr6, 0x822be998
+0x822BE958  54ab063e  clrlwi     r11, r5, 0x18
+0x822BE95C  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE960  409a0014  bne        cr6, 0x822be974
+0x822BE964  38a00001  li         r5, 1
+0x822BE968  39600001  li         r11, 1
+0x822BE96C  98bf0010  stb        r5, 0x10(r31)
+0x822BE970  997f002c  stb        r11, 0x2c(r31)
+0x822BE974  39600001  li         r11, 1
+0x822BE978  997f0011  stb        r11, 0x11(r31)
+0x822BE97C  48000024  b          0x822be9a0
+0x822BE980  39600002  li         r11, 2
+0x822BE984  917f000c  stw        r11, 0xc(r31)
+0x822BE988  48000018  b          0x822be9a0
+0x822BE98C  39600001  li         r11, 1
+0x822BE990  917f000c  stw        r11, 0xc(r31)
+0x822BE994  4800000c  b          0x822be9a0
+0x822BE998  2f070000  cmpwi      cr6, r7, 0
+0x822BE99C  419a0088  beq        cr6, 0x822bea24
+0x822BE9A0  895f002d  lbz        r10, 0x2d(r31)
+0x822BE9A4  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE9A8  409a007c  bne        cr6, 0x822bea24
+0x822BE9AC  54ab063e  clrlwi     r11, r5, 0x18
+0x822BE9B0  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE9B4  409a0010  bne        cr6, 0x822be9c4
+0x822BE9B8  895f002c  lbz        r10, 0x2c(r31)
+0x822BE9BC  2b0a0000  cmplwi     cr6, r10, 0
+0x822BE9C0  419a000c  beq        cr6, 0x822be9cc
+0x822BE9C4  39600002  li         r11, 2
+0x822BE9C8  917f0028  stw        r11, 0x28(r31)
+0x822BE9CC  7fe3fb78  mr         r3, r31
+0x822BE9D0  4bfffb49  bl         0x822be518
+0x822BE9D4  546b063e  clrlwi     r11, r3, 0x18
+0x822BE9D8  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE9DC  419a0048  beq        cr6, 0x822bea24
+0x822BE9E0  897f0010  lbz        r11, 0x10(r31)
+0x822BE9E4  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE9E8  409a0034  bne        cr6, 0x822bea1c
+0x822BE9EC  897f002c  lbz        r11, 0x2c(r31)
+0x822BE9F0  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE9F4  409a0028  bne        cr6, 0x822bea1c
+0x822BE9F8  817f0020  lwz        r11, 0x20(r31)
+0x822BE9FC  2f0b002f  cmpwi      cr6, r11, 0x2f
+0x822BEA00  39600001  li         r11, 1
+0x822BEA04  419a000c  beq        cr6, 0x822bea10
+0x822BEA08  997f002c  stb        r11, 0x2c(r31)
+0x822BEA0C  48000010  b          0x822bea1c
+0x822BEA10  39400001  li         r10, 1
+0x822BEA14  997f0010  stb        r11, 0x10(r31)
+0x822BEA18  995f002c  stb        r10, 0x2c(r31)
+0x822BEA1C  39600001  li         r11, 1
+0x822BEA20  997f002d  stb        r11, 0x2d(r31)
+0x822BEA24  817f0014  lwz        r11, 0x14(r31)
+0x822BEA28  396b0001  addi       r11, r11, 1
+0x822BEA2C  917f0014  stw        r11, 0x14(r31)
+0x822BEA30  38210070  addi       r1, r1, 0x70
+0x822BEA34  8181fff8  lwz        r12, -8(r1)
+0x822BEA38  7d8803a6  mtlr       r12
+0x822BEA3C  ebc1ffe8  ld         r30, -0x18(r1)
+0x822BEA40  ebe1fff0  ld         r31, -0x10(r1)
+0x822BEA44  4e800020  blr        
+
+============================================================================
+0x822BE518  EtatSousEtat_UnPas -- cherche le descripteur par CLEF dans 0x82063C28 (pas 0x14, 0x3AC o = 47 entrees) et appelle gestionnaire[phase] en +0x08/+0x0C/+0x10 (252 o)
+============================================================================
+; fonction 0x822BE518 .. 0x822BE610  (252 o, 63 instructions) -- bornes .pdata
+0x822BE518  7d8802a6  mflr       r12
+0x822BE51C  9181fff8  stw        r12, -8(r1)
+0x822BE520  fbc1ffe8  std        r30, -0x18(r1)
+0x822BE524  fbe1fff0  std        r31, -0x10(r1)
+0x822BE528  9421ff90  stwu       r1, -0x70(r1)
+0x822BE52C  3d608206  lis        r11, -0x7dfa
+0x822BE530  80e3001c  lwz        r7, 0x1c(r3)
+0x822BE534  7c7f1b78  mr         r31, r3
+0x822BE538  390b3c28  addi       r8, r11, 0x3c28
+0x822BE53C  3bc00000  li         r30, 0
+0x822BE540  39600000  li         r11, 0
+0x822BE544  7d0a4378  mr         r10, r8
+0x822BE548  39200000  li         r9, 0
+0x822BE54C  80ca0000  lwz        r6, 0(r10)
+0x822BE550  7f063800  cmpw       cr6, r6, r7
+0x822BE554  419a001c  beq        cr6, 0x822be570
+0x822BE558  39290014  addi       r9, r9, 0x14
+0x822BE55C  396b0001  addi       r11, r11, 1
+0x822BE560  394a0014  addi       r10, r10, 0x14
+0x822BE564  2b0903ac  cmplwi     cr6, r9, 0x3ac
+0x822BE568  4198ffe4  blt        cr6, 0x822be54c
+0x822BE56C  48000080  b          0x822be5ec
+0x822BE570  556a103a  slwi       r10, r11, 2
+0x822BE574  7d6b5214  add        r11, r11, r10
+0x822BE578  556b103a  slwi       r11, r11, 2
+0x822BE57C  7d4b4215  add.       r10, r11, r8
+0x822BE580  4182006c  beq        0x822be5ec
+0x822BE584  817f0028  lwz        r11, 0x28(r31)
+0x822BE588  38600001  li         r3, 1
+0x822BE58C  2f0b0003  cmpwi      cr6, r11, 3
+0x822BE590  419a0020  beq        cr6, 0x822be5b0
+0x822BE594  396b0002  addi       r11, r11, 2
+0x822BE598  5569103a  slwi       r9, r11, 2
+0x822BE59C  7d69502e  lwzx       r11, r9, r10
+0x822BE5A0  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE5A4  419a000c  beq        cr6, 0x822be5b0
+0x822BE5A8  7d6903a6  mtctr      r11
+0x822BE5AC  4e800421  bctrl      
+0x822BE5B0  546b063e  clrlwi     r11, r3, 0x18
+0x822BE5B4  2b0b0000  cmplwi     cr6, r11, 0
+0x822BE5B8  419a0034  beq        cr6, 0x822be5ec
+0x822BE5BC  817f0028  lwz        r11, 0x28(r31)
+0x822BE5C0  2b0b0001  cmplwi     cr6, r11, 1
+0x822BE5C4  41980020  blt        cr6, 0x822be5e4
+0x822BE5C8  419a0014  beq        cr6, 0x822be5dc
+0x822BE5CC  2b0b0003  cmplwi     cr6, r11, 3
+0x822BE5D0  4098001c  bge        cr6, 0x822be5ec
+0x822BE5D4  3bc00001  li         r30, 1
+0x822BE5D8  48000014  b          0x822be5ec
+0x822BE5DC  39600002  li         r11, 2
+0x822BE5E0  48000008  b          0x822be5e8
+0x822BE5E4  39600001  li         r11, 1
+0x822BE5E8  917f0028  stw        r11, 0x28(r31)
+0x822BE5EC  817f0030  lwz        r11, 0x30(r31)
+0x822BE5F0  7fc3f378  mr         r3, r30
+0x822BE5F4  396b0001  addi       r11, r11, 1
+0x822BE5F8  917f0030  stw        r11, 0x30(r31)
+0x822BE5FC  38210070  addi       r1, r1, 0x70
+0x822BE600  8181fff8  lwz        r12, -8(r1)
+0x822BE604  7d8803a6  mtlr       r12
+0x822BE608  ebc1ffe8  ld         r30, -0x18(r1)
+0x822BE60C  ebe1fff0  ld         r31, -0x10(r1)
+0x822BE610  4e800020  blr        
+
+============================================================================
+0x822BE618  Etat_PoserModeEtSousEtat (SetState) -- journalise "[%s]->[%s]", lit la CHAINE du mode en +0x10 et le mode de retour en +0x50 (424 o)
+============================================================================
+; fonction 0x822BE618 .. 0x822BE7BC  (424 o, 106 instructions) -- bornes .pdata
+0x822BE618  7d8802a6  mflr       r12
+0x822BE61C  4841a5b1  bl         0x826d8bcc
+0x822BE620  9421ff90  stwu       r1, -0x70(r1)
+0x822BE624  3d608206  lis        r11, -0x7dfa
+0x822BE628  3d4082a9  lis        r10, -0x7d57
+0x822BE62C  7c9d2378  mr         r29, r4
+0x822BE630  2f030008  cmpwi      cr6, r3, 8
+0x822BE634  3bcb3968  addi       r30, r11, 0x3968
+0x822BE638  3beacfe4  addi       r31, r10, -0x301c
+0x822BE63C  419a00a8  beq        cr6, 0x822be6e4
+0x822BE640  39400008  li         r10, 8
+0x822BE644  817f0000  lwz        r11, 0(r31)
+0x822BE648  39200000  li         r9, 0
+0x822BE64C  907f0000  stw        r3, 0(r31)
+0x822BE650  915f0004  stw        r10, 4(r31)
+0x822BE654  39400000  li         r10, 0
+0x822BE658  39000000  li         r8, 0
+0x822BE65C  913f000c  stw        r9, 0xc(r31)
+0x822BE660  995f0010  stb        r10, 0x10(r31)
+0x822BE664  546a103a  slwi       r10, r3, 2
+0x822BE668  913f0014  stw        r9, 0x14(r31)
+0x822BE66C  5569103a  slwi       r9, r11, 2
+0x822BE670  911f0018  stw        r8, 0x18(r31)
+0x822BE674  391effdc  addi       r8, r30, -0x24
+0x822BE678  917f0008  stw        r11, 8(r31)
+0x822BE67C  38feffdc  addi       r7, r30, -0x24
+0x822BE680  3cc08206  lis        r6, -0x7dfa
+0x822BE684  3860000a  li         r3, 0xa
+0x822BE688  38864098  addi       r4, r6, 0x4098
+0x822BE68C  7cca402e  lwzx       r6, r10, r8
+0x822BE690  7ca9382e  lwzx       r5, r9, r7
+0x822BE694  4820d0fd  bl         0x824cb790
+0x822BE698  80ff0000  lwz        r7, 0(r31)
+0x822BE69C  7fcbf378  mr         r11, r30
+0x822BE6A0  39200000  li         r9, 0
+0x822BE6A4  39400000  li         r10, 0
+0x822BE6A8  810b0000  lwz        r8, 0(r11)
+0x822BE6AC  7f083800  cmpw       cr6, r8, r7
+0x822BE6B0  419a001c  beq        cr6, 0x822be6cc
+0x822BE6B4  394a0058  addi       r10, r10, 0x58
+0x822BE6B8  39290001  addi       r9, r9, 1
+0x822BE6BC  396b0058  addi       r11, r11, 0x58
+0x822BE6C0  2b0a02c0  cmplwi     cr6, r10, 0x2c0
+0x822BE6C4  4198ffe4  blt        cr6, 0x822be6a8
+0x822BE6C8  48000020  b          0x822be6e8
+0x822BE6CC  1d690058  mulli      r11, r9, 0x58
+0x822BE6D0  7d6bf215  add.       r11, r11, r30
+0x822BE6D4  41820014  beq        0x822be6e8
+0x822BE6D8  816b0050  lwz        r11, 0x50(r11)
+0x822BE6DC  917f0004  stw        r11, 4(r31)
+0x822BE6E0  48000008  b          0x822be6e8
+0x822BE6E4  80ff0000  lwz        r7, 0(r31)
+0x822BE6E8  817f001c  lwz        r11, 0x1c(r31)
+0x822BE6EC  3940002f  li         r10, 0x2f
+0x822BE6F0  39200000  li         r9, 0
+0x822BE6F4  915f0020  stw        r10, 0x20(r31)
+0x822BE6F8  39000000  li         r8, 0
+0x822BE6FC  915f001c  stw        r10, 0x1c(r31)
+0x822BE700  39400000  li         r10, 0
+0x822BE704  913f0028  stw        r9, 0x28(r31)
+0x822BE708  917f0024  stw        r11, 0x24(r31)
+0x822BE70C  7fcbf378  mr         r11, r30
+0x822BE710  993f002c  stb        r9, 0x2c(r31)
+0x822BE714  915f0034  stw        r10, 0x34(r31)
+0x822BE718  911f0030  stw        r8, 0x30(r31)
+0x822BE71C  810b0000  lwz        r8, 0(r11)
+0x822BE720  7f083800  cmpw       cr6, r8, r7
+0x822BE724  419a0020  beq        cr6, 0x822be744
+0x822BE728  394a0058  addi       r10, r10, 0x58
+0x822BE72C  39290001  addi       r9, r9, 1
+0x822BE730  396b0058  addi       r11, r11, 0x58
+0x822BE734  2b0a02c0  cmplwi     cr6, r10, 0x2c0
+0x822BE738  4198ffe4  blt        cr6, 0x822be71c
+0x822BE73C  38210070  addi       r1, r1, 0x70
+0x822BE740  4841a4dc  b          0x826d8c1c
+0x822BE744  1d690058  mulli      r11, r9, 0x58
+0x822BE748  7d0bf215  add.       r8, r11, r30
+0x822BE74C  4182006c  beq        0x822be7b8
+0x822BE750  2f1d002f  cmpwi      cr6, r29, 0x2f
+0x822BE754  409a001c  bne        cr6, 0x822be770
+0x822BE758  81680010  lwz        r11, 0x10(r8)
+0x822BE75C  81480014  lwz        r10, 0x14(r8)
+0x822BE760  917f001c  stw        r11, 0x1c(r31)
+0x822BE764  915f0020  stw        r10, 0x20(r31)
+0x822BE768  38210070  addi       r1, r1, 0x70
+0x822BE76C  4841a4b0  b          0x826d8c1c
+0x822BE770  39600000  li         r11, 0
+0x822BE774  39480010  addi       r10, r8, 0x10
+0x822BE778  812a0000  lwz        r9, 0(r10)
+0x822BE77C  2f09002f  cmpwi      cr6, r9, 0x2f
+0x822BE780  419a0038  beq        cr6, 0x822be7b8
+0x822BE784  7f09e800  cmpw       cr6, r9, r29
+0x822BE788  419a001c  beq        cr6, 0x822be7a4
+0x822BE78C  396b0001  addi       r11, r11, 1
+0x822BE790  394a0004  addi       r10, r10, 4
+0x822BE794  2f0b000f  cmpwi      cr6, r11, 0xf
+0x822BE798  4198ffe0  blt        cr6, 0x822be778
+0x822BE79C  38210070  addi       r1, r1, 0x70
+0x822BE7A0  4841a47c  b          0x826d8c1c
+0x822BE7A4  396b0005  addi       r11, r11, 5
+0x822BE7A8  93bf001c  stw        r29, 0x1c(r31)
+0x822BE7AC  556a103a  slwi       r10, r11, 2
+0x822BE7B0  7d6a402e  lwzx       r11, r10, r8
+0x822BE7B4  917f0020  stw        r11, 0x20(r31)
+0x822BE7B8  38210070  addi       r1, r1, 0x70
+0x822BE7BC  4841a460  b          0x826d8c1c
+
+============================================================================
+0x822BE458  Etat_LeSingleton -> 0x82A8CFE4
+============================================================================
+; 0x822BE458, 2 mots bruts
+0x822BE458  3d6082a9  lis        r11, -0x7d57
+0x822BE45C  386bcfe4  addi       r3, r11, -0x301c
+
+============================================================================
+0x822BE470  Etat_DemanderUnMode : [sgl+4]=mode, [sgl+0x10]=1, [sgl+0x2C]=0
+============================================================================
+; 0x822BE470, 8 mots bruts
+0x822BE470  3d4082a9  lis        r10, -0x7d57
+0x822BE474  39600001  li         r11, 1
+0x822BE478  392acfe4  addi       r9, r10, -0x301c
+0x822BE47C  39400000  li         r10, 0
+0x822BE480  90690004  stw        r3, 4(r9)
+0x822BE484  99690010  stb        r11, 0x10(r9)
+0x822BE488  9949002c  stb        r10, 0x2c(r9)
+0x822BE48C  4e800020  blr        
+
+============================================================================
+0x822BE490  Etat_DemanderUnSousEtat : [sgl+0x20]=n, [sgl+0x2C]=1
+============================================================================
+; 0x822BE490, 6 mots bruts
+0x822BE490  3d4082a9  lis        r10, -0x7d57
+0x822BE494  39600001  li         r11, 1
+0x822BE498  392acfe4  addi       r9, r10, -0x301c
+0x822BE49C  90690020  stw        r3, 0x20(r9)
+0x822BE4A0  9969002c  stb        r11, 0x2c(r9)
+0x822BE4A4  4e800020  blr        
+
+============================================================================
+0x822BE4A8  EtatSousEtat_LireLeDrapeau : rend [descripteur+0x04]
+============================================================================
+; 0x822BE4A8, 18 mots bruts
+0x822BE4A8  3cc082a9  lis        r6, -0x7d57
+0x822BE4AC  3d608206  lis        r11, -0x7dfa
+0x822BE4B0  38a6cfe4  addi       r5, r6, -0x301c
+0x822BE4B4  390b3c28  addi       r8, r11, 0x3c28
+0x822BE4B8  38e00000  li         r7, 0
+0x822BE4BC  39600000  li         r11, 0
+0x822BE4C0  7d0a4378  mr         r10, r8
+0x822BE4C4  80c5001c  lwz        r6, 0x1c(r5)
+0x822BE4C8  39200000  li         r9, 0
+0x822BE4CC  80aa0000  lwz        r5, 0(r10)
+0x822BE4D0  7f053000  cmpw       cr6, r5, r6
+0x822BE4D4  419a001c  beq        cr6, 0x822be4f0
+0x822BE4D8  39290014  addi       r9, r9, 0x14
+0x822BE4DC  396b0001  addi       r11, r11, 1
+0x822BE4E0  394a0014  addi       r10, r10, 0x14
+0x822BE4E4  2b0903ac  cmplwi     cr6, r9, 0x3ac
+0x822BE4E8  4198ffe4  blt        cr6, 0x822be4cc
+0x822BE4EC  48000014  b          0x822be500
+
+============================================================================
+0x823ACDC0  Etat_QuelqueChoseAttend -- parcourt la liste des taches vivantes et rend 1 des qu une tache a [tache+0x0C] == 3. C EST LA "DUREE" des transitions : elle n est pas un compte d images.
+============================================================================
+; fonction 0x823ACDC0 .. 0x823ACE50  (148 o, 37 instructions) -- bornes .pdata
+0x823ACDC0  7d8802a6  mflr       r12
+0x823ACDC4  9181fff8  stw        r12, -8(r1)
+0x823ACDC8  9421ffa0  stwu       r1, -0x60(r1)
+0x823ACDCC  3d6082e9  lis        r11, -0x7d17
+0x823ACDD0  38800000  li         r4, 0
+0x823ACDD4  816b3f04  lwz        r11, 0x3f04(r11)
+0x823ACDD8  80ab0000  lwz        r5, 0(r11)
+0x823ACDDC  81050000  lwz        r8, 0(r5)
+0x823ACDE0  7f082840  cmplw      cr6, r8, r5
+0x823ACDE4  419a0048  beq        cr6, 0x823ace2c
+0x823ACDE8  80e80008  lwz        r7, 8(r8)
+0x823ACDEC  38c00000  li         r6, 0
+0x823ACDF0  7ce33b78  mr         r3, r7
+0x823ACDF4  4bfff7a5  bl         0x823ac598
+0x823ACDF8  546b063e  clrlwi     r11, r3, 0x18
+0x823ACDFC  2b0b0000  cmplwi     cr6, r11, 0
+0x823ACE00  419a0014  beq        cr6, 0x823ace14
+0x823ACE04  8167000c  lwz        r11, 0xc(r7)
+0x823ACE08  2f0b0003  cmpwi      cr6, r11, 3
+0x823ACE0C  409a0008  bne        cr6, 0x823ace14
+0x823ACE10  38c00001  li         r6, 1
+0x823ACE14  54cb063e  clrlwi     r11, r6, 0x18
+0x823ACE18  2b0b0000  cmplwi     cr6, r11, 0
+0x823ACE1C  409a0024  bne        cr6, 0x823ace40
+0x823ACE20  81080000  lwz        r8, 0(r8)
+0x823ACE24  7f082840  cmplw      cr6, r8, r5
+0x823ACE28  409affc0  bne        cr6, 0x823acde8
+0x823ACE2C  7c832378  mr         r3, r4
+0x823ACE30  38210060  addi       r1, r1, 0x60
+0x823ACE34  8181fff8  lwz        r12, -8(r1)
+0x823ACE38  7d8803a6  mtlr       r12
+0x823ACE3C  4e800020  blr        
+0x823ACE40  38600001  li         r3, 1
+0x823ACE44  38210060  addi       r1, r1, 0x60
+0x823ACE48  8181fff8  lwz        r12, -8(r1)
+0x823ACE4C  7d8803a6  mtlr       r12
+0x823ACE50  4e800020  blr        

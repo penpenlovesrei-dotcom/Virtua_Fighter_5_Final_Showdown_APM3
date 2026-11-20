@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# MESURE DU PLANTAGE DE SINGLE PLAYER (2026-10-08).
+#
+# Frederic : « je n'ai teste que single player, ca plante encore ». Trois
+# deductions de suite ont echoue ; celle-ci est une MESURE : on va chercher
+# l'adresse de la faute.
+#
+# Le parcours : START franchit le titre, puis le menu console s'ouvre sur
+# SINGLE PLAYER (entree 0, ou le curseur est deja). Un START de plus valide
+# cette ligne -- c'est la que ca tombe.
+#
+# `front = 10` est la valeur mesuree le 2026-09-05 : plus longue, un seul
+# appui donne DEUX fronts et on traverse deux ecrans au lieu d'un.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+
+front   = 10
+journal = 0
+clavier = 1
+manette = 1
+
+0       rien
+18000   start
+18400   rien
+24000   start
+24400   rien
+30000   start
+30400   rien
+36000   start
+36400   rien
+44000   start
+44400   rien
+52000   start
+52400   rien

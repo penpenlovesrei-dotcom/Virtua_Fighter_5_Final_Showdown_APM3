@@ -1,0 +1,21 @@
+processus 20540 lance sous debogage
+  image     0x00007FF71FC50000  vfes.exe
+  dll       0x00007FFB86F60000  apm.dll
+  dll       0x00007FFBA65D0000  d3d11.dll
+  dll       0x00007FFBA7590000  dxgi.dll
+  dll       0x00007FFBA5650000  D3DCompiler_47.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFBAD35D78D = ntdll.dll+0x11D78D
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFBAA65187A = KernelBase.dll+0xC187A
+      type    : .?AV_com_error@@
+  dll       0x00007FFAF4050000  vf5fs-pxd-w64-Retail_APM3.dll
+  sourdine : session audio du processus 20540 coupee apres 2 s
+  BP arme sur Curseur = 0x7FFAF420BBE0 (octet d'origine 0x40)
+  BP arme sur Predicat = 0x7FFAF420BCE4 (octet d'origine 0x78)
+  BP arme sur Valider = 0x7FFAF41F8090 (octet d'origine 0x40)
+  points d'arret poses a t=8 s
+  sortie du processus, code 0x00000000
+
+78 module(s) charge(s)
+  BP Curseur : 881 passage(s)
+  BP Predicat : 872 passage(s)
+  BP Valider : 1 passage(s)

@@ -1,0 +1,20 @@
+processus 12640 lance sous debogage
+  image     0x00007FF7E0DA0000  vfes.exe
+  dll       0x00007FFB3A050000  d3d11.dll
+  dll       0x00007FFB3B2C0000  dxgi.dll
+  dll       0x00007FFB39560000  D3DCompiler_47.dll
+  dll       0x00007FFB16560000  apm.dll
+  EXCEPTION BREAKPOINT (1re chance)  a 0x00007FFB411026C9 = ntdll.dll+0x1226C9
+  EXCEPTION exception C++ (1re chance)  a 0x00007FFB3E6C408A = KernelBase.dll+0xC408A
+      type    : .?AV_com_error@@
+  dll       0x00007FFA9EE90000  vf5fs-pxd-w64-Retail_APM3.dll
+  BP arme sur demande = 0x7FFA9F01EF40 (octet d'origine 0x48)
+  point d arret sur la demande de decor, t=1 s
+  sourdine : session audio du processus 12640 coupee apres 2 s
+  decor demande 13 -> force a 48
+  sortie du processus, code 0x00000000
+  sourdine : plus de session a lever -- si le jeu reste muet : py -3 tools/muet.py --rendre, jeu lance
+
+78 module(s) charge(s)
+  BP demande : 2380 passage(s)
+  scenario d entrees remis en jeu manuel

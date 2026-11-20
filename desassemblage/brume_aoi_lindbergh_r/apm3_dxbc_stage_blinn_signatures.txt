@@ -1,0 +1,44 @@
+== w64_shader/stage_blinn.00000010.vp  (DXBC a 0x180, 2736 octets) ==
+  chunks : ISGN OSGN SHEX
+  entrees : 6 element(s)
+    POSITION         idx=0 reg=0   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    COLOR            idx=0 reg=1   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    NORMAL           idx=0 reg=2   mask=F nonecrit/lu=7  sysval=UNDEFINED
+    TANGENT          idx=0 reg=3   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    TEXCOORD         idx=0 reg=4   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    TEXCOORD         idx=1 reg=5   mask=F nonecrit/lu=F  sysval=UNDEFINED
+  sorties : 10 element(s)
+    TEXCOORD         idx=8 reg=0   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=9 reg=1   mask=7 nonecrit/lu=8  sysval=UNDEFINED
+    COLOR            idx=0 reg=1   mask=8 nonecrit/lu=7  sysval=UNDEFINED
+    TEXCOORD         idx=0 reg=2   mask=3 nonecrit/lu=C  sysval=UNDEFINED
+    TEXCOORD         idx=1 reg=2   mask=C nonecrit/lu=3  sysval=UNDEFINED
+    TEXCOORD         idx=5 reg=3   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=3 reg=4   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=4 reg=5   mask=7 nonecrit/lu=8  sysval=UNDEFINED
+    TEXCOORD         idx=6 reg=6   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    SV_POSITION      idx=0 reg=7   mask=F nonecrit/lu=0  sysval=POSITION
+  SHEX : version 00010050, 454 dwords
+
+== w64_shader/stage_blinn.00000020.vp  (DXBC a 0x180, 2636 octets) ==
+  chunks : ISGN OSGN SHEX
+  entrees : 6 element(s)
+    POSITION         idx=0 reg=0   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    COLOR            idx=0 reg=1   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    NORMAL           idx=0 reg=2   mask=F nonecrit/lu=7  sysval=UNDEFINED
+    TANGENT          idx=0 reg=3   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    TEXCOORD         idx=0 reg=4   mask=F nonecrit/lu=F  sysval=UNDEFINED
+    TEXCOORD         idx=1 reg=5   mask=F nonecrit/lu=F  sysval=UNDEFINED
+  sorties : 10 element(s)
+    TEXCOORD         idx=8 reg=0   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=9 reg=1   mask=7 nonecrit/lu=8  sysval=UNDEFINED
+    COLOR            idx=0 reg=1   mask=8 nonecrit/lu=7  sysval=UNDEFINED
+    TEXCOORD         idx=0 reg=2   mask=3 nonecrit/lu=C  sysval=UNDEFINED
+    TEXCOORD         idx=1 reg=2   mask=C nonecrit/lu=3  sysval=UNDEFINED
+    TEXCOORD         idx=5 reg=3   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=3 reg=4   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    TEXCOORD         idx=4 reg=5   mask=7 nonecrit/lu=8  sysval=UNDEFINED
+    TEXCOORD         idx=6 reg=6   mask=F nonecrit/lu=0  sysval=UNDEFINED
+    SV_POSITION      idx=0 reg=7   mask=F nonecrit/lu=0  sysval=POSITION
+  SHEX : version 00010050, 429 dwords
+

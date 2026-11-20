@@ -1,0 +1,85 @@
+# APM3 (borne) 0x1801C2EC0 -- 256 octets
+#
+# customize::ItemMain::update -- le PILOTE de la tache d'equipement. Machine
+# a 0x29 etats par table de saut. En 0x1801C2F14 il prend le singleton de
+# ItmEqTask puis 0x1801C2F1C la demarre -- mais DEUX GARDES le precedent,
+# 0x180187CC0(0x26B) et 0x180029D40(0x20B), et si l'une rend vrai on sort
+# sans rien faire. Ce ne sont PAS des bouchons : elles consultent un
+# gestionnaire et lisent [rax+0x48]. REPRISE (105).
+#
+# Depose par tools/deposer_disasm.py -- NE PAS EDITER A LA MAIN :
+# relancez l outil, il repart du binaire.
+
+  0x1801C2EC0  48895c2408           mov qword ptr [rsp + 8], rbx
+  0x1801C2EC5  57                   push rdi
+  0x1801C2EC6  4883ec20             sub rsp, 0x20
+  0x1801C2ECA  48634158             movsxd rax, dword ptr [rcx + 0x58]
+  0x1801C2ECE  4032ff               xor dil, dil
+  0x1801C2ED1  488bd9               mov rbx, rcx
+  0x1801C2ED4  83f828               cmp eax, 0x28
+  0x1801C2ED7  0f87ce000000         ja 0x1801c2fab
+  0x1801C2EDD  488d0d1cd1e3ff       lea rcx, [rip - 0x1c2ee4]  ; -> 0x180000000
+  0x1801C2EE4  0fb68401d82f1c00     movzx eax, byte ptr [rcx + rax + 0x1c2fd8]
+  0x1801C2EEC  8b9481bc2f1c00       mov edx, dword ptr [rcx + rax*4 + 0x1c2fbc]
+  0x1801C2EF3  4803d1               add rdx, rcx
+  0x1801C2EF6  ffe2                 jmp rdx
+  0x1801C2EF8  b96b020000           mov ecx, 0x26b
+  0x1801C2EFD  e8be4dfcff           call 0x180187cc0
+  0x1801C2F02  84c0                 test al, al
+  0x1801C2F04  752d                 jne 0x1801c2f33
+  0x1801C2F06  b90b020000           mov ecx, 0x20b
+  0x1801C2F0B  e8306ee6ff           call 0x180029d40
+  0x1801C2F10  84c0                 test al, al
+  0x1801C2F12  751f                 jne 0x1801c2f33
+  0x1801C2F14  e8372d0000           call 0x1801c5c50
+  0x1801C2F19  488bc8               mov rcx, rax
+  0x1801C2F1C  e88f2e0000           call 0x1801c5db0
+  0x1801C2F21  ff4358               inc dword ptr [rbx + 0x58]
+  0x1801C2F24  400fb6c7             movzx eax, dil
+  0x1801C2F28  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2F2D  4883c420             add rsp, 0x20
+  0x1801C2F31  5f                   pop rdi
+  0x1801C2F32  c3                   ret 
+> 0x1801C2F33  32c0                 xor al, al
+  0x1801C2F35  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2F3A  4883c420             add rsp, 0x20
+  0x1801C2F3E  5f                   pop rdi
+  0x1801C2F3F  c3                   ret 
+  0x1801C2F40  c7435802000000       mov dword ptr [rbx + 0x58], 2
+  0x1801C2F47  400fb6c7             movzx eax, dil
+  0x1801C2F4B  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2F50  4883c420             add rsp, 0x20
+  0x1801C2F54  5f                   pop rdi
+  0x1801C2F55  c3                   ret 
+  0x1801C2F56  c7435803000000       mov dword ptr [rbx + 0x58], 3
+  0x1801C2F5D  400fb6c7             movzx eax, dil
+  0x1801C2F61  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2F66  4883c420             add rsp, 0x20
+  0x1801C2F6A  5f                   pop rdi
+  0x1801C2F6B  c3                   ret 
+  0x1801C2F6C  c6435c01             mov byte ptr [rbx + 0x5c], 1
+  0x1801C2F70  400fb6c7             movzx eax, dil
+  0x1801C2F74  c743580a000000       mov dword ptr [rbx + 0x58], 0xa
+  0x1801C2F7B  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2F80  4883c420             add rsp, 0x20
+  0x1801C2F84  5f                   pop rdi
+  0x1801C2F85  c3                   ret 
+  0x1801C2F86  488bcb               mov rcx, rbx
+  0x1801C2F89  e8d20d0000           call 0x1801c3d60
+  0x1801C2F8E  84c0                 test al, al
+  0x1801C2F90  7419                 je 0x1801c2fab
+  0x1801C2F92  c7435828000000       mov dword ptr [rbx + 0x58], 0x28
+  0x1801C2F99  400fb6c7             movzx eax, dil
+  0x1801C2F9D  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2FA2  4883c420             add rsp, 0x20
+  0x1801C2FA6  5f                   pop rdi
+  0x1801C2FA7  c3                   ret 
+  0x1801C2FA8  40b701               mov dil, 1
+> 0x1801C2FAB  488b5c2430           mov rbx, qword ptr [rsp + 0x30]
+  0x1801C2FB0  400fb6c7             movzx eax, dil
+  0x1801C2FB4  4883c420             add rsp, 0x20
+  0x1801C2FB8  5f                   pop rdi
+  0x1801C2FB9  c3                   ret 
+  0x1801C2FBA  6690                 nop 
+  0x1801C2FBC  f8                   clc 
+  0x1801C2FBD  2e1c00               sbb al, 0

@@ -1,0 +1,112 @@
+# mothead : les lecteurs des champs d etat, code par code
+# DLL : vf5fs-pxd-w64-d3d12_SteamRetail.dll (R.E.V.O.), image base 0x180000000
+# etat = ROB + 0x798 ; un acces [reg + 0x798 + X] vise le champ X de l etat
+
+=== codes 52 et 53 : 0x18013FF80 croise les deux masques de 64 bits ===
+#   [rcx+0xAF8] et [rcx+0xAFC] = etat+0x360 / +0x364 de l attaquant  (code 52)
+#   [rdx+0xB00]                = etat+0x368 / +0x36C de la cible     (code 53)
+#   [rcx+0x820]                = etat+0x88 le niveau d attaque       (code 3 +0x06)
+0x000000018013FF80  4053                     push rbx                                
+0x000000018013FF82  4883ec20                 sub rsp, 0x20                           
+0x000000018013FF86  4c8b92000b0000           mov r10, qword ptr [rdx + 0xb00]        
+0x000000018013FF8D  33c0                     xor eax, eax                            
+0x000000018013FF8F  4c89542438               mov qword ptr [rsp + 0x38], r10         
+0x000000018013FF94  4c8bc9                   mov r9, rcx                             
+0x000000018013FF97  442391f80a0000           and r10d, dword ptr [rcx + 0xaf8]       
+0x000000018013FF9E  bb01000000               mov ebx, 1                              
+0x000000018013FFA3  448b5c243c               mov r11d, dword ptr [rsp + 0x3c]        
+0x000000018013FFA8  442399fc0a0000           and r11d, dword ptr [rcx + 0xafc]       
+0x000000018013FFAF  4889442430               mov qword ptr [rsp + 0x30], rax         
+0x000000018013FFB4  48638120080000           movsxd rax, dword ptr [rcx + 0x820]     
+0x000000018013FFBB  488d0d9ed04f00           lea rcx, [rip + 0x4fd09e]                 ; -> 0x18063D060
+0x000000018013FFC2  4489542438               mov dword ptr [rsp + 0x38], r10d        
+0x000000018013FFC7  44895c243c               mov dword ptr [rsp + 0x3c], r11d        
+0x000000018013FFCC  4c630481                 movsxd r8, dword ptr [rcx + rax*4]      
+0x000000018013FFD0  410fb6c8                 movzx ecx, r8b                          
+0x000000018013FFD4  49c1e805                 shr r8, 5                               
+0x000000018013FFD8  d3e3                     shl ebx, cl                             
+0x000000018013FFDA  42859c82000b0000         test dword ptr [rdx + r8*4 + 0xb00], ebx
+0x000000018013FFE2  0f8453010000             je 0x18014013b                          
+0x000000018013FFE8  c5fa7e542438             vmovq xmm2, qword ptr [rsp + 0x38]      
+0x000000018013FFEE  c5fa7ec2                 vmovq xmm0, xmm2                        
+0x000000018013FFF2  c5f172d001               vpsrld xmm1, xmm0, 1                    
+0x000000018013FFF7  c5f1db1de1452300         vpand xmm3, xmm1, xmmword ptr [rip + 0x2345e1]  ; -> 0x1803745E0  "UUUUUUUUUUUUUUUU"
+0x000000018013FFFF  c5e9db05d9452300         vpand xmm0, xmm2, xmmword ptr [rip + 0x2345d9]  ; -> 0x1803745E0  "UUUUUUUUUUUUUUUU"
+0x0000000180140007  c5e1fee0                 vpaddd xmm4, xmm3, xmm0                 
+0x000000018014000B  c5d9db05bd452300         vpand xmm0, xmm4, xmmword ptr [rip + 0x2345bd]  ; -> 0x1803745D0  "3333333333333333UUUUUUUUUUUUUUUU"
+0x0000000180140013  c5f172d402               vpsrld xmm1, xmm4, 2                    
+0x0000000180140018  c5f1db15b0452300         vpand xmm2, xmm1, xmmword ptr [rip + 0x2345b0]  ; -> 0x1803745D0  "3333333333333333UUUUUUUUUUUUUUUU"
+
+=== 0x180141350 : teste le bit 29 du masque attaquant puis appelle 0x18013FF80 ===
+0x0000000180141350  48895c2418               mov qword ptr [rsp + 0x18], rbx         
+0x0000000180141355  57                       push rdi                                
+0x0000000180141356  4883ec20                 sub rsp, 0x20                           
+0x000000018014135A  4533c0                   xor r8d, r8d                            
+0x000000018014135D  488bda                   mov rbx, rdx                            
+0x0000000180141360  f781f80a000000000020     test dword ptr [rcx + 0xaf8], 0x20000000
+0x000000018014136A  488bf9                   mov rdi, rcx                            
+0x000000018014136D  742d                     je 0x18014139c                          
+0x000000018014136F  f782a407000000400000     test dword ptr [rdx + 0x7a4], 0x4000    
+0x0000000180141379  7521                     jne 0x18014139c                         
+0x000000018014137B  818a000b000000000022     or dword ptr [rdx + 0xb00], 0x22000000  
+0x0000000180141385  e8f6ebffff               call 0x18013ff80                        
+0x000000018014138A  f6d8                     neg al                                  
+0x000000018014138C  1bc0                     sbb eax, eax                            
+
+=== code 59 : 0x1801651D0 ajoute etat+0x3B8 a l angle du coup et a l orientation ===
+0x0000000180165337  0fb78bb8030000           movzx ecx, word ptr [rbx + 0x3b8]       
+0x000000018016533E  0fb7c1                   movzx eax, cx                           
+0x0000000180165341  6644897308               mov word ptr [rbx + 8], r14w            
+0x0000000180165346  66038b98000000           add cx, word ptr [rbx + 0x98]           
+0x000000018016534D  66038374030000           add ax, word ptr [rbx + 0x374]          
+0x0000000180165354  66898b98000000           mov word ptr [rbx + 0x98], cx           
+0x000000018016535B  8bcd                     mov ecx, ebp                            
+0x000000018016535D  66898374030000           mov word ptr [rbx + 0x374], ax          
+0x0000000180165364  0fb616                   movzx edx, byte ptr [rsi]               
+0x0000000180165367  e894f0ffff               call 0x180164400                        
+
+=== code 72 : 0x180132AEB soustrait le triplet (0x47C,0x480,0x484) d une position ===
+0x0000000180132B26  e825560400               call 0x180178150                        
+0x0000000180132B2B  c5fa59b7ac050000         vmulss xmm6, xmm0, dword ptr [rdi + 0x5ac]
+0x0000000180132B33  c5fa10442420             vmovss xmm0, dword ptr [rsp + 0x20]     
+0x0000000180132B39  c5ca598f140c0000         vmulss xmm1, xmm6, dword ptr [rdi + 0xc14]
+0x0000000180132B41  c5fa5cc9                 vsubss xmm1, xmm0, xmm1                 
+0x0000000180132B45  488bcf                   mov rcx, rdi                            
+0x0000000180132B48  c5fa114c2420             vmovss dword ptr [rsp + 0x20], xmm1     
+0x0000000180132B4E  e89d550400               call 0x1801780f0                        
+0x0000000180132B53  c5fa104c2424             vmovss xmm1, dword ptr [rsp + 0x24]     
+0x0000000180132B59  c5fa5987180c0000         vmulss xmm0, xmm0, dword ptr [rdi + 0xc18]
+0x0000000180132B61  c5fa5997ac050000         vmulss xmm2, xmm0, dword ptr [rdi + 0x5ac]
+0x0000000180132B69  c5fa10442428             vmovss xmm0, dword ptr [rsp + 0x28]     
+0x0000000180132B6F  c5f25cd2                 vsubss xmm2, xmm1, xmm2                 
+0x0000000180132B73  c5ca598f1c0c0000         vmulss xmm1, xmm6, dword ptr [rdi + 0xc1c]
+0x0000000180132B7B  c5fa5cc9                 vsubss xmm1, xmm0, xmm1                 
+0x0000000180132B7F  488d4c2430               lea rcx, [rsp + 0x30]                   
+0x0000000180132B84  c5fa114c2428             vmovss dword ptr [rsp + 0x28], xmm1     
+0x0000000180132B8A  c5fa11542424             vmovss dword ptr [rsp + 0x24], xmm2     
+0x0000000180132B90  e87bd11300               call 0x18026fd10                        
+0x0000000180132B95  488d4c2430               lea rcx, [rsp + 0x30]                   
+
+=== code 4 : 0x18013E030 applique etat+0x150 en facteur ===
+0x000000018013E371  0fbfc5                   movsx eax, bp                           
+0x000000018013E374  c5f857c0                 vxorps xmm0, xmm0, xmm0                 
+0x000000018013E378  c5fa2ac0                 vcvtsi2ss xmm0, xmm0, eax               
+0x000000018013E37C  c4c17a5985e8080000       vmulss xmm0, xmm0, dword ptr [r13 + 0x8e8]
+0x000000018013E385  c5fa2ce8                 vcvttss2si ebp, xmm0                    
+0x000000018013E389  eb08                     jmp 0x18013e393                         
+0x000000018013E38B  24ef                     and al, 0xef                            
+0x000000018013E38D  888339030000             mov byte ptr [rbx + 0x339], al          
+
+=== code 69 : 0x18014F2CD lit etat+0x450 comme un masque de bits ===
+0x000000018014F500  8b8ee80b0000             mov ecx, dword ptr [rsi + 0xbe8]        
+0x000000018014F506  8bd1                     mov edx, ecx                            
+0x000000018014F508  d1ea                     shr edx, 1                              
+0x000000018014F50A  81e155555555             and ecx, 0x55555555                     
+0x000000018014F510  81e255555555             and edx, 0x55555555                     
+0x000000018014F516  03d1                     add edx, ecx                            
+0x000000018014F518  8bca                     mov ecx, edx                            
+0x000000018014F51A  81e233333333             and edx, 0x33333333                     
+0x000000018014F520  c1e902                   shr ecx, 2                              
+0x000000018014F523  81e133333333             and ecx, 0x33333333                     
+0x000000018014F529  03ca                     add ecx, edx                            
+0x000000018014F52B  8bd1                     mov edx, ecx                            

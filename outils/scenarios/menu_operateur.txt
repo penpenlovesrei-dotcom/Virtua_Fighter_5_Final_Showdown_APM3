@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------------------
+# Scenario "menu operateur". Sequence_isTest rendu VRAI : le jeu demarre dans
+# le menu de test de la borne, au lieu de l'attract.
+#
+# Ce menu a un ecran de TEST D'ENTREES qui NOMME chaque signal : c'est la voie
+# propre pour identifier les codes 2 a 14, sans adversaire qui bouge et sans
+# ecran anime.
+# ---------------------------------------------------------------------------
+
+nom start = 7
+front   = 150
+journal = 0
+test    = 1
+
+0    rien
